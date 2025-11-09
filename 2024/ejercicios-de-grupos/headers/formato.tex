@@ -1,0 +1,28 @@
+\usepackage{formato_general}
+\usepackage{nombres}
+\usepackage{abreviaciones}
+\usepackage{ejercicios}
+\usepackage{mathdots}
+
+\usepackage[
+	backend=biber,
+	style=numeric,
+	citestyle=numeric,
+	sorting=nyt,
+	isbn=false,
+	doi=false,
+	related=false,
+	giveninits=true
+	%idemtracker=context
+	%opcittracker=true
+]{biblatex}
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\AtEveryBibitem{\clearlist{language}}
+\addbibresource{./biblio.bib}
+\nocite{*}
+
+\DefineBibliographyStrings{english}{
+	references = {Referencias},
+	bibliography = {Bibliograf\'{\i}a},
+}

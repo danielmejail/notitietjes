@@ -1,0 +1,100 @@
+El bifuntor $\Hom$ posee las siguientes propiedades:
+\begin{propoNotas}\label{propo:notas:exactitud:hom}
+	Sea $A$ un anillo conmutativo con unidad y sean $f:\,M'\rightarrow M$ y
+	$g:\,M\rightarrow M''$ morfismos de $A$-m\'odulos. Entonces,
+	\begin{enumerate}[(i)]
+		\item la sucesi\'on
+			\begin{center}
+				\begin{tikzcd}
+					M'\arrow[r,"f"] & M\arrow[r,"g"] &
+						M''\arrow[r] & 0
+				\end{tikzcd}
+			\end{center}
+			es exacta, si y s\'olo si, para todo $A$-m\'odulo $N$,
+			la sucesi\'on
+			\begin{center}
+				\begin{tikzcd}
+					0\arrow[r] & \Hom[A](M'',N)
+							\arrow[r,"{\pull g}"] &
+						\Hom[A](M,N)
+							\arrow[r,"{\pull f}"] &
+						\Hom[A](M',N)
+				\end{tikzcd}
+			\end{center}
+			lo es;
+		\item la sucesi\'on
+			\begin{center}
+				\begin{tikzcd}
+					0 \arrow[r] & M' \arrow[r,"f"] &
+						M \arrow[r,"g"] & M''
+				\end{tikzcd}
+			\end{center}
+			es exacta, si y s\'olo si, para todo $A$-m\'odulo $P$,
+			la sucesi\'on
+			\begin{center}
+				\begin{tikzcd}
+					0\arrow[r] & \Hom[A](P,M')
+							\arrow[r,"{\push f}"] &
+						\Hom[A](P,M)
+							\arrow[r,"{\push g}"] &
+						\Hom[A](P,M'')
+				\end{tikzcd}
+			\end{center}
+			lo es.
+	\end{enumerate}
+	%
+\end{propoNotas}
+
+Sean $T$ y $U$ funtores adjuntos, es decir, que verifican
+\begin{align*}
+	\Hom[A](T(M),N) & \,\simeq\,\Hom[A](M,U(N))
+\end{align*}
+%
+naturalmente. Entonces, dada una sucesi\'on exacta corta
+\begin{center}
+	\begin{tikzcd}
+		M'\arrow[r,"f"] & M\arrow[r,"g"] & M''\arrow[r] & 0
+	\end{tikzcd}
+	,
+\end{center}
+para todo $N$, la siguiente es una sucesi\'on exacta corta:
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & \Hom[A](M'',U(N)) \arrow[r,"{\pull g}"] &
+			\Hom[A](M,U(N)) \arrow[r,"{\pull f}"] &
+			\Hom[A](M',U(N))
+	\end{tikzcd}
+	.
+\end{center}
+Pero esta sucesi\'on es \emph{equivalente} a
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & \Hom[A](T(M''),N) \arrow[r,"{\pull{T(g)}}"] &
+			\Hom[A](T(M),N) \arrow[r,"{\pull{T(f)}}"] &
+			\Hom[A](T(M'),N)
+	\end{tikzcd}
+	.
+\end{center}
+Como la exactitud de esta sucesi\'on es v\'alida para todo $A$-m\'odulo $N$, la
+sucesi\'on
+\begin{center}
+	\begin{tikzcd}
+		T(M') \arrow[r,"T(f)"] & T(M) \arrow[r,"T(g)"] &
+			T(M'') \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+es exacta. An\'alogamente, se demuestra que, si la sucesi\'on
+\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r] & M' \arrow[r,"f"] & M \arrow[r,"g"] & M''
+	\end{tikzcd}
+\end{center}
+es exacta, entonces la siguiente es una sucesi\'on exacta corta, tambi\'en:
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & U(M') \arrow[r,"U(f)"] & U(M) \arrow[r,"U(g)"] &
+			U(M'')
+	\end{tikzcd}
+	.
+\end{center}
+

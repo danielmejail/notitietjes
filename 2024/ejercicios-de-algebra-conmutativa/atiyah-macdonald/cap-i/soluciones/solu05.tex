@@ -1,0 +1,87 @@
+Si $f,g\in A[\![x]\!]$ con coeficientes $a_i$ y $b_j$, respectivamente, el
+coeficiente en grado $k$ del producto $f\,g$ est\'a dado por
+$c_k=\sum_{i+j=k}\,a_i\,b_j$. En particular, si $f$ es una unidad,
+$a_0\,b_0=1$ (en $A$), para cierto $b_0\in A$. Rec\'{\i}procamente, si
+$a_0\,b_0=1$ en $A$, entonces es posible definir, inductivamente, coeficientes
+$b_j$ de manera que $g=\sum_{j\geq 0}\,b_j\,x^j$ sea el inverso de $f$:
+\begin{equation}
+	\label{eq:ejer:capi:05:coeficienteinverso}
+	b_k \,=\,\big(-\sum_{
+			\begin{smallmatrix}
+				i+j=k \\
+				i\neq 0
+			\end{smallmatrix}
+			}\,a_i\,b_j\big)\,b_0
+	\text{ .}
+\end{equation}
+%
+
+Si $f$ es nilpotente, existe $k\geq 0$ tal que $f^k=0$. Para este valor de $k$,
+$a_0^k=0$, es decir, $a_0$ es nilpotente en $A$. En particular, $a_0$ es
+nilpotente en $A[\![x]\!]$ y $f-a_0$ es nilpotente. Si
+$g=\sum_{i\geq 1}\,a_i\,x^{i-1}$, $f-a_0=g\,x$ y existe $l\geq 0$ tal que
+$g^l\,x^l=0$. Dado que una serie es igual a $0$, si y s\'olo si sus
+coeficientes son todos nulos (en $A$), se deduce que $g^l=0$, es decir, que $g$
+es nilpotente. Inductivamente, $a_n$ es nilpotente para todo $n\geq 0$.
+
+Elegir $\{a_n\}_{n\geq 0}\subset A$ tal que $a_n^{k(n)}=0$ para una funci\'on
+creciente $k:\,\bb N\rightarrow\bb N$.
+
+Si $f\in\jacrad(A[\![x]\!])$, cualquiera sea $a\in A\subset A[\![x]\!]$, vale
+que $1-a\,f$ es una unidad en el anillo de series de potencias. El coeficiente
+principal de $1-a\,f$ es igual a $1-a\,a_0$ y debe ser, por
+\eqref{item:ejer:capi:05:i}, una unidad en $A$. Como $a\in A$ es arbitrario, se
+deduce que $a_0\in\jacrad(A)$. Rec\'{\i}procamente, si $a_0$ pertenece al
+radical de Jacobson de $A$ y $g=\sum_{j\geq 0}\,b_j\,x\in A[\![x]\!]$,
+\begin{align*}
+	1-g\,f & \,=\,(1-b_0\,a_0)+h\,x
+	\text{ ,}
+\end{align*}
+%
+para cierta $h\in A[\![x]\!]$. Dado que $1-b_0\,a_0\in A^\times$, se deduce que
+$1-g\,f\in A[\![x]\!]^\times$. As\'{\i}, $f\in\jacrad(A[\![x]\!])$.
+
+Sea $\frak m\subset A[\![x]\!]$ un ideal maximal y sea
+$\contracted{\frak m}=\{a\in A\,:\,a\in\frak m\}=\frak m\cap A$ el ideal de $A$
+que se obtiene por contracci\'on de $\frak m$ v\'{\i}a la inclusi\'on. Si
+$b\not\in\contracted{\frak m}$, entonce $b\not\in\frak m$ y
+$\generado b+\frak m=A[\![x]\!]$. Es decir, para $b\in A$ que no pertenece a la
+contracci\'on $\contracted{\frak m}$, existe $f,h\in A[\![x]\!]$,
+$h\in\frak m$, tales que
+\begin{align*}
+	1 & \,=\,f\,b+h
+	\text{ .}
+\end{align*}
+%
+Si $f=\sum_{k\geq 0}\,f_k\,x^k$ y $h=\sum_{k\geq 0}\,h_k\,x^k$, entonces, en
+particular,
+\begin{align*}
+	1 & \,=\,f_0\,b+h_0
+	\text{ ,}
+\end{align*}
+%
+en $A$. Si $x\in\frak m$, entonces $h-h_0=\tilde h\,x\in\frak m$, para cierta
+$\tilde h\in A[\![x]\!]$, de lo que se deduce que $h_0\in\contracted{\frak m}$
+y, dado que $b$ fue elegido de manera arbitraria en el complemento de
+$\contracted{\frak m}$, concluimos que este ideal es maximal en $A$. En
+definitiva, todo lo que hay que verificar es que $x\in\frak m$, cualquiera sea
+el ideal maximal $\frak m\subset A[\![x]\!]$. Esta afirmaci\'on es consecuencia
+de \eqref{item:ejer:capi:05:i}: si $x\not\in\frak m$, entonces
+\begin{align*}
+	1 & \,=\, f\,x+h
+	\text{ ,}
+\end{align*}
+%
+para ciertas $f,h\in A[\![x]\!]$, $h\in\frak m$. Pero, entonces, $h_0=1$ y
+$h$ es una unidad, contradiciendo el hecho de que $\frak m$ es un ideal propio
+de $A[\![x]\!]$.
+
+De esto \'ultimo, se deduce que, si $\frak m\subset A[\![x]\!]$ es maximal y
+$h\in\frak m$, entonces, como $x\in\frak m$, $h_0\in\contracted{\frak m}$. En
+conclusi\'on,
+\begin{align*}
+	\frak m & \,=\,\contracted{\frak m}+\generado x
+	\text{ .}
+\end{align*}
+%
+

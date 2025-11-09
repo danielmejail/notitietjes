@@ -1,0 +1,30 @@
+Sea $A$ un anillo y sea $X=\espectro(A)$ su espectro. Por los Ejercicios~%
+\ref{ejer:capi:18} \eqref{item:ejer:capi:18:ii} y \ref{ejer:capi:20}
+\eqref{item:ejer:capi:20:i}, si $\frak p\subset A$ es primo, el conjunto
+$\ceros{\frak p}$ es irreducible (los espacios con un \'unico punto son
+irreducibles). Para probar que las componentes irreducibles (cerrados
+irreducibles maximales de $X$) est\'an en correspondencia con los primos
+minimales de $A$, ser\'a suficiente probar que, si $\frak b\subset A$ es un
+ideal radical tal que $\ceros{\frak b}$ es irreducible, entonces $\frak b$ es
+primo.
+
+Sean $f,g\in A$ tales que $f\,g\in\frak b$, pero ni $f$ ni $g$ pertenecen a
+$\frak b$. Por el Ejercicio~\ref{ejer:capi:17} \eqref{item:ejer:capi:17:i},
+$\principal{f\,g}=\principal f\cap\principal g$ y, si $\frak p\supset\frak b$
+es un ideal primo, entonces $f\,g\in\frak p$, es decir,
+$\frak p\not\in\principal{f\,g}$. Ahora, dado que $f\not\in\frak b$ y que
+$\frak b$ es radical, existe $\frak p\in\ceros{\frak b}$ tal que
+$f\not\in\frak p$; an\'alogamente, existe $\frak q\in\ceros{\frak b}$ tal que
+$g\not\in\frak q$. Esto implica que $\principal f\cap\ceros{\frak b}$ y
+$\principal g\cap\ceros{\frak b}$ son abiertos no vac\'{\i}os de
+$\ceros{\frak b}$, pero
+\begin{align*}
+	\big(\principal f\cap\ceros{\frak b}\big)\,\cap\,
+		\big(\principal g\cap\ceros{\frak b}\big) & \,=\,
+		\principal{f\,g}\,\cap\,\ceros{\frak b}\,=\,\varnothing
+	\text{ .}
+\end{align*}
+%
+En particular, $\ceros{\frak b}$ no puede ser irreducible, si $\frak b$ no es
+primo.
+

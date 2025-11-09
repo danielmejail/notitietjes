@@ -1,0 +1,99 @@
+Si bien $M$ podr\'{\i}a no ser playo, tensorizar con $M$ preserva la
+inyectividad, en este caso. Por exactitud del producto tensorial, la sucesi\'on
+\begin{equation}
+	\label{eq:capii:ejer:02:tensorizada}
+	\begin{tikzcd}
+		\frak a\tensor[A] M\arrow[r] & A\tensor[A] M\arrow[r] &
+			(A/\frak a)\tensor[A] M\arrow[r] & 0
+	\end{tikzcd}
+\end{equation}
+%
+es exacta. Resta ver que el n\'ucleo del primer morfismo de la izquierda es
+cero. Ahora bien,
+\begin{equation}
+	\label{eq:capii:ejer:02:productocontraideal}
+	\frak a\tensor[A] M \,\simeq\, A\tensor[A]\frak a\,M \,\simeq\,
+		\frak a\,M
+	\text{ ,}
+\end{equation}
+%
+con lo cual, la exactitud de
+\begin{align*}
+	\begin{tikzcd}[ampersand replacement=\&]
+		0\arrow[r] \& \frak a\,M\arrow[r] \& M
+	\end{tikzcd}
+\end{align*}
+%
+implica la exactitud de
+\begin{equation*}
+	\begin{tikzcd}
+		0\arrow[r] & A\tensor[A]\frak a\,M\arrow[r] & A\tensor[A] M
+	\end{tikzcd}
+	\text{ ,}
+\end{equation*}
+%
+pues $A$ es playo y, as\'{\i},
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & \frak a\tensor[A] M\arrow[r] & M
+	\end{tikzcd}
+\end{center}
+es exacta.
+
+Otra manera de probar la inyectividad de $\frak a\tensor[A] M\rightarrow M$ es
+la siguiente: si $\sum\,a\tensor x$ es tal que $\sum\,a\,x=0$ en $M$, entonces
+\begin{align*}
+	\sum\,a\tensor x & \,=\,\sum\,1\tensor\cdots\qquad!
+\end{align*}
+%
+!`Ah! Entonces, en la ecuaci\'on \eqref{eq:capii:ejer:02:productocontraideal},
+el morfismo natural $\frak a\tensor[A]M\rightarrow M$ dado por
+$a\tensor x\mapsto a\,x$ no es un isomorfismo, en general. Por ejemplo, si
+$A=\bb Z$, $\frak a=2\,\bb Z$ y $M=\enterosmod[2]$, entonces
+\begin{align*}
+	2\,\bb Z\tensor[\bb Z](Z/2\,\bb Z) \,\not\simeq\,
+		(2\,\bb Z)\,(\enterosmod[2])
+	\text{ ,}
+\end{align*}
+%
+pues el lado izquierdo no es el m\'odulo trivial, mientras que el de la derecha
+s\'{\i} lo es.
+
+De esto se puede observar, en primer lugar, que el isomorfismo
+\eqref{eq:capii:ejer:02:productocontraideal} es equivalente a la inyectividad
+de $\frak a\tensor[A] M\rightarrow M$. En segundo lugar, si $M$ es playo,
+entonces el isomorfismo \eqref{eq:capii:ejer:02:productocontraideal} es
+v\'alido. Si $A$ es un dominio de Dedekind y $M$ es un ideal de $A$, entonces
+\eqref{eq:capii:ejer:02:productocontraideal} se cumple.
+
+En el contraejemplo a la afirmaci\'on, la sucesi\'on exacta corta
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & 2\,\bb Z\arrow[r] & \bb Z\arrow[r] &
+			\enterosmod[2]\arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+da lugar a la sucesi\'on exacta
+\begin{center}
+	\begin{tikzcd}
+		2\,\bb Z\tensor[\bb Z](\enterosmod[2])\arrow[r,"0"] &
+			\bb Z\tensor[\bb Z](\enterosmod[2])\arrow[r] &
+			(\enterosmod[2])\tensor[\bb Z](\enterosmod[2])
+				\arrow[r] & 0
+	\end{tikzcd}
+	.
+\end{center}
+Dado que, en este caso, $\frak a\,M=0$, se deduce que el isomorfismo
+$(A/\frak a)\tensor[A]M\simeq M/\frak a\,M$ es v\'alido, aunque
+\eqref{eq:capii:ejer:02:productocontraideal} no lo sea.
+
+En el caso general, la sucesi\'on \eqref{eq:capii:ejer:02:tensorizada} es
+exacta. Dado que la imagen del primer morfismo es el subm\'odulo $\frak a\,M$
+(identificando $M$ con $A\tensor[A]M$) y dado que el segundo morfismo es
+sobreyectivo, se deduce que
+\begin{align*}
+	(A/\frak a)\tensor[A] M & \,\simeq\, M/\frak a\,M
+	\text{ .}
+\end{align*}
+%
+

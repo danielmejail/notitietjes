@@ -1,0 +1,116 @@
+Sean $f=a_0+a_1\,x+\,\cdots\,+a_m\,x^m$ y $h\in A[x]$ tal que $f=a_0+h\,x$, es
+decir, $h=a_1+a_2\,x+\,\cdots\,+a_m\,x^{m-1}$. Supongamos, primero que $a_0$ es
+unidad en $A$ y que $\lista a{m}$ son nilpotentes. En este caso, $h$ y $h\,x$
+son nilpotentes en $A[x]$. Por el Ejercicio~\ref{ejer:capi:01}, $f$ es una
+unidad.
+
+Rec\'{\i}procamente, supongamos que $f$ es una unidad y que
+$g=b_0+b_1\,x+\,\cdots\,b_n\,x^n$ es inverso de $f$. Supongamos, adem\'as, que
+$m=\grado(f)$ y que $n=\grado(g)$. Sea
+\begin{equation}
+	\label{eq:ejer:capi:02:coeficienteproducto}
+	c_k \,=\,\sum_{i+j=k}\,a_i\,b_j
+\end{equation}
+%
+el coeficiente en grado $k$ del producto $f\,g$. Entonces, $c_0=1$ y $c_k=0$,
+para todo $k\geq 1$. Dado que $a_i=0$ y que $b_j=0$, para $i>m$ y $j>n$, las
+\'unicas condiciones no triviales sobre los $c_k$ y, en particular, sobre los
+coeficientes de $f$, se obtienen con $k\leq m+n$. Por ejemplo,
+\begin{align*}
+	1 & \,=\,c_0 \,=\, a_0\,b_0
+		\text{ ,} \\
+	0 & \,=\,c_1 \,=\, a_0\,b_1+a_1\,b_0
+		\text{ ,} \\
+	& \vdots \\
+	0 & \,=\,c_{m+n-1} \,=\, a_m\,b_{n-1}+a_{m-1}\,b_n
+		\text{ ,} \\
+	0 & \,=\,c_{m+n} \,=\, a_m\,b_n
+	\text{ .}
+\end{align*}
+%
+Supongamos, primero, que $m=0$. Entonces, $a_0\in A^\times$ y su inverso es
+$b_0$. Pero $a_0\,b_j=0$ (en $A$), para $j\geq 1$ implica que $b_j=0$ y $n=0$,
+tambi\'en. Sim\'etricamente, $n=0$ implica $m=0$. Si, en cambio, $m>0$ (y, por
+lo tanto, $n>0$), entonces $0<1\leq m+n-1<m+n$. En particular, como $b_n\neq 0$
+y $a_m\,b_n=0$, $a_m$ es divisor de cero. Ahora, multiplicando la ante\'ultima
+condici\'on por $a_m$, se deduce
+\begin{align*}
+	0 & \,=\,a_m^2\,b_{n-1}+a_m\,a_{m-1}\,b_n\,=\,a_m^2\,b_{n-1}
+	\text{ .}
+\end{align*}
+%
+Supongamos, inductivamente, que $n>r_0\geq 0$ y que
+\begin{equation}
+	\label{eq:ejer:capi:02:coeficientesanulacion}
+	a_m^{r+1}\,b_{n-r} \,=\,0
+	\text{ ,}
+\end{equation}
+%
+para todo $r\leq r_0$. En particular, $a_m^{r_0+1}\,b_j=0$, para todo
+$j\geq n-r_0$. Para que $b_j$, con $j<n-r_0$, \emph{no} aparezca en la
+sumatoria \eqref{eq:ejer:capi:02:coeficienteproducto} que define al coeficiente
+$c_k$ --cuesti\'on v\'alida, pues $a_i=0$, si $i>m$--, es suficiente que
+$k\geq m+n-r_0$ (pues, en ese caso, $i\leq m$ y $j<n-r_0$ implican
+$i+j<m+n-r_0\leq k$). Eligiendo $k=m+n-r_0-1$, como $k\geq m>0$, $c_k=0$ y
+\begin{align*}
+	0 & \,=\,a_m^{r_0+1}\,c_k \,=\,
+		\sum_{
+			\begin{smallmatrix}
+				i+j=k \\
+				j\geq n-r_0
+			\end{smallmatrix}
+		}\,a_i\,a_m^{r_0+1}\,b_j \\
+	& \,=\,a_m^{r_0+2}\,b_{n-(r_0+1)}
+	\text{ .}
+\end{align*}
+%
+La \'ultima igualdad se deduce como consecuencia de lo mencionado luego de
+\eqref{eq:ejer:capi:02:coeficientesanulacion}. Esto demuestra que
+$a_m^{r+1}\,b_{n-r}=0$ para todo $r\geq 0$ y, en particular, que
+$a_m^{n+1}\,b_0=0$. Pero $b_0$ (al igual que $a_0$) es una unidad en $A$, con
+lo cual $a_m^{n+1}=0$. Finalmente, como $a_m$ es nilpotente (en $A$),
+$a_m\,x^m$ lo es en $A[x]$ y, apelando al Ejercicio~\eqref{ejer:capi:01},
+nuevamente,
+\begin{align*}
+	f \,-\,a_m\,x^m
+\end{align*}
+%
+es una unidad (en $A[x]$). Inductivamente en el grado de $f$, se deduce que
+$a_0\in A^\times$ y que $\lista a{m}\in \nilrad(A)$. Esto prueba el \'{\i}tem~%
+\eqref{item:ejer:capi:02:i}.
+
+Si $f$ es nilpotente (en $A[x]$), entonces $1+f$ es una unidad en el anillo de
+polinomios y los coeficientes $a_0,\,\lista a{m}$ son nilpotentes, por el
+\'{\i}tem anterior, demostrando \eqref{item:ejer:capi:02:ii}.
+
+En cuanto a \eqref{item:ejer:capi:02:iii}, si $a\,f=0$, $f$ es divisor de cero.
+Rec\'{\i}procamente, si $f$ es divisor de $0$, existe $g\in A[x]$ no nulo, tal
+que $f\,g=0$. M\'as aun, podemos asumir que $g=b_0+b_1\,x+\,\cdots\,b_n\,x^n$
+con $n$ m\'{\i}nimo (en particular, $b_n\neq 0$ y $n=\grado(g)$). Dado que
+$a_m\,b_n=0$ y que $(a_m\,g)\,f=0$, por minimalidad de $n$, $a_m\,g=0$. Si
+$h_r\in A[x]$ es el polinomio que se obtiene truncando $f$ en grado $r$ ($h_r$
+es de grado $r$ o menor, o cero),
+\begin{align*}
+	0 & \,=\,f\,g \,=\,h_{m-1}\,g +a_m\,g\,x
+	\text{ ,}
+\end{align*}
+%
+de lo que se deduce que $h_{m-1}\,g=0$. Esto implica que $a_{m-1}\,b_n=0$ y que
+$a_{m-1}\,g=0$, por la minimalidad de $n$. Inductivamente, $a_r\,g=0$, para
+cada $r\geq 0$, y $a_r\,b_n=0$. Esto implica que $f\,b_n=0$.
+
+Finalmente, para probar \eqref{item:ejer:capi:02:iv}, sean
+$f=a_0+a_1\,x+\,\cdots\,+a_m\,x^m$ y $g=b_0+b_1\,x+\,\cdots\,+b_n\,x^n$ y sea
+$c_k$ el coeficiente en grado $k$ del producto $f\,g$, dado por
+\eqref{eq:ejer:capi:02:coeficienteproducto}. Si $f\,g$ es primitivo y
+$\sum_k\,c_k\,\gamma_k=1$, entonces
+\begin{math}
+	\sum_i\,a_i\Big(\sum_j\,b_j\,\gamma_{i+j}\Big)=1
+\end{math}, lo que implica que $f$ es primitivo. Si, en ca,bio, el producto
+$f\,g$ n es primitivo y el conjunto $\{c_k\}_k$ est\'a contenido en alg\'un
+ideal maximal $\frak m\subset A$, entonces $f\,g=0$ en $(A/\frak m)[x]$. Pero
+$A/\frak m$ es cuerpo y, en particular, el anillo de polinomios
+$(A/\frak m)[x]$ es un dominio \'{\i}ntegro, con lo cual, o bien $f=0$, o bien
+$g=0$, all\'{\i}; es decir, o bien $f$ no es primitivo (y sus coeficientes
+est\'an contenidos en $\frak m$), o bien $g$ no lo es.
+

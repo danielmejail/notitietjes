@@ -1,0 +1,53 @@
+Todo abierto es de la forma $\espectro(A)\setmin\ceros{\frak a}$ para alg\'un
+ideal $\frak a\subset A$. Dados, entonces $\frak a$ y
+$x\in\espectro(A)\setmin\ceros{A}$, existe $f\in\frak a$ tal que
+$f\not\in\frak p_x$. Dado que
+% \begin{equation}
+	% \label{eq:ejer:capi:17:abiertos}
+	% x\not\in\ceros{\frak a}
+		% % \text{(\phantom)}
+		% % \frak p_x\not\supset\frak a\text{\phantom()}
+		% \,\Leftrightarrow\,\big(\exists\,f\in\frak a\big)\,
+			% \big(f\not\in\frak p_x\big)
+	% \text{ .}
+% \end{equation}
+% %
+% Es decir, si $\principal f=\espectro(A)\setmin\ceros{f}$, entonces
+\begin{equation}
+\label{eq:ejer:capi:17:abiertosprincipales}
+	\principal f \,=\,\big\{y\in\espectro(A)\,:\,f\not\in\frak p_y\big\}
+	\text{ ,}
+\end{equation}
+%
+se concluye que $x\in\principal f\subset\espectro(A)\setmin\ceros{\frak a}$. En
+definitiva, los conjuntos $\principal f$ constituyen una base de abiertos para
+la topolog\'{\i}a de Zariski.
+
+Para probar que $\espectro(A)$ es compacto, ser\'a suficiente demostrar que
+todo cubrimiento por abiertos principales, es decir, de la forma
+$\principal f$, admite un subcubrimiento finito, puesto que todo abierto es
+uni\'on de abiertos b\'asicos. Supongamos, entonces, que $\{f_i\}_i$ es una
+familia de elementos de $A$ tal que
+\begin{align*}
+	\espectro(A) & \,=\,\bigcup_i\,\principal{f_i}
+	\text{ .}
+\end{align*}
+%
+El ideal $\frak a=\generado{f_i\,:\,i}$ no est\'a contenido en ning\'un ideal
+primo, ya que, si $\frak p\supset\frak a$, entonces $f_i\in\frak p$ para todo
+$i$, lo que equivale a que el punto correspondiente a $\frak p$ no pertenezca a
+ninguno de los $\principal{f_i}$. Expresado de otra manera, $\frak a=1$, es
+decir que existen un subconjunto finito de \'{\i}ndices $j$ y elementos
+correspondientes $g_j\in A$ tales que
+\begin{align*}
+	1 & \,=\,\sum_j\,g_j\,f_j
+	\text{ .}
+\end{align*}
+%
+As\'{\i}, si $x\in\espectro(A)$, $1\not\in\frak p_x$ y existe $j$ tal que
+$f_j\not\in\frak p_x$, lo que quiere decir que $x\in\principal{f_j}$.
+
+Los abiertos $\principal f$ tambi\'en son compactos, pues la localizaci\'on
+$A\rightarrow\localizacion{f}{A}$ induce un homeomorfismo
+$\principal f=\espectro(\localizacion{f}{A})$.
+

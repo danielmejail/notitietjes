@@ -1,0 +1,351 @@
+\theoremstyle{definition}
+\newtheorem{ejerAcciones}{\ejername}[section]
+
+\theoremstyle{plain}
+
+%-------------
+
+\begin{ejerAcciones}\label{ejer:acciones:dosclases}
+	Sea $G$ un grupo con dos clases de conjugaci\'on, exactamente.
+	Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:dosclases:grupo-finito}
+			si el orden $\ordenvert G$ del grupo es finito,
+			$\ordenvert G=2$;
+		\item\label{item:dosclases:elemento-de-orden-finito}
+			si existe en $G$ un elemento de orden finito,
+			$\ordenvert G=2$.%
+			\hint{
+				Existe un primo $p$ tal que $a^p=e$ para todo
+				$a\in G$. Si $p>2$ es impar, entonces
+				$a^2=xax^{-1}$ para cierto $x\in G$.
+				Inductivamente, $a^{2^p}=x^pax^{-p}=a$, con lo
+				cual $2^p\equiv 1\tmodulo[p]$.
+			}
+	\end{enumerate}
+	%
+\end{ejerAcciones}
+
+\begin{solucion}
+	Si $\ordenvert G<\infty$, podemos argumentar de la siguiente manera.
+	El grupo $G$ se descompone como uni\'on disjunta de dos clases de
+	conjugaci\'on
+	\begin{equation}
+		\label{eq:dosclases}
+		G\,=\,\{e\}\,\sqcup\,a^G
+		\text{ ,}
+	\end{equation}
+	%
+	donde $e\in G$ es el elemento neutro y $a^G=\{xax^{-1}\,:\,x\in G\}$
+	denota la clase de conjugaci\'on de alg\'un otro elemento $a\in G$.
+	Necesariamente, una de las clases debe ser $\{e\}$, pues
+	$e\in\centre G$. Pero, si $\centraliza[G](a)$ denota el centralizador
+	de $a$ en $G$,
+	\begin{displaymath}
+		\ordenvert{a^G}\,=\,\indice{G:\centraliza[G](a)}
+		\text{ ,}
+	\end{displaymath}
+	%
+	que divide a $\ordenvert G$, pues el orden es finito. Por otro lado,
+	\begin{math}
+		\ordenvert G=1+\ordenvert{a^G}
+	\end{math}, de lo que se deduce que $\ordenvert{a^G}=1$ y
+	$\ordenvert G=2$.
+
+	El argumento anterior no es aplicable sin la hip\'otesis de que
+	$\ordenvert G$ sea finito. Sin embargo, la descomposici\'on
+	\eqref{eq:dosclases} sigue siendo v\'alida y podemos elegir como $a$
+	cualquier elemento distinto del neutro; en particular, podemos suponer
+	que $\orden(a)=n$ es finito y mayor que $1$. Dado que hay s\'olo dos
+	clases de conjugaci\'on, una de las cuales es la del neutro del grupo,
+	todo elemento distinto del neutro debe ser conjugado de $a$ y, en
+	particular, tener orden finito $n$.
+
+	Si $n=2$, todo elemento salvo el neutro tiene orden $2$ y el grupo es
+	abeliano.%
+	\footnote{
+		$(bb_1)^2=e$ implica $bb_1=b_1b$.
+	}
+	As\'{\i}, $a^G=\{a\}$ y $\ordenvert G=2$. Si $n>2$, entonces existe
+	alg\'un primo impar $p>2$ que divide a $n$. En particular, reemplazando
+	$a$ por $a^{n/p}\neq e$, podemos asumir que el orden de $a$ es $p$,
+	usando, de nuevo, que $a$ y $a^{n/p}$ son conjugados. Como $a^2\neq e$,
+	existe $x\in G$ tal que $a^2=xax^{-1}$. En consecuencia, dado
+	cualquier elemento $y\in G$, $(yay^{-1})^2=yxa(yx)^{-1}$. En
+	particular, eligiendo $y=a^{2^k}$, se deduce inductivamente que
+	\begin{displaymath}
+		a^{2^k}=x^kax^{-k}
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $k\geq 1$. Si $k=p$, se deduce que $a^{2^p}=a$, pues
+	$x$ es o bien el neutro, o bien conjugado de $a$ y, por lo tanto, de
+	orden $p$. Como el orden de $a$ es $p$, se cumple que
+	\begin{math}
+		2^p\equiv 1\tmodulo[p]
+	\end{math}, lo cual es absurdo, si $p$ es primo. La contradicci\'on
+	viene de suponer que $p>2$.
+\end{solucion}
+
+\begin{ejerAcciones}\label{ejer:acciones:orden-primo-centralizador-propio}
+	Sea $G$ un grupo finito y $H\triangleleft G$ un subgrupo normal de
+	\'{\i}ndice primo. Si $x\in H$ verifica
+	\begin{math}
+		\centraliza[H](x)<\centraliza[G](x)
+	\end{math}%
+	\footnote{
+		Es un subgrupo contenido propiamente.
+	}
+	y si $y\in H$ es conjugado de $x$ \emph{en $G$}, entonces $x$ e $y$ son
+	conjugados \emph{en $H$}.
+\end{ejerAcciones}
+
+\begin{solucion}
+	Empecemos con algunas observaciones. Primero, si $x,y\in G$ son
+	conjugados, es decir, $y=gxg^{-1}$, $g\in G$, entonces
+	\begin{displaymath}
+		\centraliza[G](y)\,=\,g\,\centraliza[G](x)\,g^{-1}
+		\text{ .}
+	\end{displaymath}
+	%
+	Segundo, si $H\leq G$ es un subgrupo arbitrario y $x\in H$, entonces
+	\begin{displaymath}
+		\centraliza[H](x)\,=\,\centraliza[G](x)\,\cap\,H
+		\text{ .}
+	\end{displaymath}
+	%
+	Ahora, si $H\triangleleft G$ es normal, $x,y\in H$ y existe $g\in G$
+	tal que $y=gxg^{-1}$, entonces
+	\begin{displaymath}
+		\begin{aligned}
+			\centraliza[H](y) & \,=\,\centraliza[G](y)\,\cap\,H
+				\,=\,\big(g\centraliza[G](x)g^{-1}\big)
+					\,\cap\,H \\
+			& \,=\,\big(g\centraliza[G](x)g^{-1}\big)
+					\,\cap\,gHg^{-1}
+				\,=\,g\,\big(\centraliza[G](x)\cap H\big)\,
+					g^{-1} \\
+			& \,=\,g\,\centraliza[H](x)\,g^{-1}
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+
+	El objetivo es demostrar que $x^H=x^G\cap H$.%
+	\footnote{
+		En este caso, como $H$ es normal, $x^G\cap H=x^G$.
+	}
+	En general, $x^H\subset x^G$; en t\'erminos de los \'{\i}ndices de los
+	centralizadores,
+	\begin{displaymath}
+		\indice{G:\centraliza[G]x}\,=\,\ordenvert{x^G}\,\geq\,
+			\ordenvert{x^H}\,=\,\indice{H:\centraliza[H]x}
+		\text{ .}
+	\end{displaymath}
+	%
+	Por otra parte, dado que el \'{\i}ndice es multiplicativo,
+	\begin{displaymath}
+		\indice{G:H}\,\indice{H:\centraliza[H]x}\,=\,
+			\indice{G:\centraliza[G]x}\,
+			\indice{\centraliza[G]x:\centraliza[H]x}
+		\text{ .}
+	\end{displaymath}
+	%
+	Ser\'a suficiente ver que $p=\indice{G:H}$ divide a
+	$\indice{\centraliza[G]x:\centraliza[H]x}$.%
+	\footnote{
+		No es suficiente saber que este \'{\i}ndice es poitivo.
+	}
+	De las observaciones iniciales, como $H$ es normal en $G$, si
+	$g\in\centraliza[G](x)$ (un elemento arbitrario del centralizador, no
+	el que da lugar a $y$), entonces $g$ normaliza a $\centraliza[H](x)$.
+	En particular,
+	\begin{displaymath}
+		\centraliza[H](x)\,\triangleleft\,\centraliza[G](x)
+		\text{ .}
+	\end{displaymath}
+	%
+	Como $g^p\in H$ para todo $g\in G$, se deduce que
+	$g^p\in\centraliza[H](x)$ para todo $g\in\centraliza[G](x)$. Como
+	$\ordenvert{\centraliza[G]x/\centraliza[H]x}>1$, alg\'un elemento
+	$g\in\centraliza[G](x)$ tiene orden $p$ m\'odulo el subgrupo normal
+	$\centraliza[H](x)$. En particular, $p$ divide al orden del cociente,
+	es decir, al \'{\i}ndice de los centralizadores de $x$.
+\end{solucion}
+
+\begin{ejerAcciones}\label{ejer:acciones:monomiales}
+	Una matriz $m=[m_{ij}]\in\MM[m\times m](R)$ se dice \emph{monomial}, si
+	existe una permutaci\'on $\alpha\in\simetrico[m]$ y elementos
+	$\lista x{m}\in R$ tales que
+	\begin{displaymath}
+		m_{ij}\,=\,
+			\begin{cases}
+				x_i & \text{si }j=\alpha(i) \\
+				0 & \text{si no}
+			\end{cases}
+		\text{ .}
+	\end{displaymath}
+	%
+	Las matrices monomiales tienen a lo sumo una coordenada distinta de
+	cero por fila y por columna. Una matriz de permutaci\'on es un caso
+	especial de matriz monomial: para cada $i$, $x_i=1$. El producto de
+	matrices monomiales es una matriz monomial.
+
+	Sea $k$ un anillo no nulo (no necesariamente conmutativo) con la
+	propiedad de que $ab=0$ implica $a=0$ o $b=0$. Sea $G=\GL[m](k)$,
+	$m\geq 2$, y sea $T\leq G$ el subgrupo de matrices diagonales.
+	\begin{enumerate}[(i)]
+		\item\label{item:monomiales:normalizador}
+			Demostrar que $\normaliza[G](T)$ es el subgrupo de las
+			matrices monomiales en $G$.
+		\item\label{item:monomiales:cociente}
+			Demostrar que $\normaliza[G](T)/T\simeq\simetrico[m]$.
+	\end{enumerate}
+	%
+\end{ejerAcciones}
+
+\begin{solucion}
+	Un elemento $g\in G$ pertenece a $\normaliza[G](T)$, si y s\'olo si
+	para todo $t\in T$, existe $t'\in T$ tal que $gtg^{-1}=t'$. Si
+	$g=[g_{ij}]$, $t=\diag(\lista t{m})$ y $t'=\diag(t'_1,\,\dots,\,t'_m)$,
+	\begin{displaymath}
+		({t'}^{-1}gt)_{ij}\,=\,{t'_i}^{-1}g_{ij}t_j
+		\text{ .}
+	\end{displaymath}
+	%
+	Entonces, podemos expresar la condici\'on de pertenencia al
+	normalizador de $T$ de la siguiente manera: dados $\lista t{m}\in k$,
+	existen $t'_1,\,\dots,\,t'_m\in k$ tales que
+	\begin{displaymath}
+		g_{ij}t_j\,=\,t'_ig_{ij}
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $i,j$. Ahora, si $g_{i_0j_0}\neq 0$, elegimos $t\in T$ de
+	manera que
+	\begin{displaymath}
+		t_j\,=\,
+			\begin{cases}
+				1 & \text{si }j=j_0 \\
+				0 & \text{si no}
+			\end{cases}
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $g\in\normaliza[G](T)$, entonces los elementos $t'_i\in k$ verifcan:
+	\begin{displaymath}
+		\begin{aligned}
+			(1-t'_{i_0})\,g_{i_0j_0} & \,=\,0 \text{ ,} \\
+			t'_{i_0}\,g_{i_0j} & \,=\,0 \text{ ,}\quad
+				\text{si }j\neq j_0 \text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Como $k$ verifica $ab=0\Rightarrow a=0\text{ o }b=0$, debe cumplirse
+	que $t'_{i_0}=1$ y que $g_{i_0j}=0$ para $j\neq j_0$. En particular, en
+	cada fila hay, a lo sumo, una coordenada no nula. Es decir, $g$ es una
+	matriz monomial.
+
+	Las matrices monomiales se escriben de manera \'unica como producto de
+	una matriz de permutaci\'on por una matriz diagonal $m=pt$.
+	% \footnote{
+		% Y de manera \'unica como $m=t'p$ (aunque $t'$ puede ser
+		% distinto de $t$ en este caso, $p$ est\'a determinado).
+	% }
+	En consecuencia, $pt\mapsto p$ induce un isomorfismo entre
+	$\normaliza[G](T)/T$ y $\simetrico[m]$.
+\end{solucion}
+
+\begin{ejerAcciones}\label{ejer:acciones:clases-subgrupo-propio}
+	Sea $G$ un grupo finito.
+	\begin{enumerate}[(i)]
+		\item\label{item:clases-subgrupo-propio:union}
+			Si $H<G$ es un subgrupo propio, entonces $G$ no es
+			uni\'on de conjugados de $H$.
+		\item\label{item:clases-subgrupo-propio:clases}
+			Si $\lista C{m}$ es una lista completa de las clases de
+			conjugaci\'on en $G$ y $g_i\in C_i$, entonces
+			$G=\generado{\lista g{m}}$.
+	\end{enumerate}
+	%
+\end{ejerAcciones}
+
+\begin{solucion}
+	Sea $R$ un subconjunto de un sistema de representantes de las clases en
+	$G/\normaliza[G](H)$, de manera que $\{gHg^{-1}\,:g\in R\}$ sea un
+	subconjunto de todos los conjugados de $H$ en $G$. Si
+	\begin{displaymath}
+		G\,=\,\bigcup_{g\in R}\,gHg^{-1}
+		\text{ ,}
+	\end{displaymath}
+	%
+	entonces tenemos la cota
+	\begin{equation}
+		\label{eq:clases-subgrupo-propio}
+		\indice{G:H}\,\ordenvert H\,=\,\ordenvert G\,\leq\,
+			\ordenvert R\,\ordenvert H
+		\text{ ,}
+	\end{equation}
+	%
+	acotando el cardinal de la uni\'on por el de una uni\'on disjunta. Como
+	$H$ es finito,
+	\begin{displaymath}
+		\begin{aligned}
+			\ordenvert R\,\geq\,\indice{G:H} & \,=\,
+					\indice{G:\normaliza[G]H}\,
+						\indice{\normaliza[G]H:H}
+				\,=\,\ordenvert{H^G}\,\indice{\normaliza[G]H:H}
+				\,\geq\,\ordenvert R\,\indice{\normaliza[G]H:H}
+		\end{aligned}
+		%
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $H^G$ denota el conjunto de conjugados de $H$ en $G$. La \'ultima
+	desigualdad es consecuencia de que
+	\begin{displaymath}
+		\ordenvert{H^G}\,=\,\indice{G:\normaliza[G]H}\,\geq\ordenvert R
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, $\indice{\normaliza[G]H:H}\leq 1$. Se deduce, entonces,
+	que $\normaliza[G](H)=H$ y que
+	$\ordenvert R=\indice{G:\normaliza[G]H}$. As\'{\i}, necesariamente, si
+	$G$ es uni\'on de conjugados de $H$, debe ser la uni\'on de
+	\emph{todos} los conjugados. Pero, ahora, usando que la desigualdad
+	\eqref{eq:clases-subgrupo-propio} debe ser estricta, se llega a una
+	contradicci\'on:
+	\begin{displaymath}
+		\ordenvert G\,=\,\indice{G:H}\,\ordenvert H\,=\,
+			\indice{G:\normaliza[G]H}\,\ordenvert H\,=\,
+			\sum_{g\in R}\,\ordenvert{gHg^{-1}}\,>\,
+			\ordenvert{\bigcup_{g\in R}\,gHg^{-1}}\,=\,
+			\ordenvert G
+		\text{ .}
+	\end{displaymath}
+	%
+	La desigualdad es estricta, \emph{porque $H$ es subgrupo propio}.%
+	\footnote{
+		En realidad, no usamos lo anterior, la cuesti\'on de que $R$
+		debe ser un sistema completo de representantes. Con saber que
+		una desigualdad es estricta es suficiente:
+		\begin{displaymath}
+			\ordenvert G\,=\,\indice{G:H}\,\ordenvert H\,\geq\,
+			\indice{G:\normaliza[G]H}\,\ordenvert H\,\geq\,
+			\sum_{g\in R}\,\ordenvert{gHg^{-1}}\,>\,
+			\ordenvert{\bigcup_{g\in R}\,gHg^{-1}}\,=\,
+			\ordenvert G
+			\text{ .}
+		\end{displaymath}
+		%
+	}
+
+	Si $G=C_1\sqcup\,\cdots\,\sqcup C_m$ y $g_i\in C_i$, definimos
+	$H=\generado{\lista g{m}}$. Como $G$ es la uni\'on de los conjugados
+	de $H$ (todo elemento de $G$ es conjugado a alg\'un $g_i$ y, en
+	particular, a alg\'un elemento de $H$), $H$ no puede ser un subgrupo
+	propio.
+\end{solucion}
+

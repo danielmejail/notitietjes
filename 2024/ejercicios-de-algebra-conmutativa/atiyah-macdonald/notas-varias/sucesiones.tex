@@ -1,0 +1,56 @@
+Sea $A$ un anillo (conmutativo con $1$) y sean $M$, $M'$ y $M''$ tres $A$-%
+m\'odulos y sean $f:\,M'\rightarrow M$ y $g:\,M\rightarrow M''$ morfismos. Si
+la sucesi\'on \emph{de $A$-m\'odulos}
+\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r] & \Hom[A](M'',N)\arrow[r,"{\pull g}"] &
+			\Hom[A](M,N)\arrow[r,"{\pull f}"] &
+			\Hom[A](M',N)
+	\end{tikzcd}
+\end{center}
+es exacta para todo $A$-m\'odulo $N$, entonces la sucesi\'on
+\begin{center}
+	\begin{tikzcd}
+		M'\arrow[r,"f"] & M\arrow[r,"g"] & M''\arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+es exacta.
+
+\begin{obsNotas}\label{obs:notas:sucesiones}
+	Esta es la versi\'on contravariante. La versi\'on covariante se deduce
+	del isomorfismo $\Hom[A](A,N)\simeq N$.
+\end{obsNotas}
+
+Para demostrar la afirmaci\'on, consideramos, en primer lugar, el m\'odulo
+$N=\coker(g)$ y el diagrama conmutativo:
+\begin{center}
+	\begin{tikzcd}
+		M\arrow[r,"g"] \arrow[dr] & M''\arrow[d] \\
+		& \coker(g)
+	\end{tikzcd}
+	,
+\end{center}
+donde la flecha vertical es el cociente por el subm\'odulo $\img(g)$ y la
+flecha diagonal es la composici\'on de $g$ con el mismo. Notamos que
+$g$ es sobre, si \emph{y s\'olo si} el cociente es el morfismo nulo. En
+particular, la inyectividad de $\pull g$ y el hecho de que la composici\'on de
+$g$ con el cociente es cero implican que $g$ debe ser sobre.
+
+Por otro lado, $g\circ f=\pull f(g)=\pull f\circ\pull g(\id[M''])$. Tomando
+$N=M''$ en la sucesi\'on exacta, se deduce que $g\circ f=0$ y, por lo tanto,
+que $\img(f)\subset\ker(g)$.
+
+Finalmente, tomamos $N=\coker(f)$ y consideramos el diagrama
+\begin{center}
+	\begin{tikzcd}
+		M \arrow[d,"g"'] \arrow[r] & \coker(f) \\
+		M'' \arrow[ur, dashed] &
+	\end{tikzcd}
+	,
+\end{center}
+donde la flecha horizontal es el cociente. Dado que $\pull f$ aplicada al
+morfismo cociente da cero, el mismo debe, por exactitud, pertenecer a la imagen
+de $\pull g$, es decir, debe existir una flecha diagonal que haga conmutar el
+diagrama anterior. De la existencia de tal morfismo y de que el n\'ucleo del
+cociente es $\img(f)$, se deduce que $\ker(g)\subset\img(f)$.
+

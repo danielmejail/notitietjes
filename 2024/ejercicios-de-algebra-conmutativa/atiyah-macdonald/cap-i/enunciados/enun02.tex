@@ -1,0 +1,34 @@
+Let $A$ be a ring and let $A[x]$ be the ring of polynomials un an indeterminate
+$x$, with coefficients in $A$. Let $f=a_0+a_1\,x+\,\cdots\,+a_m\,x^m\in A[x]$.
+Prove that:
+\begin{enumerate}[(i)]
+	\item\label{item:ejer:capi:02:i}
+		$f$ is a unit in $A[x]$, if and only if $a_0$ is a unit in $A$
+		and $\lista a{m}$ are nilpotent;%
+		\hint{
+			If $b_0+b_1\,x+\,\cdots\,+b_n\,x^n$ is the inverse of
+			$f$, prove, by induction on $r$, that
+			$a_n^{r+1}\,b_{m-r}=0$. Hence show that $a_n$ is
+			nilpotent, and then use Ex.~\label{ejer:capi:01}.
+		}
+	\item\label{item:ejer:capi:02:ii}
+		$f$ is nilpotent, if and only if $a_0,\,\lista a{m}$ are
+		nilpotent;
+	\item\label{item:ejer:capi:02:iii}
+		$f$ is a zero-divisor, if and only if there exists $a\neq 0$ in
+		$A$ such that $a\,f=0$;%
+		\hint{
+			Choose a polynomial $g=b_0+b_1\,x+\,\cdots\,+b_n\,x^n$
+			of least degree $m$ such that $f\,g=0$. Then
+			$a_m\,b_n=0$, hence $a_m\,g=0$ (because $a_n\,g$
+			annihilates $f$ and has degree less than $n$). Now show
+			by induction that $a_{m-r}\,g=0$.
+		}
+	\item\label{item:ejer:capi:02:iv}
+		$f$ is said to be \emph{primitive}, if
+		$\generado{a_0,\,\lista a{m}}=\generado 1$. Prove that, if
+		$f,g\in A[x]$, then $f\,g$ is primitive, if and only if $f$ and
+		$g$ are primitive.
+\end{enumerate}
+%
+

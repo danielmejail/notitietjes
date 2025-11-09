@@ -1,0 +1,129 @@
+\begin{propoNotas}\label{propo:notas:primos-minimales}
+	Los ideales primos minimales est\'an contenidos en el conjunto de
+	divisores de cero.
+\end{propoNotas}
+
+Sea $A$ un anillo conmutativo con unidad y sea $D$ el \emph{conjunto}%
+\footnote{
+	$2+3=5$ en $\enterosmod[6]$. Si bien $xy=x'y'=0$ implica
+	$(x+x')\,yy'=0$, aunque $y,y'\neq 0$, no se deduce que $yy'\neq 0$;
+	justamente, $y$ e $y'$ tambi\'en son divisores de cero. Con lo cual,
+	no se puede concluir que $x+x'$ sea divisor de cero, si $x$ y $x'$ lo
+	son.
+}
+de divisores de cero de $A$. El radical de un subconjunto $E\subset A$ es el
+conjunto $\rad(E)$ compuesto por todos los elementos del anillo que, elevados a
+alguna potencia, pertenecen a $E$. Vale que
+\begin{displaymath}
+	D \,=\, \rad(D)\,=\,\bigcup_{x\neq 0}\,\rad(\Ann(x))
+	\text{ .}
+\end{displaymath}
+%
+
+\begin{lemaNotas}\label{lema:notas:primos-minimales:existen}
+	Existen primos minimales.
+\end{lemaNotas}
+
+\begin{lemaNotas}\label{lema:notas:primos-minimales:union-de-ideales}
+	El conjunto $D$ de divisores de cero es uni\'on de ideales primos.
+\end{lemaNotas}
+
+\begin{proof}
+	Si $\Sigma$ denota el conjunto de ideales contenidos en $D$, entonces
+	$\Sigma$ posee elementos maximales. Todo elemento maximal de $\Sigma$
+	es un ideal primo. Veamos esta \'ultima afirmaci\'on. Si
+	$\frak a\in\Sigma$ es un elemento maximal e $y\in A\setmin\frak a$,
+	entonces $\generado y+\frak a$ es un ideal que contiene estrictamente
+	a $\frak a$ y, por lo tanto, no pertenece a $\Sigma$. En particular,
+	$\generado y+\frak a\not\subset D$, es decir, existen $t\in A$ y
+	$b\in\frak a$ tales que
+	\begin{displaymath}
+		yt+b\,\not\in\,D
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $x\in A\setmin\frak a$, an\'alogamente, existen $s\in A$ y
+	$a\in\frak a$ tales que $xs+a\not\in D$. Por lo tanto, si
+	$xy\in\frak a$, pero $x,y\not\in\frak a$,
+	\begin{displaymath}
+		(xs+a)\,(yt+b)\,\in\,(xy)\,st+\frak a\,\subset\,\frak a
+			\,\subset\,D
+		\text{ .}
+	\end{displaymath}
+	%
+	Pero esto es absurdo, pues el conjunto $A\setmin D$ de los elementos
+	que no son divisores de cero es multiplicativamente cerrado.
+
+	Como $D$ es uni\'on de ideales, debe ser uni\'on de los ideales
+	maximales que contiene. En particular, por lo anterior, es uni\'on de
+	ideales primos.
+\end{proof}
+
+\begin{obsNotas}\label{obs:notas:primos-minimales:multiplicativamente-cerrados}
+	Un subconjunto $S\subset A$ es multiplicativamente cerrado, si
+	$s,t\in S$ implica $st\in S$. En particular, $S$ es multiplicativamente
+	cerrado, si y s\'olo si su complemento cumple que $xy\in A\setmin S$
+	implica $x\in A\setmin S$, o bien $y\in A\setmin S$.
+\end{obsNotas}
+
+\begin{obsNotas}\label{obs:notas:primos-minimales:anillo-cero}
+	Supondremos, en lo que queda, que los conjuntos multiplicativamente
+	cerrados verifican $1\in S$ y $0\not\in S$.%
+	\footnote{
+		Excluimos los anillos en donde $0=1$.
+	}
+\end{obsNotas}
+
+\begin{lemaNotas}%
+	\label{lema:notas:primos-minimales:multiplicativamente-cerrados}
+	Si $S\subset A$ es un subconjunto multiplicativamente cerrado y
+	maximal (con respecto a $0\not\in S$ y a $1\in S$), entonces
+	$A\setmin S$ es un ideal primo minimal.
+\end{lemaNotas}
+
+\begin{proof}
+	Veamos que $A\setmin S$ es ideal. Si $y\in A\setmin S$, entonces
+	\begin{displaymath}
+		T\,=\,\Big\{sy^r\,:\,s\in S,\,r\geq 0\Big\}
+	\end{displaymath}
+	%
+	es un conjunto multiplicativamente cerrado que contiene a $S$ y a $1$.
+	Por maximalidad de $S$, se deduce que $0\in T$, es decir, existen
+	$s\in S$ y $r\geq 0$ tales que
+	\begin{displaymath}
+		sy^r\,=\,0
+		\text{ ;}
+	\end{displaymath}
+	%
+	como $0\not\in S$, $r\geq 1$. Sea $x\in A$ un elemento arbitrario;
+	queremos ver que $xy\in A\setmin S$. Si $xy\in S$, entonces
+	\begin{displaymath}
+		0\,=\,xsy^r\,=\,(s\,(xy))\,y^{r-1}
+		\text{ ,}
+	\end{displaymath}
+	%
+	con $s\,(xy)\in S$, por ser multiplicativamente cerrado. Pero entonces
+	es posible tomar un valor m\'as peque\~no para la potencia $r$. Como
+	$r=0$ es imposible, se llega a una contradicci\'on de suponer que
+	$xy$ podr\'{\i}a no pertenecer a $A\setmin S$. As\'{\i}, $A\setmin S$
+	es cerrado por multiplicar por elementos arbitrarios de $A$. Veamos que
+	es cerrado por sumas: sean $y,y_1\not\in S$. Argumentando de manera
+	an\'aloga, existen $s,s_1\in S$ y $r,r_1\geq 1$ tales que
+	\begin{displaymath}
+		sy^r\,=\,s_1y_1^{r_1}\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	Pero, entonces, por la f\'ormula del binomio,
+	\begin{displaymath}
+		ss_1\,(y+y_1)^{r+r_1-1}\,=\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	con $r+r_1-1\geq 1$. Como $0\not\in S$ y $S$ es multiplicativamente
+	cerrado, $y+y_1\not\in S$.
+
+	Que $A\setmin S$ es un ideal primo, se deduce de la Observaci\'on~%
+	\ref{obs:notas:primos-minimales:multiplicativamente-cerrados}. La
+	minimalidad de $A\setmin S$ es inmediata de la maximalidad de $S$.
+\end{proof}

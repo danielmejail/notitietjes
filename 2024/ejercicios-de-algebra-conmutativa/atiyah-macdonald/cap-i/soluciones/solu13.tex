@@ -1,0 +1,32 @@
+Si $\frak a=\generado 1$, existir\'{\i}an $\lista f{r}\in\Sigma$ y
+$\lista h{r}\in A$ tales que
+\begin{equation}
+	\label{eq:ejer:13:idealpropio}
+	1 \,=\,h_1\,f_1(x_{f_1})+\,\cdots\,+h_r\,f_r(x_{f_r})
+	\text{ .}
+\end{equation}
+%
+Esta igualdad es v\'alida, en particular, en el subanillo $B\subset A$
+compuesto por todos aquellos polinomios con coeficientes en $K$ que involucran,
+\'unicamente, las variables $x_{f_i}$ y las $x_f$ que aparecen en los $h_i$;
+el anillo $B$ es una anillo de polinomios en una cantidad finita de
+indeterminadas. Por otro lado, existe una extensi\'on finita $E/K$ que
+contiene, para cada $f_i$, una ra\'{\i}z $\alpha_i$. Por propiedad universal
+del anillo de polinomios $B$, existe un \'unico morfismo de $K$-\'algebras
+$\mu:\,B\rightarrow E$ que verifica
+\begin{align*}
+	\mu(x_f) & \,=\,
+		\begin{cases}
+			\alpha_i & \text{ si } f=f_i \text{ ,} \\
+			0 & \text{ en otro caso.}
+		\end{cases}
+\end{align*}
+%
+(Es suficiente pedir que $\mu(x_{f_i})=\alpha_i$, aunque se pierda la unicidad
+de $\mu$). Aplicando $\mu$ a la identidad \eqref{eq:ejer:13:idealpropio}, se
+deduce que $1=0$ en $E$. Pero esto es absurdo, pues $E$ es un cuerpo.
+
+El cuerpo $L$ es algebraicamente cerrado, pues todo polinomio $f\in L[x]$
+tiene coeficientes pertenecientes a alg\'un subcuerpo $K_n$ y, por lo tanto,
+$f$ posee alguna ra\'{\i}z en $K_{n+1}\subset L$.
+
