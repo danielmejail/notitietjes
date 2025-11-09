@@ -1,0 +1,893 @@
+\theoremstyle{plain}
+\newtheorem{teoCuadPar}{\teoname}[section]
+\newtheorem{lemaCuadPar}[teoCuadPar]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defCuadPar}[teoCuadPar]{\defname}
+\newtheorem{obsCuadPar}[teoCuadPar]{\obsname}
+\newtheorem{ejemCuadPar}[teoCuadPar]{\ejemname}
+\newtheorem{ejerCuadPar}[teoCuadPar]{\ejername}
+
+%-------------
+
+% La definici\'on de forma cuadr\'atica sobre cuerpos de caracter\'{\i}stica
+% $2$ es similar a la definici\'on en caracter\'{\i}stica impar.
+Sea $F$ un cuerpo de caracter\'{\i}stica $2$ y sea $V$ un espacio vectorial
+sobre $F$.
+
+\begin{defCuadPar}\label{def:parias:definicion}
+	Una \emph{forma cuadr\'atica} en $V$ es una funci\'on
+	$Q:\,V\rightarrow F$ que cumple:
+	\begin{enumerate}[(i)]
+		\item\label{item:parias:definicion:homogenea}
+			$Q(c\,v)=c^2\,Q(v)$, para todo $v\in V$ y toda
+			$c\in F$, y
+		\item\label{item:parias:definicion:bilineal}
+			la funci\'on
+			\begin{math}
+				B(v,w):=Q(v+w)-Q(v)-Q(w)
+			\end{math} es bilineal.
+	\end{enumerate}
+	%
+	La funci\'on $B=B_Q$ definida en
+	\eqref{item:parias:definicion:bilineal} se denomina \emph{forma %
+	bilineal asociada} a la forma cuadr\'atica $Q$.
+\end{defCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:definicion}
+	La relaci\'on entre la forma cuadr\'atica $Q$ y su forma bilineal
+	asociada $B$ se puede expresar como:
+	\begin{equation}
+		\label{eq:parias:definicion:bilineal}
+		Q(v+w)\,=\,Q(v)\,+\,Q(w)\,+\,B(v,w)
+		\text{ .}
+	\end{equation}
+	%
+	La relaci\'on de perpendicularidad correspondiente a $B$ se puede
+	expresar en t\'erminos de $Q$:
+	\begin{equation}
+		\label{eq:parias:definicion:perpendicular}
+		B(v,w)\,=\,0\quad\Leftrightarrow\quad
+			Q(v+w)\,=\,Q(v)\,+\,Q(w)
+		\text{ .}
+	\end{equation}
+	%
+	De \eqref{eq:parias:definicion:bilineal}, la forma $B$ es sim\'etrica.
+	M\'as aun, como $2=0$,
+	\begin{displaymath}
+		B(v,v)\,=\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $v\in V$. Es decir, la forma bilineal asociada a una forma
+	cuadr\'atica es siempre \emph{alternada}.
+\end{obsCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:definicion:polinomios}
+	Inductivamente, de la identidad
+	\eqref{eq:parias:definicion:bilineal}, se deduce que
+	\begin{displaymath}
+		Q(v_1+\,\,\cdots\,+v_r)\,=\,Q(v_1)\,+\,\cdots\,+\,Q(v_r)\,+\,
+			\sum_{i<j}\,B(v_i,v_j)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $\lista v{r}\in V$, $r\geq 2$. En particular, fijando una
+	base y usando \eqref{item:parias:definicion:homogenea},
+	\begin{equation}
+		\label{eq:parias:definicion:polinomios}
+		f(\lista x{n}) \,=\,Q(x_1\,e^1+\,\cdots\,+x_n\,e^n)
+			\,=\,\sum_{i=1}^n\,a^i\,x_i^2\,+\,
+				\sum_{i<j}\,a^{ij}\,x_i\,x_j \\
+			% \,=\, a^i\,x_i^2\,+\,\tfrac 1{2}\,a^{ij}\,x_i\,x_j
+		\text{ ,}
+	\end{equation}
+	%
+	donde $a^i=Q(e^i)$ y $a^{ij}=B(e^i,e^j)$. Es decir, en coordenadas,
+	$Q$ est\'a representada por un polinomio homog\'eneo de grado $2$.
+
+	Rec\'{\i}procamente, si $f(\lista x{n})$ es un polinomio homog\'eneo
+	de grado $2$ con coeficientes $a^i$ y $a^{ij}$ ($i<j$), como en
+	\eqref{eq:parias:definicion:polinomios}, la funci\'on
+	$Q:\,V\rightarrow F$ definida por
+	\begin{math}
+		Q(x_1\,e^1+\,\cdots\,+x_n\,e^n):=f(\lista x{n})
+	\end{math} --una vez fijada una base-- verifica
+	\eqref{item:parias:definicion:homogenea} y la funci\'on asociada
+	$B=B_Q$ est\'a dada por
+	\begin{equation}
+		\label{eq:parias:definicion:polinomio:bilineal}
+		B(v,w)\,=\,\sum_{i<j}\,a^{ij}\,\big(x_i\,y_j+x_j\,y_i\big)
+			\,=\,\repr v\,\cdot\,M\,\repr w
+		\text{ ,}
+	\end{equation}
+	%
+	si $v=x_i\,e^i$, $w=y_i\,e^i$, donde $M$ denota la matriz
+	\begin{displaymath}
+		M\,=\,
+		\begin{bmatrix}
+			0 & a^{12} & \cdots & a^{1n} \\
+			a^{12} & 0 & \cdots & a^{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a^{1n} & a^{2n} & \cdots & 0
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, $B$ es bilineal y $Q$ es una forma cuadr\'atica.
+\end{obsCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:coeficientes}
+	Los coeficientes en la diagonal son todos cero. Esto no quiere
+	decir que $B=0$. De hecho, $B=0$, si y s\'olo si los coeficientes de
+	los t\'erminos cruzados $a^{ij}$ son todos cero, es decir, cuando la
+	forma $Q$ se diagonaliza. En caracter\'{\i}stica distinta de $2$,
+	siempre es posible hallar una base con respecto a la cual los
+	coeficientes $a^{ij}$ sean cero. En caracter\'{\i}stica $2$, es
+	necesario (y suficiente) que estos coeficientes no sean cero para que
+	la forma bilineal asociada (no la forma cuadr\'atica) no sea
+	id\'enticamente cero:
+	\begin{displaymath}
+		B_Q\,=\,0 \quad\Leftrightarrow\quad
+			a^{ij}\,=\,0\text{ para todo }i<j
+		\text{ .}
+	\end{displaymath}
+	%
+\end{obsCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:matriz}
+	Una forma cuadr\'atica se puede expresar, fijada una base del espacio
+	vectorial subyacente, como un polinomio homog\'eneo de grado $2$.
+	Tambi\'en es posible expresar una forma cuadr\'atica en t\'erminos de
+	productos de matrices:
+	\begin{equation}
+		\label{eq:parias:matriz}
+		Q(v) \,=\,\repr v\,\cdot\,N\,\repr v
+		\text{ ,}
+	\end{equation}
+	%
+	donde $N$ denota la matriz \emph{triangular superior}
+	\begin{displaymath}
+		N\,=\,
+		\begin{bmatrix}
+			a^1 & a^{12} & \cdots & a^{1n} \\
+			0 & a^2 & \cdots & a^{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & \cdots & a^n
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	A diferencia de lo que ocurre con la matriz $M$ de la forma bilineal
+	asociada, en esta matriz aparecen todos los t\'erminos: los
+	$a^i=Q(e^i)$ y tambi\'en los $a^{ij}=B(e^i,e^j)$. La matriz de la
+	forma bilineal asociada es $M=N+\trnsp N$.%
+	\footnote{
+		Podr\'{\i}amos haber definido esta matriz al introducir formas
+		cuadr\'aticas sobre un cuerpo de caracter\'{\i}stica impar,
+		pero, en aquella situaci\'on, la matriz contendr\'{\i}a la
+		misma informaci\'on que la matriz de la forma bilineal
+		asociada. La relaci\'on entre ambas matrices ser\'{\i}a
+		$M=\tfrac 1{2}\,(N+\trnsp N)$.
+	}
+\end{obsCuadPar}
+
+\begin{ejemCuadPar}\label{ejem:parias:binaria}
+	En $F^2$, la matriz de la forma $Q(x,y)=a\,x^2+b\,x\,y+c\,y^2$ es
+	$\sbmatrix{ a & b \\ & c }$. La forma bilineal asociada es
+	\begin{displaymath}
+		B((x,y),(x_1,y_1))\,=\,Q(x+x_1,y+y_1)\,-\,Q(x,y)\,-\,Q(x_1,y_1)
+			\,=\,b\,(xy_1+yx)
+		\text{ .}
+	\end{displaymath}
+	%
+	La matriz asociada a la forma bilineal es $\sbmatrix{ & b \\ b & }$ y
+	$B$ es no degenerada, si y s\'olo si $b\neq 0$.
+\end{ejemCuadPar}
+
+\begin{ejemCuadPar}\label{ejem:parias:falla}
+	Las formas cuadr\'aticas $x^2+x\,y$ y $x\,y$ est\'an asociadas a la
+	misma forma bilineal sim\'etrica v\'{\i}a
+	\eqref{eq:parias:definicion:bilineal}. La forma bilineal sim\'etrica
+	$B((x,y),(x_1,y_1))=xx_1+yy_1$ no es la forma bilineal asociada a
+	ninguna forma cuadr\'atica en caracter\'{\i}stica $2$.
+\end{ejemCuadPar}
+
+Como se ve en el \ejemname~\ref{ejem:parias:falla}, la aplicaci\'on
+$Q\mapsto B_Q$, que a cada forma cuadr\'atica le asigna su forma bilineal
+asociada, no es ni inyectiva, ni sobreyectiva en el espacio de formas
+bilineales sim\'etricas. Ahora, una forma bilineal $B=B_Q$, proveniente de una
+forma cuadr\'atica, no s\'olo es sim\'etrica, sino que, m\'as aun, es
+alternada. Si \emph{correstringimos} la aplicaci\'on $Q\mapsto B_Q$ al espacio
+de formas alternadas, se ve que, entonces, es sobreyectiva, pues toda forma
+alternada est\'a representada en una base por una matriz (anti) sim\'etrica con
+ceros en la diagonal. Conocer la forma bilineal asociada no nos permite
+recuperar la forma cuadr\'atica.
+
+\subsection{Un sustituto de la diagonalizaci\'on}
+	\label{subsec:cuadraticas:parias:simplecticas}
+Sea $(V,Q)$ un espacio cuadr\'atico%
+\footnote{
+	La definici\'on es an\'aloga a la dada para cuerpos de
+	caracter\'{\i}stica impar.
+}
+y sea $B=B_Q$ la forma bilineal asociada. Si $B$ es no degenerada, por el
+\coroname~\ref{coro:simplecticas:dimension}, $\dim\,V=2m$ y existe una base
+simpl\'ectica $\{e^1,\,f^1,\,\dots,\,e^m,\,f^m\}$ para $B$. Es decir,
+$B(e^i,e^i)=B(f^i,f^i)=0$, $B(e^i,f^i)=1$ y los subespacios
+$\generado{e^i,f^i}$ son ortogonales entre s\'{\i}. Con respecto a esta base,
+\begin{equation}
+	\label{eq:parias:base:simplecticas}
+	\begin{aligned}
+		& Q(x_1\,e^1+y_1\,f^1+\,\cdots\,+x_m\,e^m+y_m\,f^m)\,=\,
+			\sum_{i=1}^m\,Q(x_i\,e^i+y_i\,f^i) \\
+		& \qquad\,=\, \sum_{i=1}^m\,(a^i\,x_i^2+x_iy_i+b^i\,y_i^2)
+		\text{ ,}
+	\end{aligned}
+	%
+\end{equation}
+%
+donde $a^i=Q(e^i)$ y $b^i=Q(f^i)$.%
+\footnote{
+	Los coeficientes $a^i$ y $b^i$ podr\'{\i}an ser cero. Eso no
+	cambiar\'{\i}a el hecho de que $B_Q$ es no degenerada.
+}
+La matriz de $Q$ en esta base es
+\begin{displaymath}
+	N\,=\,
+	\begin{bmatrix}
+		a^1 & 1 & & & & & \\
+		& b^1 & & & & & \\
+		& & \ddots & & & & \\
+		& & & & & a^m & 1 \\
+		& & & & & & b^m
+	\end{bmatrix}
+	\text{ .}
+\end{displaymath}
+%
+Rec\'{\i}procamente, si $Q$ en cierta base se expresa como en
+\eqref{eq:parias:base:simplecticas}, la matriz de $B_Q$ en la misma base es la
+matriz simpl\'ectica \eqref{item:simplecticas:base:numerica}.
+
+En caracter\'{\i}stica distinta de $2$, toda forma cuadr\'atica se diagonaliza,
+incluso aquellas cuyas formas bilineales asociadas son degeneradas; el
+resultado es una descomposici\'on
+\begin{equation}
+	\label{eq:parias:diagonalizacion:impar}
+	V\,=\,W_1\perp\,\cdots\,\perp W_r\,\perp\,V^\perp
+	\text{ ,}
+\end{equation}
+%
+donde $\dim\,W_i=1$ y $Q|_{V^\perp}=0$, que se obtiene buscando sucesivamente
+vectores ortogonales y anisotr\'opicos. En caracter\'{\i}stica $2$, si $B=B_Q$
+no fuese no degenerada,%
+\footnote{
+	Aun no definimos lo que significa que $Q$ sea no degenerada.
+}
+eso significa que $V^\perp\neq 0$. Asumiendo que $B$ no es id\'enticamente
+cero,%
+\footnote{
+	Que alguno de los coeficientes fuera de la diagonal no son cero;
+	en caracter\'{\i}stica $2$, una forma cuadr\'atica es diagonal, si
+	y s\'olo si su forma bilineal es id\'enticamente cero.
+}
+$V^\perp\neq V$ y existe alg\'un subespacio $0\neq W\subset V$ tal que
+$V=W\oplus V^\perp$ (suma directa de espacios vectoriales). Ahora,
+independientemente de la elecci\'on de $W$, $B|_W$ es no degenerada.%
+\footnote{
+	Si $w_0\in W^\perp$, entonces $B(w_0,w+v')=B(w_0,w)+B(w,v')=0$ y
+	$w_0\in V^\perp$.
+}
+Aplicando lo que sabemos del caso no degenerado, existe una base simpl\'ectica
+para $W$. Esta base la completamos con una base de $V^\perp$ (arbitraria). En
+una base de este tipo, la forma $Q$ tiene la expresi\'on siguiente:
+\begin{displaymath}
+	\sum_{i=1}^m\,(a^i\,x_i^2+x_iy_i+b^i\,y_i^2)\,+\,
+		\sum_{k=1}^r\,c^k\,z_k^2
+	\text{ ,}
+\end{displaymath}
+%
+donde $\dim\,W=2m$ y $\dim\,V^\perp=r$.
+
+\subsection{Formas cuadr\'aticas no degeneradas}%
+	\label{subsec:cuadraticas:parias:nodegeneradas}
+El \teoname~\ref{teo:impar:nodegeneradas} da condiciones equivalentes a la
+propiedad de una forma cuadr\'atica de ser no degenerada, en
+caracter\'{\i}stica impar. En caracter\'{\i}stica $2$, un resultado an\'alogo
+nos permitir\'a \emph{definir} la noci\'on correspondiente. Sea $(V,Q)$ un
+espacio cuadr\'atico sobre un cuerpo de caracter\'{\i}stica $2$ y sea $B=B_Q$
+la forma bilineal asociada.
+
+\begin{teoCuadPar}\label{teo:parias:nodegeneradas}
+	Las siguientes afirmaciones son equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:parias:nodegeneradas:nulo}
+			el \'unico vector de $V$ que cumple $Q(v)=0$ y
+			$B(v,w)=0$ para todo $w\in V$ es $v=0$;
+		\item\label{item:parias:nodegeneradas:radical}
+			la funci\'on $Q:\,V^\perp\rightarrow F$ es inyectiva;%
+			\footnote{
+				En t\'erminos geom\'etricos,
+				$V^\perp\cap\{Q=0\}=\{0\}$.
+			}
+		\item\label{item:parias:nodegeneradas:variables}
+			si $n=\dim\,V$, en ninguna base se puede expresar $Q$
+			como un polinomio homog\'eneo de grado $2$ en menos de
+			$n$ variables;
+		\item\label{item:parias:nodegeneradas:derivadas}
+			con respecto a cualquier base, expresando a $Q$ como
+			polinomio homog\'eneo de grado $2$, la \'unica
+			soluci\'on com\'un en $V$ a las ecuaciones $Q(v)=0$ y
+			$\partial Q/\partial x_i=0$ es $v=0$.
+	\end{enumerate}
+	%
+\end{teoCuadPar}
+
+\begin{defCuadPar}\label{def:parias:nodegeneradas}
+	La forma cuadr\'atica $Q$ se dice \emph{no degenerada}, si verifica las
+	condiciones del \teoname~\ref{teo:parias:nodegeneradas}. Un
+	\emph{vector isotr\'opico} para $Q$ es un vector $v\neq 0$ tal que
+	$Q(v)=0$. Decimos que $Q$ es \emph{universal}, si $Q(V)=F$. Dos formas
+	$Q_1:\,V_1\rightarrow F$ y $Q_2:\,V_2\rightarrow F$ son
+	\emph{equivalentes}, si existe un isomorfismo $A:\,V_1\rightarrow V_2$
+	tal que $Q_2(A\,v)=Q_1(v)$ para todo $v\in V_1$.
+\end{defCuadPar}
+
+Las definiciones anteriores son, esencialmente, las mismas que para
+caracter\'{\i}stica impar. Sin embargo, no todas se pueden interpretar en
+t\'erminos de la forma bilineal asociada.
+
+\subsection{Ejemplos}\label{subsec:cuadraticas:parias:ejemplos}
+
+\begin{ejemCuadPar}\label{ejem:parias:bajas}
+	En dimensi\'on $1$, todo espacio no nulo es no degenerado. En
+	dimensi\'on $2$, la forma $a\,x^2+b\,xy+c\,y^2$ es no degenerada, si
+	\begin{itemize}
+		\item $b\neq 0$, o bien
+		\item $b=0$ y $ac\not\in\cuadrados F$.
+	\end{itemize}
+	%
+	Por ejemplo, $x\,y$ es no degenerada, pero $x^2-y^2=x^2+y^2$ es
+	degenerada.
+\end{ejemCuadPar}
+
+\begin{ejemCuadPar}\label{ejem:parias:tres}
+	En $F^3$, definimos $Q(x,y,z)=x^2+x\,y+y^2+z^2$. La forma bilineal
+	asociada es $B=x\,y_1+x_1\,y$. En particular, $B$ es degenerada, pero
+	$Q$ no lo es: $V^\perp=\generado{(0,0,1)}$, pero
+	$Q(0,0,\gamma)=\gamma^2$.
+\end{ejemCuadPar}
+
+\begin{ejemCuadPar}\label{ejem:parias:extensiones}
+	Sea $Q(x,y)=x^2+c\,y^2$ en $F^2$, donde $c\not\in\cuadrados F$. Como
+	$Q$ es diagonal, $V^\perp=V$, pero $Q(x,y)=0$ implica $x=y=0$. Sin
+	embargo, sobre $\algclos F$,%
+	\footnote{
+		O en $F(\sqrt c)$.
+	}
+	$c$ es un cuadrado y $Q(x,y)=0$ tiene soluciones no triviales. En
+	consecuencia, \emph{$Q$ es degenerada sobre $\algclos F$}.
+\end{ejemCuadPar}
+
+\begin{ejemCuadPar}\label{ejem:parias:extensiones:bis}
+	En $F^4$, definimos $Q(x,y,z,w)=x\,y+z^2+c\,w^2$, donde
+	$c\not\in\cuadrados F$. Esta forma no es degenerada sobre $F$, pero,
+	en una clausura algebraica, podemos escribir $Q$ como un polinomio en
+	menos de cuatro variables, pues
+	$z^2+c\,w^2=(z+\sqrt c\,w)^2$.
+\end{ejemCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:extensiones}
+	Si $F$ es un cuerpo de caracter\'{\i}stica impar, una forma
+	$Q:\,V\rightarrow F$ es no degenerada, si y s\'olo si
+	(\teoname~\ref{teo:impar:nodegeneradas}) su discriminante es
+	distinto de cero, es decir, si su matriz asociada (en cualquier base)
+	es invertible. Esta propiedad no se ve afectada por extensiones de
+	cuerpos. Es decir, si $Q$ es no degenerada y $K/F$ es una extensi\'on
+	de cuerpos, la forma cuadr\'atica $Q_K:\,K\tensor[F] V\rightarrow K$
+	definida por%
+	\footnote{
+		Extender de manera que se preserve la homogeneidad, o bien, la
+		bilinealidad.
+	}
+	\begin{equation}
+		\label{eq:impar:extensiones}
+		Q_K(c\tensor v)\,=\,c^2\,Q(v)
+	\end{equation}
+	%
+	es no degenerada, pues su discriminante es distinto de cero. En
+	caracter\'{\i}stica $2$, este hecho es falso.
+\end{obsCuadPar}
+
+\subsection{Clasificaci\'on en caracter\'{\i}stica $2$}%
+	\label{subsec:cuadraticas:parias:clasificacion}
+
+\begin{teoCuadPar}\label{teo:parias:universal}%
+	\footnote{
+		C.f. el \teoname~\ref{teo:impar:universal}.
+	}
+	Sea $F$ un cuerpo de caracter\'{\i}stica $2$. Si $Q:\,V\rightarrow F$
+	es una forma cuadr\'atica no degenerada que representa $0$ de manera no
+	trivial, entonces $Q$ es universal.
+\end{teoCuadPar}
+
+\begin{proof}
+	Empezamos con un vector isotr\'opico $v$. Como $Q$ no es
+	id\'enticamente cero (es no degenerada) y $Q(c\,v)=c^2\,Q(v)=0$, la
+	dimensi\'on del espacio debe ser, al menos, $2$. M\'as aun, como $Q$ es
+	no degenerada, $v\not\in V^\perp$ y existe $w\in V$ tal que
+	$B(v,w)\neq 0$. El argumento es, ahora, id\'entico al del \teoname~%
+	\ref{teo:impar:universal}, con la diferencia del factor $2$.
+\end{proof}
+
+\begin{teoCuadPar}\label{teo:parias:isotropico}%
+	\footnote{
+		C.f. el \teoname~\ref{teo:impar:isotropico}.
+	}
+	Sea $F$ un cuerpo de caracter\'{\i}stica $2$ y sea $Q:\,V\rightarrow F$
+	una forma cuadr\'atica no degenerada. Si $Q$ admite un vector
+	isotr\'opico $e$, entonces existe un segundo vector isotr\'opico $f$
+	tal que $B(e,f)=1$ y $B$ es no degenerada en el plano $\generado{e,f}$.
+\end{teoCuadPar}
+
+\begin{proof}
+	Como en la demostraci\'on del \teoname~\ref{teo:parias:universal},
+	dado que $Q$ es no degenerada y $Q(e)=0$, se deduce que
+	$e\not\in V^\perp$ y existe $w\in V$ tal que $B(e,w)\neq 0$.
+	Reescalando, podemos suponer que $B(e,w)=1$. Si $c=Q(w)$, entonces
+	elegimos $f:=c\,e+w$.
+	% Se cumple que $B(e,f)=1$ y que $Q(f)=0$.
+\end{proof}
+
+La condici\'on $Q(v)=0$ que caracteriza vectores isotr\'opicos es m\'as
+restrictiva que la condici\'on $B(v,v)=0$ en la construcci\'on de una base
+simpl\'ectica para $B$.
+
+\begin{lemaCuadPar}\label{lema:parias:finitos:representa}%
+	\footnote{
+		C.f. el \teoname~\ref{teo:impar:finitos:representa}.
+	}
+	Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica $2$ y sea $(V,Q)$
+	un espacio cuadr\'atico.%
+	\footnote{
+		No necesariamente no degenerado.
+	}
+	Si $\dim\,V\geq 3$, entonces $Q$ representa $0$ de manera no trivial.
+\end{lemaCuadPar}
+
+\begin{proof}
+	Supongamos que $Q(v)\neq 0$. Como $B(v,-):\,V\rightarrow \bb F$ es
+	lineal, $\dim\,v^\perp\geq n-1\geq 2$. En particular, existe
+	$w\in v^\perp\setmin\generado v$. Como $Q(v)\neq 0$, existe $a\in\bb F$
+	tal que $Q(w)=a\,Q(v)$. Si $a=b^2$, $Q(w)=Q(b\,v)$ pero $w\neq b\,v$.
+	Ahora, $w\perp v$ implica
+	\begin{displaymath}
+		Q(w+b\,v)\,=\,Q(w)\,+\,Q(b\,v)\,=\,0
+	\end{displaymath}
+	%
+	y el vector no nulo $w+b\,v$ es isotr\'opico.%
+	\footnote{
+		La demostraci\'on usa que $\bb F$ es perfecto, no que es
+		finito.
+	}
+\end{proof}
+
+\begin{lemaCuadPar}\label{lema:parias:finitos:universal}%
+	\footnote{
+		C.f. el \coroname~\ref{coro:impar:finitos:universal}.
+	}
+	Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica $2$ y sea $(V,Q)$
+	un espacio cuadr\'atico.%
+	\footnote{
+		No necesariamente no degenerado.
+	}
+	Si $Q$ no es id\'enticamente $0$, entonces es universal.
+\end{lemaCuadPar}
+
+\begin{proof}
+	Si $Q(v_0)\neq 0$, como todo elemento de $\bb F$ es un cuadrado,
+	$\big\{Q(c\,v_0)\,:\,c\in\bb F\big\}=\bb F$.
+\end{proof}
+
+\begin{lemaCuadPar}\label{lema:parias:finitos:radical}
+	Si $Q:\,V\rightarrow\bb F$ es no degenerada, entonces
+	$\dim\,V^\perp\leq 1$. De hecho, $\dim\,V^\perp=0$, si $\dim\,V$ es
+	par, y $\dim\,V^\perp=1$, si $\dim\,V$ es impar.
+\end{lemaCuadPar}
+
+\begin{proof}
+	La forma bilineal alternada $B=B_Q$ induce una forma bilineal alternada
+	no degenerada en $V/V^\perp$. Entonces $\dim\,V/V^\perp$ es par.%
+	\footnote{
+		Esto es cierto en general, sobre cualquier cuerpo de cualquier
+		caracter\'{\i}stica.
+	}
+	Si $V^\perp\neq 0$, elegimos $v_0\neq 0$ en $V^\perp$. Como $Q$ es
+	no degenerada, $Q(v_0)\neq 0$. Si $v\in V$, $Q(v)=a\,Q(v_0)=Q(b\,v_0)$,
+	para cierto $b\in\bb F$. Si, m\'as aun, $v\in V^\perp$, entonces
+	\begin{displaymath}
+		Q(v+b\,v_0)\,=\,Q(v)\,+\,Q(b\,v_0)\,=\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	por perpendicularidad. Como $Q$ es no degenerada, $v+b\,v_0=0$. Como
+	$v\in V^\perp$ era arbitrario, se deduce que $V^\perp=\generado{v_0}$.
+	Es decir, en general, $\dim\,V^\perp\leq 1$. El resultado es
+	consecuencia de esto y de la observaci\'on general anterior.
+\end{proof}
+
+\begin{obsCuadPar}\label{obs:parias:nodegeneradas:par}
+	Una consecuencia del \lemaname~\ref{lema:parias:finitos:radical} es que, en
+	caracter\'{\i}stica $2$, cuando $\dim\,V$ es par, $Q$ es no degenerada,
+	si y s\'olo si $B$ es no degenerada ($V^\perp=0$).
+\end{obsCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:perfectos}
+	Los Lemas~\ref{lema:parias:finitos:representa},
+	\ref{lema:parias:finitos:universal} y
+	\ref{lema:parias:finitos:radical}, si bien fueron enunciados para
+	formas cuadr\'aticas defindas sobre un cuerpo finito de
+	caracter\'{\i}stica $2$, son ciertos sobre un cuerpo \emph{perfecto} de
+	caracter\'{\i}stica $2$.
+\end{obsCuadPar}
+
+Sobre un cuerpo $F$ de caracter\'{\i}stica impar, el discriminante y el grupo
+$\modcuadrados{F}$ juegan un papel importante en la clasificaci\'on de formas
+cuadr\'aticas. En caracter\'{\i}stica $2$, especialmente cuando el cuerpo $F$
+es perfecto, como es el caso de los cuerpos finitos, el lugar del discriminante
+lo toma otra funci\'on; en un cuerpo finito de caracter\'{\i}stica $2$, todo
+elemento es un cuadrado.
+
+\begin{defCuadPar}\label{def:parias:valoresespeciales}
+	Si $F$ es un cuerpo de caracter\'{\i}stica $2$, la \emph{funci\'on %
+	$\valoresfuncion$} es la funci\'on $\valoresfuncion:\,F\rightarrow F$
+	dada por $\valores a=a^2+a$.
+\end{defCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:valoresespeciales}
+	Si $F$ es un cuerpo finito de caracter\'{\i}stica $2$, la funci\'on
+	$\valoresfuncion$ es aditiva y su n\'ucleo es $\{0,1\}$. Si, adem\'as,
+	$F=\bb F$ es un cuerpo finito, el cociente $\modvalores{\bb F}$ tiene
+	orden $2$. En particular, la suma de dos elementos que no est\'an en la
+	imagen de $\valoresfuncion$ pertenece a la imagen, mientras que la suma
+	de un elemento que est\'a en la imagen con otro que no est\'a, no
+	pertenece a la imagen.
+\end{obsCuadPar}
+
+Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica $2$. Fijamos un elemento
+$d\in\novalores{\bb F}$ y un espacio cuadr\'atico $(V,Q)$ no degenerado de
+dimensi\'on $n$ sobre $\bb F$.
+
+El siguiente resultado juega el rol del \lemaname~%
+\ref{lema:impar:finitos:bajas}.
+
+\begin{teoCuadPar}\label{teo:parias:finitos:bajas}
+	La forma cuadr\'atica $Q$ es equivalente, sobre $\bb F$,
+	\begin{enumerate}[(1)]
+		\item\label{item:parias:finitos:bajas:i}
+			a $x^2$, si $\dim\,V=1$,
+		\item\label{item:parias:finitos:bajas:ii}
+			a $x\,y$ o a $x^2+x\,y+d\,y^2$, si $\dim\,V=2$, y
+		\item\label{item:parias:finitos:bajas:iii}
+			a $x\,y+z^2$, si $\dim\,V=3$.
+	\end{enumerate}
+	%
+	Las dos formas en \eqref{item:parias:finitos:bajas:ii} no son
+	equivalentes.
+\end{teoCuadPar}
+
+\begin{proof}
+	Si $\dim\,V=1$, $Q$ es de la forma $a\,x^2$ en alguna base. Usando que
+	$\bb F$ es perfecto, se deduce que $a\,x^2$ es equivalente a $x^2$.
+
+	Las formas $x\,y$ y $x^2+x\,y+d\,y^2$ en $\bb F^2$ no son equivalentes:
+	la primera admite un vector isotr\'opico, pero la segunda no.%
+	\footnote{
+		Si $(x_0,y_0)$ fuese isotr\'opico, $y_0\neq 0$ y
+		$d=(x_0/y_0)^2+x_0/y_0=\valores{x_0/y_0}$.
+	}
+	Para probar que toda forma no degenerada en un espacio de dimensi\'on
+	$2$ es equivalente a una de estas formas, por el \lemaname~%
+	\ref{lema:parias:finitos:universal}, $Q(v)=1$ para cierto $v\in V$.%
+	\footnote{
+		C.f. el argumento del \teoname~\ref{teo:impar:finitos}.
+	}
+	Por el \lemaname~\ref{lema:parias:finitos:radical}, $V^\perp=0$ y $B=B_Q$ es
+	no degenerada. Elegimos $w\in V$ tal que $B(v,w)=1$. Entonces,
+	$\{v,w\}$ es una base de $V$ y
+	\begin{displaymath}
+		\begin{aligned}
+			Q(x\,v+y\,w) & \,=\,
+				x^2\,Q(v)\,+\,y^2\,Q(w)\,+\,x\,y\,B(v,w) \\
+			& x^2\,+\,x\,y\,+\,Q(w)\,y^2
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Si $Q(w)=\valores a$ para cierto $a\in\bb F$, entonces,
+	\begin{displaymath}
+		x^2\,+\,x\,y\,+\,Q(w)\,y^2\,=\,(x+a\,y)\,(x+(a+1)\,y)
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $Q(w)\not\in\valores{\bb F}$, entonces $Q(w)+d=a^2+a$ para alg\'un
+	$a\in\bb F$ y
+	\begin{displaymath}
+		x^2\,+\,x\,y\,+\,Q(w)\,y^2\,=\,
+			(x+a\,y)^2\,+\,(x+a\,y)\,y\,+\,d\,y^2
+		\text{ .}
+	\end{displaymath}
+	%
+
+	Si $\dim\,V=3$, por el \lemaname~\ref{lema:parias:finitos:representa},
+	existe $e\neq 0$ tal que $Q(e)=0$ y, por el \teoname~%
+	\ref{teo:parias:isotropico}, existe $f$ tal que $Q(f)=0$ y
+	$B(e,f)=1$. Como $B$ es no degenerada en el plano $\generado{e,f}$,
+	\begin{displaymath}
+		V^\perp\,\cap\,\generado{e,f}\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, eligiendo cualquier vector $g\in V^\perp\setmin\{0\}$,
+	$\{e,f,g\}$ constituye una base de $V$. Ahora, como $Q$ es no
+	degenerada, $Q(g)\neq 0$. Como $\bb F$ es perfecto y
+	$Q(b\,g)=b^2\,Q(g)$, podemos asumir que $Q(g)=1$. Entonces,
+	\begin{displaymath}
+		Q(x\,e+y\,f+z\,g)\,=\,Q(x\,e+y\,f)\,+\,z^2\,Q(g)
+			\,=\,x\,y\,+\,z^2
+		\text{ .}
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{obsCuadPar}\label{obs:parias:finitos:bajas}
+	Si $U=\generado{e,f}$ es un plano como en el \teoname~%
+	\ref{teo:parias:isotropico} con $F=\bb F$ finito, entonces, aplicando
+	el \teoname~\ref{teo:parias:finitos:bajas}, dado que $U$ contiene
+	vectores isotr\'opicos, la forma $Q|_U$ debe ser equivalente a $x\,y$.
+\end{obsCuadPar}
+
+\begin{teoCuadPar}\label{teo:parias:finitos:geometria}
+	Si $n\geq 2$, entonces $Q$ es equivalente a
+	\begin{displaymath}
+		x_1\,x_2\,+\,\cdots\,+\,x_{n-3}\,x_{n-2}\,+\,
+			\begin{cases}
+				x_{n-1}\,x_n & \text{o a} \\
+				x_{n-1}^2\,+\,x_{n-1}\,x_n\,+\,d\,x_n^2 &
+					\text{ ,}
+			\end{cases}
+	\end{displaymath}
+	%
+	si $n$ es par, y a
+	\begin{displaymath}
+		x_1\,x_2\,+\,\cdots\,+\,x_{n-2}\,x_{n-1}\,+\,x_n^2
+		\text{ ,}
+	\end{displaymath}
+	%
+	si $n$ es impar.
+\end{teoCuadPar}
+
+\begin{proof}
+	Podemos asumir $n=\dim\,V\geq 4$. Entonces, por el \teoname~%
+	\ref{lema:parias:finitos:representa}, existe $v\neq 0$ tal que
+	$Q(v)=0$. Por el \teoname~\ref{teo:parias:isotropico}, existe $w$ tal
+	que $B(v,w)=1$, $Q(w)=0$ y $U:=\generado{v,w}$ es no degenerado. Por
+	la \obsname~\ref{obs:parias:finitos:bajas}, $Q|_U$ es equivalente
+	a $x\,y$.
+
+	Si $n$ es par, por el \lemaname~\ref{lema:parias:finitos:radical},
+	$V^\perp=0$ y $B$ es no degenerada. Entonces, por el \teoname~%
+	\ref{teo:nodegeneradas:perpendicular}, $V=U\oplus U^\perp$ y
+	$U^\perp$ es no degenerado. Inducci\'on.
+
+	Si $n$ es impar, $V^\perp$ es unidimensional y $n\geq 5$. Como
+	$Q|_{V^\perp}$ no es id\'enticamente nula, es no degenerada y,
+	aplicando el \teoname~\ref{teo:parias:finitos:bajas}, est\'a
+	representada por $x^2$, en alguna base (eligiendo un generador).
+	Si elegimos cualquier complemento (lineal), $V=V^\perp\oplus W$, vale
+	que $\dim\,W$ es par y $B|_W$ es no degenerada (pues
+	$W\cap V^\perp=0$). Por la \obsname~%
+	\ref{obs:parias:nodegeneradas:par}, $Q|_W$ es no degenerada.
+	Ahora, aplicamos el caso de dimensi\'on par a $Q|_W$ y descomponemos
+	$Q=Q|_W+Q|_{V^\perp}$. Lo que resta notar es que la forma
+	\begin{displaymath}
+		x^2\,+\,x\,y\,+\,d\,y^2\,+\,z^2
+		\text{ ,}
+	\end{displaymath}
+	%
+	en $\bb F^3$ es no degenerada y, por el \teoname~%
+	\ref{teo:parias:finitos:bajas}, equivalente a $x\,y+z^2$.
+\end{proof}
+
+El enunciado del \teoname~\ref{teo:parias:finitos:geometria} no garantiza que
+las formas cuadr\'aticas del caso $n$ par no sean no equivalentes. A
+continuaci\'on, demostramos que esto es as\'{\i}. Recordemos que en el caso de
+caracter\'{\i}stica impar, \teoname~\ref{teo:impar:finitos:geometria},
+tampoco es inmediato que las distintas formas que aparecen en el enunciado no
+son equivalente. El argumento involucraba el discriminante de cada una de las
+formas \emph{can\'onicas} y sus clases m\'odulo cuadrados. Pero sus im\'agenes
+tambi\'en pod\'{\i}an ser \'utiles.
+
+\begin{defCuadPar}\label{def:parias:ceros}
+	Dada una forma cuadr\'atica $Q:\,V\rightarrow F$, el \emph{conjunto %
+	de ceros} es el conjunto $\big\{v\in V\,:\,Q(v)=0\big\}$. Cuando el
+	cuerpo de base $F$ es un cuerpo finito, denotamos el cardinal de este
+	conjunto por $\nceros Q$.
+\end{defCuadPar}
+
+El conjunto de ceros est\'a compuesto por los vectores isotr\'opicos y el
+vector cero. Es un invariante para la relaci\'on de equivalencia de formas
+cuadr\'aticas.
+
+\begin{ejemCuadPar}\label{ejem:parias:ceros}
+	Si $\bb F$ es un cuerpo finito de caracter\'{\i}stica $2$,
+	$V=\bb F^2$ y $Q:\,V\rightarrow\bb F$ es una forma no degenerada,
+	entonces $Q$ es equivalente a $x\,y$ o a $x^2+x\,y+d\,y^2$. Como vimos,
+	estas formas no son equivalentes. Se puede comprobar que:
+	\begin{itemize}
+		\item $\nceros{x\,y}=2q-1$ y que
+		\item $\nceros{x^2+x\,y+d\,y^2}=1$,
+	\end{itemize}
+	%
+	donde $q=|\bb F|$.
+\end{ejemCuadPar}
+
+\begin{obsCuadPar}\label{obs:parias:ceros}
+	Si $a\in\bb F^\times$, entonces $a=b^2$ para cierto $b\in\bb F^\times$.
+	Los subconjuntos $Q^{-1}(a)$ y $Q^{-1}(1)$ de $V$ est\'an en
+	biyecci\'on v\'{\i}a $v\mapsto(1/b)\,v$. En particular,
+	\begin{equation}
+		\label{eq:parias:finitos:ceros:representa}
+		|Q^{-1}(a)|\,=\,|Q^{-1}(1)|
+		\text{ ,}
+	\end{equation}
+	%
+	para todo $a\neq 0$.
+\end{obsCuadPar}
+
+\begin{ejerCuadPar}\label{ejer:parias:ceros}
+	Calcular $|Q^{-1}(a)|$ para cada $a\neq 0$ para la forma $x\,y$.%
+	\hint{
+		Probar que $|Q^{-1}(1)|\geq 1$ y apelar a la \obsname~%
+		\ref{obs:parias:ceros} y al \ejemname~\ref{ejem:parias:ceros}
+	}
+	Hacer lo mismo para la forma $x^2+x\,y+d\,y^2$.
+\end{ejerCuadPar}
+
+\begin{lemaCuadPar}\label{lema:parias:finitos:suma}
+	Sea $Q:\,V\rightarrow\bb F$ una forma cuadr\'atica y sea $h$ la forma
+	$x\,y$ en $\bb F^2$. Entonces,
+	\begin{displaymath}
+		\nceros{h\perp Q}\,=\,q\,\nceros Q\,+\,(q-1)\,|V|
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $q=|\bb F|$.
+\end{lemaCuadPar}
+
+\begin{proof}
+	En primer lugar, $(h\perp Q)(u,v)=0$, si y s\'olo si $Q(v)=h(u)$.
+	Entonces,
+	\begin{displaymath}
+		\nceros{h\perp Q}\,=\,\sum_u\,|Q^{-1}(h(u))|
+		\text{ .}
+	\end{displaymath}
+	%
+	Separar en casos $h(u)=0$ y $h(u)\neq 0$ y usar la \obsname~%
+	\ref{obs:parias:ceros} y el \ejemname~\ref{ejem:parias:ceros}.
+\end{proof}
+
+\begin{teoCuadPar}\label{teo:parias:finitos:ceros}
+	Sea $n=2m$, $m\geq 1$. Entonces,
+	\begin{displaymath}
+		\begin{aligned}
+			\nceros{x_1\,x_2+\,\cdots\,+x_{n-3}\,x_{n-2} %
+				+x_{n-1}\,x_n}
+				& \,=\,q^{2m-1}+q^m-q^{m-1}
+			\quad\text{y} \\
+			\nceros{x_1\,x_2+\,\cdots\,x_{n-3}\,x_{n-2} %
+				+x_{n-1}^2+x_{n-1}\,x_n+d\,x_n^2}
+				& \,=\,q^{2m-1}-q^m+q^{m-1}
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	En particular, las dos formas de dimensiones pares del \teoname~%
+	\ref{teo:parias:finitos:geometria} no son equivalentes.
+\end{teoCuadPar}
+
+En la clasificaci\'on de formas cuadr\'aticas sobre cuerpos finitos de
+caracter\'{\i}stica $2$, la dificultad al final result\'o ser distinguir las
+clases de formas no degeneradas en dimensiones pares. Sobre un cuerpo $F$ de
+caracter\'{\i}stica $2$ y perfecto, hay una \'unica clase de equivalencia de
+formas cuadr\'aticas no degeneradas por cada dimensi\'on impar y
+$|\modvalores F|$ tantas clases en cada dimensi\'on par. Para poder
+distinguirlas, introducimos el \emph{invariante de Arf} de una forma.
+
+Sea $F$ un cuerpo de caracter\'{\i}stica $2$ (no necesariamente finito, no
+necesariamente perfecto) y sea $Q:\,V\rightarrow F$ una forma cuadr\'atica tal
+que $B=B_Q$ sea no degenerada.%
+\footnote{
+	En dimensiones pares, esto equivale a que $Q$ sea no degenerada, y es
+	en esos casos en los que necesitaremos distinguir clases.
+}
+
+\begin{defCuadPar}\label{def:parias:arf}
+	El \emph{invariante de Arf} de $Q$ es la clase
+	\begin{displaymath}
+		\sum_{i=1}^m\,a^i\,b^i\tmodulo[\valores F]
+	\end{displaymath}
+	%
+	en $\modvalores F$, donde $a^i$ y $b^i$ son los coeficientes diagonales
+	de la matriz de $Q$ en una base simpl\'ectica.
+\end{defCuadPar}
+
+\begin{ejerCuadPar}\label{ejer:parias:arf}
+	Probar que, cambiando la base simpl\'ectica, la suma $\sum_i\,a^i\,b^i$
+	se ve modificada por sumar un elemento en $\valores F$. En particular,
+	el invariante de Arf de una forma cuadr\'atica cuya forma bilineal es
+	no degenerada est\'a bien definido y es un invariante para la
+	relaci\'on de equivalencia de formas cuadr\'aticas.
+\end{ejerCuadPar}
+
+\subsection{Extras}\label{subsec:cuadraticas:parias:extras}
+En caracter\'{\i}stica $2$ las formas $x\,y$ y $x^2-y^2$ no son equivalentes:
+una es degenerada y la otra no.
+\begin{defCuadPar}\label{def:parias:hiperbolico}
+	Un \emph{plano hiperb\'olico} es un espcio cuadr\'atico de dimensi\'on
+	$2$ equivalente a $x\,y$.
+\end{defCuadPar}
+
+\begin{teoCuadPar}\label{teo:parias:hiperbolico}
+	Sea $(V,Q)$ un espacio cuadr\'atico sobre un cuerpo de
+	caracter\'{\i}stica $2$. Las siguientes afirmaciones son equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:parias:hiperbolico}
+			$(V,Q)$ es un plano hiperb\'olico;
+		\item\label{item:parias:nodegenerado-e-isotropico}
+			$Q$ es no degenerada y admite un vector isotr\'opico.
+	\end{enumerate}
+	%
+\end{teoCuadPar}
+
+\begin{ejerCuadPar}\label{ejer:parias:norma}
+	Sea $K/F$ una extensi\'on cuadr\'atica. Probar que la norma es no
+	degenerada, si y s\'olo si $K/F$ es una extensi\'on separable. Si
+	$F=\bb F$ es un cuerpo finito, $\Norma[K/F]$ es igual a
+	$x^2+c\,x\,y+y^2$ en alguna base; el polinomio $T^2+c\,T+1$ es
+	irrecucible.
+\end{ejerCuadPar}
+
+\begin{ejerCuadPar}\label{ejer:parias:binarias}
+	Si $a\,x^2+x\,y+b\,y^2$ y $a'\,x^2+x\,y+b'\,y^2$ son equivalentes,
+	mostrar (expl\'{\i}citamente) que $ab\equiv a'b'\tmodulo[\valores F]$.
+	No asumir que el cuerpo $F$ es perfecto ?`Vale la vuelta?
+\end{ejerCuadPar}
+
+\begin{ejerCuadPar}\label{ejer:parias:democracia}
+	Sea $n\geq 2$ un entero par y sea $\bb F$ un cuerpo finito de
+	caracter\'{\i}stica $2$. Sea $Q$ una forma cuadr\'atica en un espacio
+	de $V$ dimensi\'on $n$ sobre $\bb F$. Definimos:
+	\begin{displaymath}
+		n_+(Q) \,=\,\big|\big\{v\in V\,:\,Q(v)\in\valores F\big\}\big|
+			\quad\text{y}\quad
+		n_-(Q) \,=\,\big|\big\{v\in V\,:\,
+				Q(v)\not\in\valores F\big\}\big|
+		\text{ .}
+	\end{displaymath}
+	%
+	Supongamos que $Q$ es no degenerada. Probar que los valores de $n_+(Q)$
+	y de $n_-(Q)$ son iguales a $q^n\,(q^n+1)/2$ o a $q^n\,(q^n-1)/2$;
+	probar que $n_+(Q)>n_-(Q)$, si el invariante de Arf de $Q$ pertence a
+	$\valores{\bb F}$ y que $n_-(Q)>n_+(Q)$, si no.%
+	\footnote{
+		Sobre un cuerpo finito, hay s\'olo dos clases en el cociente
+		$\modvalores{\bb F}$.
+	}
+	Es decir, el invariante de Arf de $Q$ es la clase en el cociente
+	$\modvalores{\bb F}$ que contiene una mayor\'{\i}a de valores de
+	$Q(v)$.
+\end{ejerCuadPar}
+

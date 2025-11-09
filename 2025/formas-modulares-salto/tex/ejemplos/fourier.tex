@@ -1,0 +1,113 @@
+\newcommand{\Bernoulli}[1][]{\ensuremath{\mathit{B}_{#1}}}
+\newcommand{\divisores}[1][]{\ensuremath{\sigma_{#1}}}
+
+\begin{teoEjemplos}\label{teo:ejemplos:eisenstein:desarrollo}
+	La serie de Eisenstein $\varvarEis[k](z)$, $k>2$, par,
+	admite el siguiente desarrollo:
+	\begin{equation}
+		\label{eq:ejemplos:eisenstein:desarrollo}
+		\varvarEis[k](z)\,=\,-\frac{\Bernoulli[k]}{2k}
+			\,+\,\sum_{n\geq 1}\,\divisores[k-1](n)\,q^n
+	\end{equation}
+	%
+\end{teoEjemplos}
+
+Los n\'umeros de Bernoulli $\Bernoulli[k]$ est\'an dados por la
+siguiente f\'ormula
+\begin{equation}
+	\label{eq:ejemplos:bernoulli}
+	\big(\varexp^\indet-1\big)\,
+	\sum_{k\geq 0}\,\frac{\Bernoulli[k]}{k!}\,\indet^k
+	\,=\,\indet
+	\dispstop
+\end{equation}
+%
+Recursivamente, se pueden calcular los valores de $\Bernoulli[k]$.
+
+\begin{proof}
+	El \teoname~\ref{teo:ejemplos:eisenstein:desarrollo}
+	es consecuencia de la siguiente identidad:%
+	\footnote{
+		La serie $\sum_{n\in\Enteros}$ se interpreta como
+		$\lim_{N\to\infty}\,\sum_{n=-N}^N$ (o de $-M$ a $N$,
+		con $M$ y $N$ tendiendo a $\infty$ de manera que
+		$|M-N|$ est\'e acotado).
+	}
+	\begin{equation}
+		\label{eq:ejemplos:identidad}
+		\sum_{n\in\Enteros}\,\frac 1{z+n}\,=\,
+		\frac \pi{\tan\,\pi z}
+		\dispstop
+	\end{equation}
+	%
+	La funci\'on $\pi/\tan\,\pi z$, que tiene per\'{\i}odo $1$,
+	admite el siguiente desarrollo:%
+	\footnote{
+		Escribir la definici\'on de tangente, de seno y coseno\dots
+	}
+	\begin{displaymath}
+		\frac \pi{\tan\,\pi z}\,=\,-2\pi\raizcuarta\,
+		\Big(\frac 1 2+
+			\sum_{r\geq 1}\,q^r\Big)
+		\dispstop
+	\end{displaymath}
+	%
+	Derivar $k-1$ veces dentro de la sumatoria (esto es correcto para
+	$k\geq 2$ y $z\in\semiplano$) y dividir por $(-1)^{k-1}\,(k-1)!$
+	para deducir la f\'ormula de Lipschitz:
+	\begin{displaymath}
+		\sum_{n\in\Enteros}\,\frac 1{(z+n)^k}\,=\,
+			\frac{(-2\pi\raizcuarta)^k}{(k-1)!}\,
+				\sum_{r\geq 1}\,r^{k-1}\,q^r
+		\dispstop
+	\end{displaymath}
+	%
+	Separar la sumatoria $\varEis[k](z)$ ($k>2$) en $m=0$ y $m\neq 0$
+	y usar que
+	\begin{math}
+		\zeta(k)=-\frac{(2\pi\raizcuarta)^k}{(k-1)!}\,
+			\frac{\Bernoulli[k]}{2k}
+	\end{math}.
+\end{proof}
+
+\begin{obsEjemplos}\label{obs:ejemplos:fourier}
+	Para $k\in\{4,6,8\}$, los desarrollos de Fourier de las series
+	$\Eis[k](z)$ comienzan de la siguiente manera:
+	\begin{displaymath}
+		\begin{aligned}
+			\Eis[4](z) & \,=\,1\,+\,240\,q\,+\,2160\,q^2\,+\,
+				\dots\dispcomma \\
+			\Eis[6](z) & \,=\,1\,-\,504\,q\,-\,16632\,q^2\,-\,
+				\dots\dispand \\
+			\Eis[8](z) & \,=\,1\,+\,480\,q\,+\,61920\,q^2\,+\,
+				\dots\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Si notamos que $\dim\,\modulformen[k]=1$, si $k\in\{4,6,8,10,14\}$,
+	podemos deducir algunas identidades entre las series de Eisenstein,
+	as\'{\i} como identidades que involucran sumas de potencias de
+	divisores:
+	\begin{displaymath}
+		\begin{aligned}
+			& \Eis[4](z)^2\,=\,\Eis[8](z)\dispcomma
+			\Eis[4](z)\Eis[6](z)\,=\,\Eis[10](z)\dispand \\
+			& \Eis[6](z)\Eis[8](z)\,=\,\Eis[4](z)\Eis[10](z)\,=\,
+				\Eis[14](z)
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	An\'alogamente, como $\dim\,\modulformen[12]=2$, debe existir
+	una relaci\'on lineal entre
+	$\Eis[4](z)\Eis[8](z)$, $\Eis[6](z)^2$ y $\Eis[12](z)$:
+	\begin{displaymath}
+		441\,\Eis[4](z)\Eis[8](z)\,+\,250\,\Eis[6](z)^2\,=\,
+			691\,\Eis[12](z)
+		\dispstop
+	\end{displaymath}
+	%
+\end{obsEjemplos}
+

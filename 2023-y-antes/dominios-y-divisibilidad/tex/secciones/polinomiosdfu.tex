@@ -1,0 +1,436 @@
+\theoremstyle{plain}
+\newtheorem{lemaGauss}{Lema}[section]
+\newtheorem{propoContenido}[lemaGauss]{Proposici\'{o}n}
+\newtheorem{lemaContenido}[lemaGauss]{Lema}
+\newtheorem{coroContenido}[lemaGauss]{Corolario}
+\newtheorem{lemaPolinomiosDFUIrreducible}[lemaGauss]{Lema}
+\newtheorem{teoPolinomiosDFU}[lemaGauss]{Teorema}
+\newtheorem{coroPolinomiosDFU}[lemaGauss]{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{defCuerpoDeFracciones}[lemaGauss]{Definici\'{o}n}
+\newtheorem{obsCuerpoDeFracciones}[lemaGauss]{Observaci\'{o}n}
+\newtheorem{defContenido}[lemaGauss]{Definici\'{o}n}
+\newtheorem{defPrimitivo}[lemaGauss]{Definici\'{o}n}
+\newtheorem{obsPolinomiosUnidades}[lemaGauss]{Observaci\'{o}n}
+\newtheorem{obsPrimitivos}[lemaGauss]{Observaci\'{o}n}
+\newtheorem{obsGauss}[lemaGauss]{Observaci\'{o}n}
+
+%-------------
+
+En esta secci\'{o}n introducimos el \emph{contenido} de un polinomio con
+coeficientes en un D.F.U. y demostramos el Lema de Gauss (Lema~%
+\ref{lema:gauss}), con el objetivo de probar que el anillo de polinomios $D[X]$
+es D.F.U., si $D$ lo es. Un corolario importante de este resultado es que todo
+polinomio irreducible en $D[X]$ es irreducible sobre el cuerpo de fracciones.
+
+Dado un anillo $A$ y un polinomio $f\in A[X]$, diremos que $f$ satisface una
+propiedad ``\emph{sobre} $A$'' o ``\emph{en} $A[X]$'', si $f$ posee la
+propiedad en tanto elemento del anillo de polinomios $A[X]$.
+
+\begin{defCuerpoDeFracciones}\label{def:cuerpodefracciones}
+	Dado un dominio \'{\i}ntegro $D$, existe un cuerpo,
+	$\cuerpocociente D$, y un morfismo inyectivo de anillos
+	$\inc[D]:\,D\hookrightarrow\cuerpocociente D$ tal que, para todo
+	anillo $B$ y todo morfismo de anillos $\varphi:\,D\rightarrow B$ tal
+	que $\varphi(D\setmin\{0\})\subset B^\times$, existe un \'{u}nico
+	morfismo de anillos $\lconj\varphi:\,\cuerpocociente D\rightarrow B$
+	tal que
+	\begin{align*}
+		\lconj\varphi\circ\inc[D] & \,=\,\varphi
+		\text{ .}
+	\end{align*}
+	%
+	% \begin{center}
+		% \begin{tikzcd}
+			% \cuerpocociente D \arrow[r,"\lconj\varphi"] & B \\
+			% D \arrow[u,hook,"{\inc[D]}"] \arrow[ur,"\varphi"'] &
+		% \end{tikzcd}
+		% % \qquad
+	% \end{center}
+	El cuerpo $\cuerpocociente D$ se denomina \emph{cuerpo cociente} o
+	\emph{cuerpo de fracciones} de $D$; es \'{u}nico salvo \'{u}nico
+	isomorfismo.
+\end{defCuerpoDeFracciones}
+% \begin{wrapfigure}{r}{.5\textwidth}
+	% \centering
+	% \begin{tikzcd}
+		% \cuerpocociente(D) \arrow[r,"\lconj\varphi"] & B \\
+		% D \arrow[u,hook,"{\inc[D]}"'] \arrow[ur,"\varphi"'] &
+	% \end{tikzcd}
+% \end{wrapfigure}
+% %
+
+\begin{obsPolinomiosUnidades}\label{obs:polinomios:unidades}
+	Si $D$ es un dominio \'{\i}ntegro, entonces $f\in D[X]$ es una unidad,
+	si y s\'{o}lo si $f$ es constante e invertible en $D$. Es decir,
+	$D[X]^\times=D^\times$. Adem\'{a}s, si $p\in D$ es irreducible, sigue
+	siendo irreducible en $D[X]$.
+\end{obsPolinomiosUnidades}
+
+En lo que resta de esta secci\'{o}n asumimos que $D$ es un dominio \'{\i}ntegro
+tal que $D\setmin\{0\}$ satisface la condici\'{o}n del M.C.D. Diremos que
+\emph{$D$ posee M.C.D.}
+
+\begin{obsCuerpoDeFracciones}\label{obs:cuerpodefracciones}
+	Dado $\gamma\in\cuerpocociente D$, existen, por definici\'{o}n,
+	$a,b\in D$ tales que $\gamma=a/b$. Asumiendo que $D$ posee M.C.D.,
+	podemos elegir $a$ y $b$ coprimos: si $d=\mcd{a}{b}$, entonces
+	$a=d\,\tilde a$ y $b=d\,\tilde b$ y $\gamma=\tilde a/\tilde b$, pero
+	$\mcd{\tilde a}{\tilde b}\sim1$, pues, si $c$ es un divisor com\'{u}n
+	de $\tilde a$ y de $\tilde b$, $d\,c$ es un divisor com\'{u}n de $a$ y
+	de $b$ y, por definici\'{o}n, $d\,c$ divide a $d$, lo que implica que
+	$c\sim 1$.
+\end{obsCuerpoDeFracciones}
+
+\begin{defContenido}\label{def:contenido}
+	Dado un polinomio no nulo $f\in D[X]$, definimos el \emph{contenido %
+	de $f$} como el M.C.D. de sus coeficientes: si
+	$f=a_0+a_1\,X+\,\cdots\,+a_n\,X^n\neq 0$, $a_i\in D$, entonces el
+	contenido de $f$ es
+	\begin{align*}
+		\contenido f & \,:=\,\big(a_0\,:\,a_1\,:\,\cdots\,:\,a_n\big)
+		\text{ .}
+	\end{align*}
+	%
+	El contenido est\'{a} definido salvo asociados en $D$.
+\end{defContenido}
+
+\begin{defPrimitivo}\label{def:primitivo}
+	Un polinomio $f\in D[X]$ es un \emph{polinomio primitivo}, si
+	$\contenido f\sim 1$.
+\end{defPrimitivo}
+
+\begin{propoContenido}\label{propo:contenido}
+	Sea $D$ un dominio que posee M.C.D. Entonces:
+	\begin{enumerate}
+		\item\label{item:contenido:i}
+			todo polinomio no nulo $f\in D[X]$ se puede expresar
+			como $f=c\,g$, donde $c\in D$ y $g\in D[X]$ es
+			primitivo;
+		\item\label{item:contenido:ii}
+			si $a\in D$ y $f\in D[X]$, entonces
+			$\contenido{a\,f}\sim a\,\contenido f$;
+		\item\label{item:contenido:iii}
+			una expresi\'{o}n para $f\in D[X]$ como en
+			\ref{item:contenido:i} es \'{u}nica m\'{o}dulo
+			asociados: si $f=d\,h$ con $d\in D$ y $h\in D[X]$
+			primitivo, entonces $d\sim c$ en $D$ y $h\sim g$ en
+			$D[X]$.
+	\end{enumerate}
+	%
+\end{propoContenido}
+
+\begin{proof}
+	Para ver \ref{item:contenido:i}, basta con notar que, si
+	\begin{math}
+		g=\tilde a_0+\tilde a_1\,X+\,\cdots\,+\tilde a_n\,X^n
+	\end{math} y $\tilde a_i=a_i/\contenido f$, entonces
+	$f=\contenido f\,g$. El \'{\i}tem~\ref{item:contenido:ii} se deduce del
+	Lema~\ref{lema:mcd}:
+	\begin{align*}
+		\contenido{a\,f} & \,=\,\big(a\,a_0\,:\,a\,a_1\,\cdots\,
+			a\,a_n\big)\,\sim\,
+			\big(a\,a_0\,:\,\big(a\,a_1\,:\,\cdots\,:\,a\,a_n\big)
+				\big) \\
+			& \,\sim\,\big(a\,a_0\,:\,a\,\big(a_1\,:\,\cdots\,a_n
+				\big)\big)
+				\,\sim\,a\,\big(a_0\,:\,a_1\,:\,\cdots\,:\,a_n
+					\big)
+		\text{ .}
+	\end{align*}
+	%
+	Finalmente, si $c\,g=d\,h$ con $c,d\in D$ y $g,h\in D[X]$, entonces,
+	tomando contenido,
+	\begin{align*}
+		c\,\contenido g & \,\sim\,\contenido{c\,g}
+			\,=\,\contenido{d\,h}\,\sim\,d\,\contenido h
+		\text{ .}
+	\end{align*}
+	%
+	Si $g$ y $h$ son primitivos, entonces $c$ y $d$ son asocicados. En tal
+	caso, existe $u\in D^\times$ tal que $c=u\,d$. De la igualdad
+	$c\,g=d\,h$, se deduce que $u^{-1}\,g=h$. Pero $u^{-1}$ es unidad en
+	$D$ y, por lo tanto, unidad en $D[X]$.
+\end{proof}
+
+\begin{lemaContenido}\label{lema:contenido}
+	Dado $f\in \cuerpocociente D[X]$ no nulo, existen
+	$\gamma\in\cuerpocociente D$ y $g\in D[X]$ primitivo tales que
+	\begin{equation}
+		\label{eq:contenido}
+		f \,=\,\gamma\,g
+		\text{ .}
+	\end{equation}
+	%
+	Si $f=\delta\,h$ con $\delta\in\cuerpocociente D$ y $h\in D[X]$
+	primitivo, entonces existe una unidad $u\in D^\times$ tal que
+	$\gamma=u\,\delta$. En particular, $g\sim h$ en $D[X]$.
+\end{lemaContenido}
+
+\begin{proof}
+	Los coeficientes de $f$ pertenecen al cuerpo de fracciones de $D$. Si
+	$b\,f\in D[X]$, tomando contenido, $a=\contenido{b\,f}\in D$ y
+	\begin{align*}
+		b\,f & \,=\,a\,g
+		\text{ ,}
+	\end{align*}
+	%
+	para alg\'{u}n polinomio primitivo $g\in D[X]$. As\'{\i},
+	$f=\gamma\,g$, con $\gamma=a/b$, de lo que se deduce la existencia de
+	una ``factorizaci\'{o}n'' de la forma \eqref{eq:contenido}. Sean,
+	ahora, $\gamma,\delta\in\cuerpocociente D$ y $g,h\in D[X]$ polinomios
+	primitivos tales que
+	\begin{align*}
+		\gamma\,g & \,=\,\delta\,h
+		\text{ .}
+	\end{align*}
+	%
+	Si $\gamma=a/b$ y $\delta=c/d$, deducimos que
+	\begin{align*}
+		a\,d & \,\sim\,\contenido{(a\,d)\,g} \,=\,
+			\contenido{(b\,c)\,h} \,\sim\,b\,c
+		\text{ .}
+	\end{align*}
+	%
+	Si suponemos, adem\'{a}s, que $\mcd{a}{b}\sim 1$ y $\mcd{c}{d}\sim 1$,
+	entonces
+	\begin{align*}
+		\mcd{a}{c} & \,\sim\,\mcd{a}{b\,c}\,\sim\,\mcd{a}{a\,d}
+			\,\sim\, a
+		\text{ .}
+	\end{align*}
+	%
+	An\'{a}logamente, $\mcd{a}{c}\sim c$, de lo que se deduce que
+	$a\sim c$. De la misma manera, se deduce que $b\sim d$. As\'{\i},
+	\begin{align*}
+		\frac{a}{b} & \,=\,\frac{v\,c}{w\,d}\,=\,u\,\frac{c}{d}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $u=w^{-1}\,v$.
+\end{proof}
+
+\begin{defContenido}\label{def:contenido:denominadores}
+	Se define el \emph{contenido} de $f\in\cuerpocociente D[X]$, como
+	cualquier constante $\gamma=\contenido f\in\cuerpocociente D$ que
+	verifique que existe $g\in D[X]$ primitivo tal que $f=\gamma\,g$. El
+	contenido est\'{a} bien definido salvo unidades en $D$.
+\end{defContenido}
+
+Esta definici\'{o}n coincide con la Definici\'{o}n~\ref{def:contenido} para
+$f\in D[X]$. Como las unidades en $\cuerpocociente D[X]$ son las constantes no
+nulas, deducimos el siguiente resultado.
+
+\begin{coroContenido}\label{coro:contenido}
+	Sean $f,g\in D[X]$ polinomios primitivos. Si $f\sim g$ sobre
+	$\cuerpocociente D$, entonces $f\sim g$ en $D[X]$.
+\end{coroContenido}
+
+\begin{obsPrimitivos}\label{obs:primitivos:descomposicion}
+	Sea $f\in D[X]$ un polinomio primitivo. Si $f$ es constante, entonces
+	$f=\contenido f\sim 1$ y $f\in D^\times$. Si $f$ no es constante,
+	entonces admite una factorizaci\'{o}n como producto de irreducibles
+	(necesariamente primitivos). Si $f$ es irreducible, no hay nada que
+	probar. En otro caso, existen $g,h\in D[X]$ no unidades tales que
+	$f=g\,h$ y $\grado(g),\grado(h)\leq\grado(f)$. Dado que los contenidos
+	$\contenido g$ y $\contenido h$ dividen a $\contenido f\sim 1$, los
+	polinomios $g$ y $h$ deben ser primitivos.%
+	\footnote{
+		No usamos multiplicatividad del contenido --esto no es cierto
+		en general--, sino la propiedad de sacar constantes.
+	}
+	Como $g$ y $h$ son primitivos, no pueden ser constantes, pues, en caso
+	contrario, ser\'{\i}an unidades. As\'{\i}, $\grado(g)$ y $\grado(h)$
+	son estrictamente menores que $\grado(f)$. Inductivamente, existen
+	irreducibles $\lista{f}{s}\in D[X]$ tales que $g=f_1\cdots f_r$ y
+	$h=f_{r+1}\cdots f_s$. En particular, $f=f_1\cdots f_s$. Vale notar
+	que, sin hip\'{o}tesis adicionales,
+	\begin{itemize}
+		\item la factorizaci\'{o}n de un polinomio primitivo como
+			producto de irreducibles en $D[X]$ no es necesariamente
+			\'{u}nica,
+		\item los irreducibles en $D[X]$ no son necesariamente
+			irreducibles en $\cuerpocociente D[X]$ y
+		\item el conjunto de polinomios primitivos no es necesariamente
+			un monoide pero
+		\item si $f\in D[X]$ es primitivo y admite una
+			factorizaci\'{o}n dentro de $D[X]$, la misma debe
+			ocurrir dentro del conjunto de polinomios primitivos.
+	\end{itemize}
+	%
+\end{obsPrimitivos}
+
+\begin{lemaGauss}[Lema de Gauss]\label{lema:gauss}
+	Sobre un D.F.U., el contenido es multiplicativo: si $D$ es D.F.U.,
+	dados $f,g\in D[X]$, $\contenido{f\,g}=\contenido f\,\contenido g$. En
+	particular, el producto de polinomios primitivos en $D[X]$ es
+	primitivo.
+\end{lemaGauss}
+
+\begin{proof}
+	Observamos que, si $f=\contenido f\,\tilde f$ y
+	$g=\contenido g\,\tilde g$, donde $\tilde f$ y $\tilde g$ son
+	polinomios primitivos con coeficientes en $D$, entonces
+	\begin{align*}
+		\contenido{f\,g} & \,=\,\contenido f\,\contenido g\,
+			\contenido{\tilde f\,\tilde g}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, la demostraci\'{o}n se reduce al caso en que $f$ y $g$
+	son primitivos.
+	
+	Ahora bien, como $D$ es un D.F.U., satisface la condici\'{o}n de
+	cadenas de divisores. \emph{En particular}, todo elemento no nulo que
+	no es una unidad admite un factor irreducible.%
+	\footnote{
+		C.f. la demostraci\'{o}n del Teorema~%
+		\ref{teo:existenciayunicidad} ?`Es, esta condici\'{o}n,
+		equivalente a la condici\'{o}n de cadenas de divisores? Notemos
+		que usamos que todo elemento no unidad posee, al menos, un
+		factor irreducible, pero no que todo elemento no unidad posee
+		una factorizaci\'{o}n como producto de irreducibles.
+	}
+	Si $\contenido{f\,g}\not\sim 1$, es decir, no es una unidad, existe
+	alg\'{u}n irreducible $p\in D$ que lo divide. Como $D$ posee M.C.D.,
+	por la Proposici\'{o}n~\ref{propo:mcd:primalidad}, satisface la
+	condici\'{o}n de primalidad.
+	% \footnote{
+		% De hecho, como $D$ es un dominio, la condici\'{o}n del M.C.D.
+		% es equivalente a la condici\'{o}n de primalidad.
+	% }
+	Esto implica que el factor $p$ es primo y que el cociente
+	$D/\generado p$ es un dominio \'{\i}ntegro (m\'{a}s aun, un cuerpo). En
+	particular, el anillo de polinomios $\big(D/\generado p\big)[X]$ es un
+	dominio. Pasando, entonces, al cociente,
+	\begin{align*}
+		f\,g \,\equiv\,0 & \quad\text{implica}\quad f\,\equiv\,0
+			\quad\text{o}\quad g\,\equiv\,0
+	\end{align*}
+	%
+	en $\big(D/\generado p\big)[X]$. Pero esto significa que, o bien
+	$p|\contenido f$, o bien $p|\contenido g$.
+\end{proof}
+
+\begin{obsGauss}\label{obs:gauss}
+	En la demostraci\'{o}n del Lema~\ref{lema:gauss}, s\'{o}lo usamos la
+	existencia de factores irreducibles (no de factorizaci\'{o}n en
+	irreducibles) y la condici\'{o}n de primalidad, sobre un dominio.
+	Puesto que no s\'{e} si estas condiciones son suficientes para
+	garantizar que $D$ es D.F.U., seguir\'{e} asumiendo la condici\'{o}n
+	m\'{a}s fuerte.
+\end{obsGauss}
+
+\begin{lemaPolinomiosDFUIrreducible}\label{lema:polinomiosdfu:irreducible}
+	Sea $D$ un D.F.U. y sea $f\in D[X]$ un polinomio no constante. Si
+	$f$ es irreducible en $D[X]$, entonces $f$ es irreducible en
+	$\cuerpocociente D[X]$.
+\end{lemaPolinomiosDFUIrreducible}
+
+\begin{proof}
+	Si $f$ no fuese irreducible en $\cuerpocociente D[X]$, existir\'{\i}an
+	polinomios $g$ y $h$ con coeficientes en $\cuerpocociente D$, ambos no
+	constantes y tales que $f=g\,h$. Limpiando denomiadores, podemos asumir
+	que $f=\gamma\,g\,h$, donde $g$ y $h$ tienen coeficientes en $D$ y
+	$\gamma\in\cuerpocociente D$ es una constante. Podemos asumir,
+	tambi\'{e}n, que $g$ y $h$ son primitivos, incorporando el contenido de
+	\'{e}stos a $\gamma$. Por el Lema~\ref{lema:gauss},
+	\begin{align*}
+		\contenido f & \,\sim\,\gamma
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, $\contenido f=u\,\gamma$, donde $u\in D^\times$. Pero esto
+	implica que $\gamma\in D$ y que $f$ se factoriza en $D[X]$.
+\end{proof}
+
+\begin{teoPolinomiosDFU}\label{teo:polinomiosdfu}
+	Si $D$ es D.F.U., $D[X]$ es D.F.U., tambi\'{e}n.
+\end{teoPolinomiosDFU}
+
+\begin{proof}
+	Sea $f\in D[X]$. Si $f$ es constante, entonces $f$ se factoriza de
+	manera esencialmente \'{u}nica en $D$ y, por la Observaci\'{o}n~
+	\ref{obs:polinomios:unidades}, tambi\'{e}n en $D[X]$. Supongamos que
+	$f$ no es constante. Entonces $f=c\,g$, donde $c=\contenido f$ y
+	$g\in D[X]$ es primitivo de grado positivo. Por la Observaci\'{o}n~%
+	\ref{obs:primitivos:descomposicion}, existen $\lista{f}{s}\in D[X]$
+	irreducibles no constantes tales que $g=f_1\cdots f_s$. Como $D$ es
+	D.F.U., existen irreducibles $\lista{p}{k}\in D$ tales que
+	$c=p_1\cdots p_k$. Por la Observaci\'{o}n~%
+	\ref{obs:polinomios:unidades}, los $p_i$ son irreducibles en $D[X]$ y
+	\begin{align*}
+		f & \,=\,p_1\,\cdots\,p_k\,f_1\,\cdots\,f_s
+	\end{align*}
+	%
+	es una factorizaci\'{o}n de $f$ como producto de irreducibles en
+	$D[X]$. Notemos que $\contenido f\sim p_1\cdots p_k$ y que
+	$\contenido{f_1\cdots f_s}=\contenido g\sim 1$.%
+	\footnote{
+		No es aqu\'{\i} que usamos la hip\'{o}tesis de
+		factorizaci\'{o}n, sino antes para factorizar $c$. Esto es
+		cierto, s\'{o}lo porque primero separamos $f$ como producto de
+		su contenido y un primitivo. En general, debemos usar m\'{a}s
+		insistentemente la hip\'{o}tesis.
+	}
+
+	Sean $\lista{p}{k},\,\lista{q}{l}\in D$ irreducibles y
+	$\lista{g}{s},\,\lista{h}{t}\in D[X]$ de grado positivo e irreducibles,
+	tales que
+	\begin{align*}
+		f & \,:=\,p_1\,\cdots\,p_k\,g_1\,\cdots\,g_s \,=\,
+			q_1\,\cdots\,q_l\,h_1\,\cdots\,h_t
+		\text{ .}
+	\end{align*}
+	%
+	Como $D$ es D.F.U., por el Lema~\ref{lema:polinomiosdfu:irreducible},
+	los polinomios $g_i$ y $h_j$ son irreducibles sobre
+	$\cuerpocociente D$. Pero el anillo de polinomios
+	$\cuerpocociente D[X]$ es D.I.P. y, en particular, D.F.U. En
+	consecuencia, $s=t$ y, m\'{a}s aun, existe una permutaci\'{o}n
+	de $\{1,\,\cdots,\,s\}$, $j$, tal que $g_i\sim h_{j(i)}$ en
+	$\cuerpocociente D[X]$. Por el Corolario~\ref{coro:contenido},
+	$g_i\sim h_{j(i)}$ en $D[X]$. Ahora, por el Lema~\ref{lema:contenido},
+	existe una unidad $u\in D^\times$ tal que
+	\begin{align*}
+		p_1\,\cdots\,p_k & \,=\,u\,q_1\,\cdots\,q_l
+		% & \quad\text{y}\quad
+			% g_1\,\cdots\,g_s\,=\,u^{-1}\,h_1\,\cdots\,h_s
+		\text{ .}
+	\end{align*}
+	%
+	En particular, como $D$ es D.F.U., $k=l$, tambi\'{e}n. M\'{a}s aun,
+	existe una permutaci\'{o}n de $\{1,\,\cdots,\,k\}$, $j$, tal que
+	$p_i\sim q_{j(i)}$. En definitiva, la factorizaci\'{o}n de un polinomio
+	no constante $f\in D[X]$ es esencialmente \'{u}nica, tambi\'{e}n.
+\end{proof}
+
+\begin{coroPolinomiosDFU}\label{coro:polinomiosdfu}
+	Si $D$ es un D.F.U. y $f\in D[X]$ es m\'{o}nico, entonces todo factor
+	m\'{o}nico de $f$ en $\cuerpocociente D[X]$ tiene coeficientes en $D$.
+\end{coroPolinomiosDFU}
+
+\begin{coroPolinomiosDFU}\label{coro:polinomiosdfu:trascendente}
+	Sea $F$ un cuerpo y sea $t$ un elemento trascendente sobre $F$. Si
+	$f\in F[X]$ es un polinomio irreducible, entonces $f$ es irreducible en
+	$F(t)[X]$.
+\end{coroPolinomiosDFU}
+
+\begin{coroPolinomiosDFU}\label{coro:polinomiosdfu:enteros}
+	Sea $f\in\bb Z[X]$ un polinomio m\'{o}nico con coeficientes enteros. Si
+	$x\in\bb Q$ es una ra\'{\i}z de $f$, entonces $x\in\bb Z$.
+\end{coroPolinomiosDFU}
+
+\begin{coroPolinomiosDFU}[criterio de irreducibilidad de Eisenstein]%
+	\label{coro:polinomiosdfu:eisenstein}
+	Sea $f=a_0+a_1\,X+\,\cdots\,+a_n\,X^n\in\bb Z[X]$ para el cual existe
+	un primo $p\in\bb Z$ tal que
+	\begin{itemize}
+		\item $p|a_i$, si $0\leq i< n$,
+		\item $p\nmid a_n$ y
+		\item $p^2\nmid a_0$.
+	\end{itemize}
+	%
+	Entonces $f$ es irreducible sobre $\bb Q$.
+\end{coroPolinomiosDFU}

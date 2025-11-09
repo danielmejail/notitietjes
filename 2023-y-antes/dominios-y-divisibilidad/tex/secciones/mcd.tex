@@ -1,0 +1,254 @@
+\theoremstyle{plain}
+\newtheorem{teoMCD}{Teorema}[section]
+\newtheorem{propoMCD}[teoMCD]{Proposici\'{o}n}
+\newtheorem{propoMCDPrimalidad}[teoMCD]{Proposici\'{o}n}
+\newtheorem{lemaMCD}[teoMCD]{Lema}
+\newtheorem{teoFactorialEquivalencias}[teoMCD]{Teorema}
+
+\theoremstyle{definition}
+\newtheorem{defMCD}[teoMCD]{Definici\'{o}n}
+\newtheorem{obsMCD}[teoMCD]{Observaci\'{o}n}
+\newtheorem{obsMCDFactorizacion}[teoMCD]{Observaci\'{o}n}
+\newtheorem{defMCDCoprimos}[teoMCD]{Definici\'{o}n}
+\newtheorem{obsMCDCoprimos}[teoMCD]{Observaci\'{o}n}
+
+%-------------
+
+\begin{defMCD}\label{def:mcd}
+	Sea $M$ un monoide conmutativo y sean $a,b\in M$. Un \emph{m\'{a}ximo %
+	com\'{u}n divisor} (M.C.D.) de $a$ y $b$ es un elemento $d\in M$ que
+	verifica:
+	\begin{enumerate}
+		\item $d|a$ y $d|b$ y
+		\item si $c|a$ y $c|b$, entonces $c|d$.
+	\end{enumerate}
+	%
+	Denotamos por $\mcd{a}{b}$ un M.C.D. de $a$ y $b$.
+\end{defMCD}
+
+\begin{obsMCD}\label{obs:mcd}
+	Si existe un M.C.D. para $a,b\in M$, entonces es \'{u}nico, salvo
+	asociados. Por esta raz\'{o}n, si $d$ es un M.C.D. para $a$ y $b$,
+	escribimos $\mcd{a}{b}\sim d$. Adem\'{a}s, si $a\sim a'$, entonces
+	existe un M.C.D. para $a$ y $b$, si y s\'{o}lo si existe uno para $a'$
+	y $b$, pues $d|a$, si y s\'{o}lo si $d|a'$. En tal caso,
+	$\mcd{a}{b}\sim\mcd{a'}{b}$.
+\end{obsMCD}
+
+Hay dos casos en los que est\'{a} garantizada la existencia de un M.C.D.
+
+\begin{propoMCD}\label{propo:mcd}
+	Sea $M$ un monoide conmutativo y cancelativo. Entonces, para todo
+	$b\in M$,
+	\begin{enumerate}
+		\item\label{propo:mcd:unidad}
+			si $u\in M$ es una unidad, existe un M.C.D. para $u$ y
+			$b$ y $\mcd{u}{b}\sim 1$;
+		\item\label{propo:mcd:irreducible}
+			si $p\in M$ es irreducible, existe un M.C.D. para $p$ y
+			$b$ y
+			\begin{align*}
+				\mcd{p}{b} & \,\sim\,
+					\begin{cases}
+						p & \text{si }p\mid b
+							\text{ ,}\\
+						1 & \text{si }p\nmid b
+							\text{ .}
+					\end{cases}
+			\end{align*}
+			%
+	\end{enumerate}
+	%
+\end{propoMCD}
+
+\begin{proof}
+	Sean $u,p,b\in M$, $u$ unidad, $p$ irreducible y $b$ arbitrario.
+	Entonces $1|u$ y $1|b$. Si $c|u$ y $c|b$, en particular, $c|u$. Como
+	$u\sim 1$, debe cumplirse que $c|1$, con lo cual $1$ es un M.C.D. para
+	$u$ y $b$. En cuanto al irreducible, si $p|b$, entonces $p|p$ y $p|b$.
+	Si $c|p$ y $c|b$, en particular $c|p$ y $p$ es un M.C.D. para $p$ y
+	$b$. Si, en cambio, $p\nmid b$, entonces consideramos el divisor
+	com\'{u}n $1$: $1|p$ y $1|b$. Si $c|p$ y $c|b$, en particular, $c|p$.
+	Por definici\'{o}n, $c\sim1$ o $c\sim p$. Si fuese $c\sim p$,
+	deducimos que $p|b$, contradiciendo $p\nmid b$. As\'{\i}, debe ser que
+	$c\sim 1$ y, en particular, $c|1$. En definitiva, en este caso
+	tambi\'{e}n existe un M.C.D.
+\end{proof}
+% Para agregar m\'{a}s irreducibles al M.C.D., hace falta suponer que todo
+% irreducible es primo, con lo cual, las garant\'{\i}as se terminan ac\'{a}.
+
+\begin{defMCDCoprimos}\label{def:mcd:coprimos}
+	Dado un monoide conmutativo y cancelativo $M$, dos elementos
+	$a,b\in M$ se dicen \emph{coprimos}, si existe un M.C.D. para $a$ y $b$
+	y $\mcd{a}{b}\sim1$.
+\end{defMCDCoprimos}
+
+\begin{teoMCD}\label{teo:mcd}
+	En un monoide factorial, todo par de elementos posee un M.C.D.
+\end{teoMCD}
+
+\begin{obsMCDFactorizacion}\label{obs:mcd:factorizacion}
+	Sea $M$ un monoide factorial y sea $a\in M$. Por el Teorema~%
+	\ref{teo:asociados:factorial}, existen una unidad $u$, irreducibles
+	$\lista{p}{s}$ y enteros positivos $\lista{e}{s}\geq 1$ tales que
+	$a=u\,p_1^{e_1}\cdots p_s^{e_s}$. Los divisores de $a$ en $M$ son
+	exactamente los elementos de la forma:
+	\begin{equation}
+		\label{eq:mcd:factorizacion}
+		c \,=\,w\,p_1^{h_1}\cdots p_s^{h_s}
+		\text{ ,}
+	\end{equation}
+	%
+	para cierta unidad $w$ y enteros $\lista{h}{s}$ que cumplen
+	$0\leq h_i\leq e_i$.
+\end{obsMCDFactorizacion}
+
+\begin{proof}
+	Sea $M$ un monoide factorial y sean $a,b\in M$. Si $a$ es una unidad o
+	si $b$ es una unidad, entonces $\mcd{a}{b}=1$ es un M.C.D. de $a$ y de
+	$b$. Supongamos que ni $a$, ni $b$ son unidades. Por el Teorema~%
+	\ref{teo:asociados:factorial}, existen unidades $u,v$, irreducibles no
+	asociados $\lista{p}{s}$ y enteros no negativos
+	$\lista{e}{s},\lista{f}{s}\geq 0$ tales
+	\begin{align*}
+		a \,=\,u\,p_1^{e_1}\cdots p_s^{e_s} & \quad\text{y}\quad
+			b\,=\,v\,p_1^{f_1}\cdots p_s^{f_s}
+		\text{ .}
+	\end{align*}
+	%
+	Por la Observaci\'{o}n~\ref{obs:mcd:factorizacion}, si $c|a$ y $c|b$,
+	entonces $c=w\,p_1^{h_1}\cdots p_s^{h_s}$, para cierta unidad $w$ y
+	enteros $\lista{h}{i}$ que cumplen $0\leq h_i\leq\min\,\{e_i,f_i\}$. En
+	particular, nuevamente por la Observaci\'{o}n~%
+	\ref{obs:mcd:factorizacion}, si $g_i=\min\,\{e_i,f_i\}$, entonces
+	\begin{align*}
+		d & \,=\,p_1^{g_1}\cdots p_s^{g_s}
+	\end{align*}
+	%
+	es un M.C.D. de $a$ y de $b$.
+\end{proof}
+
+\begin{obsMCDCoprimos}\label{obs:mcd:coprimos}
+	En un monoide factorial $M$, dos elementos $a$ y $b$ son coprimos, si
+	y s\'{o}lo si $a$ es una unidad, $b$ es una unidad o no poseen
+	factores irreducibles en com\'{u}n.
+\end{obsMCDCoprimos}
+
+\begin{defMCD}\label{def:mcd:condicion}
+	Un monoide conmutativo y cancelativo \emph{satisface la condici\'{o}n %
+	del m\'{a}ximo com\'{u}n divisor} (la condici\'{o}n del M.C.D.), si
+	todo par de elementos admite un M.C.D.
+\end{defMCD}
+
+\begin{propoMCDPrimalidad}\label{propo:mcd:primalidad}
+	Todo monoide conmutativo y cancelativo que satisface la condici\'{o}n
+	del M.C.D. satisface la condici\'{o}n de primalidad.
+\end{propoMCDPrimalidad}
+
+Antes de demostrar la Proposici\'{o}n~\ref{propo:mcd:primalidad}, probamos
+algunas propiedades del M.C.D.
+
+\begin{lemaMCD}\label{lema:mcd}
+	Sea $M$ un monoide conmutativo, cancelativo y que satisface la
+	condici\'{o}n del M.C.D. Entonces,
+	\begin{enumerate}
+		\item\label{item:lema:mcd:multiples}
+			dados $\lista{a}{r}\in M$ existe $d\in M$ que verifica
+			que $d|a_i$ para todo $i$ y que, si $c|a_i$ para todo
+			$i$, entonces $c|d$;
+		\item\label{item:lema:mcd:multiples:biendefinido}
+			dados $a,b,c\in M$,
+			\begin{math}
+				\mcd{\mcd{a}{b}}{c}\sim\mcd{a}{\mcd{b}{c}}
+			\end{math};
+		\item\label{item:lema:mcd:escalares}
+			dados $a,b,c\in M$,
+			\begin{math}
+				\mcd{c\,a}{c\,b}\sim c\,\mcd{a}{b}
+			\end{math};
+		\item\label{item:lema:mcd:coprimos}
+			dados $a,b,c\in M$, si $\mcd{a}{b}\sim1$, entonces
+			$\mcd{a}{b\,c}\sim\mcd{a}{c}$.
+	\end{enumerate}
+	%
+\end{lemaMCD}
+
+\begin{proof}
+	Sea $d_0=a_1$ y, en general, $d_i=\mcd{d_{i-1}}{a_i}$. Entonces
+	$d=d_r|d_{r-1}|\cdots|d_2|d_1$. En particular, como $d_i|a_i$, vale que
+	$d|a_i$ para todo $i$. Adem\'{a}s, si $c|a_i$ para todo $i$, entonces
+	$c|d_i$ para todo $i$ y, por lo tanto, $c|d_r=d$.
+
+	Si $a,b,c\in M$, entonces $d=\mcd{\mcd{a}{b}}{c}$ y
+	$d'=\mcd{a}{\mcd{b}{c}}$ verifican que $d|\mcd{a}{b}|a,b$ y $d|c$,
+	$d'|a$ y $d'|\mcd{b}{c}|b,c$. Entonces $d|\mcd{b}{c}$ y, por lo tanto,
+	$d|d'$. An\'{a}logamente, $d'|\mcd{a}{b}$ y, por lo tanto, $d'|d$.
+
+	Sean, ahora, $d=\mcd{a}{b}$ y $e=\mcd{c\,a}{c\,b}$. Entonces,
+	$c\,d|c\,a$ y $c\,d|c\,b$, con lo cual, $c\,d|e$. Esto quiere decir que
+	existe $x\in M$ tal que $e=(c\,d)\,x$. Como $e|c\,a$, se deduce que
+	$d\,x|a$, porque $M$ es cancelativo. An\'{a}logamente, $d\,x|b$ y, en
+	consecuencia, $d\,x|\mcd{a}{b}=d$. En definitiva, $d\,x\sim d$ y $x$
+	era una unidad de $M$. Es decir, $e\sim c\,d$.
+
+	Si $\mcd{a}{b}\sim 1$, entonces
+	$\mcd{a\,c}{b\,c}\sim c\,\mcd{a}{b}\sim c$. Por otro lado, en general,
+	$\mcd{a}{a\,c}\sim a\,\mcd{1}{c}\sim a$. As\'{\i}, por la
+	Observaci\'{o}n~\ref{obs:mcd},
+	\begin{align*}
+		\mcd{a}{b\,c} & \,\sim\,\mcd{\mcd{a}{a\,c}}{b\,c}\,\sim\,
+			\mcd{a}{\mcd{a\,c}{b\,c}}\,\sim\,
+			\mcd{a}{\mcd{a}{b}\,c}\,\sim\,\mcd{a}{c}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+Si $d\in M$ satisface las condiciones del \'{\i}tem~%
+\ref{item:lema:mcd:multiples}, decimos que $d$ es un M.C.D. para $\lista{a}{r}$
+y escribimos $d\sim\big(a_1:\,\cdots\,:a_r\big)$. El \'{\i}tem~%
+\ref{item:lema:mcd:multiples:biendefinido} muestra que no importa el orden en
+que se toman los divisores sucesivos.
+
+\begin{proof}[Demostraci\'{o}n de \ref{propo:mcd:primalidad}]
+	Sea $M$ un monoide conmutativo, cancelativo que satisface la
+	condici\'{o}n del M.C.D. Si $p\in M$ es un irreducible y $a,b\in M$ son
+	tales que $p\nmid a$ y $p\nmid b$, entonces, por la Proposici\'{o}n~%
+	\ref{propo:mcd}, $\mcd{p}{a}\sim1$ y $\mcd{p}{b}\sim 1$. Por el
+	\'{\i}tem~\ref{item:lema:mcd:coprimos} del Lema~\ref{lema:mcd}, vale
+	que $\mcd{p}{a\,b}\sim 1$, tambi\'{e}n. Pero, nuevamente por la
+	Proposici\'{o}n~\ref{propo:mcd}, $p\nmid a\,b$. En definitiva, $p$ es
+	primo.
+\end{proof}
+
+\begin{teoFactorialEquivalencias}\label{teo:factorial:equivalencias}
+	Sea $M$ un monoide conmutativo y cancelativo. Las siguientes
+	propiedades son equivalentes:
+	\begin{enumerate}
+		\item\label{item:factorial:equivalencias:i}
+			$M$ es factorial;
+		\item\label{item:factorial:equivalencias:ii}
+			$M$ satisface la condici\'{o}n de cadenas de divisores
+			y la condici\'{o}n de primalidad;
+		\item\label{item:factorial:equivalencias:iii}
+			$M$ satisface la condici\'{o}n de cadenas de divisores
+			y la condici\'{o}n del M.C.D.
+	\end{enumerate}
+	%
+\end{teoFactorialEquivalencias}
+
+\begin{proof}
+	El Teorema~\ref{teo:factoriales:condiciondecadena} y el Teorema~%
+	\ref{teo:factoriales:condiciondeprimalidad} muestran que
+	\ref{item:factorial:equivalencias:i} implica
+	\ref{item:factorial:equivalencias:ii}. El Teorema~%
+	\ref{teo:existenciayunicidad} muestra que
+	\ref{item:factorial:equivalencias:ii} implica
+	\ref{item:factorial:equivalencias:i}. La Proposici\'{o}n~%
+	\ref{propo:mcd:primalidad} muestra que
+	\ref{item:factorial:equivalencias:iii} implica
+	\ref{item:factorial:equivalencias:ii} y el Teorema~\ref{teo:mcd}, junto
+	con el Teorema~\ref{teo:factoriales:condiciondecadena}, muestra que
+	\ref{item:factorial:equivalencias:i} implica
+	\ref{item:factorial:equivalencias:iii}.
+\end{proof}

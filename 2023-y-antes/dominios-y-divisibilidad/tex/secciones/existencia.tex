@@ -1,0 +1,206 @@
+\theoremstyle{definition}
+\newtheorem{obsExistencia}{Observaci\'{o}n}[section]
+\newtheorem{ejemploExistencia}[obsExistencia]{Ejemplo}
+\newtheorem{obsAsociados}[obsExistencia]{Observaci\'{o}n}
+
+\theoremstyle{plain}
+\newtheorem{coroExistencia}[obsExistencia]{Corolario}
+\newtheorem{teoExistenciaYUnicidad}[obsExistencia]{Teorema}
+\newtheorem{teoAsociadosFactorial}[obsExistencia]{Teorema}
+
+%-------------
+
+Como mencionamos en la secci\'{o}n~\ref{sec:factoriales}, no es cierto que en
+un monoide cancelativo todo elemento admita una factorizaci\'{o}n como producto
+de irreducibles. Dados un anillo $A$ y un elemento $a_0\in A$, si no fuese
+irreducible, entonces existir\'{\i}an $a_1,b_1\in A$ tales que $a_0=a_1\,b_1$.
+Si $a_1$, por ejemplo, tampoco fuese irreducible, $a_1=a_2\,b_2$, para ciertos
+$a_2,b_2\in A$. Supongamos que existe una sucesi\'{o}n $\{a_i\}_{i\geq 0}$ de
+elementos no nulos de $A$ tales que, para $i\geq 0$, existe una
+factorizaci\'{o}n $a_{i+1}=a_i\,b_i$, para ciertos $b_i\in A$. Una sucesi\'{o}n
+as\'{\i} da lugar a una cadena de ideales (principales) en $A$:
+\begin{equation}
+	\label{eq:cadenadedivisores}
+	\generado{a_0}\,\subset\,\generado{a_1}\,\subset\,\cdots\,
+		\subset\,A
+	\text{ .}
+\end{equation}
+%
+
+Un anillo $A$ se dice \emph{noetheriano (a izquierda)}, si satisface la
+\emph{condici\'{o}n de cadenas ascendentes} de ideales (a izquierda), es decir,
+dada una sucesi\'{o}n de ideales
+\begin{align*}
+	I_0 & \,\subset\,I_1\,\subset\,\cdots\,\subset\,A
+\end{align*}
+%
+existe $k\geq 0$ tal que $I_i=I_k$ para todo $i\geq k$. Si $A$ es noetheriano,
+la cadena \eqref{eq:cadenadedivisores} debe estabilizarse a partir de cierto
+punto, es decir, $\generado{a_i}=\generado{a_k}$, para todo $i\geq k$, digamos.
+Si $A=D$ es un dominio \'{\i}ntegro noetheriano, entonces $a_i\sim a_k$, para
+$i\geq k$.
+
+\begin{coroExistencia}\label{coro:existencia}
+	Sea $D$ un dominio \'{\i}ntegro y sea $M=D\setmin\{0\}$ el monoide
+	multiplicativo de elementos no nulos. La condici\'{o}n de cadenas de
+	divisores en el monoide $M$ equivale a la condici\'{o}n de cadenas
+	ascendentes \emph{de ideales principales} en $D$. En particular, si $D$
+	es un dominio \'{\i}ntegro noetheriano, entonces el monoide $M$
+	satisface la condici\'{o}n de cadenas de divisores.
+\end{coroExistencia}
+
+\begin{obsExistencia}\label{obs:existencia}
+	En un monoide conmutativo y cancelativo que satisface la condici\'{o}n
+	de cadenas de divisores, todo elemento que no es una unidad, admite al
+	menos una factorizaci\'{o}n como producto de irreducibles. Para
+	demostrar esta afirmaci\'{o}n, ser\'{a} suficiente probar que todo
+	elemento distinto de una unidad posee, al menos, un factor irreducible.
+	Sea $M$ es un monoide conmutativo y cancelativo. Si existe $a\in M$
+	distinto de una unidad que no admite factores irreducibles, es posible
+	definir una sucesi\'{o}n $\{a_i\}_{i\geq 0}$ de elementos de $M$ que
+	verifica $a_{i+1}|a_i$ propiamente. En primer lugar, $a_0=a$ no es
+	irreducible, con lo cual existen factores propios $a_1$ y $b_1$ de $a$
+	(no asociados a $a$, ni unidades) y, como $a$ no admite factores
+	irreducibles, $a_1$ no es irredcible. Dada una lista $\lista{a}{i}$ tal
+	que cada elemento es un divisor propio del elemento anterior, como
+	$a_i$ es factor de $a$, no puede ser irreducible y existe una
+	factorizaci\'{o}n $a_i=a_{i+1}\,b_{i+1}$, con $a_{i+1}$ y $b_{i+1}$
+	factores propios de $a_i$. En definitiva, existe una cadena de
+	divisores propios en $M$.
+\end{obsExistencia}
+
+En particular, en un dominio \'{\i}ntegro noetheriano, todo elemento no nulo
+admite \emph{alguna} factorizaci\'{o}n como producto de irreducibles. Aun
+as\'{\i}, la existencia de factorizaciones no es una propiedad exclusiva de
+los dominios noetherianos.
+
+\begin{ejemploExistencia}\label{ejemplo:existencia:nonoetheriano}
+	El anillo $A=k[X_1,\,X_2,\,\dots]$ de polinomios en infinitas
+	indeterminadas con coeficientes en un cuerpo $k$ no es noetheriano,
+	pero todo elemento admite una factorizaci\'{o}n como producto de
+	irreducibles. M\'{a}s aun, dicha factorizaci\'{o}n es \'{u}nica, ya
+	que, si $f\in A$, entonces $f$ pertenece a alguno de los subanillos
+	$k[\lista{X}{n}]$ y cada uno de \'{e}stos es un dominio de
+	factorizaci\'{o}n \'{u}nica.%
+	\footnote{
+		C.f. la Definici\'{o}n~\ref{def:factorial}.
+	}
+	% El anillo $A$ es un dominio no noetheriano, pero el monoide
+	% $A\setmin\{0\}$ satisface la condici\'{o}n de cadenas de divisores.
+\end{ejemploExistencia}
+
+\begin{teoExistenciaYUnicidad}\label{teo:existenciayunicidad}
+	Sea $M$ un monoide conmutativo y cancelativo. Si $M$ satisface la
+	condici\'{o}n de cadenas de divisores y la condici\'{o}n de primalidad,
+	entonces $M$ es factorial.
+\end{teoExistenciaYUnicidad}
+
+\begin{proof}
+	Tenemos que probar que todo elemento $a\in M$ posee una
+	factorizaci\'{o}n como producto de irreducibles y que dos
+	factorizaciones son esencialmente iguales, es decir, difieren
+	solamente en cambiar factores irreducibles por asociados e intercambiar
+	el orden de los factores. Por la Observaci\'{o}n~\ref{obs:existencia},
+	como $M$ satisface la condici\'{o}n de cadenas de divisores, dado
+	$a\in M$ sabemos que existe al menos una factorizaci\'{o}n
+	$a=p_1\cdots p_r$ en donde los $p_i$ son irreducibles. Sea
+	$a=p_1'\cdots p_s'$ alguna otra factorizaci\'{o}n. Si $r=1$, entonces,
+	por la condici\'{o}n de primalidad, $p_1$ es primo y divide a un
+	producto de irreducibles $p_1'\cdots p_s'$. Como $p_1$ es primo,
+	divide a $p_i'$ para alg\'{u}n $i$. Sin p\'{e}rdida de generalidad,
+	podemos asumir que $i=1$, es decir, $p_1|p_1'$.
+	Ahora, la igualdad $p_1=p_1'\cdots p_s'$ implica que $p_1'$
+	tambi\'{e}n divide a $p_1$.
+	Ahora, como $p_1'$ es irreducible y $p_1$ no es unidad, $p_1\sim p_1'$.
+	Si, adem\'{a}s, $s\geq 2$, cancelando,
+	\begin{align*}
+		1 & \,=\,u\,p_2'\cdots p_s'
+		\text{ ,}
+	\end{align*}
+	%
+	para cierta unidad $u$. Pero esto contradice la irreducibilidad de los
+	$p_i'$ (por definici\'{o}n, no son unidades). Entonces $r=s=1$ y
+	$p_1\sim p_1'$, lo que significa que las factorizaciones son
+	esencialmente la misma.
+
+	Supongamos que $r\geq 2$ (por simetr\'{\i}a $s\geq 2$, tambi\'{e}n). De
+	nuevo, $p_1|p_1'\cdots p_s'$ implica que $p_1$ divide a alguno de los
+	$p_i'$. Permutando los factores, podemos asumir que $p_1|p_1'$. Como
+	$p_1'$ es irreducible, $p_1\sim p_1'$. Cancelando, obetenemos la
+	igualdad
+	\begin{align*}
+		p_2\cdots p_r & \,=\,u\,p_2'\cdots p_s'
+		\text{ ,}
+	\end{align*}
+	%
+	para cierta unidad $u$. Inductivamente, $r=s$ y existe una
+	permutaci\'{o}n $i\mapsto j(i)$ tal que $p_i'\sim p_{j(i)}$.
+\end{proof}
+
+\begin{obsAsociados}\label{obs:asociados}
+	Sea $M$ un monoide conmutativo y cancelativo y sean $a,a',b,b'\in M$
+	tales que $a\sim a'$ y $b\sim b'$. Por definici\'{o}n, existen unidades
+	$u,v\in M$ que verifican que $a=u\,a'$ y $b=v\,b'$. Tomando el
+	producto, se ve que $a\,b=(u\,v)\,a'\,b'$. Pero $u\,v\in M$ es una
+	unidad. En definitiva, $a\,b\sim a'\,b'$. Esto prueba que la
+	relaci\'{o}n entre elementos de $M$ de ser asociados es una
+	relaci\'{o}n de congruencia.
+	% En particular, queda definido el monoide
+	% cociente $M/\sim$ de clases m\'{o}dulo asociados.
+	% 
+	El cociente $M/\sim$ de un monoide conmutativo y cancelativo $M$ es un
+	monoide conmutativo y cancelativo, tambi\'{e}n. Los elementos de
+	$M/\sim$ son las clases $\clase a=\{b\in M\,:\,b\sim a\}$ de elementos
+	de $M$ m\'{o}dulo asociados en $M$. Por la Observaci\'{o}n~%
+	\ref{obs:irreducible}, las unidades de $M$ pertenecen a una misma
+	clases. Esta clase es $\clase 1$, s\'{o}lo contiene unidades y,
+	adem\'{a}s, es el elemento neutro para el producto en $M/\sim$ dado por
+	$\clase a\,\clase b=\clase{a\,b}$. Una igualdad de la forma
+	\begin{align*}
+		\clase a & \,=\,\clase b\,\clase c
+	\end{align*}
+	%
+	equivale a $a\sim b\,c$. Por lo tanto,
+	\begin{itemize}
+		\item la \'{u}nica unidad en $M/\sim$ es $\clase 1$,
+		\item los irreducibles en $M/\sim$ son las clases $\clase p$,
+			donde $p\in M$ es irreducible y
+		\item si $\clase a$ y $\clase b$ son asociados \emph{en %
+			$M/\sim$}, entonces $\clase a=\clase b$.
+	\end{itemize}
+	%
+\end{obsAsociados}
+
+La existencia de factorizaciones en un monoide se puede interpretar en
+t\'{e}rminos de generadores. En un monoide conmutativo y cancelativo, todo
+elemento distinto de una unidad admite una factorizaci\'{o}n como producto de
+irreducibles, si y s\'{o}lo si el conjunto de elementos irreducibles genera el
+monoide. En tal caso, podr\'{\i}a haber cierta ambig\"{u}edad en la
+factorizaci\'{o}n de un elemento, es decir, la misma podr\'{\i}a no ser
+\'{u}nica (ni esencialmente \'{u}nica). Un primer paso hacia la eliminaci\'{o}n
+de esta ambig\"{u}edad es pasar al monoide cociente. Los elementos de un
+monoide conmutativo y cancelativo $M$ admiten factorizaciones como productos de
+irreducibles, si y s\'{o}lo si los elementos (clases) de $M/\sim$ admiten
+factorizaciones como productos de (clases de) irreducibles. Adem\'{a}s, por la
+Observaci\'{o}n~\ref{obs:asociados}, las factorizaciones en $M$ son
+esencialmente \'{u}nicas, si y s\'{o}lo si las factorizaciones en $M/\sim$ son
+\'{u}nicas, salvo por el orden de los factores.
+
+\begin{teoAsociadosFactorial}\label{teo:asociados:factorial}
+	Un monoide conmutativo y cancelativo $M$ es factorial, si y s\'{o}lo si
+	el monoide cociente $M/\sim$ es el monoide abeliano libre en
+	$\big\{\clase p\,:\,p\in M\text{ irreducible}\big\}$. En tal caso, si
+	$I\subset M$ es un conjunto de representantes de las clases de
+	irreducibles m\'{o}dulo asociados y $U\subset M$ es el subgrupo de
+	unidades,
+	\begin{align*}
+		M & \,=\,U\times \generado I
+		\text{ ,}
+	\end{align*}
+	%
+	donde
+	\begin{math}
+		\generado I=\big\{p_1^{r_1}\cdots p_s^{r_s}\,:\,s\geq 1,\,
+				p_i\in I,\,r_i\geq 1\big\}
+	\end{math} es el submonoide generado por $I$.
+\end{teoAsociadosFactorial}

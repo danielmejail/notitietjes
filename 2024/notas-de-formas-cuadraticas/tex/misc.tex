@@ -1,0 +1,333 @@
+\theoremstyle{plain}
+\newtheorem{teoWittDef}{\teoname}[section]
+
+\theoremstyle{definition}
+\newtheorem{defWittDef}[teoWittDef]{\defname}
+\newtheorem{obsWittDef}[teoWittDef]{\obsname}
+\newtheorem{ejemWittDef}[teoWittDef]{\ejemname}
+\newtheorem{ejerWittDef}[teoWittDef]{\ejername}
+
+%-------------
+
+\subsection{Acciones en el espacio de formas cuadr\'aticas}%
+	\label{subsec:witt:definiciones:acciones}
+Dadas una forma cuadr\'atica y una matriz, podemos definir una nueva forma
+cuadr\'atica componiendo las funciones correspondientes. Precisamente, si
+$Q:\,F^n\rightarrow F$ es una forma cuadr\'atica sibre un cuerpo $F$ y
+$M\in\MM[n\times n](F)$ es una matriz de tama\~no $n\times n$ con coeficientes
+en el cuerpo $F$, entonces la expresi\'on
+\begin{equation}
+	\label{eq:definiciones:accion}
+	M\cdot q(x)\,=\,q(\trnsp M\,x)
+	\text{ ,}
+\end{equation}
+%
+v\'alida para $x\in F^n$, define una nueva forma cuadr\'atica en $F^n$.
+
+\begin{defWittDef}\label{def:definiciones:accion}
+	Un poco m\'as en general y de manera un poco m\'as abstracta, si
+	$Q:\,V\rightarrow F$ es una forma cuadr\'atica en un espacio vectorial
+	$V$ sobre un cuerpo $F$ y $M\in\Endo[F](V)$ es un endomorfismo del
+	e.v., entonces la expresi\'on \eqref{eq:definiciones:accion} define
+	una forma cuadr\'atica en $V$, que denotamos $M\cdot q$.
+	% Esto tiene todo el sentido, pero para hablar de la acci\'on, hay
+	% que introducir el grupo de automorfismos; mejor tener grupos
+	% concretos (y algebraicos) como $\GL[n]$.
+\end{defWittDef}
+
+Si $Q:\,F^n\rightarrow F$ es una forma cuadr\'atica y
+$M_1,M_2\in\MM[n\times n](F)$, entonces
+\begin{displaymath}
+	M_2\cdot M_1\cdot q \,=\,(M_2\,M_1)\cdot q
+	\text{ .}
+\end{displaymath}
+%
+Adem\'as, $\Id[n]\cdot q=q$. En particular, si nos restringimos a matrices
+invertibles, queda definida una acci\'on en formas cuadr\'aticas.
+
+\begin{defWittDef}\label{def:definiciones:equivalencia}
+	Si $G\subset\GL[n](F)$ es un subgrupo del grupo de matrices
+	invertibles, $G$ \emph{act\'ua} en el conjunto de formas cuadr\'aticas
+	en $F^n$ v\'{\i}a \eqref{eq:definiciones:accion}. Dadas dos formas $Q$
+	y $Q'$, decimos que son \emph{$G$-equivalentes}, si existe $M\in G$ tal
+	que $Q=M\cdot Q'$.
+\end{defWittDef}
+
+Escribimos $Q\simeq Q'$ para indicar que $Q$ y $Q'$ son equivalentes.
+
+\begin{ejemWittDef}\label{ejem:definiciones:accion}
+	Las formas $Q=x^2-y^2$ y $Q'=x\,y$ son $\GL[2](\bb Q)$-equivalentes,
+	pero no son $\GL[2](\bb Z)$-equivalentes. En t\'erminos de las matrices
+	asociadas,
+	\begin{displaymath}
+		\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}\,
+		\begin{bmatrix} & 1/2 \\ 1/2 & \end{bmatrix}\,
+		\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}\,=\,
+		\begin{bmatrix} 1 & \\ & -1 \end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	Sin embargo, si fuesen equivalentes con respecto a $\GL[2](\bb Z)$,
+	entonces los subconjuntos $Q(\bb Z^2)$ y $Q'(\bb Z^2)$ ser\'{\i}an
+	iguales, pero no lo son.
+\end{ejemWittDef}
+
+\begin{obsWittDef}\label{obs:definiciones:invariantes}
+	El subconjunto $Q(V)\setmin\{0\}\subset F$ es un invariante de la
+	clase de equivalencia de la forma cuadr\'atica $Q$ en $V$.
+\end{obsWittDef}
+
+\begin{defWittDef}\label{def:definiciones:isotropia}
+	El \emph{grupo de isotrop\'{\i}a} de una forma cuadr\'atica $Q$ en
+	$F^n$ es el subgrupo%
+	\footnote{
+		Dado que $M\cdot Q(v)=Q(\trnsp M\,v)$, esta definici\'on no es,
+		tal vez, la definici\'on deseada. Es el problema de c\'omo fue
+		definida la acci\'on, o, mejor dicho de cu\'al es el grupo
+		que act\'ua (ver la \obsname~%
+		\ref{obs:definiciones:isotropia:accion:identificacion}).
+	}
+	\begin{displaymath}
+		\Big\{M\in\GL[n](F)\,:\,M\cdot Q=Q\Big\}
+	\end{displaymath}
+	%
+	de $\GL[n](F)$. Este subgrupo se denotar\'a por $\GL[n](F)_Q$. Si
+	$G\subset\GL[n](F)$ es un subgrupo, el grupo de isotrop\'{\i}a de $Q$
+	para la acci\'on de $G$ es $G_Q:=\GL[n](F)_Q\cap G$.
+\end{defWittDef}
+
+\begin{obsWittDef}\label{obs:definiciones:isotropia:identificacion}
+	Al definir la acci\'on de $\GL[n](F)$ en formas cuadr\'aticas
+	$Q:\,F^n\rightarrow F$ por \eqref{eq:definiciones:accion},
+	impl\'{\i}citamente estamos identificando $F^n$ con $\dual{(F^n)}$.
+	Espec\'{\i}ficamente, la identificaci\'on es a trav\'es de la forma
+	bilineal no degenerada dada por el producto escalar
+	$(x,y)\mapsto x\cdot y$. Si $V$ es un e.v. sobre $F$ y
+	$Q:\,\dual V\rightarrow F$ es una forma cuadr\'atica \emph{definida %
+	en el espacio dual}, entonces, para $A\in\Endo[F](V)$ podemos definir
+	\begin{displaymath}
+		\big(A\cdot Q\big)(\varphi)\,=\,Q(\dual A\,\varphi)
+		\text{ .}
+	\end{displaymath}
+	%
+	Esta definici\'on tiene sentido sin necesidad de hacer
+	identificaciones. Si, ahora, $Q:\,V\rightarrow F$ es una forma
+	cuadr\'atica en $V$ y $A\in\Endo[F](V)$ podemos definir 
+	\begin{displaymath}
+		\big(Q\cdot A\big)(v)\,=\,Q(A\,v)
+		\text{ ,}
+	\end{displaymath}
+	%
+	sin necesidad de identificar espacios. Estas dos definiciones son, por
+	suerte, compatibles; si tomamos base $\repr\cdot:\,V\rightarrow F^n$ en
+	$V$, la base dual ${\repr\cdot}':\,\dual V\rightarrow F^n$ en $\dual V$
+	e identificamos $\dual{(F^n)}$ con $F^n$ v\'{\i}a el producto escalar,
+	entonces $A\cdot Q=Q\cdot \trnsp A$.
+\end{obsWittDef}
+
+Adem\'as de la acci\'on de matrices, hay otra acci\'on definida en el conjunto
+de formas cuadr\'aticas. Si $\alpha\in F$,
+\begin{equation}
+	\label{eq:definiciones:accion:similitud}
+	x\,\mapsto\,\alpha\,Q(x)
+\end{equation}
+%
+define una forma cuadr\'atica.
+
+\begin{defWittDef}\label{def:definiciones:similitud}
+	El grupo $F^\times$ act\'ua en el conjunto de formas cuadr\'aticas por
+	\emph{similitudes}. Dadas dos formas $Q$ y $Q'$, decimos que son
+	\emph{similares}, si existe $\alpha\in F^\times$ tal que
+	$Q=\alpha\,Q'$.
+\end{defWittDef}
+
+\begin{obsWittDef}\label{obs:definiciones:similitud}
+	El grupo $F^\times$ de escalares no nulos puede verse como un subgrupo
+	de $\GL[n](F)$ v\'{\i}a inmersi\'on diagonal. Por lo tanto, hay dos
+	acciones de $F^\times$ en formas cuadr\'aticas. \'Estas est\'an
+	relacionadas por:
+	\begin{displaymath}
+		\alpha\cdot Q\,=\,\alpha^2\,Q
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, como la acci\'on \eqref{eq:definiciones:accion}
+	preserva (define) la relaci\'on de equivalencia de formas
+	cuadr\'aticas, la acci\'on por similitudes induce una acci\'on del
+	cociente $\modcuadrados F$ en el conjunto de clases de equivalencia.
+\end{obsWittDef}
+
+\subsection{Otros comentarios}\label{subsec:definiciones:comentarios}
+Vamos a ver dos demostraciones de los Teoremas de Witt. Empezamos con algunos
+comentarios generales.
+
+Sea $F$ un cuerpo de caracter\'{\i}stica distinta de $2$ y sea $(V,Q)$ un
+espacio cuadr\'atico. Introducimos la siguiente notaci\'on para formas
+cuadr\'aticas diagonalizadas: si $\lista* a{n}\in F$, definimos
+\begin{displaymath}
+	\diagonal{\lista* a{n}}(\lista x{n})\,=\,
+		a^1\,x_1^2\,+\,\cdots\,+\,a^n\,x_n^2
+	\text{ .}
+\end{displaymath}
+%
+
+\begin{teoWittCan}\label{teo:cancelacion:diagonal:binaria}
+	Sea $Q$ una forma cuadr\'atica binaria, no degenerada, definida sobre
+	un cuerpo $F$ de caracter\'{\i}stica distinta de $2$. Si
+	$d:=\discriminante\,Q$ y $Q$ representa $\alpha\in F^\times$, entonces
+	\begin{displaymath}
+		Q\,\simeq\,\diagonal{\alpha,\alpha\,d}
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, dos formas cuadr\'aticas binarias no degeneradas son
+	equivalentes, si y s\'olo si tienen el mismo discriminante y
+	representan alg\'un valor com\'un en $F^\times$.
+\end{teoWittCan}
+
+Las isometr\'{\i}as del espacio constituyen un subgrupo del grupo de
+transformaciones lineales invertibles $\GL(V)$.
+
+\begin{defWittCan}\label{def:cancelacion:impar:ortogonal}
+	El \emph{grupo ortogonal} de $(V,Q)$ es el subgrupo
+	\begin{displaymath}
+		\OO(V)\,=\,\Big\{A\in\GL(V)\,:\,Q(A\,v)=Q(v)
+			\text{ para todo } v\in V\Big\}
+	\end{displaymath}
+	%
+	de $\GL(V)$. Tambi\'en denotamos este subgrupo por $\OO(Q)$ o por
+	$\OO(V,Q)$.
+\end{defWittCan}
+
+El grupo ortogonal de $(V,Q)$ es el subgrupo de transformaciones lineales
+$A:\,V\rightarrow V$ invertibles tales que $Q(A\,v)=Q(v)$, para todo
+$v\in V$; no es el subgrupo de transformaciones que cumplen
+$A\cdot Q=Q$.%
+\footnote{
+	Sin identificaciones, $A\cdot Q$ no tendr\'{\i}a sentido. El grupo
+	ortogonal $\OO(V)$ es el subgrupo de isotrop\'{\i}a \emph{con %
+	respecto a la acci\'on a derecha} $Q\cdot A$.
+	%
+	Talvez haya que cambiar la perspectiva y pensar en formas cuadr\'aticas
+	del tipo $Q:\,\dual V\rightarrow F$.
+	%
+	O, talvez, lo mejor sea \emph{elegir} de entrada una identificaci\'on
+	$V\rightarrow\dual V$ (o $\dual V\rightarrow V$).
+}
+
+% Si bien las definiciones y los enunciados son para espacios cuadr\'aticos (y,
+% en caracter\'{\i}stica impar, es lo mismo un espacio cuadr\'atico que un
+% espacio bilineal sim\'etrico), los argumentos parecen tener m\'as que ver con
+% la forma bilineal y con preservar la forma bilineal que con la forma
+% cuadr\'atica. Por ejemplo, en caracter\'{\i}stica $2$ ser\'a necesario asumir
+% que la forma bilineal asociada es no degenerada; esta condici\'on es m\'as
+% restrictiva que asumir que la forma cuadr\'atica es no degenerada.
+
+\begin{obsWittCan}\label{obs:cancelacion:impar:ortogonal}
+	Si $B=B_Q$ es la forma bilineal asociada, entonces%
+	\footnote{
+		Que $A$ preserve $Q$ implica que $A$ preserva $B$; la
+		rec\'{\i}proca es cierta en caracter\'{\i}stica impar, pues
+		podemos recuperar la forma cuadr\'atica de la forma bilineal
+		sim\'etrica asocida.
+	}
+	\begin{displaymath}
+		\OO(V)\,=\,\Big\{A\in\GL(V)\,:\,B(A\,v,A\,v_1)=B(v,v_1)
+			\text{ para todo }v,v_1\in V\Big\}
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $A\in\OO(V)$, tomando bases,
+	\begin{equation}
+		\label{eq:cancelacion:impar:ortogonal:determinante}
+		(\det\,A)^2\,\discriminante\,B\,=\,\discriminante\,B
+		\text{ .}
+	\end{equation}
+	%
+	En particular, \emph{si $B$ es no degenerada}, $\det(A)\in\{\pm 1\}$.%
+	\footnote{
+		Si $B$ es degenerada, diagonalizando, se ve que existen
+		endomorfismos que preservan $B$ y que no son invertibles,
+		necesariamente, o que, aunque sean invertibles, no tengan
+		determinante a $\pm 1$.
+	}
+\end{obsWittCan}
+
+\begin{obsWittCan}\label{obs:cancelacion:impar:ortogonal:transpuesta}
+	Si $B$ es no degenerada, podemos hablar de la adjunta $\adjnt A$ de
+	$A\in\OO(V)$. Si $V=F^n$, identificamos $F^n$ con su dual y
+	$A\in\MM[n\times n](F)$, entonces $A$ preserva la forma bilineal $B$,
+	si y s\'olo si $\trnsp A$ la preserva:
+	\begin{displaymath}
+		\begin{aligned}
+			& B(A\,v,A\,v_1)\,=\,B(v,v_1)
+				\quad\text{para todo }v,v_1
+			\quad\Rightarrow\quad \adjnt A\,A=I \\
+			& \qquad\quad\Rightarrow\quad A\,\adjnt A=I
+			\quad\Rightarrow\quad\trnsp{\adjnt A}\,\trnsp A=I \\
+			& \qquad\quad\Rightarrow\quad
+				B(\trnsp A\,v,\trnsp A\,v_1)\,=\,B(v,v_1)
+				\quad\text{para todo }v,v_1
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{obsWittCan}
+
+\begin{defWittCan}\label{def:cancelacion:impar:ortogonal:rotaciones}
+	Una \emph{rotaci\'on} en $V$ (con respecto a $Q$)%
+	\footnote{
+		O a $B$, mejor.
+	}
+	es un elemento $A\in\OO(V)$ tal que $\det(A)=1$. Una \emph{reflexi\'on}
+	es un elemento $A\in\OO(V)$ tal que $\det(A)=-1$.
+\end{defWittCan}
+
+\begin{propoWittCan}\label{propo:cancelacion:impar:ortogonal:determinante}
+	El determinante $\det:\,\OO(V)\rightarrow\{\pm 1\}$ es un morfismo
+	sobreyectivo.
+\end{propoWittCan}
+
+\begin{proof}
+	La idea es construir un elemento de determinante $-1$. Si $B$ est\'a
+	diagonalizada, entonces $\diagonal{1,\,\cdots,\,1,\,-1}$ preserva $B$ y
+	tiene determinante $-1$. Esta transformaci\'on es la reflexi\'on con
+	respecto al hiperplano $(0,\,\cdots,\,0,\,1)^\perp$. En general, si
+	$u\in V$ es un vector anisotr\'opico, definimos
+	$\refl[u]:\,V\rightarrow V$ por
+	\begin{equation}
+		\label{eq:cancelacion:impar:ortogonal:reflexion}
+		\refl[u](v)\,=\,v\,-\,2\,\frac{B(v,u)}{Q(u)}\,u
+			% \,=\,\Big(\id-2\,\frac{R_B(u)}{Q(u)}\Big)(v)
+		\text{ .}
+	\end{equation}
+	%
+	La transformaci\'on \eqref{eq:cancelacion:impar:ortogonal:reflexion}
+	cumple:
+	\begin{itemize}
+		\item $B(\refl[u](v),\refl[u](w))=B(v,w)$ para todo $v,w\in V$,
+		\item $\refl[u](u)=-u$ y
+		\item $\refl[u](v)=v$, si $v\in u^\perp$.
+	\end{itemize}
+	%
+	Por el \lemaname~\ref{lema:ortogonales:complemento},
+	$V=\generado u\oplus u^\perp$. Eligiendo una base adecuada (empezando
+	con $u$), la transformaci\'on $\refl[u]$ est\'a representada por
+	la matriz
+	\begin{displaymath}
+		\begin{bmatrix}
+			-1 & & & \\
+			& 1 & & \\
+			& & \ddots & \\
+			& & & 1
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, $\det(\refl[u])=-1$.
+\end{proof}
+
+Si $(V,B)$ es no degenerado, entonces el subespacio $u^\perp$ es no degenerado,
+tambi\'en.
+

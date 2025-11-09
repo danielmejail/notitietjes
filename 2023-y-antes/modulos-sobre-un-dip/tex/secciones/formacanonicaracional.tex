@@ -1,0 +1,176 @@
+\theoremstyle{plain}
+\newtheorem{teoDescomposicionPorEndomorfismo}{Teorema}[section]
+\newtheorem{coroFormaCanonicaRacional}[teoDescomposicionPorEndomorfismo]%
+	{Corolario}
+\newtheorem{coroSimilitudEsRacional}[teoDescomposicionPorEndomorfismo]%
+	{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{obsSubmodulosYSubespacios}[teoDescomposicionPorEndomorfismo]%
+	{Observaci\'{o}n}
+
+%-----------
+
+Sea $F$ un cuerpo y sea $D=F[X]$ el anillo de polinomios en una indeterminada
+con coeficientes en $F$. El anillo $D$ es un DIP. Si $A$ es un $F[X]$-%
+m\'{o}dulo, entonces el grupo abeliano $V$ subyacente a $A$ junto con la
+acci\'{o}n restringida del cuerpo $F$ determinan un $F$-e.v. y la
+aplicaci\'{o}n $t_{X}:\,V\rightarrow V$ dada por $a\mapsto a\cdot X$ es un
+endomorfismo de $V$ ($X$ conmuta con los elementos de $F$).
+Rec\'{\i}procamente, todo par $(V,t)$ compuesto de un $F$-e.v. $V$ y
+$t\in\Endo[F]{V}$ induce un morfismo de $F$-\'{a}lgebras
+$F[X]\rightarrow\Endo[F]{V}$ v\'{\i}a $X\mapsto t$ y, por lo tanto, determina
+un $F[X]$-m\'{o}dulo cuyo grupo abeliano subyacente es isomorfo a $V$, con
+acci\'{o}n de $F[X]$ dada por $(a,\kappa)\mapsto a\kappa$, si $a\in V$ y
+$\kappa\in F$ y $(a,X)\mapsto t(a)$. Esto determina una correspondencia entre
+$F[X]$-m\'{o}dulos y pares $(V,t)$.
+
+\begin{obsSubmodulosYSubespacios}\label{obs:submodulosysubespacios}
+	Los subm\'{o}dulos se corresponden con subespacios $t$-invariantes y
+	los subm\'{o}dulos c\'{\i}clicos con subespacios ``$t$-c\'{\i}clicos'',
+	subespacios generadors por un vector junto con los vectores que se
+	obtienen aplicando las sucesivas potencias del endomorfismo.
+\end{obsSubmodulosYSubespacios}
+
+Dado un par $(V,t)$, si $V$ es un $F$-e.v. de dimensi\'{o}n finita, entonces
+v\'{\i}a esta correspondencia, el $F[X]$-m\'{o}dulo es de torsi\'{o}n y f.g.
+Rec\'{\i}procamente, si $A$ es un $F[X]$-m\'{o}dulo f.g. y de torsi\'{o}n, el
+espacio $V$ es de dimensi\'{o}n finita. Por ejemplo, si $A=C$ es c\'{\i}clico,
+$V$ est\'{a} generado por $\{c_{0},\,c_{0}X,\,\dots,\,c_{0}X^{r-1}\}$, donde
+$r$ es el grado del polinomio $g\in F[X]$ m\'{o}nico que genera el orden de $C$
+o, lo que es lo mismo, el polinomio minimal del endomorfismo correspondiente
+$t$. Precisamente, si $g\in F[X]$ es un polinomio m\'{o}nico, un $F[X]$-%
+m\'{o}dulo $C$ es c\'{\i}clico de orden $g$, si y s\'{o}lo si el $F$-e.v.
+$V=V_{C}$ determinado por $C$ admite una base respecto de la cual el
+endomorfismo $t=t_{X}$ tenga como representaci\'{o}n matricial la matriz
+compa\~{n}era del polinomio $g$. Sea $C$ c\'{\i}clico de orden $g$. Si $C$
+est\'{a} generado por un elemeto $c_{0}\in C$, esto quiere decir que el
+$F$-e.v. $V_{C}$ est\'{a}generado por el conjunto
+$\{t^{k}(c_{0})\,:\,k\geq 0\}$ ($t^{0}\equiv\id[V_{C}]$). Pero $g(t)=0$
+(es decir, $C\cdot g=0$), lo que implica que existe una relaci\'{o}n lineal
+entre los elementos $\{c_{0},\,c_{0}X,\,\dots,\,c_{0}X^{r}\}$, donde
+$r=\grado(g)$. Como $g$ es minimal (en el sentido que es un anulador minimal),
+el subconjunto $\{c_{0},\,c_{0}X,\,\dots,\,c_{0}X^{r-1}\}$ es l.i. y genera
+$V_{C}$. Esto es as\'{\i}, pues $g$ no puede dividir a un polinomio de grado
+estrictamente menor; si $r=0$, el conjunto $\{c_{0}\}$ era l.i. Con respecto a
+esta base, el endomorfismo $t$ tiene la representaci\'{o}n deseada.
+Rec\'{\i}procamente, si el endomorfismo $t$ correspondiente a un m\'{o}dulo
+$C$ est\'{a}dado por la matriz compa\~{n}era de $g$, entonces $C$ es
+c\'{\i}clico y $C\cdot g=0$. Pero $C\cdot h=0$ implica que
+$h\in\ker\big(F[X]\rightarrow\Endo[F]{V_{C}}\big)$. El n\'{u}cleo del morfismo
+es un ideal de $F[X]$ y, por lo tanto, un ideal principal, el cual est\'{a}
+generado por el polinomio minimal de $t$ (el minimal de la t.l. de $V_{C}$).
+Ahora, el polinomio minimal de $t$ es igual al de cualquiera de sus
+representaciones y, as\'{\i}, igual al minimal de la matriz compa\~{n}era de
+$g$, que es igual a $g$.
+
+\begin{teoDescomposicionPorEndomorfismo}%
+	\label{thm:descomposicionporendomorfismo}
+	Sea $t\in\Endo[F]{V}$ un endomorfismo de un $F$-e.v. de dimensi\'{o}n
+	finita $V$. Existen polinomios $\lista{g}{k}$ y una base de $V$ con
+	respecto a la cual la representaci\'{o}n matricial de $t$ es
+	\begin{align*}
+		[t] & \,=\,\compa{g_{1}}\,\oplus\,\cdots\,\oplus\,\compa{g_{k}}
+	\end{align*}
+	%
+	(la matriz diagonal por bloques cuyos bloques diagonales son las
+	matrices compa\~{n}eras de los polinomios $g_{i}$). Si los polinomios
+	se eligen de manera que sean todos de grado positivo (no constantes,
+	no unidades), m\'{o}nicos y $g_{i+1}|g_{i}$ para todo $i$, entonces la
+	lista $\lista{g}{k}$ es \'{u}nica.
+\end{teoDescomposicionPorEndomorfismo}
+
+Los polinomios (o los ideales que \'{e}stos generan, o sus matrices
+compa\~{n}eras) se denominan \emph{factores invariantes del endomorfismo $t$}.
+
+Sea $(V,t)$ un par compuesto por un $F$-e.v. de dimensi\'{o}n finita y un
+endomorfismo. Sin hacer referencia expl\'{\i}cita a bases, el teorema
+\ref{thm:descomposicionporendomorfismo} se puede expresat de la siguiente
+manera: existen polinomios $\lista{g}{k}$ (\'{u}nicos si se asumen de grado
+positivo, m\'{o}nicos y tales que $g_{i+1}|g_{i}$ para todo $i$) y subespacios
+$t$-c\'{\i}clicos $\lista{V}{k}\subset V$ tales que
+\begin{align*}
+	V & \,=\,V_{1}\,\oplus\,\cdots\,\oplus\,V_{k}
+\end{align*}
+%
+y, si $t_{i}=t|_{V_{i}}$, entonces el polinomio minimal de $t_{i}$ es $g_{i}$.
+El primer polinomio de la lista, $g_{1}$, es el polinomio minimal del
+endomorfismo $t$ en $V$ ($V\cdot g_{1}(t)=0$ (es decir, $g_{1}(t)=0$ en
+$\Endo{V}$) y todo polinomio en $t$ con esta propiedad es un m\'{u}ltiplo de
+$g_{1}$):
+\begin{align*}
+	\minimal{t} & \,=\,g_{1}
+	\text{ .}
+\end{align*}
+%
+Adem\'{a}s, el producto de los factores invariantes es, salvo un signo $\pm 1$,
+el polinomio caracter\'{\i}stico de $t$:
+\begin{align*}
+	\caracteristico{t} & \,=\,\pm\,g_{1}\,\cdots\,g_{k}
+	\text{ .}
+\end{align*}
+%
+
+\begin{coroFormaCanonicaRacional}\label{coro:formacanonicaracional}
+	Sea $A\in F^{n\times n}$ una matriz cuadrada con coeficientes en un
+	cuerpo $F$. Entonces $A$ es similar \emph{sobre $F$} (conjugando por
+	una matriz invertible con coeficientes en $F$) a una matriz de la forma
+	$\compa{g_{1}}\oplus\cdots\oplus\compa{g_{k}}$. Los polinomios
+	$\lista{g}{k}\in F[X]$ son \'{u}nicos con la propiedad de ser de grados
+	positivos, m\'{o}nicos y tales que $g_{i+1}|g_{i}$ para todo $i$.
+\end{coroFormaCanonicaRacional}
+
+La \'{u}nica matriz $\compa{g_{1}}\oplus\cdots\oplus\compa{g_{k}}$ con
+$\lista{g}{k}$ de grados positivos, m\'{o}nicos y tales que $g_{i+1}|g_{i}$
+para todo $i$ similar a una matriz dada $A\in F^{n\times n}$ se denomina
+\emph{forma can\'{o}nica racional de $A$}: toda matriz $A$ es similar a una de
+estas matrices, dicha matriz es \'{u}nica y dos matrices $A$ y $B$ son
+similares, si y s\'{o}lo si tiene la misma forma can\'{o}nica; adem\'{a}s, las
+matrices invertibles $P$ que realizan la relaci\'{o}n de similitud entre una
+matriz y su forma can\'{o}nica racional tiene coeficientes en el mismo cuerpo
+que $A$. Para reafirmar, sea $A\in\MM[n\times n]{F}$ una matriz cuadrada con
+coeficientes en un cuerpo $F$. Existen una \'{u}nica lista (ordenada) de
+polinomios $\lista{g}{k}\in F[X]$ de grados positivos, m\'{o}nicos y tales que
+$g_{i+1}|g_{i}$ para todo $i$, y una (alguna) matriz $P\in\GL[n]{F}$ tales que
+\begin{align*}
+	PAP^{-1} & \,=\,\compa{g_{1}}\,\oplus\,\cdots\,\oplus\,\compa{g_{k}}
+	\text{ .}
+\end{align*}
+%
+El hecho de que $P$ tenga coeficientes en $F$ tiene la siguiente consecuencia.
+
+\begin{coroSimilitudEsRacional}\label{coro:similitudesracional}
+	Sea $F\subset F'$ una extensi\'{o}n de cuerpos y sean
+	$A,B\in\MM[n\times n]{F}$. Si $A$ y $B$ son similares sonbre $F'$,
+	entonces son similares sobre $F$.
+\end{coroSimilitudEsRacional}
+
+\begin{proof}
+	Basta con notar que la forma can\'{o}nica racional es \'{u}nica y que,
+	si una matriz tiene coeficientes en un cuerpo $F$, la
+	descomposici\'{o}n se puede realizar en el mismo cuerpo, pues toda
+	forma can\'{o}nica racional ``sobre $F$'' sigue siendo una forma
+	can\'{o}nica racional ``sobre $F'$''.
+\end{proof}
+
+\begin{coroSimilitudEsRacional}
+	Sea $A\in\MM[n\times n]{F}$ y sea $k\subset F$ el cuerpo primo de $F$.
+	Sea $E=k(A)$ el cuerpo generado por los coeficientes de $A$ sobre $k$
+	(la subextensi\'{o}n m\'{a}s peque\~{n}a de $F/k$ en donde $A$ est\'{a}
+	definida). Existen polinomios $\lista{g}{k}\in E[X]$ (\'{u}nicos con la
+	propiedad de ser de grados positivos, m\'{o}nicos y tales que
+	$g_{i+1}|g_{i}$ (en $E[X]$) para todo $i$) y existe una matriz
+	$P\in\GL[n]{E}$ tales que
+	\begin{math}
+		PAP^{-1}=\compa{g_{1}}\oplus\cdots\oplus\compa{g_{k}}
+	\end{math}~.
+\end{coroSimilitudEsRacional}
+
+La raz\'{o}n por la cual es posible tomar $P$ con coeficientes en $E$ es que
+$A$ determina un endomorfismo, $t_{A}$, del $E$-e.v. $E^{n}$. Existe una base
+de este e.v. con respecto a la cual $t_{A}$ tiene una representaci\'{o}n de la
+forma $\compa{g_{1}}\oplus\cdots\oplus\compa{g_{k}}$. Por lo tanto, existe una
+matriz con coeficientes en $E$ que relaciona $A$ con dicha forma can\'{o}nica.
+La versi\'{o}n corta de estas afirmaciones es que, si $A$ tiene coeficientes en
+un cuerpo $F$, su polinomio minimal tiene coeficientes en el mismo cuerpo $F$.
+En particular, si $E=k(A)$, $\minimal{A}\in E[X]$.

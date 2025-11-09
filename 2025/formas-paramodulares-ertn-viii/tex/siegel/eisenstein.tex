@@ -1,0 +1,208 @@
+\theoremstyle{plain}
+\newtheorem{teoEisenstein}{\teoname}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{defEisenstein}[teoEisenstein]{\defname}
+\newtheorem{obsEisenstein}[teoEisenstein]{\obsname}
+
+%-------------
+
+Dada $F\in\modulformen[k](\modulgruppe[g])$ definimos una forma
+de g\'enero menor mediante el operador de Siegel.
+El espacio $\semiplano[g]$ tiene un borde.
+Vemos c\'omo restringir una forma a ese ``borde''.
+Esto nos permitir\'a definir la noci\'on de forma cuspidal como el
+n\'ucleo del operador de Siegel: aquellas formas que son cero en el borde.
+Rec\'{\i}procamente, dada una forma cuspidal de g\'enero $r\leq g$,
+definida en una componente de este borde, si el peso es suficientemente
+grande (con respecto al g\'enero), es posible extenderla a $\semiplano[g]$
+mediante series de Eisenstein-Klingen.
+Para simplificar la exposici\'on y no sobrecargar la notaci\'on,
+supondremos $g=2$. En este caso,
+\begin{displaymath}
+	\semiplano[2]\,=\,
+		\bigg\{\Omega=
+			\begin{bmatrix} \omega & z \\ z & \tau \end{bmatrix}
+			\,:\,\omega,\tau\in\semiplano[1],\,z\in\Complejos,\,
+			\Imag(\omega)\,\Imag(\tau)>\Imag(z)^2\bigg\}
+		\dispstop
+\end{displaymath}
+%
+Escribimos $\Omega=(\tau,z,\omega)\in\semiplano[2]$.
+
+\begin{teoEisenstein}\label{teo:siegel}
+	Sean $\tau\in\semiplano[1]$ y $F\in\modulformen[k](\modulgruppe[2])$.
+	Si $\Omega_\nu=(\tau_\nu,z_\nu,\omega_\nu)\in\semiplano[2]$ es una
+	sucesi\'on que cumple:
+	$\omega_\nu=\omega$ est\'a fijo,
+	$z_\nu$ est\'a acotada e
+	$\Imag(\tau_\nu)\to\infty$,
+	entonces el l\'{\i}mite
+	\begin{displaymath}
+		\lim_\nu\,F(\Omega_\nu)
+	\end{displaymath}
+	%
+	existe y su valor depende de $\omega$, pero no de la sucesi\'on.
+	La funci\'on resultante, $\Siegel F(\omega)$ define una
+	forma de Siegel de g\'enero $1$ y peso $k$ (una forma modular
+	el\'{\i}ptica).
+\end{teoEisenstein}
+
+\begin{proof}
+	La sucesi\'on $\Omega_\nu$ estar\'a contenida en alguna regi\'on
+	de la forma $\{Y\geq c\Id[2]\}$, eventualmente. All\'{\i}, la
+	serie de Fourier de $F$ converge a.u./c.
+	Si $T=\binaria{n,r,m}$ y $\Omega=(\tau,z,\omega)$, entonces
+	$\traza(T\Omega)=n\tau+rz+\omega m$. Si $n>0$,
+	\begin{displaymath}
+		\big|\varexp^{2\pi\raizcuarta\traza(T\Omega_\nu)}\big|\,\leq\,
+			\varexp^{-2\pi\{n\tau_\nu+rz_\nu+m\omega\}}
+	\end{displaymath}
+	%
+	tiende a $0$. Tomando l\'{\i}mite t\'ermino a t\'ermino en
+	\eqref{eq:funciones:fourier:dos}, se deduce que, $a(n,r,m)=0$ cuando
+	$n\neq 0$. En particular, en el l\'{\i}mite, s\'olo sobreviven
+	los t\'erminos con $n=r=0$: el l\'{\i}mite $\nu\to\infty$ existe
+	y es igual a
+	\begin{displaymath}
+		\lim_{\nu\to\infty}\,F(\tau_\nu,z_\nu,\omega)\,=\,
+			\sum_{m\geq 0}\,a(0,0,m)\,
+				\varexp^{2\pi\raizcuarta \omega m}
+		\dispstop
+	\end{displaymath}
+	%
+	La nueva serie converge a.u./c. de $\semiplano[1]$.
+	La funci\'on resultante, $\Siegel F(\omega)$ es holomorfa
+	en $\semiplano[1]$ y acotada en regiones de la forma
+	$\{\omega\geq\raizcuarta c\}$.
+	Veamos que es de peso $k$ invariante para
+	$\modulgruppe[1]=\SL(2,\Enteros)$.
+	Dado $\omega\in\semiplano[1]$, elegimos la sucesi\'on
+	$(\raizcuarta\nu,0,\omega)$.
+	Dada $\gamma=\sbmatrix{ a & b \\ c & d }\in\SL(2,\Enteros)$,
+	la matriz
+	\begin{displaymath}
+		\tilde\gamma\,=\,
+			\begin{bmatrix}
+				a & & b & \\
+				& 1 & & \\
+				c & & d & \\
+				& & & 1
+				% 1 & & & \\
+				% & a & & b \\
+				% & & 1 & \\
+				% & c & & d
+			\end{bmatrix}
+	\end{displaymath}
+	%
+	pertenece a $\modulgruppe[2]$. Actuando en un t\'ermino de la
+	sucesi\'on por este elemento,
+	\begin{displaymath}
+		\begin{aligned}
+			\tilde\gamma\accion{(\raizcuarta\nu,0,\omega)} & \,=\,
+				\Big(\sbmatrix{ a & \\ & 1 }\,
+				\sbmatrix{ \omega & \\ & \raizcuarta\nu }
+				\,+\,\sbmatrix{ b & \\ & \phantom{0} }\Big)\,
+				\Big(\sbmatrix{ c & \\ & \phantom{0} }\,
+				\sbmatrix{ \omega & \\ & \raizcuarta\nu }
+				\,+\,\sbmatrix{ d & \\ & 1 }\Big)^{-1} \\
+			& \,=\,\big(\raizcuarta\nu,0,
+				\tfrac{a\omega+b}{c\omega+d}\big)
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Tomando l\'{\i}mite $\nu\to\infty$ en la igualdad
+	\begin{displaymath}
+		F(\tilde\gamma\accion{(\raizcuarta\nu,0,\omega)})=
+			\det\Big(\sbmatrix{ c & \\ & \phantom{0} }\,
+				\sbmatrix{ \omega & \\ & \raizcuarta\nu }
+				\,+\,\sbmatrix{ d & \\ & 1 }\Big)^k\,
+			F(\raizcuarta\nu,0,\omega)
+			\,=\,(c\omega+d)^k\,F(\raizcuarta\nu,0,\omega)
+		\dispcomma
+	\end{displaymath}
+	%
+	se concluye que
+	\begin{displaymath}
+		\Siegel F(\gamma\omega)\,=\,
+			\factor(\gamma,\omega)^k\,\Siegel F(\omega)
+		\dispcomma
+	\end{displaymath}
+	%
+	es decir, $\Siegel F$ es de peso $k$
+	invariante para $\SL(2,\Enteros)$.
+\end{proof}
+
+\begin{defEisenstein}\label{def:cuspidal}
+	Una forma de Siegel $F$ es \emph{cuspidal}, si $\Siegel F=0$.
+\end{defEisenstein}
+
+\begin{obsEisenstein}\label{obs:cuspidal}
+	Dado que toda $T=\binaria{n,r,m}$ singular es equivalente
+	a $\binaria{0,0,*}$ y que, en tal caso, $a(n,r,m)=a(0,0,*)$,
+	deducimos que $\Siegel F=0$, si y s\'olo si
+	$a(n,r,m)=0$ implica $\binaria{n,r,m}>0$.
+\end{obsEisenstein}
+
+Sea $\Delta^+\subgrpeq\modulgruppe[2]$ el subgrupo de matrices de la forma
+\begin{displaymath}
+	\begin{bmatrix}
+		U & S\trnsp U^{-1} \\ & \trnsp U^{-1}
+	\end{bmatrix}
+	\dispcomma\quad U\in\GL(2,\Enteros) \dispand \trnsp S=S
+	\dispstop
+\end{displaymath}
+%
+Sea $\Gamma_\infty\subgrpeq\modulgruppe[2]$ el subgrupo de matrices de la forma
+\begin{displaymath}
+	M\,=\,\begin{bmatrix}
+		a & & b & * \\
+		* & * & * & * \\
+		c & & d & * \\
+		& & & *
+	\end{bmatrix}
+	\dispcomma\quad
+	\begin{bmatrix}
+		a & b \\ c & d
+	\end{bmatrix}\,\in\,\SL(2,\Enteros)
+	\dispstop
+\end{displaymath}
+%
+Si $\Omega=(\tau,z,\omega)\in\semiplano[2]$, sea $\Omega^*=\omega$.
+
+\begin{defEisenstein}\label{def:eisenstein}
+	Sea $f\in\spitzenformen[k](\modulgruppe[1])$, $k>0$ par ($r=1$),
+	o bien una constante ($r=0$), y sea $\Omega\in\semiplano[2]$.
+	La \emph{serie de Eisenstein asociada a $f$ en $\Omega$} es
+	\begin{displaymath}
+		\Eis[2,r,k](\Omega;f)\,=\,
+			\sum_{M\in C_{2,r}\backslash\modulgruppe[2]}\,
+				\frac{f(M\accion \Omega^*)}{\det(C\Omega+D)^k}
+		\dispcomma
+	\end{displaymath}
+	%
+	donde $C_{2,0}=\Delta^+$ y $C_{2,1}=\Gamma_\infty$.
+\end{defEisenstein}
+
+\begin{teoEisenstein}\label{teo:eisenstein}
+	Sean $r=0,1$, $k>r+3$ par. Si
+	$f\in\spitzenformen[k](\modulgruppe[1])$ ($r=1$),
+	o constante ($r=0$), la serie de Eisenstein $\Eis[g,r,k](\Omega;f)$
+	converge absoluta y uniformemente en bandas verticales.%
+	\footnote{
+		Regiones de la forma
+		$\{\traza(X)\leq c^{-1},\,Y\geq c\Id[2]\}$.
+	}
+	Adem\'as,
+	\begin{displaymath}
+		\Siegel^{2-r}\Eis[2,r,k](-;f)\,=\,f
+		\dispstop
+	\end{displaymath}
+	%
+	El espacio $\modulformen[k](\modulgruppe[2])$ est\'a generado por
+	las series de Eisenstein $\Eis[2,r,k](-;f)$ ($r=0,1$)
+	y por las formas cuspidales $\spitzenformen[k](\modulgruppe[2])$.
+\end{teoEisenstein}
+

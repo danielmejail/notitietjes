@@ -1,0 +1,19 @@
+P(a,b,c,d) = [a,0,b,0;0,1,0,0;c,0,d,0;0,0,0,1];
+matdet(P(a,b,c,d))
+H(q,l,r) = [1,0,0,l;-q,1,l,r;0,0,1,q;0,0,0,1];
+P(a,b,c,d) * H(q,l,r)
+P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a)
+P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a)/matdet(P(a,b,c,d))
+P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a)
+lift(Mod(P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a),matdet(P(a,b,c,d))-1))
+(Mod(P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a),matdet(P(a,b,c,d))-1))
+P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a)
+H(l*c+q*d,l*a+q*b,r)
+P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a) / H(l*c+q*d,l*a+q*b,r)
+Mod(P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a) / H(l*c+q*d,l*a+q*b,r),a*d-b*c-1)
+lift(Mod(P(a,b,c,d) * H(q,l,r) * P(d,-b,-c,a) / H(l*c+q*d,l*a+q*b,r),a*d-b*c-1))
+lift(Mod(P(a,b,c,d) * H(q,l,r) - H(l*c+q*d,l*a+q*b,r)*P(a,b,c,d),a*d-b*c-1))
+lift(Mod(P(a,b,c,d) * H(q,l,r) - H(l*c+q*d,l*a+q*b,r)*P(a,b,c,d),0))
+lift(Mod(P(a,b,c,d) * H(q,l,r) - H(l*c+q*d,l*a+q*b,r)*P(a,b,c,d)))
+P(a,b,c,d) * H(q,l,r) - H(l*c+q*d,l*a+q*b,r)*P(a,b,c,d)
+quit

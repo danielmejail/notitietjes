@@ -1,0 +1,102 @@
+\theoremstyle{plain}
+\newtheorem{teoEjemplo}{\teoname}[subsection]
+
+\theoremstyle{definition}
+
+%-------------
+
+Dados $\Omega\in\semiplano[2]$,
+$\epsilon=\sbmatrix{ a\,\big|\, b }\in\Mat(2\times 2,\Enteros)$,
+\begin{displaymath}
+	\vartheta(\Omega;\epsilon)\,:=\,\sum_g\,
+		\varexp^{\pi\raizcuarta\{\Omega[g+a/2]+\trnsp bg\}}
+		\qquad\text{(\phantom)}g=\sbmatrix{ * \\ * },\,*\in\Enteros
+			\text{\phantom()}
+\end{displaymath}
+%
+define una funci\'on holomorfa.
+Estas funciones verifican
+\begin{enumerate}[label=(\roman*)]
+	\item $\vartheta(\Omega;a+2g,b)=(-1)^{\trnsp bg}\,\vartheta(\Omega;a,b)$
+	\item $\vartheta(\Omega;a,b+2g)=\vartheta(\Omega;a,b)$.
+	\seti
+\end{enumerate}
+%
+En particular, podemos restringirnos a los casos en que $\epsilon$
+($a$ y $b$) tiene coordenadas $0$ y $1$. Hay diecis\'eis posibles
+$\vartheta$. Adem\'as, cambiando $g$ por $-g-a$ en la definici\'on
+de $\vartheta$,
+\begin{enumerate}[label=(\roman*)]
+	\conti
+	\item $\vartheta(\Omega;a,b)=(-1)^{\trnsp ab}\,\vartheta(\Omega;a,b)$.
+\end{enumerate}
+%
+En particular, si $\trnsp ab\not\equiv 0\tmodulo[2]$, la funci\'on
+$\vartheta(\Omega;a,b)=0$ en $\semiplano[2]$. Como
+\begin{displaymath}
+	\trnsp\epsilon\epsilon\,=\,
+		\begin{bmatrix}
+			\trnsp aa & \trnsp ab \\ \trnsp ba & \trnsp bb
+		\end{bmatrix}
+	\dispcomma
+\end{displaymath}
+%
+la condici\'on equivale a que $\trnsp\epsilon\epsilon$ sea par.
+Diez matrices $\epsilon$ son pares y permiten definir la siguiente
+funci\'on:
+\begin{equation}
+	\label{eq:ejemplo:theta}
+	\Theta(\Omega)\,:=\,\prod_{\trnsp\epsilon\epsilon\text{ par}}\,
+		\vartheta(\Omega;\epsilon)
+	\dispstop
+\end{equation}
+%
+
+La funci\'on \eqref{eq:ejemplo:theta} es holomorfa y verifica
+\begin{displaymath}
+	\Theta(M\accion \Omega)\,=\,v(M)\,\factor(M,\Omega)^5\,\Theta(\Omega)
+	\dispcomma
+\end{displaymath}
+%
+donde $v:\,\modulgruppe[2]\rightarrow\cuadratico$ es cierto morfismo
+de grupos. Esta funci\'on no es id\'enticamente nula, se anula en
+\begin{displaymath}
+	N\,=\,\bigg\{
+		\begin{bmatrix} \omega & 0 \\ 0 & \tau \end{bmatrix}\,:\,
+		\omega,\tau\in\semiplano[1]\bigg\}
+	\dispcomma
+\end{displaymath}
+%
+no posee otros ceros m\'odulo $\modulgruppe[2]$ y cada cero es de
+orden $1$: $\Theta(\Omega)/z$ es holomorfa y no se anula en cierto
+dominio fundamental para $\modulgruppe[2]$.
+
+\begin{teoEjemplo}\label{teo:ejemplo}
+	Las funciones
+	\begin{math}
+		\chi_{10}(\Omega):=\Theta(\Omega)^2
+	\end{math} y
+	\begin{displaymath}
+		\chi_{35}(\Omega)\,:=\,\Theta(\Omega)\,
+			\sum_{\epsilon_1+\epsilon_2+\epsilon_3\text{ impar}}\,
+			\pm\big(\vartheta(\Omega;\epsilon_1)\,
+				\vartheta(\Omega;\epsilon_2)\,
+				\vartheta(\Omega;\epsilon_3)\big)^{20}
+	\end{displaymath}
+	%
+	son formas cuspidales $\neq 0$, de pesos $10$ y $35$, respectivamente.
+	El anillo de formas de Siegel de g\'enero $2$ es un \'algebra
+	finitamente generada y, si $\Eis[k]:=\Eis[2,0,k]$,
+	\begin{displaymath}
+		\modulformen(\modulgruppe[2])\,\simeq\,
+			\polinomios[%
+				{\Eis[4],\Eis[6],\Eis[12],\chi_{10},\chi_{35}}%
+				]{%
+				\Complejos}/\generado{\chi_{35}^2-R}
+		\dispcomma
+	\end{displaymath}
+	%
+	donde $R$ es una expresi\'on polinomial en las formas de peso
+	par.
+\end{teoEjemplo}
+

@@ -1,0 +1,37 @@
+La serie dada por \eqref{eq:ejemplos:eisenstein:desarrollo}
+converge tambi\'en para $k=2$ y define una funci\'on
+holomorfa en $\semiplano$.
+\begin{defEjemplos}\label{def:ejemplos:eisenstein:dos}
+	La \emph{serie de Eisenstein de peso $2$} es
+	la serie
+	\begin{displaymath}
+		\varvarEis[2](z)\,=\,-\frac 1{24}\,+\,
+		\sum_{n\geq 1}\,\divisores[1](n)\,q^n
+		\dispcomma
+	\end{displaymath}
+	%
+	o bien cualquiera de las renormalizaciones
+	$\varEis[2](z)=-4\pi^2\varvarEis[2](z)$ o
+	$\Eis[2](z)=\frac 6 \pi^2\,\varEis[2](z)$.
+\end{defEjemplos}
+
+Sin embargo, la serie de Eisenstein de peso $2$ no es una
+forma modular (como ya sabemos por la cota del \coroname~%
+\ref{coro:definiciones:cota}).
+
+\begin{teoEjemplos}\label{teo:ejemplos:dos}
+	Si $z\in\semiplano$ y
+	$\gamma=\sbmatrix{ * & * \\ c & d }\in\modulgruppe$,
+	entonces
+	\begin{displaymath}
+		% \varEis[2](\gamma\accion z)\,=\,
+		% (cz+d)^2\varEis[2](z)\,-\,\pi\raizcuarta c\,
+			% (cz+d)
+		\big(\varEis[2]\baroperador[2]\gamma\big)(z)\,=\,
+			\varEis[2](z)\,-\,\frac{2\pi\raizcuarta c}{cz+d}
+		\dispstop
+	\end{displaymath}
+	%
+\end{teoEjemplos}
+
+

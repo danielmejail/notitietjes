@@ -1,0 +1,118 @@
+\theoremstyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{ejemploEjemplosDIP}{Ejemplos}[section]
+\newtheorem{ejemploPolinomiosCoeficientesEnteros}[ejemploEjemplosDIP]{Ejemplo}
+\newtheorem{ejemploPolinomiosCoeficientesModNueve}[ejemploEjemplosDIP]{Ejemplo}
+\newtheorem{ejemploCocienteDeDIPEsDIPCasi}[ejemploEjemplosDIP]{Ejemplo}
+\newtheorem{ejemploProductoDeCuerpos}[ejemploEjemplosDIP]{Ejemplo}
+
+%-------------
+
+En esta secci\'{o}n hacemos un breve repaso de algunas propiedades de un
+DIP.
+
+Fijamos $D$ un DIP. En particular, $D$ es conmutativo, con lo cual no haremos
+\'{e}nfasis en distinguir entre m\'{o}dulos a derecha y m\'{o}dulos a
+izquierda.
+
+\begin{ejemploEjemplosDIP}\label{ejemplo:dip:ejemplos}
+	El anillo de enteros racionales $\bb Z$, el anillo de enteros de
+	Gauss $\bb Z[i]$ y el anillo de polinomios con coeficientes en un
+	cuerpo son DIPs.
+\end{ejemploEjemplosDIP}
+
+\begin{ejemploPolinomiosCoeficientesEnteros}%
+	\label{ejemplo:dip:polinomioscoeficientesenteros}
+	El anillo $\bb Z[X]$ de polinomios con coeficientes enteros no es un
+	DIP: el ideal $\generado{2,X}$, por ejemplo, no es principal. En
+	general, si $D$ es un DIP y $p\in D$ es un irreducible/primo, entonces
+	$\generado{p,X}\leq D[X]$ es un ideal que no es principal. Si $f|p$,
+	como $D$ es dominio, por grado, $f\in D$ debe ser constante. Si,
+	adem\'{a}s, $f|X$, entonces $(g_0+g_1\,X+g_2\,X^2+\cdots)\,f=X$ implica
+	que $g_1\,f=1$ y $f\in D^\times$. Notamos que lo \'{u}nico que
+	necesitamos es que existan elementos no invertibles en $D$ para poder
+	hallar un ideal que no sea principal.
+\end{ejemploPolinomiosCoeficientesEnteros}
+
+\begin{ejemploPolinomiosCoeficientesModNueve}%
+	\label{ejemplo:dip:polinomioscoeficientesmodnueve}
+	El anillo $K=(\bb Z/9)[X]$ de polinomios con coeficientes en los
+	enteros m\'{o}dulo $9$ no es un DIP. El ideal $\generado{3,X}$ no es
+	principal: si $f\in K$ dividiera a $3$ y a $X$, entonces
+	\begin{align*}
+		h\,f \,=\,3 \modulo[9] & \quad\text{y}\quad
+		k\,f \,=\,X \modulo[9]
+	\end{align*}
+	%
+	Para ciertos $h,k\in K$. Reduciendo m\'{o}dulo $3$,
+	\begin{align*}
+		h\,f\,=\,0\modulo[3] & \quad\text{y}\quad
+			k\,f\,=\,X\,\not=\,0\modulo[3]
+		\text{ .}
+	\end{align*}
+	%
+	En particular, Como $D=(\bb Z/3)[X]$ es dominio, o bien $h=0$ en $D$, o
+	bien $f=0$ en $D$. Esto \'{u}ltimo no puede ocurrir, porque $X\not=0$,
+	con lo cual, los coeficientes de $h$ son todos divisibles por $3$.
+	Pero, ahora, $3\not=0$ en $\bb Z/9$ implica que el t\'{e}rmino
+	independiente de $f$ debe ser una unidad. Finalmente, como $\bb Z/3$ es
+	un cuerpo, $X$ es irreducible en el DIP $D$ y, por lo tanto, o bien
+	$f\in D^\times$, o bien $f$ es asociado a $X$ en $D$. Esto \'{u}ltimo
+	tampoco puede ocurrir, dado que el t\'{e}rmino independiente de $f$ es
+	distinto de cero. En definitiva, $f$ debe ser de la forma
+	\begin{align*}
+		f & \,=\,f_0 +f_1\,X + f_2\,X^2+ \,\cdots
+		\text{ ,}
+	\end{align*}
+	%
+	con $f_0\in(\bb Z/9)^\times$ y $f_i$ divisible por $3$, si $i>0$. Esto
+	quiere decir que $f$ es una unidad en el anillo de polinomios $K$, pues
+	el t\'{e}rmino independiente es una unidad y el resto de los
+	coeficientes son nilpotentes.%
+	\footnote{
+		Ver \cite[p.~11]{AtiyahMacdonald}, ejercicio 2 del
+		cap\'{\i}tulo 1.
+	}
+\end{ejemploPolinomiosCoeficientesModNueve}
+
+\begin{ejemploCocienteDeDIPEsDIPCasi}\label{ejemplo:dip:cocientededipesdipcasi}
+	Dado $n\geq 2$, no es cierto que el anillo cociente $\bb Z/n$ sea un
+	DIP. Salvo en los casos en que $n=p$ es primo, $\bb Z/n$ no es dominio.
+	Aun as\'{\i}, todos los ideales son principales: por los teoremas de
+	isomorfismo, hay una correspondencia
+	\begin{align*}
+		& \big\{I\subset\bb Z/n\,:\,\text{ideal}\big\}
+			\,\leftrightarrow\,
+			\big\{\generado{n}\subset J\subset\bb Z\,:\,
+				\text{ideal}\big\}
+		\text{ ,}
+	\end{align*}
+	%
+	dada por
+	\begin{math}
+		J\mapsto\overline{J}=
+			\big\{x\,(\mathsf{mod}\,n)\,:\,x\in J\big\}
+	\end{math}. Si $I=\overline J$ es un ideal en el cociente, y
+	$J=\generado{x}$, entonces $I=\generado{x\,(\mathsf{mod}\,n)}$ es
+	principal. En general, si bien un cociente de un DIP puede no ser un
+	dominio, todos sus ideales son principales.
+\end{ejemploCocienteDeDIPEsDIPCasi}
+
+\begin{ejemploProductoDeCuerpos}\label{ejemplo:dip:productodecuerpos}
+	Sean $E,F$ dos cuerpos y sea $K=E\times F$ el anillo producto. Los
+	ideales de $K$ son exactamente
+	\begin{center}
+		\begin{tikzcd}[column sep=small, row sep=small]
+			& E\times 0
+				\arrow[phantom]{dr}[rotate=-45]{\subset} & \\
+			0 \arrow[phantom]{ur}[rotate=45]{\subset}
+				\arrow[phantom]{dr}[rotate=-45]{\subset} & &
+				E\times F \\
+			& 0\times F \arrow[phantom]{ur}[rotate=45]{\subset} &
+		\end{tikzcd}
+	\end{center}
+	Todos ellos son principales: $0=\generado{0}$,
+	$E\times 0=\generado{(1,0)}$, $0\times F=\generado{(0,1)}$ y
+	$K=\generado{(1,1)}$.
+\end{ejemploProductoDeCuerpos}

@@ -1,0 +1,909 @@
+\theoremstyle{plain}
+\newtheorem{teoEstructura}{Teorema}[section]
+\newtheorem{propoSumaOrdenesCoprimos}[teoEstructura]{Proposici\'{o}n}
+\newtheorem{lemaElementoDeOrdenMinimal}[teoEstructura]{Lema}
+\newtheorem{teoEstructuraUnicidad}[teoEstructura]{Teorema}
+\newtheorem{lemaMultiplicarTorsion}[teoEstructura]{Lema}
+\newtheorem{lemaTorsionLongitudDescenso}[teoEstructura]{Lema}
+\newtheorem{propoSumandoCiclicoLongitud}[teoEstructura]{Proposici\'{o}n}
+\newtheorem{lemaElementoDeOrdenMinimalLongitud}[teoEstructura]{Lema}
+\newtheorem{lemaGeneradoresCoeficientesCoprimos}[teoEstructura]{Lema}
+\newtheorem{lemaSumandoCiclicoLongitudMinimal}[teoEstructura]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{defTorsion}[teoEstructura]{Definici\'{o}n}
+\newtheorem{obsTorsion}[teoEstructura]{Observaci\'{o}n}
+\newtheorem{defAnuladorMinimal}[teoEstructura]{Definici\'{o}n}
+\newtheorem{defIdealesCoprimos}[teoEstructura]{Definici\'{o}n}
+\newtheorem{obsTorsionSobreCociente}[teoEstructura]{Observaci\'{o}n}
+\newtheorem{obsFuntoresMultiplicarTorsion}[teoEstructura]{Observaci\'{o}n}
+\newtheorem{ejemploTorsionAbelianos}[teoEstructura]{Ejemplo}
+\newtheorem{defFactoresInvariantes}[teoEstructura]{Definici\'{o}n}
+\newtheorem{defLongitud}[teoEstructura]{Definici\'{o}n}
+\newtheorem{obsLongitud}[teoEstructura]{Observaci\'{o}n}
+
+%-----------
+
+\subsection{Definiciones y enunciado del teorema}%
+	\label{subsec:torsion:definicionesyenunciado}
+\begin{defTorsion}\label{def:torsion}
+	Sea $R$ un anillo y sea $A$ un $R$-m\'{o}dulo (a izquierda). Un
+	elemento $x\in A$ se dice \emph{de torsi\'{o}n}, si existe
+	$\kappa\in R\setmin\{0\}$ tal que $\kappa\cdot x=0$, es decir, si
+	el ideal $\Anulador[R](x)\subset R$ no es cero. Se dice que $A$ es
+	un \emph{m\'{o}dulo de torsi\'{o}n}, si todos sus elementos son de
+	torsi\'{o}n.
+\end{defTorsion}
+
+\begin{obsTorsion}\label{obs:torsion}
+	Si $x\in A$ es de torsi\'{o}n y $x\not =0$, necesariamente,
+	$\Anulador(x)\subsetneq R$ es un ideal propio. Sea $A$ un $R$-%
+	m\'{o}dulo f.g. y sea $\{\lista{a}{k}\}$ un conjunto generador.
+	Entonces
+	\begin{align*}
+		\Anulador(A) & \,=\,\Anulador(a_1)\,\cap\,\cdots\,\cap\,
+			\Anulador(a_k)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $A$ es de torsi\'{o}n, si y s\'{o}lo si los $a_i$ son
+	de torsi\'{o}n.
+\end{obsTorsion}
+
+\begin{obsTorsion}\label{obs:torsion:anulador}
+	Sea $A$ un $R$-m\'{o}dulo. Si $A$ no es de torsi\'{o}n, entonces
+	$\Anulador(A)=0$, pero la rec\'{\i}proca no es cierta. Por ejemplo, si
+	\begin{align*}
+		A & \,=\,\bigoplus_p\,\bb Z/p
+	\end{align*}
+	%
+	entonces $A$ es de torsi\'{o}n, pero
+	$\Anulador(A)=\bigcap_p\,\generado p=0$. Supongamos que
+	$A=\generado{\lista{a}{k}}$. Como los ideales anuladores son ideales
+	bil\'{a}teros,
+	\begin{align*}
+		\Anulador(A) & \,\supset\,\Anulador(a_1)\cdots\Anulador(a_k)
+		\text{ .}
+	\end{align*}
+	%
+	Podr\'{\i}a suceder que el producto de la derecha sea cero. Pero, si
+	$R$ fuese ``dominio'', es decir, si no tuviese elementos de
+	torsi\'{o}n (divisores de cero), entonces un producto de ideales
+	distintos de cero no puedr\'{\i}a ser cero. En definitiva, si $R$ es un
+	anillo sin elementos de torsi\'{o}n y $A$ es un $R$-m\'{o}dulo f.g.,
+	$A$ es de torsi\'{o}n, si y s\'{o}lo si $\Anulador(A)\not=0$.
+\end{obsTorsion}
+
+\begin{obsTorsion}\label{obs:torsion:dip}
+	Si $D$ es un DIP y $A$ es un $D$-m\'{o}dulo de torsi\'{o}n, existen
+	$\mu_i\in D\setmin\{0\}$ tales que $\Anulador(a_i)=\generado{\mu_i}$.
+	Como $D$ es un dominio, el producto $\mu_1\cdots\mu_k\in D$ es no nulo
+	y pertenece al ideal anulador de $A$. En particular,
+	\begin{align*}
+		\Anulador(A) & \,=\,\generado{\mu_1}\,\cap\,\cdots\,\cap\,
+			\generado{\mu_k}\,\supset\,
+			\generado{\mu_1\cdots\mu_k}\,\not=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, existe $\nu\in D$, no nulo, tal que
+	$\Anulador(A)=\generado\nu$.
+\end{obsTorsion}
+
+\begin{defAnuladorMinimal}\label{def:torsion:anuladorminimal}
+	Dado un $D$-m\'{o}dulo de torsi\'{o}n $A$, se denomina \emph{anulador %
+	minimal de $A$} a cualquier generador del ideal $\Anulador(A)$.
+\end{defAnuladorMinimal}
+
+\begin{defIdealesCoprimos}\label{def:idealescoprimos}
+	Sea $K$ un anillo conmutativo. Dos ideales $I,J\leq K$ son
+	\emph{coprimos}, si $I+J=1$. En ese caso, $I$ y $J$ verifican
+	$I\cap J=I\cdot J$.%
+	\footnote{
+		\begin{math}
+			x\in I\cap J\Rightarrow x=x\cdot 1=x\cdot (y+z)
+				\Rightarrow x\in J\cdot I+I\cdot J
+		\end{math}.
+	}
+\end{defIdealesCoprimos}
+
+\begin{propoSumaOrdenesCoprimos}\label{propo:torsion:sumaordenescoprimos}
+	Sea $A$ un $D$-m\'{o}dulo, sean $x,y\in A$ elementos de torsi\'{o}n y
+	sean $\mu,\nu\in D$ sus \'{o}rdenes respectivos. Si $\mu$ y $\nu$ son
+	coprimos, entonces $x+y$ tiene orden $\mu\cdot\nu$.
+\end{propoSumaOrdenesCoprimos}
+
+\begin{proof}
+	Asumiendo que $\generado{\mu}+\generado{\nu}=1$, existen
+	$\gamma,\delta\in D$ tales que $\gamma\,\mu+\delta\,\nu=1$ en $D$. En
+	particular,
+	\begin{align*}
+		x \,=\,\delta\,\nu\,x\,=\,\delta\,\nu\,(x+y)
+			& \quad\text{e}\quad
+		y \,=\,\gamma\,\mu\,y\,=\gamma\,\mu\,(x+y)
+		\text{ .}
+	\end{align*}
+	%
+	Si $\lambda$ denota el orden de $x+y$, entonces
+	$\mu\,\nu\in\generado\lambda$. Pero
+	\begin{align*}
+		\lambda\,x & \,=\,\lambda\,(\delta\,\nu)\,(x+y)
+			\,=\,(\delta\,\nu)\,\lambda\,(x+y) \,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Similarmente, $\lambda\,y=0$. En definitiva,
+	$\lambda\in\generado\mu\cap\generado\nu=\generado{\mu\,\nu}$.
+\end{proof}
+
+\begin{teoEstructura}[de estructura]\label{teo:torsion:estructura}
+	Sea $A$ un m\'{o}dulo de torsi\'{o}n f.g. sobre un dominio de ideales
+	principales $D$. Existen escalares $\lista{\mu}{k}\in D$ tales que
+	\begin{align*}
+		\generado{\mu_1} & \,\subset\,\cdots\,\subset\,
+			\generado{\mu_k}
+	\end{align*}
+	%
+	y un isomorfismo
+	\begin{equation}
+		\label{eq:torsion:estructura}
+		A \,\simeq\,C_1\oplus\cdots\oplus C_k
+		\text{ ,}
+	\end{equation}
+	%
+	donde $C_{i}$ es un $D$-m\'{o}dulo c\'{\i}clico de orden
+	$\generado{\mu_{i}}$.
+\end{teoEstructura}
+
+\subsection{Demostraci\'{o}n del Teorema de estructura}%
+	\label{subsec:torsion:estructura:demostracion}
+La idea de la demostraci\'{o}n es usar la Proposici\'{o}n~%
+\ref{propo:torsion:sumaordenescoprimos} para reconstruir el m\'{o}dulo $A$ a
+partir de subm\'{o}dulos c\'{\i}clicos. Para poder aplicar este resultado,
+necesitamos garantizar que exista un subm\'{o}dulo c\'{\i}clico $C\subset A$
+con $\Anulador(C)=\Anulador(A)$. Si aceptamos esto, deber\'{\i}amos poder
+encontrar una descomposici\'{o}n de la forma:
+% La idea de la demostraci\'{o}n es usar la Proposici\'{o}n~%
+% \ref{propo:torsion:sumaordenescoprimos} para descomponer $A$ como suma directa
+% de un m\'{o}dulo c\'{\i}clico y un m\'{o}dulo ``m\'{a}s peque\~{n}o''. Por un
+% lado, para poder aplicar este resultado, hay que garantizar que exista un
+% subm\'{o}dulo c\'{\i}clico $C\subset A$ con $\anulador{C}=\anulador{A}$, es
+% decir, cuyo orden sea igual al anulador de todo el m\'{o}dulo. Si aceptamos
+% esto, deber\'{\i}amos poder encontrar una descomposici\'{o}n de la forma:
+\begin{align*}
+	A & \,=\,C\,\oplus\,A'
+	\text{ .}
+\end{align*}
+%
+Recordando que $A$ es noetheriano, sabemos que $A'$ es noetheriano; adem\'{a}s,
+como $A$ es un m\'{o}dulo de torsi\'{o}n, $A'$ es de torsi\'{o}n, tambi\'{e}n.
+En resumen, $A'$ satisface las mismas hip\'{o}tesis que $A$, con lo cual,
+deber\'{\i}amos poder hallar un subm\'{o}dulo c\'{\i}clico $C'\subset A'$ y una
+descomposci\'{o}n $A'=C'\oplus A''$. As\'{\i},
+\begin{align*}
+	A & \,=\,C\,\oplus\,C'\,\oplus\,A''
+	\text{ .}
+\end{align*}
+%
+% Entonces, por otro lado, necesitamos garantizar que esta tarea de encontrar
+% subm\'{o}dulos, $A\supset A'\supset A''$, terminar\'{a}, eventualmente. El
+% inconveniente, ahora, es entender en qu\'{e} sentido $A'$ es ``m\'{a}s
+% peque\~{n}o'' que $A$.
+
+\begin{lemaElementoDeOrdenMinimal}\label{lema:torsion:elementodeordenminimal}
+	Si $A$ es un $D$-m\'{o}dulo de torsi\'{o}n, f.g., con anulador minimal
+	$\nu$, entonces existe un elemento en $A$ de orden exactamente $\nu$.
+\end{lemaElementoDeOrdenMinimal}
+
+\begin{proof}[Demostraci\'{o}n de \ref{lema:torsion:elementodeordenminimal}]
+	Como $D$ es un DIP, $D$ es un DFU. Si $\nu$ es un anulador minimal de
+	$A$, $\nu=u_0\,p_1^{e_1}\cdots p_r^{e_r}$, para ciertos primos no
+	asociados $\lista{p}{r}\in D$, exponentes positivos $e_i\geq 1$ y una
+	unidad $u_0\in D^{\times}$. Para cada $i$, como $e_i\geq 1$, existen
+	factorizaciones $\nu=p_i\,\nu_i=p_i^{e_i}\,\kappa_i$ en $D$. En
+	particular, la inclusi\'{o}n $\generado\nu\subsetneq\generado{\nu_i}$
+	es estricta. Por definici\'{o}n, existe $x_i\in A$ tal que
+	$\nu_i\,x_i\not=0$. Si $y_i=\kappa_i\,x_i$, entonces
+	\begin{align*}
+		p_i^{e_i}\,y_i \,=\,(p_i^{e_i}\,\kappa_i)\,x_{i}\,=\,\nu\,x_i
+			\,=\,0 & \quad\text{pero}\quad
+		p_i^{e_i-1}\,y_i \,=\,\nu_i\,x_i\,\not=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Si denotamos el orden de $y_i$ por $\mu_i$, entonces
+	$\generado{p_i^{e_i}}\subset\generado{\mu_i}$. Por ser $D$ un DFU,
+	$\mu_i=p_i^{d_i}$, con $d_i\in[\![1,e_i]\!]$, o un asociado. Pero, la
+	segunda de las igualdades anteriores implica que la inclusi\'{o}n
+	$\generado{\mu_i}\subsetneq\generado{p_i^{e_i-1}}$ es estricta, con lo
+	que $\mu_i=p_i^{e_i}$. En definitiva, para cada factor coprimo
+	$p_i^{e_i}$ de $\nu$, es posible hallar un elemento de orden
+	exactamente $p_i^{e_i}$. Ahora, como los $p_i$ son primos no asociados,
+	la suma $y_1+\cdots +y_r$ tiene orden
+	$\generado{p_1^{e_1}\cdots p_r^{e_r}}=\generado\nu$.
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n de \ref{teo:torsion:estructura}]
+	Sea $A$ un $D$-m\'{o}dulo f.g. de torsi\'{o}n. Como $D$ es un DIP, $A$
+	es noetheriano. Por el Lema~\ref{lema:torsion:elementodeordenminimal},
+	existe $c_1\in A$ de orden $\generado\nu=\Anulador(A)$. Si
+	$C_1=\generado{c_1}\subset A$, por la Proposici\'{o}n~%
+	\ref{propo:sumandociclico}, $A=C_1\oplus A_1$, para cierto
+	subm\'{o}dulo complementario $A_1\subset A$. Por ser un subm\'{o}dulo
+	de $A$, $A_1$ es noetheriano y $\Anulador(A_1)\supset\Anulador(A)$. Si
+	$\nu_1$ es un generador del anulador de $A_1$, o bien $A_1$ es
+	c\'{\i}clico de orden $\nu_1$, o bien se descompone como una suma
+	directa $A_1=C_2\oplus A_2$, donde $C_2$ es c\'{\i}clico de orden
+	$\nu_1$ y $A_2$ es no nulo, de torsi\'{o}n y f.g. En general, si
+	$k\geq 1$, y existen subm\'{o}dulos c\'{\i}clicos $\lista{C}{k}$ de $A$
+	y $A_k\subset A$ no nulo tales que
+	\begin{align*}
+		A & \,=\, C_1\,\oplus\,\cdots\,\oplus\,C_k\,\oplus\,A_k
+			\quad\text{y} \\
+		\Anulador(C_1) & \,\subset\,\cdots\,\subset\,\Anulador(C_k)\,
+			\subset\,\Anulador(A_k)
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $A_k$ es c\'{\i}clico o existe una descomposici\'{o}n
+	$A_k=C_{k+1}\oplus A_{k+1}$ con $C_{k+1}$ c\'{\i}clico y
+	$\Anulador(C_{k+1})=\Anulador(A_k)$. Si $A$ no admitiese una
+	descomposici\'{o}n como en \eqref{eq:torsion:estructura},
+	podr\'{\i}amos definir una sucesi\'{o}n creciente no acotada
+	\begin{align*}
+		C_1 & \,\subset\,C_1\,\oplus\,C_2\,\subset\,\cdots\,\subset\,A
+		\text{ .}
+	\end{align*}
+	%
+	Pero esto contradir\'{\i}a la noetherianeidad de $A$.
+\end{proof}
+
+\subsection{Unicidad de la descomposici\'{o}n \eqref{eq:torsion:estructura}}%
+	\label{subsec:torsion:estructura:unicidad}
+\begin{teoEstructuraUnicidad}[de unicidad]%
+	\label{teo:torsion:estructura:unicidad}
+	Sea $A$ un $D$-m\'{o}dulo de torsi\'{o}n f.g. y sean
+	$A=C_1\oplus\cdots\oplus C_k$ y $A=C_1'\oplus\cdots\oplus C_l'$ dos
+	descomposiciones de $A$ como suma directa de subm\'{o}dulos
+	c\'{\i}clicos tales que, si $\mu_i$ denota el orden de $C_i$ y $\mu_i'$
+	el orden de $C_i'$, entonces
+	$\generado{\mu_i}\subset\generado{\mu_{i+1}}$ y
+	$\generado{\mu_{i}'}\subset\generado{\mu_{i+1}'}$. Entonces $l=k$ y
+	$\generado{\mu_{i}}=\generado{\mu_{i}'}$ para cada $i$.%
+	\footnote{
+		Si $\Anulador(C_i)\subset\Anulador(C_{i+1})$ para todo $i$ y
+		$\Anulador(C_j')\subset\Anulador(C_{j+1}')$ para todo $j$,
+		entones $k=l$ y $\Anulador(C_i)=\Anulador(C_i')$ para cada $i$.
+	}
+\end{teoEstructuraUnicidad}
+
+\begin{obsFuntoresMultiplicarTorsion}\label{obs:funtoresmultiplicartorsion}
+	Sea $K$ un anillo conmutativo. Dado un $K$-m\'{o}dulo $A$ y un elemento
+	$\kappa\in K$, la aplicaci\'{o}n
+	$\multiplicar[\kappa]:\,A\rightarrow A$ dada por
+	$\multiplicar[\kappa](x)=\kappa\,x$ induce un endomorfismo en $A$.
+	Introducimos la siguiente notaci\'{o}n:
+	\begin{align*}
+		\kappa\cdot A \,:\equiv\,\img(\multiplicar[\kappa])
+			& \quad\text{,}\quad
+		\torsion[A]{\kappa} \,:\equiv\,\ker(\multiplicar[\kappa])
+		\text{ .}
+	\end{align*}
+	%
+	% Con esta notaci\'{o}n, la sucesi\'{o}n
+	% \begin{center}
+		% \begin{tikzcd}
+			% 0 \arrow[r] & A[\kappa]\arrow[r] & A\arrow[r] &
+				% A\cdot\kappa\arrow[r] & 0
+		% \end{tikzcd}
+	% \end{center}
+	% es una sucesi\'{o}n exacta corta.
+	Si $f:\,A\rightarrow B$ un morfismo de $K$-m\'{o}dulos, se cumple que
+	\begin{align*}
+		f\big(\kappa\cdot A\big) \,\subset\, \kappa\cdot B
+			& \quad\text{y}\quad
+		f\big(\torsion[A]{\kappa}\big) \,\subset\,\torsion[B]{\kappa}
+		\text{ ,}
+	\end{align*}
+	%
+	con lo que, por restricci\'{o}n y correstricci\'{o}n, quedan definidos
+	morfismos
+	\begin{align*}
+		f:\,\kappa\cdot A\,\rightarrow\,\kappa\cdot B
+			& \quad\text{y}\quad
+		f:\,\torsion[A]{\kappa}\,\rightarrow\,\torsion[B]{\kappa}
+		\text{ .}
+	\end{align*}
+	%
+	Las aplicaciones $A\mapsto\kappa\cdot A$ y
+	$A\mapsto\torsion[A]{\kappa}$ determinan endofuntores en la
+	categor\'{\i}a de $K$-m\'{o}dulos. Estos funtores son \emph{aditivos}:
+	dados $f,g:\,A\rightarrow B$, entonces, por ejemplo,
+	$f+g:\,\torsion[A]{\kappa}\rightarrow\torsion[B]{\kappa}$ coincide con
+	la suma de $f,g:\,\torsion[A]{\kappa}\rightarrow\torsion[B]{\kappa}$.
+	En particular, estos funtores respetan sumas directas, es decir,
+	\begin{align*}
+		\kappa\cdot (A\,\oplus\,B) \,=\,
+			(\kappa\cdot A)\,\oplus\,(\kappa\cdot B)
+			& \quad\text{y}\quad
+		\torsion[(A\oplus B)]{\kappa} \,=\,
+			\torsion[A]{\kappa}\,\oplus\,\torsion[B]{\kappa}
+		\text{ .}
+	\end{align*}
+	%
+	% Un poco m\'{a}s en general, sea $R$ una $K$-\'{a}lgebra y sea $M$ un
+	% $R$-m\'{o}dulo a izquierda. Dado un ideal bil\'{a}tero
+	% $I\triangleleft R$, definimos
+	% \begin{align*}
+		% I\cdot M & \,:\equiv\,\Big\{\sum_i\,\kappa_i\,x_i\,:\,
+			% \kappa_i\in I,\, x_i\in M\Big\} \quad\text{y} \\
+		% \torsion[M]{I} & \,:\equiv\,\big\{x\in M\,:\,
+			% \kappa\cdot x=0\,\forall\kappa\in I\big\}
+		% \text{ .}
+	% \end{align*}
+	% %
+	% Como $I$ es bil\'{a}tero, $I\cdot M\subset M$ es un sub-$R$-m\'{o}dulo
+	% isomorfo a $I\tensor[R]\,M$. Por otro lado,
+	% $\torsion[M]{I}=\bigcap_{\kappa\in I}\,\ker(\multiplicar[\kappa])$ es
+	% un subgrupo (sub-$K$-m\'{o}dulo), pero, como $I$ es bil\'{a}tero,
+	% tambi\'{e}n es cerrado por multiplicaci\'{o}n a izquierda por
+	% elementos arbitrarios de $R$.
+\end{obsFuntoresMultiplicarTorsion}
+
+\begin{lemaMultiplicarTorsion}\label{lema:multiplicartorsion}
+	Sea $C$ un $D$-m\'{o}dulo ciclico de orden $\generado\mu$.
+	\begin{enumerate}
+		\item Si $\kappa\in D$ es coprimo con $\mu$, entonces
+			$\kappa\cdot C=C$ y $\torsion[C]{\kappa}=0$.
+		\item Si, en cambio, $\generado\mu\subset\generado\kappa$ y
+			$\mu=\nu\,\kappa$, entonces los subm\'{o}dulos
+			(c\'{\i}clicos) $\kappa\cdot C$ y $\torsion[C]{\kappa}$
+			son de orden $\nu$ y $\kappa$, respectivamente.
+	\end{enumerate}
+\end{lemaMultiplicarTorsion}
+
+\begin{proof}[Demostraci\'{o}n de \ref{lema:multiplicartorsion}]
+	Si $\generado\mu+\generado\kappa=1$, existen $\gamma,\delta\in D$ tales
+	que $\gamma\,\mu+\delta\,\kappa=1$. Si $x\in C$, entonces
+	$x=\kappa\,(\delta\,x)\in\kappa\cdot C$. Pero tambi\'{e}n
+	$x=\delta\,(\kappa\,x)$, con lo que $x\in C[\kappa]$ fuerza que $x=0$.
+
+	Si $\generado\mu\subset\generado\kappa$ y $\mu=\nu\,\kappa$, entonces
+	$\nu\cdot\big(\kappa\cdot C\big)=0$ y
+	$\kappa\cdot C\subset\torsion[C]{\nu}$. Pero, por el Lema~%
+	\ref{lema:ciclicos:fundamental}, si $x\in\torsion[C]{\nu}$, existe
+	$x'\in C$ tal que $x=\kappa\,x'$ y, por lo tanto, $x\in\kappa\cdot C$.
+	En definitiva,
+	\begin{align*}
+		\kappa\cdot C & \,=\,\torsion[C]{\nu}
+		\text{ .}
+	\end{align*}
+	%
+	Si $\lambda\in D$ anula el subm\'{o}dulo $\kappa\cdot C$, entonces
+	$\lambda\,\kappa$ anula $C$ y $\lambda\,\kappa\in\generado\mu$. Por ser
+	$D$ un dominio, cancelando, se deduce que $\lambda\in\generado\nu$ y
+	que $\kappa\cdot C=\torsion[C]{\nu}$ es un subm\'{o}dulo (c\'{\i}clico)
+	de orden $\nu$. Por simetr\'{\i}a (conmutatividad),
+	$\nu\cdot C=\torsion[C]{\kappa}$ es de orden $\kappa$.
+\end{proof}
+
+\begin{obsTorsionSobreCociente}\label{obs:torsion:sobrecociente}
+	Sea $K$ un anillo conmutativo y sea $R$ una $K$-\'{a}lgebra. Sea $M$ un
+	$R$-m\'{o}dulo a izquierda y supongamos que existe un ideal
+	bil\'{a}tero $I\triangleleft R$ tal que $I\cdot M=0$.%
+	\footnote{
+		El ideal $\Anulador[R](M)$ es bil\'{a}tero. Estamos suponiendo
+		que no es nulo y consideramos cualquier subideal bil\'{a}tero
+		contenido en el anulador. Por otra parte, si $I$ es
+		bil\'{a}tero, podemos definir, para un $R$-m\'{o}dulo a
+		izquierda arbitrario, los subm\'{o}dulos
+		$I\cdot M$ y $\torsion[M]{I}$, de manera an\'{a}loga.
+	}
+	El cociente $R/I$ tiene estructura de $K$-\'{a}lgebra y $M$ admite una
+	estructura de $R/I$-m\'{o}dulo a izquierda dada por
+	$\conj r\cdot x:\equiv r\cdot x$, para todo $\conj r\in R/I$ y todo
+	$x\in M$. Estas estructuras son compatible en el sentido de que el
+	diagrama de morfismos de \'{a}lgebras siguiente es conmutativo:
+	\begin{center}
+		\begin{tikzcd}
+			R \arrow[r] \arrow[d] & \Endo[K](M) \\
+			R/I \arrow[ur,dashed] &
+		\end{tikzcd}
+	\end{center}
+	Notemos que, si $R$ es conmutativa, podemos reemplazar $\Endo[K](M)$
+	por $\Endo[R](M)$ en el diagrama anterior. Rec\'{\i}procamente, dado
+	un $R/I$-m\'{o}dulo a izquierda, podemos darle una estructura
+	natural de $R$-m\'{o}dulo por $r\cdot x:\equiv\conj r\cdot x$. Con
+	esta definici\'{o}n, $I$ act\'{u}a trivialmente.
+	% Si $f:\,M\rightarrow N$ es un morfismo de $R$-m\'{o}dulos y se cumple
+	% $I\cdot M=0$ y $I\cdot N=0$, el morfismo $f$ induce un morfismo
+	% $\bar{f}:\,M\rightarrow N$ de las estructuras de $R/I$-m\'{o}dulos
+	% correspondientes. En particular, si $f:\,M\rightarrow N$ es un
+	% morfismo de $R$-m\'{o}dulos arbitrarios, la restricci\'{o}n
+	% $f:\,\torsion[M]{I}\rightarrow\torsion[N]{I}$ induce un morfismo
+	% $\bar{f}:\,\torsion[M]{I}\rightarrow\torsion[N]{I}$ de $R/I$-%
+	% m\'{o}dulos.
+	En el caso conmutativo, si tenemos un morfismo de $K$-m\'{o}dulos
+	$f:\,A\rightarrow B$, y sea cumple que $\kappa\cdot A=0$ y que
+	$\kappa\cdot B=0$, entonces $f$ induce un morfismo de
+	$\conj f:\,A\rightarrow B$ de las estructuras de
+	$K/\generado\kappa$-m\'{o}dulos correspondientes. En particular, si
+	$f:\,A\rightarrow B$ es un morfismo arbitrario, la restricci\'{o}n
+	$f:\,\torsion[A]{\kappa}\rightarrow\torsion[B]{\kappa}$ induce un
+	morfismo $\conj f:\,\torsion[A]{\kappa}\rightarrow\torsion[B]{\kappa}$
+	de $K/\generado\kappa$-m\'{o}dulos.
+\end{obsTorsionSobreCociente}
+
+\begin{proof}[Demostraci\'{o}n de \ref{teo:torsion:estructura:unicidad}]
+	Primero, hacemos una observaci\'{o}n general. Si
+	$A=C_1\,\oplus\,\cdots\,\oplus\,C_k$ es una descomposici\'{o}n en
+	sumandos c\'{\i}clicos cuyos \'{o}rdenes verifican
+	\begin{math}
+		0\not=\generado{\mu_1}\subset\cdots\subset\generado{\mu_k}
+	\end{math} y $p\in D$ es un primo tal que
+	$\generado{\mu_k}\subset\generado p$,
+	% , es decir, $p$ divide a todos los \'{o}rdenes de la lista
+	% $\lista{\mu}{k}$.
+	tomando el n\'{u}cleo por la multiplicaci\'{o}n por $p$, se deduce que
+	\begin{equation}
+		\label{eq:torsion:estructura:unicidad}
+		\torsion[A]{p} \,=\,\torsion[C_1]{p}
+			\,\oplus\,\cdots\,\oplus\,\torsion[C_k]{p}
+		\text{ .}
+	\end{equation}
+	%
+	Pero, por el Lema~\ref{lema:multiplicartorsion},
+	\begin{align*}
+		\torsion[C_i]{p} & \,\simeq\,D/\generado{p}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\generado p$ es primo, el cociente $F=D/\generado p$ es un cuerpo
+	y \eqref{eq:torsion:estructura:unicidad} se puede interpretar, por la
+	Observaci\'{o}n~\ref{obs:torsion:sobrecociente}, como una
+	descomposici\'{o}n en tanto espacio vectorial sobre $F$.
+
+	Supongamos, ahora, que contamos con una segunda descomposici\'{o}n
+	$A=C_1'\,\oplus\,\cdots\,\oplus\,C_l'$ y veamos que $k\leq l$. Elegimos
+	$h\in[\![1,l]\!]$ como el m\'{a}ximo tal que
+	$\generado{\mu_h'}\subset\generado p$, o, si no existe, $h=0$. Si
+	$h=l$, comparando \eqref{eq:torsion:estructura:unicidad} con
+	\begin{math}
+		\torsion[A]{p}=\torsion[C_1']{p}
+			\oplus\cdots\oplus\torsion[C_l']{p}
+	\end{math} como espacios vectoriales, concluimos que $k=l$.%
+	\footnote{
+		Invarianza de la dimensi\'{o}n para espacios vectoriales.
+	}
+	Si $h<l$, entonces $\generado{\mu_{h+1}'}\not\subset\generado p$, con
+	lo que $\mu_{h+1}'$ y $p$ son coprimos.
+	% \begin{align*}
+		% \generado{\mu'_{h+1}} & \,=\,\generado{p'_{1}}\,\cap\,
+			% \cdots\,\cap\,\generado{p'_{r}}
+		% \text{ ,}
+	% \end{align*}
+	% %
+	% para ciertos primos no asociados $p'_{j}$ (y no asociados a $p$).
+	% Existen, tambi\'{e}n, $a_{1},\,b_{1},\,\dots,\,a_{r},\,b_{r}\in D$
+	% tales que
+	% \begin{math}
+		% p'_{i}a_{i}+pb_{i} =1
+	% \end{math}~. Si $\mu'_{h+1}={p'_{1}}^{e_{1}}\cdots{p'_{r}}^{e_{r}}$,
+	% entonces
+	% \begin{align*}
+		% 1 & \,=\,(p'_{1}a_{1}+pb_{1})^{e_{1}}\cdots
+			% (p'_{r}a_{r}+pb_{r})^{e_{r}} \,=\,\mu'_{h+1}a+pb
+		% \text{ ,}
+	% \end{align*}
+	% %
+	% para ciertos $a,b\in D$.
+	% Es decir, $\generado{\mu_{h+1}'}+\generado p=1$.
+	Por el Lema~\ref{lema:multiplicartorsion}, si $h=0$, entonces
+	$\torsion[A]{p}=0$ y, por lo tanto, $k=h=0$ y $A=0$. Finalmente, si
+	$0<h<l$, entonces
+	\begin{math}
+		\torsion[A]{p}=\torsion[C_1']{p}\,\oplus\,\cdots\,\oplus\,
+			\torsion[C_h']{p}
+	\end{math}, siendo el resto de los sumandos $\torsion[C_{h+j}']{p}=0$.
+	Como antes, $h=k$, por ser iguales a la dimensi\'{o}n del mismo
+	$F$-e.v. Conlcuimos que $k=h\leq l$ en todos los casos. Por
+	simetr\'{\i}a, $l\leq k$ y las longitudes de las descomposiciones
+	deb\'{\i}an ser iguales.
+
+	Sabiendo que $k=l$, sea $t\in[\![0,k]\!]$ tal que
+	$\generado{\mu_i}=\generado{\mu_i'}$ para todo $i\leq t$, o bien $t=0$.
+	Si $t=k$, no hay nada m\'{a}s que demostrar. Si $t<k$,
+	$\generado{\mu_{t+1}}\not=\generado{\mu_{t+1}'}$. Sin p\'{e}rdida de
+	generalidad, se puede asumir que
+	$\mu_{t+1}\not\in\generado{\mu_{t+1}'}$. Sea $\kappa:=\mu_{t+1}$. Si
+	$t=0$, multiplicando por $\kappa$ las dos descomposiciones de $A$, se
+	deduce que $\kappa\cdot C_i=\mu_1\cdot C_i=0$ para todo $i$. Pero
+	$\kappa\cdot C_1'\not=0$, porque
+	$\kappa=\mu_1\not\in\generado{\mu_1'}$, lo que se contradice con
+	\begin{align*}
+		\big(\kappa\cdot C_1'\big)\,\oplus\,* & \,=\,\kappa\cdot A
+			\,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Si $0<t<k$, un argumento similar muestra que
+	\begin{align*}
+		\big(\kappa\cdot C_1'\big)\,\oplus\,\cdots\,\oplus\,
+			\big(\kappa\cdot C_t'\big)\,\oplus\,
+			\big(\kappa\cdot C_{t+1}'\big) \,\oplus\, * & \,=\,
+				\kappa\cdot A \,=\,
+		\big(\kappa\cdot C_1\big)\,\oplus\,\cdots\,\oplus
+			\big(\kappa\cdot C_t\big)
+		\text{ .}
+	\end{align*}
+	%
+	Pero, entonces, el $D$-m\'{o}dulo $\kappa\cdot A$ admitir\'{\i}a dos
+	descomposiciones como suma directa de subm\'{o}dulos c\'{\i}clicos de
+	\'{o}rdenes encajados de longitudes distintas (una de longitud $t$ y
+	otra de longitud, al menos, $t+1$), lo cual es absurdo, teniendo en
+	cuenta lo demostado en el p\'{a}rrafo anterior.
+\end{proof}
+
+\begin{ejemploTorsionAbelianos}\label{ejemplo:torsion:abelianos}
+	Si $D=\bb Z$ es el aniillo de enteros racionales, entonces todo grupo
+	abeliano \emph{finito} $A\not=0$ admite una descomposici\'{o}n de la
+	forma
+	\begin{equation}
+		\label{eq:torsion:abelianos}
+		A \,\simeq\,\bb Z/m_1\,\oplus\,\cdots\,\oplus\,\bb Z/m_k
+		\text{ ,}
+	\end{equation}
+	%
+	donde los enteros $\lista{m}{k}$ son positivos, mayores que $1$ y
+	$m_{i+1}|m_i$. El entero $m_1$ es el entero (positivo) $m$ m\'{a}s
+	chico (en t\'{e}rminos del orden usual de $\bb Z$) tal que
+	$m\cdot A=0$. La cantidad de elementos de $A$ es el producto
+	$m_1\cdots m_k$.%
+	\footnote{
+		El orden, pero no el anulador minimal (el anulador minimal es
+		$m_1$)
+	}
+	Entonces, para hallar una descripci\'{o}n de todos los grupos abelianos
+	finitos de orden prescripto $n$, basta con hallar todas las listas
+	$\lista{m}{k}\in\bb Z_{\geq 2}$ tales que $m_1\cdots m_k=n$ y
+	$m_{i+1}|m_i$.
+\end{ejemploTorsionAbelianos}
+
+\begin{defFactoresInvariantes}\label{def:torsion:factoresinvariantes}
+	Dado un $D$-m\'{o}dulo de torsi\'{o}n $A$, los \'{o}rdenes de los
+	subm\'{o}dulos que aparecen en una descomposici\'{o}n como en el
+	Teorema~\ref{teo:torsion:estructura} se denominan \emph{factores %
+	invariantes} de $A$.
+\end{defFactoresInvariantes}
+
+\subsection{La noci\'{o}n de longitud}\label{subsec:torsion:longitud}
+% La demostraci\'{o}n que hemos dado del Teorema~\ref{teo:torsion:estructura}
+% pone el foco en el proceso de obtener subm\'{o}dulos c\'{\i}clicos
+% $C_1,\,C_2,\,\dots\subset A$ que est\'{a}n en suma directa. Recordemos que
+% estos subm\'{o}dulos definen una cadena ascendente contenida en $A$:
+% \begin{align*}
+	% & C_1 \,\subset\,C_1\,\oplus\,C_2\,\subset\,\cdots\,\subset\,
+		% C_1\,\oplus\,C_2\,\oplus\,\cdots\,\oplus\,C_k
+			% \,\subset\,\cdots\,\subset\,A
+	% \text{ .}
+% \end{align*}
+% %
+% La demostraci\'{o}n concluye apelando a la noetherianeidad de $A$, lo que
+% fuerza a que esta cadena se vuelva constante, eventualmente. Esta cadena
+% de ``sumas parciales'' que progresivamente se aproximan a $A$ se construye a la
+% par de la cadena de los ideales anuladores. El proceso se puede resumir de la
+% siguiente manera:
+% \begin{enumerate}
+	% \item dado un $D$-m\'{o}dulo $A$ de torsi\'{o}n y f.g., hallamos el
+		% anulador minimal, esto quiere decir que determinamos un
+		% generador $\nu\in D$ del ideal anulador $\Anulador(A)$;
+	% \item una vez hallado $\nu$, buscamos un elemento $x\in A$ de orden
+		% exactamente $\nu$ y definimos $C=\generado x$;
+	% \item dado que $\Anulador(C)=\Anulador(A)$, el subm\'{o}dulo $C$
+		% est\'{a} complementado en $A$ y deber\'{\i}amos poder
+		% ``encontrar'' un subm\'{o}dulo $A'\subset A$ tal que
+		% $A=C\,\oplus\,A'$;
+	% \item si $A'$ es c\'{\i}clico, el proceso se deteniene, si no, se
+		% repite con $A'$ en lugar de $A$.
+% \end{enumerate}
+% %
+% De esta manera, este procedimiento determina una cadena de ideales
+% \begin{align*}
+	% \Anulador(A) & \,=\,\Anulador(C_1) \,\subset\,\Anulador(C_2)
+		% \,\subset\,\cdots\,\subset\,\Anulador(C_k)
+		% \,\subset\,\cdots\,\subset\,D
+	% \text{ .}
+% \end{align*}
+% %
+% Por factorizaci\'{o}n \'{u}nica, $\nu=p_1^{e_1}\cdots p_r^{e_r}$, para ciertos
+% primos no asociados $p_j$ y enteros positivos $e_j\geq 1$. En particular,
+% cada t\'{e}rmino de la sucesi\'{o}n anterior es de la forma
+% \begin{align*}
+	% \Anulador(C_i) & \,=\,\generado{\mu_i}\,=\,
+		% \generado{p_1^{e_1(i)}\cdots p_r^{e_r(i)}}
+	% \text{ ,}
+% \end{align*}
+% %
+% la lista de primos est\'{a} fija, determinada por $\mu_1=\nu$ y, para
+% $i\geq 1$, $1\leq j\leq r$, vale que $e_j(i)\geq e_j(i+1)$. Es decir, la
+% cantidad de factores que aparecen en una factorizaci\'{o}n de un generador de
+% $\Anulador(C_{i+1})$ no puede ser mayor a la cantidad correspondiente para un
+% generador del t\'{e}rmino anterior, $\Anulador(C_i)$. Esta desigualdad
+% podr\'{\i}a ser una igualdad para alg\'{u}n \'{\i}ndice $i$, lo que quiere
+% decir que el subm\'{o}dulo $A_i$ complementario a $C_i$ posee elementos del
+% mismo orden que $C_i$. Si ya no quedan elementos de orden dado por incorporar
+% a la suma de m\'{o}dulos c\'{\i}clicos, entonces la desigualdad es estricta;
+% rec\'{\i}procamente, si la desigualdad es estricta, la inclusi\'{o}n de
+% anuladores es estricta, lo que significa que los elementos restantes tienen
+% orden m\'{a}s chico. Esta noci\'{o}n de tama\~{n}o relativa a la
+% factorizaci\'{o}n en $D$ es la \emph{longitud} de un elemento.
+% 
+\begin{defLongitud}\label{def:longitud}
+	Sea $D$ es un DIP.%
+	\footnote{
+		Esta definici\'{o}n es v\'{a}lida en un DFU, pero, en aquel
+		caso, no resulta ser la definici\'{o}n adecuada, habiendo
+		ideales primos no principales.
+	}
+	En particular, $D$ es DFU. Dado $\mu\in D$ no nulo ni unidad, existen
+	primos $\lista{p}{r}$, permitiendo asociados, tales que
+	$\mu=p_1\cdots p_r$. La \emph{longitud} de $\mu$ es la cantidad de
+	factores irreducibles $r\geq 1$ que aparecen en \'{e}sta, como en
+	cualquier factorizaci\'{o}n como producto de irreducibles. Denotamos la
+	longitud de $\mu$ por $\longitud(\mu)$. Si $u\in D^\times$, definimos
+	$\longitud(u):\equiv 0$. Definimos, adem\'{a}s,
+	$\longitud(0):\equiv\infty$ y $n\leq\infty$ para todo $n\in\bb Z$.
+\end{defLongitud}
+	
+\begin{defLongitud}\label{def:torsion:longitud}
+	Si $A$ es un $D$-m\'{o}dulo de torsi\'{o}n, la \emph{longitud} de
+	$x\in A$ se define como $\longitud(x):\equiv\longitud(\mu)$, donde
+	$\mu\in D$ verifica $\generado\mu=\Anulador(x)$. La \emph{longitud} de
+	$A$ se define como $\longitud(A)=\longitud(\nu)$, donde
+	$\generado\nu=\Anulador(A)$.
+\end{defLongitud}
+
+En particular, si $x\in A$, $\longitud(\generado x)=\longitud(x)$. Si
+$\generado x\simeq D/\generado\mu$, entonces, cuanto mayor sea
+$\longitud(\mu)$, m\'{a}s chico ser\'{a} el ideal $\generado\mu$ y m\'{a}s
+grande ser\'{a} el m\'{o}dulo $\generado x$. En general, si $B\subset A$ es un
+subm\'{o}dulo, entonces $\longitud(B)\leq\longitud(A)$.
+
+\begin{obsLongitud}\label{obs:longitud}
+	Si $A$ no es f.g., podr\'{\i}a suceder que $\Anulador(A)=0$ y, por
+	lo tanto $\longitud(A)=\infty$. Si $A$ es f.g., esto no puede suceder.%
+	\footnote{
+		C.f. la Observaci\'{o}n~\ref{obs:torsion}
+	}
+\end{obsLongitud}
+
+Veamos c\'{o}mo quedan expresados algunos de los resultados anteriores en
+t\'{e}rminos de la longitud. Fijamos un DIP $D$. Los siguientes resultados son
+los an\'{a}logos de la Proposici\'{o}n~\ref{propo:sumandociclico} y el Lema~%
+\ref{lema:torsion:elementodeordenminimal}, respectivamente.
+
+\begin{propoSumandoCiclicoLongitud}\label{propo:sumandociclico:longitud}
+	Sea $A$ un $D$-m\'{o}dulo noetheriano. Si $C\subset A$ es un
+	subm\'{o}dulo c\'{\i}clico y $\longitud(C)=\longitud(A)$, entonces $C$
+	es un sumando directo de $A$.
+\end{propoSumandoCiclicoLongitud}
+
+\begin{lemaElementoDeOrdenMinimalLongitud}%
+	\label{lema:torsion:elementodeordenminimal:longitud}
+	Si $A$ es un $D$-m\'{o}dulo de torsi\'{o}n y f.g., existe $x\in A$ tal
+	que $\longitud(x)=\longitud(A)$.
+\end{lemaElementoDeOrdenMinimalLongitud}
+
+A continuaci\'{o}n, damos una segunda demostraci\'{o}n del Teorema~%
+\ref{teo:torsion:estructura}, intentando formalizar el argumento de la
+demostraci\'{o}n anterior utilizando el concepto de longitud.%
+\footnote{
+	C.f. \cite[p.~188, \S~3.8, exs.~4--6]{JacobsonBasicAlgebraI}.
+}
+
+\begin{lemaGeneradoresCoeficientesCoprimos}%
+	\label{lema:generadorescoeficientescoprimos}
+	Sea $A=\generado{\lista{x}{k}}$ un $D$-m\'{o}dulo f.g.
+	Dada una lista $\lista{\gamma}{k}\in D$ de elementos coprimos. Existe
+	un conjunto $\{\lista{y}{k}\}$ de generadores de $A$, tal que
+	$y_1=\gamma_1\,x_1+\,\cdots\,+\gamma_k\,x_k$.
+\end{lemaGeneradoresCoeficientesCoprimos}
+
+Veamos la versi\'{o}n para grupos abelianos, es decir, $D=\bb Z$.%
+\footnote{
+	C.f. \cite[p.~26]{MilneGroupTheory}
+}
+
+\begin{lemaGeneradoresCoeficientesCoprimos}%
+	\label{lema:generadorescoeficientescoprimos:enteros}
+	% Sea $\{\lista{x}{k}\}$ un conjunto de generadores de un grupo abeliano
+	% $A$.
+	Sea $A=\generado{\lista{x}{k}}$ un grupo abeliano f.g.
+	Dada una lista $\lista{c}{k}\in\bb N\cup\{0\}$ tal que
+	$(\lista{c}{k})=1$, existe un conjunto $\{\lista{y}{k}\}$ de
+	generadores de $A$ tal que $y_1=c_1\,x_1+\,\cdots\,+c_k\,x_k$.
+\end{lemaGeneradoresCoeficientesCoprimos}
+
+\begin{proof}[Demostraci\'{o}n de %
+	\ref{lema:generadorescoeficientescoprimos:enteros}]	
+	Sea $s=c_1+\,\cdots\,+c_k$ y sea $y=c_1\,x_1+\,\cdots\,+c_k\,x_k$. La
+	demostraci\'{o}n es por inducci\'{o}n en $s$. Si $s=1$, entonces $k=1$
+	y $c_1=1$, con lo cual $y=x_1$. Supongamos que $s>1$ --o, lo que es lo
+	mismo, que $k>1$. Como $(\lista{c}{k})=1$, al menos dos de los $c_i$
+	deben ser distintos de $0$. Permutando los coeficientes, podemos asumir
+	que $c_1\geq c_2>0$. En ese caso, definimos
+	\begin{align*}
+		y' & \,=\,(c_1-c_2)\,x_1\,+\,c_2\,(x_1+x_2)\,+\,c_3\,x_3\,+\,
+			\cdots\,+\,c_k\,x_k
+		\text{ .}
+	\end{align*}
+	%
+	Ahora, el conjunto $\{x_1,\,x_2+x_1,\,x_3,\,\dots,\,x_k\}$ genera $A$ y
+	$c_1-c_2,\,c_2,\,c_3,\,\dots,\,c_k$ es una lista de enteros no
+	negativos y coprimos. Pero, adem\'{a}s,
+	$(c_1-c_2)+c_2+\,\cdots\,+c_k<s$. Por hip\'{o}tesis inductiva, existe
+	un conjunto de generadores $\{\lista{y}{k}\}$ con $y_1=y'$. Dado que
+	$y'=y$, este conjunto de generadores satisface la conclusi\'{o}n del
+	enunciado para $s$, demostrando el paso inductivo.
+\end{proof}
+
+Esta demostraci\'{o}n se basa en el orden en el monoide $\bb N\cup\{0\}$ y su
+relaci\'{o}n con la suma. As\'{\i} como est\'{a}, no est\'{a} claro c\'{o}mo se
+puede generalizar, incluso al otro caso importante: polinomios con coeficientes
+en un cuerpo. a demostraci\'{o}n para un DIP arbitrario es un poco distinta.
+
+\begin{proof}[Demostraci\'{o}n de \ref{lema:generadorescoeficientescoprimos}]
+	Sea $y=\gamma_1\,x_1+\,\cdots\,+\gamma_k\,x_k$. La demostraci\'{o}n es
+	por inducci\'{o}n en la cantidad $k$ de generadores. El caso $k=1$ es
+	trivial. Si $k=2$, $(\gamma_1,\gamma_2)=1$ implica que existen
+	$\kappa_1,\kappa_2\in D$ tales que
+	$\gamma_1\,\kappa_1+\gamma_2\,\kappa_2=1$. Esto quiere decir que la
+	matriz
+	\begin{align*}
+		\begin{bmatrix}
+			\gamma_1 & -\kappa_2 \\
+			\gamma_2 & \kappa_1
+		\end{bmatrix}
+	\end{align*}
+	%
+	tiene determinante $1$ y es invertible. Expl\'{\i}citamente, su inversa
+	est\'{a} dada por
+	\begin{align*}
+		\begin{bmatrix}
+			\kappa_1 & \kappa_2 \\
+			-\gamma_2 & \gamma_1
+		\end{bmatrix}
+		\text{ .}
+	\end{align*}
+	%
+	Si definimos $y_1=\gamma_1\,x_1+\gamma_2\,x_2$ e
+	$y_2=-\kappa_2\,x_1+\kappa_1\,x_2$, entonces
+	\begin{align*}
+		x_1 \,=\,\kappa_1\,y_1-\gamma_2\,y_2 & \quad\text{y}\quad
+			x_2 \,=\,\kappa_2\,y_1+\gamma_1\,y_2
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, $\{y_1,\,y_2\}$ es un conjunto de generadores e $y_1$ es como
+	quer\'{\i}amos. Supongamos que $k>2$ y que el resultado es cierto para
+	una $k-1$ generadores. Llamamos $A'$ al subm\'{o}dulo generado por
+	$\lista[2]{x}{k}$ y $\delta=(\lista[2]{\gamma}{k})$ y definimos
+	$\gamma_i'\in D$ tal que $\gamma_i=\delta\,\gamma_i'$, para
+	$i\geq 2$. Por hip\'{o}tesis inductiva, sabemos que existe un
+	conjunto de generadores $\{\lista[2]{z}{k}\}$ del subm\'{o}dulo $A'$
+	tal que $z_2=\gamma_2'\,x_2+\,\cdots\,+\gamma_k'\,x_k$. Sea, ahora,
+	$B=\generado{x_1,\,z_2}$. Como $(\gamma_1,\delta)=1$, podemos aplicar
+	el resultado con $k=2$ y deducimos que existe un conjunto
+	$\{y_1,\,y_2\}$ de generadores de $B$ tal que
+	$y_1=\gamma_1\,x_1+\delta\,z_2$. Definiendo $y_i=z_i$, para $i\geq 3$,
+	el conjunto $\{\lista{y}{k}\}$ genera $B+A'=A$ e $y_1=y$, como
+	quer\'{\i}amos.
+\end{proof}
+
+\begin{lemaSumandoCiclicoLongitudMinimal}%
+	\label{lema:sumandociclicolongitudminimal}
+	Sea $A$ un $D$-m\'{o}dulo f.g. Sea $k\geq 1$ la m\'{\i}nima cantidad de
+	generadores necesarios para generar $A$ y sea $\{\lista{x}{k}\}$ un
+	conjunto de generadores con la propiedad de que el valor
+	$\longitud(x_1)$ es m\'{\i}nimo, entre todos los posibles conjuntos de
+	generadores con $k$ elementos. Entonces $A=\generado{x_1}\,\oplus\,A'$,
+	donde $A'=\generado{\lista[2]{x}{k}}$. Adem\'{a}s, se cumple que
+	$\Anulador(x)\supset\Anulador(y)$, para todo $y\in A'$.
+\end{lemaSumandoCiclicoLongitudMinimal}
+
+\begin{proof}
+	Por definici\'{o}n,
+	$\Anulador(x_1)\supset\Anulador(\generado{x_1}+A')$. Supongamos que
+	$\generado{x_1}\cap A'\not=0$. Entonces existe una expresi\'{o}n
+	\begin{equation}
+		\label{eq:sumandociclicolongitudminimal}
+		\gamma_1\,x_1\,+\,\gamma_2\,x_2\,+\,\cdots\,+\,\gamma_k\,x_k
+			\,=\, 0
+		\text{ ,}
+	\end{equation}
+	%
+	con $\gamma_1\,x_1\not=0$ (y
+	$\gamma_2\,x_2+\,\cdots\,+\gamma_k\,x_k\not=0$). Si
+	$\Anulador(x_1)=\generado{\mu}$, entonces
+	$\kappa:=\gamma_1/(\gamma_1,\mu)$ es coprimo con $\mu$. Por el Lema~%
+	\ref{lema:multiplicartorsion},
+	\begin{align*}
+		\generado{x_1} \,=\,\generado{\kappa\,x_1} & \quad\text{y}\quad
+			\longitud(\kappa\,x_1)\,=\,\longitud(x_1)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, el conjunto $\{\lista{\tilde x}{k}\}$ donde
+	$\tilde x_1=\kappa\,x_1$ y $\tilde x_i=x_i$, para $i\geq 2$, genera
+	$A$, posee $k$ elementos y $\longitud(\tilde x_1)$ es, tambi\'{e}n,
+	m\'{\i}nima. Entonces, sin p\'{e}rdida de generalidad, podemos suponer
+	que el coeficiente $\gamma_1$ en
+	\eqref{eq:sumandociclicolongitudminimal} es divisor (!`estricto!) de
+	$\mu$, generador de $\Anulador(x_1)$.
+
+	Siguiendo con la demostraci\'{o}n, sea $\delta=(\lista{\gamma}{k})$ y
+	sean $\gamma_i'\in D$ tales que $\gamma_i=\delta\,\gamma_i'$. Por el
+	Lema~\ref{lema:generadorescoeficientescoprimos}, existe un conjunto
+	$\{\lista{y}{k}\}$ de generadores de $A$ con
+	$y_1=\gamma_1'\,x_1+\,\cdots\,+\gamma_k'\,x_k$. Pero entonces
+	\begin{align*}
+		\delta\,y_1 & \,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Esto quiere decir que $\delta\in\Anulador(y_1)$ y, por lo tanto,
+	\begin{align*}
+		\longitud(y_1) & \,\leq\,\longitud(\delta)\,\leq\,
+			\longitud(\gamma_1) \,<\,\longitud(x_1)
+		\text{ .}
+	\end{align*}
+	%
+	Esto contradice la minimalidad del conjunto de generadores.
+
+	Finalmente, veamos que $\Anulador(x)\supset\Anulador(y)$, para todo
+	$y\in A'$. Es suficiente demostrar esta inclusi\'{o}n con $y=x_2$. Sean
+	$\mu_1,\mu_2\in D$ tales que $\Anulador(x_i)=\generado{\mu_i}$
+	($i=1,2$) y sea $\delta=(\mu_1,\mu_2)$. Si $\mu_1$ y $\mu_2$ no son
+	asociados, entonces $\longitud(\delta)<\longitud(\mu_1)$. Elegimos
+	$\mu_i'\in D$ tales que $\mu_i=\delta\,\mu_i'$ y aplicamos el Lema~%
+	\ref{lema:generadorescoeficientescoprimos} a $B=\generado{x_1,x_2}$ con
+	la lista $\{\mu_1',\mu_2'\}$. Deducimos que existen $y_1,\,y_2$
+	generadores de $B$ con $y_1=\mu_1'\,x_1+\mu_2'\,x_2$. Pero esto implica
+	que, tomando $y_i=x_i$ para $i\geq 3$, el conjunto $\{\lista{y}{k}\}$
+	genera $B+A'=A$ y cumple
+	\begin{align*}
+		\longitud(y_1) & \,\leq\,\longitud(\delta)\,<\,\longitud(x_1)
+		\text{ ,}
+	\end{align*}
+	%
+	pues $\delta\,y_1=\mu_1\,x_1+\mu_2\,x_2=0$. Esto contradice,
+	nuevamente, la minimalidad del conjunto $\{\lista{x}{k}\}$.
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n alternativa de \ref{teo:torsion:estructura}]
+	Si $A$ es un $D$-m\'{o}dulo f.g. Si $A$ es c\'{\i}clico, no hay nada
+	que probar. Supongamos que la cantidad m\'{\i}nima de generadores para
+	$A$ es $k>1$ y que el resultado es v\'{a}lido para m\'{o}dulos que
+	admiten un conjunto de generadores con una cantidad menor de elementos.
+	Elijamos (existe) un conjunto de generadores $\{\lista{x}{k}\}$ que
+	cumpla las hip\'{o}tesis del Lema~%
+	\ref{lema:sumandociclicolongitudminimal}. Entonces
+	$A=\generado{x_1}\,\oplus\,A'$ y
+	$\Anulador(\tilde C_1)\supset\Anulador(A')$, donde
+	$\tilde C_1=\generado{x_1}$ y $A'=\generado{\lista[2]{x}{k}}$. Por
+	hip\'{o}tesis inductiva, como $A'$ admite un conjunto de generadores
+	m\'{a}s chico, sabemos que se descompone como una suma directa de
+	subm\'{o}dulos c\'{\i}clicos $\lista[2]{\tilde C}{t}$ tales que
+	\begin{math}
+		\Anulador(\tilde C_2)\supset\,\cdots\,\supset
+			\Anulador(\tilde C_t)
+	\end{math}. La lista de subm\'{o}dulos se obtiene dando vuelta el orden
+	de los $\tilde C_i$: $C_1=\tilde C_t$, $C_2=\tilde C_{t-1}$, \dots,
+	$C_t=\tilde C_1$.
+\end{proof}
+
+En esta segunda demostraci\'{o}n, en lugar de empezar por un elemento cuyo
+orden es el anulador minimal del m\'{o}dulo (un elemento longitud
+$\longitud(x)=\longitud(A)$, lo m\'{a}s grande posible), empezamos por un
+elemento de longitud lo m\'{a}s chica posible, siempre que el mismo pertenezca
+a una ``base'', un conjunto minimal de generadores.

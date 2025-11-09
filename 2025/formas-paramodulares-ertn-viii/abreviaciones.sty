@@ -1,0 +1,372 @@
+\ProvidesPackage{abreviaciones}
+
+\newcommand{\bb}[1]{\ensuremath{\mathbb{#1}}}
+\renewcommand{\frak}[1]{\ensuremath{\mathfrak{#1}}}
+\renewcommand{\cal}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\hhat}[1]{\ensuremath{\widehat{#1}}}
+
+%% Conjuntos
+\newcommand{\setmin}{\ensuremath{\smallsetminus}}
+\newcommand{\clos}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\interior}[1]{\ensuremath{\mathrm{int}\left(#1\right)}}
+% \newcommand{\Empty}{\ensuremath{\varnothing}}
+\newcommand{\setcomp}[1]{\ensuremath{\left(#1\right)^{\mathsf{c}}}}
+\newcommand{\mmid}{\ensuremath{\mid\mid}}
+\newcommand{\cardinal}[1]{\ensuremath{\#{#1}}}
+
+\newcommand{\soporte}[1]{\ensuremath{\mathsf{sop}(#1)}}
+\newcommand{\indica}[1]{\ensuremath{\mathbb{I}\left(#1\right)}}
+\newcommand{\clase}[1]{\ensuremath{\left[#1\right]}}
+\newcommand{\repr}[2][]{\ensuremath{[#2]_{#1}}}
+
+\newcommand{\grado}{\ensuremath{\mathsf{gr}}}
+\newcommand{\signo}{\ensuremath{\mathsf{sgn}}}
+
+\newcommand{\conj}[1]{\ensuremath{\bar{#1}}}
+\newcommand{\lconj}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\cotangente}{\ensuremath{\mathsf{cot}}}
+
+\newcommand{\maximo}{\ensuremath{\mathsf{max}}}
+\newcommand{\minimo}{\ensuremath{\mathsf{min}}}
+\newcommand{\supremo}{\ensuremath{\mathsf{sup}}}
+\newcommand{\infimo}{\ensuremath{\mathsf{inf}}}
+
+\newcommand{\BigO}[1]{\ensuremath{\mathit{O}\left(#1\right)}}
+
+\newcommand{\multiplicar}[1][]{\ensuremath{\mathsf{mult}_{#1}}}
+\newcommand{\inc}[1][]{\ensuremath{\mathsf{inc}_{#1}}}
+\newcommand{\id}[1][]{\ensuremath{\mathsf{id}_{#1}}}
+\newcommand{\diag}{\ensuremath{\mathsf{diag}}}
+% \newcommand{\diagonal}{\ensuremath{\delta}}
+\newcommand{\swap}[1][]{\ensuremath{\mathsf{swap}_{#1}}}
+
+\newcommand{\pull}[1]{\ensuremath{{#1}^{*}}}
+\newcommand{\push}[1]{\ensuremath{{#1}_{*}}}
+
+
+
+%% Complejos, semiplano, semiespacios, hiperbólica
+\newcommand{\iu}{\ensuremath{\mathit{i}}}
+\newcommand{\ou}{\ensuremath{\omega}}
+
+\newcommand{\Imag}{\ensuremath{\mathsf{Im}}}
+\newcommand{\Real}{\ensuremath{\mathsf{Re}}}
+\newcommand{\semiplano}[1][]{\ensuremath{\mathfrak{H}_{#1}}}
+\newcommand{\esfera}[1]{\ensuremath{\mathrm{S}^{#1}}}
+\newcommand{\accion}[1]{\ensuremath{\langle#1\rangle}}
+\newcommand{\factor}{\ensuremath{\mathit{j}}}
+
+
+%% Análisis funcional
+\newcommand{\acotados}[1]{\ensuremath{\mathcal{B}(#1)}}
+% \newcommand{\unidades}[1]{\ensuremath{{#1}^\times}}
+\newcommand{\espectro}[2][]{\ensuremath{\sigma_{#1}(#2)}}
+\newcommand{\radio}[2][]{\ensuremath{\rho_{#1}(#2)}}
+\newcommand{\resolvente}[1][]{\ensuremath{\mathcal{R}_{#1}}}
+\newcommand{\dual}[1]{\ensuremath{{#1}^{\vee}}}
+\newcommand{\ddual}[1]{\ensuremath{{#1}^{\vee\vee}}}
+\newcommand{\bola}[2][1]{\ensuremath{\mathsf{B}_{#1}(#2)}}
+\newcommand{\Caracteres}[1][]{\ensuremath{\Delta_{#1}}}
+\newcommand{\Gelfand}[1][]{\ensuremath{\Gamma_{#1}}}
+\newcommand{\Continuas}[2][]{\ensuremath{\mathsf{C}_{#1}(#2)}}
+
+
+
+%% Enteros y funciones
+\newcommand{\modulo}[1][]{\ensuremath{\quad (\mathsf{mod}\,{#1})}}
+\newcommand{\tmodulo}[1][]{\ensuremath{\,(\mathsf{mod}\,{#1})}}
+% \newcommand{\mcd}[3][]{\ensuremath{\left({#2}:{#3}\right)_{#1}}}
+\newcommand{\mcd}[2][]{\ensuremath{\left({#2}\right)_{#1}}}
+\newcommand{\mcm}[2][]{\ensuremath{\left[{#2}\right]_{#1}}}
+\newcommand{\eulerphi}{\ensuremath{\varphi}}
+\newcommand{\moebius}{\ensuremath{\mu}}
+\newcommand{\resto}[1][]{\ensuremath{\mathsf{r}_{#1}}}
+\newcommand{\piso}[1]{\ensuremath{\left\lfloor{#1}\right\rfloor}}
+\newcommand{\fraccionaria}[1]{\ensuremath{\left\{#1\right\}}}
+
+\newcommand{\Restos}[1][]{\ensuremath{\mathcal{R}_{#1}}}
+\newcommand{\varRestos}[1][]{\ensuremath{\widetilde{\mathcal{R}_{#1}}}}
+
+
+%% Símbolos
+\newcommand{\binomial}[2]{\ensuremath{\genfrac{(}{)}{0pt}{0}{#1}{#2}}}
+\newcommand{\tbinomial}[2]{\ensuremath{\genfrac{(}{)}{0pt}{}{#1}{#2}}}
+\newcommand{\legendre}[2]{\ensuremath{\genfrac{(}{)}{}{0}{#1}{#2}}}
+\newcommand{\tlegendre}[2]{\ensuremath{\left({#1}/{#2}\right)}}
+\newcommand{\jacobi}[2]{\legendre{#1}{#2}}
+\newcommand{\tjacobi}[2]{\tlegendre{#1}{#2}}
+\newcommand{\kronecker}[2]{\legendre{#1}{#2}}
+\newcommand{\tkronecker}[2]{\tlegendre{#1}{#2}}
+\newcommand{\varkronecker}[1][]{\ensuremath{\chi_{#1}}}
+
+
+%% Representación por formas cuadráticas binarias
+\newcommand{\binaria}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\varClases}[1][]{\ensuremath{\mathsf{Clases}_{#1}}}
+\newcommand{\varnClases}[1][]{\ensuremath{\cardinal{\varClases[#1]}}}
+\newcommand{\varPrimitivas}[1][]{\ensuremath{\mathsf{Primitivas}_{#1}}}
+\newcommand{\varnPrimitivas}[1][]{\ensuremath{\cardinal{\varPrimitivas[#1]}}}
+\newcommand{\varRepresentaciones}[1][]{\ensuremath{%
+	\mathsf{Representaciones}_{#1}}}
+\newcommand{\varnRepresentaciones}[1][]{\ensuremath{%
+	\cardinal{\varRepresentaciones[#1]}}}
+\newcommand{\varPropias}[1][]{\ensuremath{\mathsf{Propias}_{#1}}}
+\newcommand{\varnPropias}[1][]{\ensuremath{\cardinal{\varPropias[#1]}}}
+\newcommand{\varPrimarias}[1][]{\ensuremath{\mathsf{Primarias}_{#1}}}
+\newcommand{\varnPrimarias}[1][]{\ensuremath{\cardinal{\varPrimarias[#1]}}}
+
+\newcommand{\Clases}[1][]{\ensuremath{\mathit{C}_{#1}}}
+\newcommand{\nClases}[1][]{\ensuremath{\mathsf{h}_{#1}}}
+\newcommand{\nRepresentaciones}[1][]{\ensuremath{\mathsf{R}_{#1}}}
+
+\newcommand{\rneigh}{\ensuremath{\mathit{R}}}
+\newcommand{\lneigh}{\ensuremath{\mathit{L}}}
+
+%% Cuerpos locales
+\newcommand{\enterospadicos}[1]{\mathbb{Z}_{#1}}
+\newcommand{\enterosmod}[1][]{\ensuremath{\bb Z/{#1}\bb Z}}
+\newcommand{\valuacion}[1][]{\mathit{v}_{#1}}
+
+
+%% Estructuras algebraicas
+\newcommand{\Hom}[1][]{\ensuremath{\mathsf{Hom}_{#1}}}
+\newcommand{\Endo}[1][]{\ensuremath{\mathsf{End}_{#1}}}
+\newcommand{\Auto}[1][]{\ensuremath{\mathsf{Aut}_{#1}}}
+\newcommand{\generado}[2][]{\ensuremath{\left\langle{#2}\right\rangle_{#1}}}
+
+
+%% Espacios vectoriales
+\renewcommand{\dim}[1][]{\ensuremath{\mathsf{dim}_{#1}}}
+\newcommand{\codim}[1][]{\ensuremath{\mathsf{codim}_{#1}}}
+\renewcommand{\ker}{\ensuremath{\mathsf{ker}}}
+\newcommand{\coker}{\ensuremath{\mathsf{coker}}}
+\newcommand{\img}{\ensuremath{\mathsf{img}}}
+\newcommand{\rango}{\ensuremath{{\mathsf{rg}}}}
+
+
+%% Teoría de Galois, cuerpos y álgebras
+\newcommand{\caracteristico}[1][]{\ensuremath{\mathsf{c}_{#1}}}
+\newcommand{\minimal}[1][]{\ensuremath{\mathsf{m}_{#1}}}
+\newcommand{\algclos}[1]{\ensuremath{{#1}^{\mathsf{a}}}}
+\newcommand{\car}[1]{\ensuremath{\mathsf{car}(#1)}}
+\newcommand{\Norma}[1][]{\ensuremath{\mathsf{Nm}_{#1}}}
+\newcommand{\Traza}[1][]{\ensuremath{\mathsf{Tr}_{#1}}}
+\newcommand{\nrd}{\ensuremath{\mathsf{nrd}}}
+\newcommand{\trd}{\ensuremath{\mathsf{trd}}}
+
+
+%% Grupos
+\newcommand{\subgrp}{\ensuremath{\leq}}
+\newcommand{\subgrpeq}{\ensuremath{\leq}}
+\newcommand{\orden}[1][]{\ensuremath{\mathsf{ord}_{#1}}}
+\newcommand{\varorden}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\indice}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\Stab}[1][]{\ensuremath{\mathsf{Stab}_{#1}}}
+
+
+%% Matrices
+\newcommand{\MM}[1][]{\ensuremath{\mathsf{Mat}_{#1}}}
+\newcommand{\Mat}[1][]{\ensuremath{\mathsf{Mat}_{#1}}}
+\newcommand{\adjunta}{\ensuremath{\mathsf{adj}}}
+\newcommand{\varadjunta}[1]{\ensuremath{{#1}^\vee}}
+\renewcommand{\det}{\ensuremath{\mathsf{det}}}
+\newcommand{\traza}{\ensuremath{\mathsf{tr}}}
+\newcommand{\vartraza}{\ensuremath{\sigma}}
+\newcommand{\transpuesta}[1]{\ensuremath{\,^{\mathit{t}}{#1}}}
+\newcommand{\trnsp}[1]{%
+	% \ensuremath{\,^{\mathit{t}}{#1}}}
+	\ensuremath{\,\mbox{$\vphantom{#1}$}^\mathit{t}\!{#1}}}
+\newcommand{\adjnt}[1]{\ensuremath{{#1}^{\ast}}}
+\newcommand{\aadjnt}[1]{\ensuremath{{#1}^{\ast\ast}}}
+\newcommand{\Id}[1][]{\ensuremath{\mathit{I}_{#1}}}
+\newcommand{\Simplectica}[1][]{\ensuremath{\mathit{J}_{#1}}}
+\newcommand{\diagonal}[1]{\ensuremath{\left\langle#1\right\rangle}}
+
+\newcommand{\multiplier}[1][]{\ensuremath{\mu_{#1}}}
+\newcommand{\spdiv}[1][]{\ensuremath{\mathsf{sd}_{#1}}}
+
+%% Anillos, álgebras, Álgebra conmutativa
+\newcommand{\tensor}[1][]{\ensuremath{\otimes_{#1}}}
+\newcommand{\extension}[1]{\ensuremath{{#1}^\mathit{e}}}
+\newcommand{\contraccion}[1]{\ensuremath{{#1}^\mathit{c}}}
+
+\newcommand{\anillo}[2][]{\ensuremath{\mathcal{O}_{#1}(#2)}}
+\newcommand{\ideal}[2][]{\ensuremath{\mathcal{I}_{#1}(#2)}}
+
+\newcommand{\indet}{\ensuremath{\mathit{X}}}
+\newcommand{\polinomios}[2][\indet]{\ensuremath{{#2}\left[#1\right]}}
+
+%%
+\def\lista{\@ifstar\@lista\@@lista}
+\def\@lista{\@ifnextchar[{\@listawith}{\@listawithout}}
+\def\@listawith[#1]#2#3{\ensuremath{{#2}^{#1},\,\dots,\,{#2}^{#3}}}
+\def\@listawithout#1#2{\ensuremath{{#1}^{1},\,\dots,\,{#1}^{#2}}}
+\def\@@lista{\@ifnextchar[{\@@listawith}{\@@listawithout}}
+\def\@@listawith[#1]#2#3{\ensuremath{{#2}_{#1},\,\dots,\,{#2}_{#3}}}
+\def\@@listawithout#1#2{\ensuremath{{#1}_{1},\,\dots,\,{#1}_{#2}}}
+
+
+\def\sbmatrix#1{\ensuremath{
+	\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}}
+\def\svmatrix#1{\ensuremath{
+	\left\vert\begin{smallmatrix} #1 \end{smallmatrix}\right\vert}}
+\def\svvmatrix#1{\ensuremath{
+	\left\|\begin{smallmatrix} #1 \end{smallmatrix}\right\|}}
+\def\spmatrix#1{\ensuremath{
+	\left(\begin{smallmatrix} #1 \end{smallmatrix}\right)}}
+\def\scmatrix#1{\ensuremath{
+	\left\{\begin{smallmatrix} #1 \end{smallmatrix}\right\}}}
+\def\smatrix#1{\ensuremath{
+	\begin{smallmatrix} #1 \end{smallmatrix}}}
+%%
+
+%% Espacios bilineales, espacios cuadráticos
+\newcommand{\pperp}{\ensuremath{{\perp\perp}}}
+\newcommand{\lperp}{\ensuremath{{\perp_{\mathrm{L}}}}}
+\newcommand{\rperp}{\ensuremath{{\perp_{\mathrm{R}}}}}
+
+\newcommand{\discriminante}{\ensuremath{\mathsf{disc}}}
+\newcommand{\pfaff}{\ensuremath{\mathsf{Pf}}}
+\newcommand{\unidades}[1]{\ensuremath{{#1}^\times}}
+\newcommand{\cuadrados}[1]{\ensuremath{({#1}^\times)^2}}
+\newcommand{\nocuadrados}[1]{\ensuremath{{#1}^\times\setmin\cuadrados{#1}}}
+\newcommand{\modcuadrados}[1]{\ensuremath{{#1}^\times/\cuadrados{#1}}}
+\newcommand{\valoresfuncion}{\ensuremath{\wp}}
+\newcommand{\valores}[1]{\ensuremath{\valoresfuncion({#1})}}
+\newcommand{\novalores}[1]{\ensuremath{{#1}\setmin\valores{#1}}}
+\newcommand{\modvalores}[1]{\ensuremath{{#1}/\valores{#1}}}
+
+\newcommand{\hiperbolico}[1][]{\ensuremath{\mathrm{H}_{#1}}}
+\newcommand{\ceros}[1]{\ensuremath{\mathcal{Z}(#1)}}
+\newcommand{\nceros}[1]{\ensuremath{\mathit{z}(#1)}}
+% anisotropic core
+\newcommand{\core}[1]{\ensuremath{{#1}_{\mathsf{a}}}}
+\newcommand{\refl}[1][]{\ensuremath{\sigma_{#1}}}
+
+
+%% Formas modulares
+% \newcommand{\modulares}[2][]{\ensuremath{\mathcal{M}_{#1}\big(#2\big)}}
+% \newcommand{\cuspidales}[2][]{\ensuremath{\mathcal{S}_{#1}\big(#2\big)}}
+\newcommand{\modulgruppe}[1][]{\ensuremath{\Gamma_{#1}}}
+\newcommand{\operador}[2][]{\ensuremath{[{#2}]_{#1}}}
+\newcommand{\varoperador}[2][]{\ensuremath{[\![{#2}]\!]_{#1}}}
+\newcommand{\baroperador}[2][]{\ensuremath{\mid_{#1}{#2}}}
+\newcommand{\Siegel}{\ensuremath{\Phi}}
+\newcommand{\Eis}[1][]{\ensuremath{\mathit{E}_{#1}}}
+\newcommand{\Gritsenko}[1][]{\ensuremath{\mathsf{Grit}_{#1}}}
+
+
+%% Geometría
+\newcommand{\de}{\ensuremath{\mathit{d}}}
+\def\derivada{\@ifnextchar|{\@derivada}{\@@derivada}}
+\def\@derivada|#1#2{\ensuremath{\left.\frac{\de}{\de{#1}}\right|_{#2}}}
+\def\@@derivada{\@ifnextchar[{\@@derivadawith}{\@@derivadawithout}}
+\def\@@derivadawith[#1]#2{\ensuremath{\frac{\de{#1}}{\de{#2}}}}
+\def\@@derivadawithout#1{\ensuremath{\frac{\de}{\de{#1}}}}
+
+\newcommand{\GL}[1][]{\ensuremath{\mathsf{GL}_{#1}}}
+\newcommand{\SL}[1][]{\ensuremath{\mathsf{SL}_{#1}}}
+\newcommand{\SLZ}{\SL[2](\mathbb{Z})}
+\newcommand{\PGL}[1][]{\ensuremath{\mathsf{PGL}_{#1}}}
+\newcommand{\PSL}[1][]{\ensuremath{\mathsf{PSL}_{#1}}}
+\newcommand{\PSLZ}{\PSL[2](\mathbb{Z})}
+\newcommand{\OO}[1][]{\ensuremath{\mathsf{O}_{#1}}}
+\newcommand{\SO}[1][]{\ensuremath{\mathsf{SO}_{#1}}}
+\newcommand{\Sp}[1][]{\ensuremath{\mathsf{Sp}_{#1}}}
+\newcommand{\GSp}[1][]{\ensuremath{\mathsf{GSp}_{#1}}}
+
+
+%% Álgebras de Lie
+\newcommand{\borel}[1][]{\ensuremath{\mathfrak{b}_{#1}}}
+\newcommand{\nilpotentes}[1][]{\ensuremath{\mathfrak{n}_{#1}}}
+\newcommand{\diagonales}[1][]{\ensuremath{\mathfrak{d}_{#1}}}
+\newcommand{\gl}[1][]{\ensuremath{\mathfrak{gl}_{#1}}}
+\renewcommand{\sl}[1][]{\ensuremath{\mathfrak{sl}_{#1}}}
+\newcommand{\Liefification}[1]{\ensuremath{{#1}_{\mathrm{Lie}}}}
+\newcommand{\adjoint}[1][]{\ensuremath{\mathsf{ad}_{#1}}}
+\newcommand{\Derivaciones}[1][]{\ensuremath{\mathsf{Der}_{#1}}}
+\newcommand{\centre}[1]{\ensuremath{\mathcal{Z}(#1)}}
+\newcommand{\Rad}[1]{\ensuremath{\mathsf{Rad}(#1)}}
+\newcommand{\killing}[1][]{\ensuremath{\kappa_{#1}}}
+
+
+%%
+
+\newcommand{\zetafun}[1][]{\ensuremath{\zeta_{#1}}}
+\newcommand{\Lfun}[1][]{\ensuremath{\mathit{L}_{#1}}}
+\newcommand{\lfun}[1][]{\ensuremath{\mathit{l}_{#1}}}
+\newcommand{\maxprime}[1][]{\ensuremath{\mathit{p}_{#1}^+}}
+
+\newcommand{\Gsum}[1][]{\ensuremath{\mathit{G}_{#1}}}
+\newcommand{\gsum}[1][]{\ensuremath{\mathit{g}_{#1}}}
+
+\newcommand{\Complejos}{\ensuremath{\mathbb{C}}}
+\newcommand{\Reales}{\ensuremath{\mathbb{R}}}
+\newcommand{\Realespos}{\ensuremath{\mathbb{R}_{>0}}}
+\newcommand{\Naturales}{\ensuremath{\mathbb{N}}}
+\newcommand{\Enteros}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Enterosmod}[1][]{\ensuremath{\bb Z/{#1}\bb Z}}
+\newcommand{\Unidadesmod}[1][]{\ensuremath{\mathit{U}\big(#1\big)}}
+
+\newcommand{\Unidades}[1]{\ensuremath{{#1}^\times}}
+
+\newcommand{\Enterospos}{\ensuremath{\mathbb{Z}_{\geq 1}}}
+\newcommand{\Enterosnon}{\ensuremath{\mathbb{Z}_{\geq 0}}}
+\newcommand{\Racionales}{\ensuremath{\mathbb{Q}}}
+\newcommand{\aaIntervalo}[2]{\ensuremath{\left(#1,#2\right)}}
+\newcommand{\acIntervalo}[2]{\ensuremath{\left(#1,#2\right]}}
+\newcommand{\caIntervalo}[2]{\ensuremath{\left[#1,#2\right)}}
+\newcommand{\ccIntervalo}[2]{\ensuremath{\left[#1,#2\right]}}
+\newcommand{\iIntervalo}[2]{\ensuremath{\left[\!\left[#1,#2\right]\!\right]}}
+
+\renewcommand{\exp}[1][]{\ensuremath{\mathsf{exp}_{#1}}}
+\newcommand{\varexp}[1][]{\ensuremath{\mathit{e}_{#1}}}
+\renewcommand{\log}[1][]{\ensuremath{\mathsf{log}_{#1}}}
+\newcommand{\llog}{\ensuremath{\log\,\log}}
+\newcommand{\Log}{\ensuremath{\mathsf{Log}}}
+\newcommand{\argument}{\ensuremath{\mathsf{arg}}}
+\newcommand{\Argument}{\ensuremath{\mathsf{Arg}}}
+\renewcommand{\sin}{\ensuremath{\mathsf{sen}}}
+\renewcommand{\cos}{\ensuremath{\mathsf{cos}}}
+
+\newcommand{\braket}[3][]{\ensuremath{\langle{#2}\mid{#3}\rangle_{#1}}}
+\newcommand{\bra}[1]{\ensuremath{\langle{#1}\mid}}
+\newcommand{\ket}[1]{\ensuremath{\mid{#1}\rangle}}
+
+\newcommand{\AbGrp}{\ensuremath{\mathsf{AbGrp}}}
+
+\newcommand{\raizcuarta}{\ensuremath{\mathit i}}
+\newcommand{\raizcubica}{\ensuremath{\omega}}
+\newcommand{\EnterosGauss}{\ensuremath{\polinomios[\raizcuarta]\Enteros}}
+\newcommand{\EnterosEisenstein}{\ensuremath{\polinomios[\raizcubica]\Enteros}}
+
+\newcommand{\simEnterosmod}[1][]{\ensuremath{\bb Z/{#1}}}
+\newcommand{\varEnterosmod}[1][]{\ensuremath{\bb Z_{#1}}}
+
+\newcommand{\cuadratico}{\ensuremath{\{\pm 1\}}}
+\newcommand{\ccuadratico}{\ensuremath{\{\pm 1\}\cup\{0\}}}
+
+\newcommand{\modulformen}[1][]{\ensuremath{\mathcal{M}_{#1}}}
+\newcommand{\spitzenformen}[1][]{\ensuremath{\mathcal{S}_{#1}}}
+
+\newcommand{\Heckerng}[1][]{\ensuremath{\mathcal{H}_{#1}}}
+\newcommand{\Grupo}{\ensuremath{\mathit{G}}}
+\newcommand{\GrupoParamodular}[1][]{\ensuremath{\mathrm{K}_{#1}}}
+\newcommand{\varGrupoParamodular}{\ensuremath{\Gamma^\mathsf{para}}}
+\newcommand{\GrupoKlingen}{\ensuremath{\mathrm{Kl}}}
+\newcommand{\varGrupoKlingen}{\ensuremath{\mathit{Q}}}
+\newcommand{\GrupoSiegel}{\ensuremath{\mathrm{Si}}}
+\newcommand{\varGrupoSiegel}{\ensuremath{\Gamma_0}}
+\newcommand{\GrupoBorel}{\ensuremath{\mathit{B}}}
+\newcommand{\varGrupoBorel}{\ensuremath{\mathit{B}}}
+\newcommand{\GrupoPrincipal}{\ensuremath{\Gamma}}
+
+\newcommand{\Simetricas}[1]{\ensuremath{\mathit{V}_{#1}}}
+\newcommand{\Positivas}[1]{\ensuremath{\mathit{P}_{#1}}}
+\newcommand{\semi}{\ensuremath{\mathsf{semi}}}
+\newcommand{\EnterasPositivas}[2][]{\ensuremath{\mathcal{X}_{#2}^{#1}}}
+\newcommand{\Cuadraticas}[1][]{\ensuremath{\mathcal{Q}_{#1}}}
+
+\newcommand{\modularInvolution}[1][]{\ensuremath{\mu_{#1}}}
+\newcommand{\modularDualInvolution}[1][]{\ensuremath{\tilde\mu_{#1}}}
+

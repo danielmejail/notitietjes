@@ -1,0 +1,37 @@
+\usepackage{formato_general}
+\usepackage{nombres}
+\usepackage{abreviaciones}
+\usepackage{ejercicios}
+\usepackage{mathdots}
+\usepackage{displaymathwithtext}
+
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	% style=numeric,
+	citestyle=alphabetic,
+	% citestyle=numeric,
+	sorting=nyt,
+	isbn=false,
+	doi=false,
+	related=false,
+	giveninits=true,
+	isbn=false,
+	doi=false,
+	related=false,
+	%idemtracker=context,
+	%opcittracker=true,
+	% titleaddon=false,
+]{biblatex}
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\AtEveryBibitem{\clearlist{language}\clearfield{note}}
+% \AtEveryBibitem{,} will print a ',' before the rest
+
+\addbibresource{./biblio.bib}
+\nocite{*}
+
+\DefineBibliographyStrings{english}{
+	references = {Referencias},
+	% bibliography = {Bibliograf\'{\i}a},
+}

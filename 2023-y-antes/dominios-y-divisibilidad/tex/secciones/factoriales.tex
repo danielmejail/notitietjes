@@ -1,0 +1,660 @@
+\theoremstyle{definition}
+\newtheorem{defFactorial}{Definici\'{o}n}[section]
+\newtheorem{defCancelable}[defFactorial]{Definici\'{o}n}
+\newtheorem{defCancelativo}[defFactorial]{Definici\'{o}n}
+\newtheorem{obsCancelativo}[defFactorial]{Observaci\'{o}n}
+\newtheorem{ejemploCancelativo}[defFactorial]{Ejemplo}
+\newtheorem{defDivisibilidad}[defFactorial]{Definici\'{o}n}
+\newtheorem{obsDivisibilidad}[defFactorial]{Observaci\'{o}n}
+\newtheorem{ejemploDivisibilidad}[defFactorial]{Ejemplo}
+\newtheorem{defAsociados}[defFactorial]{Definici\'{o}n}
+% \newtheorem{obsAsociados}[defFactorial]{Observaci\'{o}n}
+\newtheorem{ejemploAsociados}[defFactorial]{Ejemplo}
+\newtheorem{defIrreducible}[defFactorial]{Definici\'{o}n}
+\newtheorem{obsIrreducible}[defFactorial]{Observaci\'{o}n}
+\newtheorem{ejemploIrreducible}[defFactorial]{Ejemplo}
+\newtheorem{defFactorizacion}[defFactorial]{Definici\'{o}n}
+% \newtheorem{obsFactorizacion}[defFactorial]{Observaci\'{o}n}
+\newtheorem{obsEjemploIrreducible}[defFactorial]{Observaci\'{o}n}
+\newtheorem{ejemploFactorial}[defFactorial]{Ejemplo}
+\newtheorem{defFactorizacionEsencialmenteUnica}[defFactorial]{Definici\'{o}n}
+\newtheorem{defFactorialesLongitud}[defFactorial]{Definici\'{o}n}
+\newtheorem{obsFactorialesLongitud}[defFactorial]{Observaci\'{o}n}
+\newtheorem{defFactorialesCondicionDeCadena}[defFactorial]{Definici\'{o}n}
+\newtheorem{defPrimo}[defFactorial]{Definici\'{o}n}
+\newtheorem{obsPrimo}[defFactorial]{Observaci\'{o}n}
+\newtheorem{defFactorialesCondicionDePrimalidad}[defFactorial]{Definici\'{o}n}
+
+\theoremstyle{plain}
+\newtheorem{coroAsociadosEnterosDeGauss}[defFactorial]{Corolario}
+\newtheorem{propoFactorialesLongitud}[defFactorial]{Proposici\'{o}n}
+\newtheorem{teoFactorialesCondicionDeCadena}[defFactorial]{Teorema}
+\newtheorem{teoFactorialesCondicionDePrimalidad}[defFactorial]{Teorema}
+
+%-------------
+
+\begin{defCancelable}\label{def:cancelable}
+	Sea $M$ un monoide. Un elemento $x\in M$ se dice \emph{cancelable a %
+	izquierda}, si, para todo par $y,z\in M$
+	\begin{equation}
+		\label{eq:cancelable}
+		x\,y\,=\,x\,z \,\Rightarrow\,y\,=\,z
+		\text{ .}
+	\end{equation}
+	%
+	An\'{a}logamente, $x$ es \emph{cancelable a derecha}, si, para todo par
+	$y,z\in M$, $y\,x=z\,x$ implica $y=z$. Decimos que $x$ es
+	\emph{cancelable}, si es cancelable a izquierda y a derecha.
+\end{defCancelable}
+
+\begin{defCancelativo}\label{def:cancelativo}
+	Un \emph{monoide cancelativo} es un monoide en el cual todo elemento es
+	cancelable.%
+	\footnote{
+		Comparar con la definici\'{o}n de grupo: un grupo es un monoide
+		en el cual todo elemento es invertible.
+	}
+\end{defCancelativo}
+
+\begin{obsCancelativo}\label{obs:cancelativo}
+	Todo elemento invertible a izquierda es cancelable a izquierda y todo
+	invertible a derecha es cancelable a derecha. En particular, todo grupo
+	es un monoide cancelativo.
+\end{obsCancelativo}
+
+\begin{ejemploCancelativo}\label{ejemplo:cancelativo}
+	El monoide $\bb Z\setmin\{0\}$ con el producto usual es un monoide
+	cancelativo: si $a\,b=a\,c$, entonces $a\,(b-c)=0$ y, como $\bb Z$ no
+	posee divisores de $0$, debe cumplirse $b=c$. En general, si $D$ es un
+	dominio \'{\i}ntegro, el monoide $D\setmin\{0\}$ es un monoide
+	cancelativo.
+\end{ejemploCancelativo}
+
+De ahora en adelante $M$ denotar\'{a} un monoide conmutativo cancelativo y
+$U\subset M$ el submonoide (grupo) de elementos invertibles. Abreviaremos el
+producto en $M$ yuxtaponiendo los argumentos y denotaremos $1$ al elemento
+neutro.
+
+\begin{defDivisibilidad}\label{def:divisibilidad}
+	Dados $a,b\in M$, decimos que \emph{$b$ es un divisor de $a$}, si
+	existe $c\in M$ tal que $a=b\,c$. Decimos tambi\'{e}n que $b$ es un
+	\emph{factor} de $a$, que $b$ divide a $a$ o que $a$ es un m\'{u}ltiplo
+	de $b$. Ser divisor o m\'{u}ltiplo define una relaci\'{o}n en $M$,
+	escribimos $b|a$ para indicar que $b$ divide a $a$. Nos referimos a
+	esta relaci\'{o}n como la \emph{relaci\'{o}n de divisibilidad} en $M$.
+\end{defDivisibilidad}
+
+\begin{obsDivisibilidad}\label{obs:divisibilidad}
+	La relaci\'{o}n de divisibilidad en $M$ es una realci\'{o}n reflexiva
+	y transitiva, pero no necesariamente sim\'{e}trica. Por ejemplo, en
+	$\bb Z\setmin\{0\}$, $2|(-2)$, $(-2)|2$, pero $2\not=-2$. Sin
+	embargo, en $\bb N$, la relaci\'{o}n de divisibilidad s\'{\i} es
+	sim\'{e}trica. La raz\'{o}n de que esto sea as\'{\i} es que, en
+	$\bb N$, el \'{u}nico elemento invertible es $1$.
+\end{obsDivisibilidad}
+
+\begin{obsDivisibilidad}\label{obs:divisibilidad:unidades}
+	Un elemento $u\in M$ es invertible, si y s\'{o}lo si $u|1$. Adem\'{a}s,
+	los elementos invertibles son factores \emph{triviales} en el sentido
+	de que son factores de cualquier elemento del monoide.
+\end{obsDivisibilidad}
+
+\begin{defAsociados}\label{def:asociados}
+	Dos elementos $a,b\in M$ se dicen \emph{asociados}, si $a|b$ y $b|a$.
+	Equivalentemente, $a$ y $b$ son asociados, si existe un elemento
+	invertible $u\in U$ tal que $a=u\,b$.%
+	\footnote{
+		Si $a=u\,b$ con $u$ invertible, entonces $b|a$ --por
+		definici\'{o}n-- y $b=u^{-1}\,a$, con lo que $a|b$.
+		Rec\'{\i}procamente, si $a|b$ y $b|a$, entonces existen
+		$u,v\in M$ tales que $a=u\,b$ y $b=v\,a$. As\'{\i},
+		$a=(u\,v)\,a$ y, como $M$ es cancelativo, $u\,v=1$, lo que
+		significa que $u$ y $v$ son unidades.
+	}
+	Usaremos la notaci\'{o}n $a\sim b$ para indicar que $a$ y $b$ son
+	asociados.
+\end{defAsociados}
+
+\begin{ejemploAsociados}\label{ejemplo:asociados}
+	Dado $k\in\bb Z$, los enteros $k$ y $-k$ son asociados en $\bb Z$.
+	Los enteros $-1$ y $1$ son las \'{u}nicas unidades en $\bb Z$: si
+	$a,b\in\bb Z$ y $a\not=0$,%
+	\footnote{
+		Necesitamos usar propiedades de los n\'{u}meros reales.
+	}
+	\begin{align*}
+		a\,b \,=\,1 & \quad\Rightarrow\quad |a|\,\leq\,1
+			\quad\Rightarrow\quad |a|\,=\,1
+			\quad\Rightarrow\quad a\in\{-1,1\}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, los \'{u}nicos asociados de $k\in\bb Z$ son $k$ y $-k$.
+\end{ejemploAsociados}
+
+\begin{ejemploAsociados}\label{ejemplo:asociados:enterosdegauss}
+	El \emph{anillo de enteros de Gauss}, es el conjunto
+	\begin{align*}
+		\bb Z[i] & \,:=\,\big\{a+b\,i\,:\,a,\,b\in\bb Z\big\}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $i\in\bb C$ es una ra\'{\i}z cuadrada de $-1$, con las
+	operaciones usuales heredadas de $\bb C$. Observamos que
+	\begin{itemize}
+		\item dados $a,b,c,d\in\bb Z$, $a+b\,i=c+d\,i$, si y
+			s\'{o}lo si $a=c$ y $b=d$ y que
+		\item $(a+b\,i)\,(c+d\,i)=(a\,c-b\,d)+(a\,d+b\,c)\,i$.
+	\end{itemize}
+	%
+	Este anillo es un dominio de integridad, pues $\bb C$ es un cuerpo.
+	Adem\'{a}s de $-1$ y $1$, $\bb Z[i]$ posee otras unidades. Por ejemplo,
+	$i$ y $-i$ son unidades, pues $i\,(-i)=-(-1)=1$. M\'{a}s aun, \'{e}stas
+	son todas las unidades.%
+	\footnote{
+			}
+	De las propiedades enunciadas arriba, vemos que
+	\begin{align*}
+		(a+b\,i)\,(c+d\,i) \,=\,1 & \quad\Leftrightarrow\quad
+			a\,c\,-b\,d\,=\,1\quad\text{y}\quad
+			a\,d\,=\,-b\,c
+		\text{ .}
+	\end{align*}
+	%
+	De la primera igualdad, deducimos que $a$ y $b$ deben ser coprimos en
+	$\bb Z$. Pasando a la segunda, $a|b\,c$ implica $a|c$. Pero $c$ y $d$
+	tambi\'{e}n deben ser coprimos y $c|a\,d$ implica $c|a$. Es decir,
+	$a$ y $c$ son asociados en $\bb Z$. De acuerdo con el Ejemplo~%
+	\ref{ejemplo:asociados}, $a=c$ o $a=-c$. An\'{a}logamente, $b=d$ o
+	$b=-d$. Separando en casos, alguna de las siguientes igualdades debe
+	ser cierta:
+	\begin{align*}
+		a^2\,-\,b^2 \,=\,1 & \quad\text{,}\quad
+		a^2\,+\,b^2 \,=\,1 \text{ ,} \\
+		-a^2\,-\,b^2 \,=\,1 & \quad\text{o}\quad
+		-a^2\,+\,b^2 \,=\,1
+		\text{ .}
+	\end{align*}
+	%
+	Como $a,b\in\bb R$, la tercera no se puede ocurrir. Como $a,b\in\bb Z$,
+	la segunda se cumple s\'{o}lo si uno de $a$ y $b$ es $0$ y el otro es
+	$\pm1$. La primera es una diferencias de cuadrados:
+	$a^2-b^2=(a+b)\,(a-b)$. Si este producto fuese igual a $1$,
+	valdr\'{\i}a que $a+b=1$ o $a+b=-1$. En el primer caso, $a-b=1$, con lo
+	que $b=0$, y, en el segundo, $a-b=-1$ y $b=0$, tambi\'{e}n. La cuarta
+	es similar a la primera. En ese caso, deducir\'{\i}amos que debe ser
+	$a=0$. En definitiva, las \'{u}nicas unidades son de la forma $a+b\,i$
+	con $a=\pm1$ y $b=0$ o con $a=0$ y $b=\pm1$. Si ahora $x\in\bb Z[i]$,
+	el conjunto de asociados de $x$ est\'{a} dado por
+	\begin{align*}
+		& \big\{x,\,-x,\,i\,x,\,(-i)\,x\big\}
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemploAsociados}
+
+El argumento es \emph{ad hoc} en el caso de los enteros de Gauss. En general,
+el argumento es el siguiente. Si $x=a+b\,i\in\bb Z[i]$, llamamos
+\emph{conjugado de $x$} al entero $\conj x=a-b\,i$. Se puede comprobar, usando
+las propiedades de $\bb Z[i]$ mencionadas, que $x\,\conj x\in\bb Z$ y que, si
+$x$ es una unidad en $\bb Z[i]$ con inverso $y$, entonces $\conj x$ es una
+unidad, tambi\'{e}n, y su inverso es $\conj y$. Pero entonces, en tal caso,
+como $x\,y=1$ y $\conj x\,\conj y=1$, vale que $(x\,\conj x)\,(y\,\conj y)=1$ y
+el producto $x\,\conj x$ --la \emph{norma} de $x$-- es una unidad en $\bb Z$.
+Si $x=a+b\,i$, entonces $x\,\conj x=a^2+b^2$. En particular, todas las unidades
+de $\bb Z[i]$ tienen norma positiva. De esto se deduce que, o bien $a=0$ y
+$b=\pm1$, o bien $a=\pm1$ y $b=0$. Rec\'{\i}procamente, si la norma de $x$ es
+$1$ (o $-1$), entonces $x$ es una unidad.
+
+\begin{coroAsociadosEnterosDeGauss}\label{coro:asociados:enterosdegauss}
+	Conjugar es un morfismo de monoides en $\bb Z[i]\setmin\{0\}$, es
+	decir, si $x\,y=z$, entonces $\conj z=\conj x\,\conj y$. La
+	aplicaci\'{o}n dada por tomar norma, $x\mapsto x\,\conj x$, tambi\'{e}n
+	es morfismo de monoides. En particular, $x\in\bb Z[i]$ es una unidad,
+	si y s\'{o}lo si $x\,\conj x\in\bb Z$ es una unidad
+\end{coroAsociadosEnterosDeGauss}
+
+\begin{ejemploAsociados}\label{ejemplo:asociados:cuadraticoimaginario}
+	Sea $\sqrt{-5}\in\bb C$ una ra\'{\i}z cuadrada de $-5$. El conjunto
+	\begin{align*}
+		\bb Z[\sqrt{-5}] & \,:=\,\big\{a+b\,\sqrt{-5}\,:\,
+			a,\,b\in\bb Z\big\}
+	\end{align*}
+	%
+	es un subanillo de $\bb C$ y, en particular, un dominio \'{\i}ntegro.
+	Dado $x=a+b\,\sqrt{-5}\in\bb Z[\sqrt{-5}]$, su \emph{conjugado} es el
+	elemento $\conj x=a-b\,\sqrt{-5}$ del anillo. La \emph{norma} de $x$
+	es, en este caso,
+	\begin{align*}
+		x\,\conj x & \,=\,a^2\,+\,5\,b^2
+		\text{ .}
+	\end{align*}
+	%
+	En particular, si $x$ es una unidad, su norma es $\pm1$, de lo que se
+	deduce que $b=0$ y $a=\pm1$. Esto quiere decir que, en el anillo
+	$\bb Z[\sqrt{-5}]$, las \'{u}nicas unidades son $-1$ y $1$. En
+	definitiva, los \'{u}nicos asociados de $x\in\bb Z[\sqrt{-5}]$ son $-x$
+	y $x$.
+\end{ejemploAsociados}
+
+Como vimos en el Ejemplo~\ref{ejemplo:monoide:cociente:enteros}, ser asociados
+es una relaci\'{o}n de congruencia en $M$.
+
+\begin{defIrreducible}\label{def:irreducible}
+	Dado $a\in M$, si $b\in M$ es tal que $b|a$, pero $a\nmid b$, decimos
+	que $b$ es un \emph{factor propio} de $a$. Se dice que $a$ es
+	\emph{irreducible (en $M$)}, si
+	\begin{enumerate}[(i)]
+		\item $a$ no es una unidad y
+		\item los \'{u}nicos factores propios de $a$ son las unidades.
+	\end{enumerate}
+	%
+\end{defIrreducible}
+
+\begin{obsIrreducible}\label{obs:irreducible}
+	Las unidades no poseen factores propios y son factores de todos los
+	elementos de $M$. Si $a\in M$ no es una unidad, entonces las unidades
+	son factores propios de $a$. Si $a$ es irreducible, sus asociados
+	tambi\'{e}n lo son.
+\end{obsIrreducible}
+
+\begin{ejemploIrreducible}\label{ejemplo:irreducible}
+	Los primos racionales son irreducibles en $\bb Z$. Un entero
+	$p\in\bb Z$ se dice \emph{primo}, si $p|ab$ con $a,b\in\bb Z$ implica
+	$p|a$ o $p|b$. Si $p=h\,k$ es primo, entonces $p|h\,k$. Por
+	definici\'{o}n, o $p|h$ o $p|k$. Sin p\'{e}rdida de generalidad,
+	podemos suponer que $p|h$ y que $h=p\,l$ con $l\in\bb Z$. Pero
+	entonces, como $\bb Z$ es dominio \'{\i}ntegro y $p=(p\,l)\,k$,
+	$1=l\,k$. Esto significa que $l$ y $k$ son unidades en $\bb Z$.
+\end{ejemploIrreducible}
+
+El argumento del Ejemplo~\ref{ejemplo:irreducible} es v\'{a}lido en cualquier
+monoide cancelativo.
+
+\begin{ejemploIrreducible}\label{ejemplo:irreducible:enterosdegauss}
+	Sea $\bb Z[i]$ el anillo definido en el Ejemplo~%
+	\ref{ejemplo:asociados:enterosdegauss}. El entero racional $2\in\bb Z$,
+	si bien es irreducible en $\bb Z$, se factoriza en $\bb Z[i]$ de manera
+	no trivial:
+	\begin{equation}
+		\label{eq:irreducible:enterosdegauss}
+		2 \,=\,(1+i)\,(1-i) \,=\,(-i)\,(1+i)^2
+		\text{ .}
+	\end{equation}
+	%
+	Por lo visto en el Ejemplo~\ref{ejemplo:asociados:enterosdegauss},
+	$1+i$ y $1-i$ no son unidades en $\bb Z[i]$. El factor $1+i$ es
+	irreducible. Si $x\,y=1+i$, entonces, multiplicando por los conjugados,
+	$(x\,\conj x)\,(y\,\conj y)\,=\,(1+i)\,(1-i)=2$. Dado que $2$ es
+	irreducible en $\bb Z$, deducimos que
+	\begin{itemize}
+		\item $x\,\conj x\in\{-1,1\}$ e $y\,\conj y\in\{-2,2\}$, o
+		\item $x\,\conj x\in\{-2,2\}$ e $y\,\conj y\in\{-1,1\}$.
+	\end{itemize}
+	%
+	En el primer caso, $x$ es una unidad, y, en el segundo, $y$ lo es.
+	En definitiva $1+i$ es irreducible. Como $1-i$ es asociado de $1+i$
+	(multiplicando por la unidad $(-i)$), deducimos que $1-i$ es
+	irreducible, tambi\'{e}n.
+	% Por otro lado, $3\in\bb Z$ es irreducible en
+	% $\bb Z[i]$. Si $3=r\,s$, con $r$ y $s$ no unidades, debe cumplirse,
+	% aplicando la norma, que
+	% \begin{align*}
+		% 9 & \,=\,(r\,\conj r)\,(s\,\conj s)
+	% \end{align*}
+	% %
+	% y $r\,\conj r=\pm 3$. La existencia de un factor no trivial $r$
+	% equivale a la existencia de una soluci\'{o}n de la ecuaci\'{o}n
+	% \begin{align*}
+		% a^2\,+\,b^2 & \,=\,\pm3
+		% \text{ ,}
+	% \end{align*}
+	% %
+	% con $a,b\in\bb Z$. Pero esta ecuaci\'{o}n no tiene soluciones enteras.
+\end{ejemploIrreducible}
+
+\begin{obsEjemploIrreducible}\label{obs:ejemplo:irreducible}
+	Del Corolario~\ref{coro:asociados:enterosdegauss}, se deduce que, si
+	$x\in\bb Z[i]$ no es irreducible, entonces su norma
+	$x\,\conj x\in\bb Z$ tampoco es irreducible. Equivalentemente, si
+	$x\,\conj x$ es irreducible en $\bb Z$, entonces $x$ es irreducible en
+	$\bb Z[i]$.
+\end{obsEjemploIrreducible}
+
+\begin{ejemploIrreducible}\label{ejemplo:irreducible:cuadraticoimaginario}
+	Sea $\bb Z[\sqrt{-5}]$ el anillo del Ejemplo~%
+	\ref{ejemplo:asociados:cuadraticoimaginario}. Veamos que los elementos
+	de norma $9$ son irreducibles. Sea $x\in\bb Z[\sqrt{-5}]$ tal que
+	$x\,\conj x=9$. Supongamos que existe una factorizaci\'{o}n $x=r\,s$,
+	con $r$ y $s$ no unidades en el anillo. Aplicando norma, por el
+	Corolario~\ref{coro:asociados:enterosdegauss}, $r\,\conj r=\pm 3$. Esto
+	quiere decir que existe una soluci\'{o}n de
+	\begin{equation}
+		\label{eq:irreducible:cuadraticoimaginario}
+		a^2\,+\,5\,b^2 \,=\,\pm3
+		\text{ ,}
+	\end{equation}
+	%
+	con $a,b\in\bb Z$. El lado izquierdo es no negativo y, si $b$ no es
+	cero, entonces el resultado es al menos $5$ y, as\'{\i}, $b=0$. Pero
+	no existe $a$ entero tal que $a^2=3$, con lo que no hay soluci\'{o}n de
+	\eqref{eq:irreducible:cuadraticoimaginario} en $\bb Z$. En
+	conclusi\'{o}n, no existen elementos de norma $\pm3$ en este anillo y
+	los elementos de norma $9$ deben ser irreducibles. As\'{\i}, por
+	ejemplo, $\pm3$ son irreducibles en $\bb Z$ y siguen siendo
+	irreducibles en $\bb Z[\sqrt{-5}]$. Pero no son los \'{u}nicos
+	irreducibles de norma $9$. En $\bb Z[\sqrt{-5}]$,
+	\begin{equation}
+		\label{eq:irreducible:cuadraticoimaginario:factorizacion}
+		9 \,=\,3\cdot 3 \,=\,(2+\sqrt{-5})\,(2-\sqrt{-5})
+		\text{ .}
+	\end{equation}
+	%
+	De estas igualdades, se deduce que $2\pm\sqrt{-5}$ son irreducibles de
+	norma $9$. Notamos que $3$ no es asociado de $2+\sqrt{-5}$ ni de
+	$2-\sqrt{-5}$.%
+	\footnote{
+		Ni tampoco es $2+\sqrt{-5}$ asociado de $2-\sqrt{-5}$.
+	}
+	La Tabla~\ref{tab:irreducible:cuadraticoimaginario} contiene todos los
+	elementos de $\bb Z[\sqrt{-5}]$ con un valor espec\'{\i}fico de la
+	norma. Podemos ver que, en particular, los elementos de norma $4$, $5$,
+	$6$, $9$ o $14$ son irreducibles.
+	\begin{table}
+		\centering
+		\begin{tabular}{c|c}
+			$x\,\conj x$ & $x$ \\
+			\hline
+			$2$ & $\varnothing$ \\
+			$3$ & $\varnothing$ \\
+			$4$ & $\pm2$ \\
+			$5$ & $\pm\sqrt{-5}$ \\
+			$6$ & $\pm(1+\sqrt{-5}),\pm(1-\sqrt{-5})$ \\
+			$7$ & $\varnothing$ \\
+			$8$ & $\varnothing$ \\
+			$9$ & $\pm3,\pm(2+\sqrt{-5}),\pm(2-\sqrt{-5})$ \\
+			$10$ & $\varnothing$ \\
+			$11$ & $\varnothing$ \\
+			$12$ & $\varnothing$ \\
+			$13$ & $\varnothing$ \\
+			$14$ & $\pm(3+\sqrt{-5}),\pm(3-\sqrt{-5})$ \\
+		\end{tabular}
+		\caption{Elementos de $\bb Z[\sqrt{-5}]$ de norma dada.}
+		\label{tab:irreducible:cuadraticoimaginario}
+	\end{table}
+	%
+\end{ejemploIrreducible}
+
+\begin{defFactorizacion}\label{def:factorial:factorizacion}
+	Dado $a\in M$, una \emph{factorizaci\'{o}n de $a$ como producto de
+	irreducibles} es una expresi\'{o}n de la forma
+	\begin{equation}
+		\label{eq:factoriales:factorizacion}
+		a \,=\,p_1\cdots p_s
+		\text{ ,}
+	\end{equation}
+	%
+	donde cada $p_i$ es un elemento irreducible en $M$.
+\end{defFactorizacion}
+
+No es cierto, dado un monoide cancelativo y conmutativo, que todo elemento
+admita una factorizaci\'{o}n como producto de irreducibles. Pero, cuando
+exista, nos importar\'{a} saber bajo qu\'{e} condiciones y en qu\'{e} sentido
+es \eqref{eq:factoriales:factorizacion} una factorizaci\'{o}n ``\'{u}nica''.
+Hay dos maneras ``triviales'' en las que podemos alterar los factores
+$\lista{p}{s}$ para obtener otras factorizaciones posibles.
+
+\begin{ejemploFactorial}\label{ejemplo:factorial}
+	En $\bb Z$, $6=2\cdot 3$, pero tambi\'{e}n
+	\begin{math}
+		6=(-2)\cdot (-3)=3\cdot 2=(-3)\cdot (-2)
+	\end{math}. El Teorema~\ref{teo:fundamental} garantiza que \'{e}stas
+	son todas las posibles factorizaciones de $6$ como producto de
+	irreducibles en $\bb Z$.
+\end{ejemploFactorial}
+
+\begin{ejemploFactorial}\label{ejemplo:factorial:enterosdegauss}
+	Podemos utilizar la observaci\'{o}n del Ejemplo~\ref{ejemplo:factorial}
+	para obtener condiciones sobre las posibles factorizaciones de $6$ en
+	$\bb Z[i]$. Si $6=p_1\cdots p_s$, aplicando la norma, se obtiene la
+	siguiente factorizaci\'{o}n en $\bb Z$:
+	\begin{align*}
+		36 & \,=\,(p_1\,\conj p_1)\,\cdots\,(p_s\,\conj p_s)
+		\text{ .}
+	\end{align*}
+	%
+	Si definimos $a_i=p_i\,\conj p_i$, entonces $a_i\geq 2$ y $a_i|36$ para
+	todo $i$. Como $36=2\cdot 2\cdot 3\cdot 3$, por el Teorema~%
+	\ref{teo:fundamental}, $s\leq 4$ y, adem\'{a}s,
+	\begin{align*}
+		a_i \,=\, 2^{u_i}\,3^{v_i} & \quad\text{,}\quad
+			0\,\leq\,u_i,\,v_i\,\leq\,2 \quad\text{,}\quad
+			u_i+v_i\,\geq\,1 \quad\text{para todo } i
+			\quad\text{y} \\
+		\sum_i\,u_i & \,=\,\sum_i\,v_i\,=\,2
+		\text{ .}
+	\end{align*}
+	%
+	Ahora bien, seg\'{u}n lo visto en el Ejemplo~%
+	\ref{ejemplo:irreducible:enterosdegauss}, $2=(1+i)\,(1-i)$ en
+	$\bb Z[i]$. Se puede comprobar, usando un argumento similar al del
+	Ejemplo~\ref{ejemplo:irreducible:cuadraticoimaginario}, que $3$ es
+	irreducible en este anillo. La identidad
+	\eqref{eq:irreducible:enterosdegauss} proporciona las siguientes
+	factorizaciones de $6$ en $\bb Z[i]$:
+	\begin{align*}
+		6 & \,=\,(1+i)\,(1-i)\,3\,=\,(1+i)^2\,(-3\,i)
+		\text{ .}
+	\end{align*}
+	%
+	M\'{a}s aun, no hay elementos de norma $3$, $6$ o $12$, con lo cual
+	cada $a_i$ en la factorizaci\'{o}n de $36$ debe pertenecer al conjunto
+	de divisores $\{1,\,2,\,4,\,9,\,18,\,36\}$. As\'{\i}, m\'{o}dulo
+	cambiar un factor por un asociado o reordenarlos, la factorizaci\'{o}n
+	anterior de $6$ es la \'{u}nica posible.
+\end{ejemploFactorial}
+
+En general, si \eqref{eq:factoriales:factorizacion} es una factorizaci\'{o}n de
+$a$ como producto de irreducibles y si $\lista{u}{s}$ son unidades tales que
+$u_1\cdots u_s=1$, entonces, cambiando cada $p_i$ por su asociado
+$p_i'=u_i\,p_i$, se encuentra una factorizaci\'{o}n posiblemente distinta
+\begin{align*}
+	a & \,=\,p_1'\cdots p_s'
+	\text{ .}
+\end{align*}
+%
+Lo mismo ocurre, si reordenamos los factores: si $j$ es una permutaci\'{o}n de
+$\{1,\,\dots,\,s\}$, entonces
+\begin{align*}
+	a & \,=\,p_{j(1)}\cdots p_{j(s)}
+\end{align*}
+%
+tambi\'{e}n es una factorizaci\'{o}n de $a$ como producto de irreducibles,
+posiblemente distinta.
+
+\begin{defFactorizacionEsencialmenteUnica}%
+	\label{def:factorizacionesencialmenteunica}
+	Sea $M$ un monoide cancelativo y conmutativo. Dado $a\in M$, diremos
+	que una factorizaci\'{o}n $a=p_1\cdots p_s$ como producto de
+	irreducibles \emph{es esencialmente \'{u}nica}, si, dada cualquier
+	factorizaci\'{o}n como producto de irreducibles $a=p_1'\cdots p_t'$ se
+	cumple que
+	\begin{enumerate}[(i)]
+		\item $t=s$,
+		\item existe una permutaci\'{o}n $j$ de $\{1,\,\dots,\,s\}$ tal
+			que $p_i'\sim p_{j(i)}$ para todo $i$.
+	\end{enumerate}
+	%
+\end{defFactorizacionEsencialmenteUnica}
+
+En palabras, un elemento de $M$ se factoriza de manera esencialmente \'{u}nica
+como producto de irreducibles, si toda factorizaci\'{o}n como producto de
+irreducibles posee la misma cantidad de factores irreducibles y si la misma se
+puede obtener a partir de cualquier otra reordenando los factores y tomando
+asociados.
+
+\begin{defFactorial}\label{def:factorial}
+	Un monoide conmutativo y cancelativo se dice \emph{factorial} (o
+	\emph{monoide de factorizaci\'{o}n \'{u}nica}), si todo elemento
+	distinto de una unidad posee una factorizaci\'{o}n esencialmente
+	\'{u}nica como producto de irreducibles. Un \emph{dominio de
+	factorizaci\'{o}n \'{u}nica} (D.F.U.) es un dominio $D$ cuyo monoide
+	multiplicativo $D\setmin\{0\}$ es factorial.
+\end{defFactorial}
+
+\begin{ejemploFactorial}\label{ejemplo:factorial:cuadraticoimaginario}
+	El anillo $\bb Z$ de enteros racionales es un D.F.U., por el Teorema~%
+	\ref{teo:fundamental}. El anillo $\bb Z[i]$ de enteros de Gauss
+	tambi\'{e}n es un D.F.U.%
+	\footnote{
+		C.f. \ref{teo:}
+	}
+	La identidad \eqref{eq:irreducible:cuadraticoimaginario:factorizacion}
+	muestra que el anillo $\bb Z[\sqrt{-5}]$ no es un D.F.U. Usando la
+	Tabla~\ref{tab:irreducible:cuadraticoimaginario}, podemos obtener otros
+	contraejemplos de la unicidad de la factorizaci\'{o}n.
+\end{ejemploFactorial}
+
+A continuaci\'{o}n, deducimos dos propiedades que todo monoide factorial posee
+y probamos que son, tambi\'{e}n, condiciones suficientes.
+
+\begin{defFactorialesLongitud}\label{def:factoriales:longitud}
+	Sea $M$ un monoide factorial. Dado $a\in M$, definimos la
+	\emph{longitud} de $a$ como la cantidad de factores irreducibles en
+	cualquier factorizaci\'{o}n de $a$ como producto de irreducibles.
+	Denotamos la longitud de $a$ por $\longitud(a)$.
+\end{defFactorialesLongitud}
+
+Si $M$ es factorial, la longitud de $a\in M$ est\'{a} bien definida: por un
+lado, como $a$ admite al menos una factorizaci\'{o}n como producto de
+irreducibles, podemos hablar de la longitud de la factorizaci\'{o}n, pero, por
+otro lado, como toda tal factorizaci\'{o}n posee la misma cantidad de factores
+irreducibles, no hay ambig\"{u}edad, si la longitud de $a$ se define como la
+longitud de cualquiera de ellas. La longitud caracteriza a las unidades y a los
+irreducibles.
+
+\begin{propoFactorialesLongitud}\label{propo:factoriales:longitud}
+	Sea $M$ un monoide factorial y sea $a\in M$. Entonces
+	\begin{enumerate}
+		\item $a$ es una unidad, si y s\'{o}lo si $\longitud(a)=0$;
+		\item $a$ es irreducible, si y s\'{o}lo si $\longitud(a)=1$;
+		\item si $a=b\,c$, entonces
+			$\longitud(a)=\longitud(b)+\longitud(c)$;
+		\item si $b$ es un factor propio de $a$, entonces
+			$\longitud(a)>\longitud(b)$.
+	\end{enumerate}
+	%
+\end{propoFactorialesLongitud}
+
+\begin{proof}
+	Si $a=b\,c$ y $\longitud(a)=r$, $\longitud(b)=s$ y $\longitud(c)=t$,
+	entonces existen factorizaciones $a=p_1\cdots p_r$, $b=p_1'\cdots p_s'$
+	y $c=p_{s+1}'\cdots p_{s+t}'$ como productos de irreducibles para $a$,
+	$b$ y $c$, respectivamente. La igualdad
+	\begin{align*}
+		p_1\cdots p_r & \,=\,(p_1'\cdots p_s')\,
+			(p_{s+1}'\cdots p_{s+t}')
+	\end{align*}
+	%
+	y la unicidad de la longitud implican que $r=s+t$.
+\end{proof}
+
+\begin{obsFactorialesLongitud}\label{obs:factoriales:longitud}
+	Sea $M$ es un monoide factorial y sea $a=b\,c\in M$. Dadas
+	factorizaciones $a=p_1\cdots p_r$ y $b=p_1'\cdots p_s'$ como productos
+	de irreducibles, $s\leq r$ y existe una funci\'{o}n inyectiva
+	$j:\{1,\,\dots,\,s\}\rightarrow\{1,\,\dots,\,r\}$ tal que
+	\begin{align*}
+		p_i' & \sim p_{j(i)}
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, la lista de los posibles divisores de $a$ se obtiene a partir
+	de considerar los productos parciales de los factores irreducibles que
+	aparecen en cualquier factorizaci\'{o}n de $a$ como producto de
+	irreducibles y asociados de estos productos.
+\end{obsFactorialesLongitud}
+
+\begin{teoFactorialesCondicionDeCadena}%
+	\label{teo:factoriales:condiciondecadena}
+	Sea $M$ un monoide factorial y sean $a,b\in M$ tales que $b|a$. Si $b$
+	es un factor propio de $a$, entonces $\longitud(a)>\longitud(b)$. En
+	particular, en un monoide factorial no existen sucesiones infinitamente
+	largas $\{a_i\}_{i\geq 0}\subset M$ tales que $a_{i+1}$ sea un divisor
+	propio de $a_i$ para todo $i\geq 0$.
+\end{teoFactorialesCondicionDeCadena}
+
+\begin{defFactorialesCondicionDeCadena}%
+	\label{def:factoriales:condiciondecadena}
+	Sea $M$ un monoide (conmutativo). Decimos que \emph{$M$ satisface la %
+	condici\'{o}n de cadenas de divisores},%
+	\footnote{
+		Cadenas \emph{ascendentes} de divisores. Comparar con la
+		condici\'{o}n de cadenas ascendentes que caracterizan a los
+		m\'{o}dulos/anillos noetherianos.
+	}
+	si, dada una sucesi\'{o}n
+	$\{a_i\}_{i\geq 0}\subset M$ tal que $a_{i+1}|a_i$ para todo $i\geq 0$,
+	entonces existe $k\geq 0$ tal que $a_i\sim a_k$ para todo $i\geq k$.
+\end{defFactorialesCondicionDeCadena}
+
+Dicho de otra manera, $M$ satisface la condici\'{o}n de cadenas de divisores,
+si toda sucesi\'{o}n $\{a_i\}_{i\geq 0}$ en $M$ tal que $a_{i+1}|a_i$ es
+eventualmente esencialmente constante.
+
+La segunda condici\'{o}n necesaria tiene que ver con la noci\'{o}n de
+primalidad.
+
+\begin{defPrimo}\label{def:primo}
+	En un monoide $M$, un elemento $p\in M$ se dice \emph{primo}, si
+	\begin{enumerate}[(i)]
+		\item\label{item:def:primo:i}
+			$p$ no es una unidad y
+		\item\label{item:def:primo:ii}
+			si $p|a\,b$, entonces $p|a$ o $p|b$.
+	\end{enumerate}
+	%
+\end{defPrimo}
+
+\begin{obsPrimo}\label{obs:primo}
+	Si $p\in M$ es un elemento primo en un monoide \emph{cancelativo},
+	entonces $p$ es irreducible. Si $p=k\,h$ es una factorizaci\'{o}n en
+	$M$, por el \'{\i}tem~\ref{item:def:primo:ii} de la Definci\'{o}n~%
+	\ref{def:primo}, $p|k$ o $p|h$. Sin p\'{e}rdida de generalidad, podemos
+	asumir que $p|k$ y que $k=p\,b$, para cierto $b\in M$. As\'{\i},
+	$p=(p\,b)\,h$. Dado que $M$ es cancelativo, $b\,h=1$ y $h$ es una
+	unidad.
+\end{obsPrimo}
+
+\begin{teoFactorialesCondicionDePrimalidad}%
+	\label{teo:factoriales:condiciondeprimalidad}
+	En un monoide factorial, todo elemento irreducible es primo.
+\end{teoFactorialesCondicionDePrimalidad}
+
+\begin{proof}
+	Sea $M$ un monoide factorial y sea $p\in M$ un elemento irreducible.
+	Dados $a,b\in M$, existen factorizaciones $a=p_1\cdots p_s$ y
+	$b=p_{s+1}\cdots p_{s+t}$ como productos de irreducibles. En
+	particular,
+	\begin{align*}
+		a\,b & \,=\,p_1\cdots p_s\cdot p_{s+1}\cdots p_{s+t}
+	\end{align*}
+	%
+	es una factorizaci\'{o}n de $a\,b$ como producto de irreducibles. Si
+	$p|a\,b$, entonces, por lo mencionado en la Observaci\'{o}n~%
+	\ref{obs:factoriales:longitud}, debe existir $i\in\{1,\,\dots,\,s+t\}$
+	tal que $p\sim p_i$. Si $i\leq s$, entonces $p|a$ y si $i>s$, entonces
+	$p|b$.
+	% Puesto que, por definici\'{o}n, $p$ no es una unidad, $p$ es primo.
+\end{proof}
+
+\begin{defFactorialesCondicionDePrimalidad}%
+	\label{def:factoriales:condiciondeprimalidad}
+	Sea $M$ un monoide (conmutativo). Decimos que \emph{$M$ satisface la %
+	condici\'{o}n de primalidad}, si todo elemento irreducible es primo.
+\end{defFactorialesCondicionDePrimalidad}
+
+El Teorema~\ref{teo:factoriales:condiciondecadena} y el Teorema~%
+\ref{teo:factoriales:condiciondeprimalidad} implican que todo monoide factorial
+satisface la condici\'{o}n de cadenas de divisores y la condici\'{o}n de
+primalidad.

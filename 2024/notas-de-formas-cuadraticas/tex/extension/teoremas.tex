@@ -1,0 +1,449 @@
+\theoremstyle{plain}
+\newtheorem{teoExtTeo}{\teoname}[section]
+\newtheorem{coroExtTeo}[teoExtTeo]{\coroname}
+\newtheorem{lemaExtTeo}[teoExtTeo]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defExtTeo}[teoExtTeo]{\defname}
+\newtheorem{obsExtTeo}[teoExtTeo]{\obsname}
+\newtheorem{ejerExtTeo}[teoExtTeo]{\ejername}
+
+%-------------
+
+\subsection{Teoremas de Witt para espacios cuadr\'aticos}%
+\label{subsec:extension:teoremas:cuadraticos}
+
+\begin{teoExtTeo}[Teorema de extensi\'on]\label{teo:teoremas:extension}
+	Sea $(V,Q)$ un espacio cuadr\'atico no degenerado
+	sobre un cuerpo $F$. Si $\car F=2$, suponemos, adem\'as, que
+	$V^\perp=0$.
+	% tal que la forma bilineal asociada es no degenerada.
+	Entonces, dados subespacios $V_1,V_2\subset V$ y una isometr\'{\i}a
+	$f:\,V_1\rightarrow V_2$, existe una isometr\'{\i}a
+	$\tilde f:\,V\rightarrow V$ tal que $\tilde f|_{V_1}=f$.
+\end{teoExtTeo}
+
+?`Es, el Teorema de extensi\'on~\ref{teo:teoremas:extension}, un teorema
+sobre espacios cuadr\'aticos o es un teorema sobre espacios bilineales? La
+hip\'otesis fundamental parece ser que $(V,B_Q)$, el espacio bilineal
+asociado a $(V,Q)$, sea no degenerado ?`O es un teorema acerca del funtor
+$Q\mapsto B_Q$? La isometr\'{\i}a $f$ y su extensi\'on son morfismos de
+espacios cuadr\'aticos, no de los espacios bilineales asociados. La
+conclusi\'on es que, si $f$ preserva $Q$, entonces es posible extenderla de
+manera que siga preservando $Q$.
+
+\begin{teoExtTeo}[Teorema de cancelaci\'on]\label{teo:teoremas:cancelacion}
+	Sea $(V,Q)$ un espacio cuadr\'atico no degenerado sobre un cuerpo $F$.
+	Si $\car F=2$, suponemos, adem\'as, que $V^\perp=0$. Entonces, dados
+	subespacios isom\'etricos $V_1,V_2\subset V$, se cumple que
+	$V_1^\perp\simeq V_2^\perp$.
+\end{teoExtTeo}
+
+El Teorema de cancelaci\'on se deduce del Teorema de extensi\'on: si
+$f:\,V_1\rightarrow V_2$ es una isometr\'{\i}a, por el \teoname~%
+\ref{teo:teoremas:extension}, podemos extenderla a una isometr\'{\i}a de
+$V$. Pero, entonces $f(V_1^\perp)=f(V_1)^\perp=V_2^\perp$.
+
+Rec\'{\i}procamente, \emph{en caracter\'{\i}stica distinta de $2$}, el Teorema
+de cancelaci\'on tiene como consecuencia el Teorema de extensi\'on. Sea
+$f:\,V_1\rightarrow V_2$ la isometr\'{\i}a. Definimos $U_1=V_1^\perp\cap V_1$,
+descomponemos $V_1=U_1\perp W_1$ y elegimos $U_1'$ como en el \teoname~%
+\ref{teo:recap:isotropico:subespacio}. La isometr\'{\i}a $f$ induce
+un embedding isom\'etrico $f:\,V_1\rightarrow V$ que extendemos a
+$Z_1:=(U_1+U_1')\perp W_1$, por el \teoname~%
+\ref{teo:recap:isotropico:extension}. Ahora, $Z_1$ es no degenerado
+y $V=Z_1\oplus Z_1^\perp$. Si definimos $U_2:=f(U_1)$, $U_2':=f(U_1')$ y
+$W_2:=f(W_1)$, entonces
+\begin{itemize}
+	\item $V_2=f(V_1)=U_2\perp W_2$,
+	\item $U_2\cap U_2'=0$ y
+		$U_2+U_2'\simeq U_1+U_1'\simeq\hiperbolico^{\perp m}$ y
+	\item $W_2$ es no degenerado, $W_2\cap(U_2+U_2')=0$ y
+		$W_2\perp(U_2+U_2')$.
+\end{itemize}
+%
+Si $Z_2:=(U_2+U_2')\perp W_2$, entonces $Z_2$ es no degenerado y
+$Z_1\simeq Z_2=f(V_1)$, v\'{\i}a la extensi\'on (parcial) de $f$. Por el
+\teoname~\ref{teo:teoremas:cancelacion}, $Z_1^\perp\simeq Z_2^\perp$. Pero
+$V=Z_2\oplus Z_2^\perp$. Si $g:\,Z_1^\perp\rightarrow Z_2^\perp$ es una
+isometr\'{\i}a, entonces
+\begin{displaymath}
+	f\oplus g\,:\,Z_1\,\oplus\,Z_1^\perp\,\rightarrow\,
+		Z_2\,\oplus\,Z_2^\perp
+\end{displaymath}
+%
+es una isometr\'{\i}a de $V$ que extiende a $f$.
+
+\begin{ejerExtTeo}\label{ejer:teoremas:cancelacion:caracteristica}
+	?`D\'onde falla el argumento si la caracter\'{\i}stica del cuerpo
+	es $2$?
+\end{ejerExtTeo}
+
+\subsection{Teoremas de Witt para espacios bilineales}%
+	\label{subsec:extension:teoremas:bilineales}
+Los Teoremas de extensi\'on y cancelaci\'on tienen versiones para espacios
+bilineales en los cuales la relaci\'on de perpenicularidad es sim\'etrica.
+% Como en la secci\'on \S~\ref{subsec:extension:recap:geometria}, si la
+% caracter\'{\i}stica del cuerpo es $2$, asumimos que la forma bilineal es
+% alternada.
+
+\begin{teoExtTeo}\label{teo:teoremas:extension:bilineales}
+	Sea $(V,B)$ un espacio bilineal no degenerado sobre un cuerpo $F$ tal
+	que la relaci\'on de perpendicularidad es sim\'etrica. Si
+	$\car F=2$, asumimos que $B$ es alternada. Entonces, dados subespacios
+	$V_1,V_2\subset V$ y una isometr\'{\i}a $f:\,V_1\rightarrow V_2$,
+	existe una isometr\'{\i}a $\tilde f:\,V\rightarrow V$ tal que
+	$\tilde f|_{V_1}=f$.
+\end{teoExtTeo}
+
+\begin{teoExtTeo}\label{teo:teoremas:cancelacion:bilineales}
+	Sea $(V,B)$ un espacio bilineal no degenerado sobre un cuerpo $F$ tal
+	que la relaci\'on de perpendicularidad es sim\'etrica. Si
+	$\car F=2$, asumimos que $B$ es alternada. Entonces, dados subespacios
+	isom\'etricos $V_1,V_2\subset V$, se cumple que
+	$V_1^\perp\simeq V_2^\perp$.
+\end{teoExtTeo}
+
+El argumento de la secci\'on \S~\ref{subsec:extension:teoremas:cuadraticos},
+muestra que estos dos teoremas son equivalentes. En lugar del \teoname~%
+\ref{teo:recap:isotropico:subespacio}, aplicamos el \teoname~%
+\ref{teo:recap:isotropico:subespacio:bilineales} y, en lugar del \teoname~%
+\ref{teo:recap:isotropico:extension}, aplicamos el \teoname~%
+\ref{teo:recap:isotropico:extension:bilineales}.
+
+\begin{obsExtTeo}\label{obs:teoremas:extension:bilineales}
+	Sea $(V,B)$ un espacio bilineal no degenerado sobre un cuerpo $F$ tal
+	que la relaci\'on de perpendicularidad es sim\'etrica. Si
+	$\car F=2$, asumimos que $B$ es alternada. Si $V_1\subset V$ es un
+	subespacio (arbitrario), entonces por el \teoname~%
+	\ref{teo:recap:radical}, podemos descomponer $V_1=U_1\oplus W_1$,
+	donde $U_1=V_1^\perp\cap V_1$ y $W_1\subset V_1$ es un subespacio no
+	degenerado. En $U_1$, $B$ es id\'enticamente cero. El \teoname~%
+	\ref{teo:recap:isotropico:subespacio:bilineales} garantiza que existe
+	$U_1'$ tal que $U_1+U_1'$ es isom\'etrico con $\hiperbolico^{\perp m}$
+	($m=\dim\,U_1$), ortogonal con $W_1$ e independiente de \'este. Si
+	$A:\,V_1\rightarrow X$ es un embedding isom\'etrico, el \teoname~%
+	\ref{teo:recap:isotropico:extension:bilineales} garantiza que $A$ se
+	extiende a $(U_1+U_1')\perp W_1$, al menos. El subespacio $W_1$ es no
+	degenerado.
+	% $W_1^\perp\cap W_1=0$.
+	El subespacio $U_1+U_1'\subset V$, por ser isom\'etrico con una suma de
+	planos hiperb\'olicos, es no degenerado. La suma directa ortogonal
+	$(U_1+U_1')\perp W_1$ tambi\'en es no degenerada.
+	% , es decir,
+	% \begin{displaymath}
+		% \Big((U_1+U_1')\perp W_1\Big)^\perp\,\cap\,
+			% \Big((U_1+U_1')\perp W_1\Big)\,=\,0
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% % Si $u_0\in U_1+U_1'$ y $w_0\in W_1$ son tales que
+	% % $u_0+w_0\in (U_1+U_1')\perp W_1$, entonces $B(u_0+w_0,w)=0$ para
+	% % todo $w\in W_1$ implica $w_0=0$ y $B(u_0+w_0,u)=0$ para todo
+	% % $u\in U_1+U_1'$ implica $u_0=0$.
+\end{obsExtTeo}
+
+\begin{proof}[Demostraci\'on del \teoname~%
+	\ref{teo:teoremas:extension:bilineales} \cite{ArtinGeometric}]
+	Sea $(V,B)$ el espacio bilineal y sea $f:\,V_1\rightarrow V_2$ la
+	isometr\'{\i}a entre subespacios de $V$. Por la \obsname~%
+	\ref{obs:teoremas:extension:bilineales}, podemos suponer que $V_1$
+	es no degenerado. En tal caso, por el \teoname~%
+	\ref{teo:nodegeneradas:perpendicular}, $V=V_1\oplus V_1^\perp$ y
+	$V_1^\perp$ es no degenerado. An\'alogamente, $V_2=f(V_1)\simeq V_1$
+	es no degenerado y $V=V_2\oplus V_2^\perp$, con $V_2^\perp$ no
+	degenerado.
+
+	Si $B$ es alternada, como $V_1$ es no degenerado,
+	$V=V_1\oplus V_1^\perp$ y $V_1^\perp$ es no degenerado. Como
+	tambi\'en $V_2$ es no degenerado, $V=V_2\oplus V_2^\perp$ y $V_2$
+	es no degenerado. Pero $\dim\,V_1=\dim\,V_2$ y, por lo tanto,
+	$\dim\,V_1^\perp=\dim\,V_2^\perp$. Entonces, $V_1^\perp$ y
+	$V_2^\perp$ son espacios bilineales alternados no degenerados de
+	la misma dimensi\'on. Por el \coroname~%
+	\ref{coro:simplecticas:dimension}, existe alguna isometr\'{\i}a
+	$g:\,V_1^\perp\rightarrow V_2^\perp$. La suma
+	$f\oplus g:\,V\rightarrow V$ extiende $f$.
+
+	Si $\dim\,V_1=1$, entonces $V_1=\generado x$ para cierto $x\neq 0$.
+	Pero tambi\'en $\dim\,V_2=1$ y $V_2=\generado y$, donde $y=f(x)$.
+	Adem\'as, $B(y,y)=B(x,x)\neq 0$, pues suponemos que $V_1$ es no
+	degenerado. Bajo nuestras hip\'otesis, esto s\'olo puede suceder, si
+	$\car F\neq 2$.
+	Todo lo que tenemos que probar es que, bajo estas condiciones, existe
+	una isometr\'{\i}a de $V$ que verifica $x\mapsto y$.
+
+	Con el caso alternado no degenerado y el caso unidimensional no
+	degenerado, podemos hacer inducci\'on en la dimensi\'on de $V_1$.
+\end{proof}
+
+\begin{lemaExtTeo}\label{lema:teoremas:bilineales:ortogonal}
+	Si $x,y\in V$ cumplen $B(x,x)=B(y,y)\neq 0$,
+	% Si $x,y\in V$ son vectores anisotr\'opicos tales que $Q(x)=Q(y)$,
+	existe $A\in\OO(V)$ tal que $A\,x=y$.
+\end{lemaExtTeo}
+
+\begin{proof}
+	Ahora, $B(x+y,x-y)=0$, con lo cual $x+y\perp x-y$. En particular, no
+	pueden, ambos, cumplir $B(x\pm y,x\pm y)=0$, pues la suma es $2\,x$
+	y $B(x,x)\neq 0$. Sea $z=x+\epsilon\,y$, $\epsilon=\pm 1$, tal que
+	$B(z,z)\neq 0$. Sea $\refl\in\OO(B)$ la reflexi\'on respecto de
+	$z^\perp$. Entonces, $\refl(x+\epsilon\,y)=-x-\epsilon\,y$ y
+	$\refl(x-\epsilon\,y)=x-\epsilon\,y$. As\'{\i}, porque
+	$x\pm\epsilon\,y$ son ortogonales y $2\neq 0$,
+	\begin{displaymath}
+		\refl(x)\,=\,-\epsilon\,y
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $\epsilon=-1$, listo. Si no, $\refl$ compuesta con la
+	transformaci\'on antipodal $v\mapsto -v$ cumple lo pedido. Otra
+	opci\'on es componer con $\refl[y]$, pues $B(y,y)\neq 0$.
+	% Si $B(x,y)\neq Q(x)$, entonces
+	% \begin{displaymath}
+		% Q(x-y)\,=\,B(x-y,x-y)\,=\,2\,\big(Q(x)-B(x,y)\big)\,\neq\,0
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% En particular, $x-y$ es anisotr\'opico y podemos reflejar respecto
+	% del hiperplano ortogonal. Si aplicamos $\refl[x-y]$ a $x$ obtenemos,
+	% \begin{displaymath}
+		% \refl[x-y](x)\,=\,x\,-\,2\,\frac{B(x,x-y)}{Q(x-y)}\,(x-y)
+			% \,=\,x-\frac{2\big(Q(x)-B(x,y)\big)}{Q(x-y)}\,(x-y)
+			% \,=\,y
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Si $B(x,y)=Q(x)$, entonces $B(-x,y)\neq Q(x)$ y
+	% \begin{displaymath}
+		% \refl[-x-y]\circ\refl[x](x)\,=\,\refl[-x-y](-x)\,=\,y
+		% \text{ .}
+	% \end{displaymath}
+	% %
+\end{proof}
+
+\begin{obsExtTeo}\label{obs:teoremas:bilineales:ortogonal}
+	La isometr\'{\i}a del \lemaname~%
+	\ref{lema:teoremas:bilineales:ortogonal} que verifica $x\mapsto y$
+	se puede elegir de manera que sea una reflexi\'on, o bien una
+	reflexi\'on compuesta con la ant\'{\i}poda $v\mapsto -v$, o bien una
+	composici\'on de, a lo sumo, dos reflexiones.
+\end{obsExtTeo}
+
+\begin{ejerExtTeo}\label{ejer:teoremas:bilineales:ortogonal}
+	Si $A\in\OO(V)$ y $u\in V$ es un vector tal que $B(u,u)\neq 0$,
+	entonces
+	\begin{equation}
+		\label{eq:teoremas:impar:ortogonal:reflexion:conjugacion}
+		A\,\refl[u]\,A^{-1}\,=\,\refl[A\,u]
+		\text{ .}
+	\end{equation}
+	%
+	En particular, la clase de conjugaci\'on de $\refl[u]$ en $\OO(V)$ es
+	$\{\refl[v]\,:\,B(v,v)=B(u,u)\}$.
+\end{ejerExtTeo}
+
+El \teoname~\ref{teo:teoremas:cancelacion:bilineales:general} quita la
+restricci\'on de que el espacio ambiente sea no degenerado. En
+\cite{ClarkQuadraticI}, se prueba primero este resultado antes de deducir
+el \teoname~\ref{teo:teoremas:cancelacion:bilineales}, pero s\'olo se hace
+en el caso de espacios bilineales sim\'etricos sobre un cuerpo de
+caracter\'{\i}stica impar.
+
+\begin{teoExtTeo}\label{teo:teoremas:cancelacion:bilineales:general}
+	% Sean $U_1,U_2,V_1,V_2$ espacios cuadr\'aticos sobre un cuerpo de
+	% caracter\'{\i}stica impar.
+	Sean $U_1,U_2,V_1,V_2$ espacios bilineales sobre un cuerpo $F$ tales
+	que la relaci\'on de perpendicularidad es sim\'etrica. Si
+	$\car F=2$, asumimos que son alternados.
+	Si $V_1\simeq V_2$ y
+	$U_1\perp V_1\simeq U_2\perp V_2$, entonces $U_1\simeq U_2$.
+\end{teoExtTeo}
+
+\begin{proof}
+	Sean $X_i=U_i\perp V_i$, $b_i$ la forma bilineal en $X_i$ y
+	$f:\,X_1\rightarrow X_2$ una isometr\'{\i}a. Cambiando $X_1$, $V_1$ y
+	$U_1$ por $f(X_1)=X_2$, $f(V_1)$ y $f(U_1)$, podemos asumir que
+	$X_1=X_2=:X$, $b_1=b_2=:b$ y que $f=\id[X]$. Sean
+	$\repr[1] \cdot,\repr[2] \cdot:\,X\rightarrow F^n$ bases de $X$ y sean
+	$m_i$ las matrices de $b$ respecto de $\repr[i] \cdot$. Si
+	$c:\,F^n\rightarrow F^n$ es la matriz de cambio de base,%
+	\footnote{
+		$c:=\repr[2]{\cdot}\circ f\circ\repr[1]{\cdot}^{-1}$, es la
+		matriz de $f=\id$ respecto de estas bases.
+	}
+	entonces $m_2=\trnsp c\,m_1\,c$. Dado que $V_1\simeq V_2$, vale que
+	$\dim\,V_1=\dim\,V_2$ y, en consecuencia, $\dim\,U_1=\dim\,U_2$.
+
+	Supongamos que las restricciones $b|_{V_i}$ son id\'enticamente cero
+	y $b|_{U_2}$ es no degenerada. Eligiendo bases de $U_i\perp V$
+	compuestas por bases de $U_i$ y $V$, las matrices de $b$ son de la
+	forma
+	\begin{math}
+		m_i=\sbmatrix{ M_i & 0 \\ 0 & 0 }
+	\end{math}, donde $M_i$ son las matrices de las restricciones
+	$b|_{U_i}$. La correspondiente matriz de cambio de base es de la forma
+	\begin{math}
+		c=\sbmatrix{ A & B \\ C & D }
+	\end{math}. En particular,
+	\begin{displaymath}
+		\trnsp A\,M_1\,A\,=\,M_2
+		\text{ .}
+	\end{displaymath}
+	%
+	Como $U_2$ es no degenerado, $M_2$ es no singular y, por lo tanto,
+	$A$ es no singular. As\'{\i}, en este caso, $b|_{U_1}$ y $b|_{U_2}$
+	son equivalentes. Hasta aqu\'{\i}, s\'olo hemos usado la
+	correspondencia entre formas bilineales no degeneradas y matrices
+	invertibles.
+
+	Supongamos, ahora, \'unicamente, que las restricciones $b|_{V_i}$
+	son id\'enticamente cero. Si la relaci\'on de perpendicularidad es
+	sim\'etrica en $U_i$, podemos descomponer
+	$U_i=(U_i^\perp\cap U_i)\oplus W_i$, de manera que $b$ es
+	id\'enticamente cero en $U_i^\perp\cap U_i$ y es no degenerada en
+	$W_i$. Intercambiando los roles de $U_i$, podemos suponer que
+	$\dim\,W_2\geq\dim\,W_1$, es decir, que el rango de $b|_{U_2}$ es
+	mayor o igual al rango de $b|_{U_1}$. Si $Z_2=U_2^\perp\cap U_2$,
+	$\dim\,Z_2\leq\dim\,(U_1^\perp\cap U_1)$ y podemos encontrar
+	$Z_1\subset U_1^\perp\cap U_1$ tal que $\dim\,Z_1=\dim\,Z_2$. Los
+	espacios $Z_i$ son isom\'etricos ($b|_{Z_i}=0$ y tienen la misma
+	dimensi\'on). Cambiando $V_i$ por $V_i\perp Z_i$, podemos asumir que
+	$U_2$ es no degenerado.
+
+	Supongamos, ahora, que tambi\'en la relaci\'on de perpendicularidad en
+	$V_i$ es sim\'etrica. Entonces, podemos descomponer
+	$V_i=(V_i^\perp\cap V_i)\perp W_i$, de manera que $b$ es
+	id\'enticamente cero en $V_i^\perp\cap V_i$ y es no degenerada en
+	$W_i$. Como $V_1\simeq V_2$, se deduce que
+	$V_1^\perp\cap V_1\simeq V_2^\perp\cap V_2$. Por lo ya demostrado,
+	deducimos que $W_1\simeq W_2$ y que $W_1\perp U_1\simeq W_2\perp U_2$.
+	De esta manera, podemos suponer tambi\'en que $V_i$ son no degenerados.
+	Pero, entonces, estamos en las condiciones del \teoname~%
+	\ref{teo:teoremas:cancelacion:bilineales}, con $U_i=V_i^\perp$.
+% 
+	% Supongamos que $V_1$ y $V_2$ son totalmente isotr\'opicos y $U_2$ es
+	% no degenerado. Las restricciones $b|_{V_i}$ son id\'enticamente cero
+	% y $b|_{U_2}$ es no degenerada. Eligiendo bases de $U_i\perp V_i$
+	% compuestas por bases de $U_i$ y $V_i$, las matrices de $b$ son de la
+	% forma
+	% \begin{math}
+		% m_i=\sbmatrix{ M_i & 0 \\ 0 & 0 }
+	% \end{math}, donde $M_i$ son las matrices de las restricciones
+	% $b|_{U_i}$. La correspondiente matriz de cambio de base es de la
+	% forma
+	% \begin{math}
+		% c=\sbmatrix{ A & B \\ C & D }
+	% \end{math}. En particular,
+	% \begin{displaymath}
+		% \trnsp A\,M_1\,A\,=\,M_2
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Como $U_2$ es no degenerado, $M_2$ es no singular y, por lo tanto,
+	% $A$ es no singular. As\'{\i}, en este caso, $b|_{U_1}$ y $b|_{U_2}$
+	% son equivalentes.
+% 
+	% Supongamos, ahora, \'unicamente, que $V_1$ y $V_2$ son totalmente
+	% isotr\'opicos.
+	% Eligiendo bases ortogonales para $U_i$, las formas
+	% bilineales $b|_{U_i}$ se diagonalizan y tienen una cantidad $r_i$ de
+	% ceros en la diagonal. Sin p\'erdida de generalidad, podemos asumir
+	% que $r_1\geq r_2$. Cambiando $V_i$ por
+	% $V_i\perp{\diagonal 0}^{\perp r_2}$, podemos asumir que $U_2$ es no
+	% degenerado.
+% 
+	% Si $\dim\,V_1=\dim\,V_2=1$, $V_1\simeq V_2\simeq\diagonal a$, para
+	% cierto $a\in F$. Si $a=0$, entonces $V_1$ y $V_2$ son triviales.
+	% Podemos asumir, entonces, que $a\neq 0$ y que existen
+	% $x_i\in V_i$ tales que $B(x_i,x_i)=a$. Dado que $x_i\neq 0$,
+	% $V_i=\generado{x_i}$. Como los $V_i$ son no degenerados, por el
+	% \teoname~\ref{teo:nodegeneradas:perpendicular}, $U_i=V_i^\perp$.
+	% Por el \lemaname~\ref{lema:teoremas:impar:ortogonal}, existe
+	% $A\in\OO(X)$ tal que $A\,x_1=x_2$. Dado que $A$ preserva la forma
+	% cuadr\'atica,
+	% \begin{displaymath}
+		% A(U_1)\,=\,A(\generado{x_1}^\perp)
+			% \,=\,A(\generado{x_1})^\perp\,=\,\generado{x_2}^\perp
+			% \,=\,U_2
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% En particular, $U_1\simeq U_2$.
+% 
+	% En general, diagonalizamos $V_1$ y $V_2$. Pero $V_1\simeq V_2$, con
+	% lo cual admiten la misma forma diagonalizada. Hacemos inducci\'on
+	% en la dimenasi\'on de $V_i$.
+\end{proof}
+
+\begin{teoExtTeo}\label{teo:teoremas:extension:bilineales:general}
+	Sean $X_1,X_2$ espacios bilineales isom\'etricos sobre un cuerpo $F$
+	tales que la relaci\'on de perpendicularidad es sim\'etrica. Si
+	$\car F=2$, asumimos que son alternados.%
+	\footnote{
+		Los espacios son isom\'etricos v\'{\i}a alguna isometr\'{\i}a
+		no especificada.
+	}
+	Supongamos que contamos con descomposiciones $X_1=U_1\perp V_1$ y
+	$X_2=U_2\perp V_2$. Si $f:\,V_1\rightarrow V_2$ es una isometr\'{\i}a,
+	entonces existe una isometr\'{\i}a $\tilde f:\,X_1\rightarrow X_2$ tal
+	que $\tilde f|_{V_1}=f$.
+\end{teoExtTeo}
+
+\begin{ejerExtTeo}\label{ejer:teoremas:bilineales:general:equivalencia}
+	Probar que el \teoname~%
+	\ref{teo:teoremas:cancelacion:bilineales:general} es equivalente al
+	\teoname~\ref{teo:teoremas:extension:bilineales:general}.
+\end{ejerExtTeo}
+
+\begin{coroExtTeo}\label{coro:teoremas:extension:bilineales}
+	Sea $(V,B)$ un espacio bilineal sobre un cuerpo $F$ tal que la
+	relaci\'on de perpendicularidad es sim\'etrica. Si $\car F=2$, asumimos
+	que es alternado. Sean $V_1,V_2\subset V$ subespacios no degenerados.
+	Toda isometr\'{\i}a $f:\,V_1\rightarrow V_2$ se extiende a una
+	isometr\'{\i}a $\tilde f:\,V\rightarrow V$.
+\end{coroExtTeo}
+
+\begin{proof}
+	Dado que $V_i$ es no degenerado, $V=U_i\oplus V_i$, donde
+	$U_i:=V_i^\perp$. Por el \teoname~%
+	\ref{teo:teoremas:extension:bilineales:general}, existe una
+	extensi\'on $\tilde f:\,V\rightarrow V$. Necesariamente, $f(U_1)=U_2$.
+\end{proof}
+
+\begin{ejerExtTeo}\label{ejer:teoremas:extension:bilineales}
+	Deducir el \teoname~\ref{teo:teoremas:extension:bilineales} del
+	\coroname~\ref{coro:teoremas:extension:bilineales}.
+\end{ejerExtTeo}
+
+% Vimos que el \teoname~\ref{teo:teoremas:cancelacion:bilineales:general} es
+% consecuencia del \teoname~\ref{teo:teoremas:cancelacion:bilineales} y
+% que \'este se deduce, en general, del \teoname~%
+% \ref{teo:teoremas:extension:bilineales}.
+% Ahora podemos dar la demostraci\'on del \teoname~%
+% \ref{teo:teoremas:extension}.
+% % La idea es muy similar a la demostraci\'on de \cite{ArtinGemetric}.
+% La isometr\'{\i}a $f:\,V_1\rightarrow V_2$ define un embedding isom\'etrico
+% $f:\,V_1\rightarrow V$. Si $V_1=U_1\perp W_1$ con $U_1=V_1^\perp\cap V_1$,
+% entonces $U_1$ es totalmente isotr\'opico. Por el \teoname~%
+% \ref{teo:teoremas:isotropico:subespacio}, existe un subespacio
+% $U_1'\subset V$ tal que $Z_1:=(U_1+U_1')\perp W_1$ es no degenerado y, por
+% el \teoname~\ref{teo:teoremas:isotropico:extension}, el embedding
+% isom\'etrico $f$ se extiende a un embedding isom\'etrico
+% $f:\,Z_1\rightarrow V$.%
+% \footnote{
+	% Aqu\'{\i} estamos usando que $V$ es no degenerado.
+% }
+% Si $Z_2=f(Z_1)$, entonces $Z_2$ es no degenerado y $Z_1$ y $Z_2$ son
+% isom\'etricos v\'{\i}a $f$. Por el \coroname~%
+% \ref{coro:teoremas:extension}, $f$ se extiende a una isometr\'{\i}a
+% $\tilde f:\,V\rightarrow V$.
+
+% \paragraph{Otra demostraci\'on del \teoname~\ref{teo:teoremas:extension}}
+% \label{para:extension:grove}
+% Por \'ultimo, incluimos la demostraci\'on que se encuentra en
+% \cite{GroveClassical}. La idea es demostrar directamente el \teoname~%
+% \ref{teo:teoremas:cancelacion} y luego deducir el \teoname~%
+% \ref{teo:teoremas:extension}.
+
+

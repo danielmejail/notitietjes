@@ -1,0 +1,144 @@
+El \emph{semiplano complejo superior} est\'a conformado por los
+n\'umeros complejos con parte imaginaria definida positiva:
+\begin{displaymath}
+	\semiplano\,=\,\big\{z\in\Complejos\,:\,\Imag(z)>0\big\}
+	\dispstop
+\end{displaymath}
+%
+El grupo $\SL(2,\Reales)$ act\'ua en $\semiplano$ por
+\emph{transformaciones de M\"obius}: si $z\in\semiplano$ y
+$\gamma\in\SL(2,\Reales)$, definimos un nuevo punto de la siguiente
+manera:
+\begin{equation}
+	\label{eq:definiciones:moebius}
+	\gamma\accion z\,=\,\frac{az+b}{cz+d}
+	\dispstop
+\end{equation}
+%
+Dado que $\Imag(z)>0$ y $c,d\in\Reales$ no ambos nulos, se deduce
+que $cz+d\neq 0$. Adem\'as,
+\begin{equation}
+	\label{eq:definiciones:imaginaria}
+	\Imag(\gamma\accion z)\,=\,\frac{\Imag(z)}{|cz+d|^2}
+	\dispcomma
+\end{equation}
+%
+de lo que se deduce que $\gamma\accion z\in\semiplano$.
+Que \eqref{eq:definiciones:moebius} defina una \emph{acci\'on}
+quiere decir que, si $\gamma,\gamma'\in\modulgruppe$ y $z\in\semiplano$,
+entonces $(\gamma\gamma')\accion z=\gamma\accion{\gamma'\accion z}$.
+Las matrices escalares, $\pm\,\sbmatrix{ 1 & \\ & 1 }$, act\'uan
+trivialmente, es decir, no mueven ning\'un punto.
+% Con lo cual, la acci\'on \eqref{eq:definiciones:moebius} es, en verdad,
+% una acci\'on del grupo
+% \begin{displaymath}
+	% \PSL(2,\Reales)\,=\,\SL(2,\Reales)/\{\pm\Id\}
+	% \dispstop
+% \end{displaymath}
+% %
+
+% La acci\'on \eqref{eq:definiciones:moebius} es transitiva: si
+% $z=x+\raizcuarta y$, $y>0$, entonces
+% \begin{equation}
+	% \label{eq:definiciones:transitividad}
+	% z\,=\,
+	% \begin{bmatrix}
+		% \sqrt y & x\sqrt y^{-1} \\ & \sqrt y^{-1}
+	% \end{bmatrix}\accion\raizcuarta
+	% \,=\,
+	% \bigg(
+	% \begin{bmatrix} 1 & x \\ & 1 \end{bmatrix}\,
+	% \begin{bmatrix} \sqrt y & \\ & \sqrt y^{-1} \end{bmatrix}
+	% \bigg)\accion\raizcuarta
+	% \dispcomma
+% \end{equation}
+% %
+% una dilaci\'on seguida de una traslaci\'on. Las matrices que
+% dejan fijo el punto $\raizcuarta\in\semiplano$ forman un subgrupo,
+% el \emph{grupo ortogonal especial}:
+% \begin{displaymath}
+	% \SO(2,\Reales)\,=\,\bigg\{
+		% \begin{bmatrix} a & b \\ -b & a \end{bmatrix}\,:\,
+			% a,b\in\Reales,\,a^2+b^2=1
+		% \bigg\}
+	% \dispstop
+% \end{displaymath}
+% %
+% Esto permite reinterpretar el espacio $\semiplano$ como un cociente:
+% \begin{displaymath}
+	% \semiplano\,=\,\SL(2,\Reales)/\SO(2,\Reales)
+	% \dispstop
+% \end{displaymath}
+% %
+
+\begin{defDefiniciones}\label{def:definiciones:modular}
+	Una \emph{forma modular} es una funci\'on
+	$f:\,\semiplano\rightarrow\Complejos$ que
+	\begin{enumerate}[label=(M\arabic*)]
+		\item\label{item:modular:holomorfia}
+			es holomrfa,
+		\item\label{item:modular:transformaciones}
+			existe $k$ tal que, para toda
+			$\gamma=\sbmatrix{ * & * \\ c & d }\in\modulgruppe$
+			y $z\in\semiplano$, cumple
+			\begin{equation}
+				\label{eq:definiciones:transformacion}
+				f(\gamma\accion z)\,=\,(cz+d)^k\,f(z)
+				\dispand
+			\end{equation}
+			%
+		\item\label{item:modular:crecimiento}
+			est\'a acotada en regiones de la forma
+			$\{y\geq \delta\}$, para todo $\delta>0$.
+	\end{enumerate}
+	%
+	El n\'umero $k$ es el \emph{peso} de la forma.
+\end{defDefiniciones}
+
+\begin{obsDefiniciones}\label{obs:definiciones:modular:desarrollo}
+	Si $f$ es una forma modular, por \ref{item:modular:transformaciones},
+	la funci\'on es, en particular, peri\'odica de per\'{\i}odo $1$:
+	\begin{math}
+		f(z+1)=f(z)
+	\end{math},
+	si $z\in\semiplano$. Esto implica que existe una funci\'on
+	$g$ tal que
+	\begin{displaymath}
+		f(z)\,=\,g(\varexp^{2\pi\raizcuarta z})
+		\dispstop
+	\end{displaymath}
+	%
+	El dominio de definici\'on de $g$ es $D\setmin\{0\}$, donde
+	\begin{displaymath}
+		D\,=\,\big\{ q\in\Complejos\,:\,|q|<1 \big\}
+		\dispstop
+	\end{displaymath}
+	%
+	Como, por \ref{item:modular:holomorfia}, $f$ es holomorfa en
+	$\semiplano$, la funci\'on $g$ es holomorfa en el disco pinchado.
+	La transformaci\'on $z\mapsto q=\varexp^{2\pi\raizcuarta z}$
+	es holomorfa y la imagen de un subconjunto $\{y\geq\delta\}$,
+	$\delta>0$, es un disco (pinchado y con borde) de radio
+	$\varexp^{-2\pi\delta}$. Ahora, por \ref{item:modular:crecimiento},
+	$f(z)$ est\'a acotada en $\{y\geq\delta\}$. En consecuencia,
+	$g$ est\'a acotada en un entorno de $q=0$. Pero esto quiere decir
+	que $g$ se extiende a una funci\'on holomorfa definida en todo
+	el disco $D$. El desarrollo de Taylor de $g$ en $q=0$ da lugar a
+	un desarrollo de $f$ ``en $\infty$'':
+	\begin{equation}
+		\label{eq:definiciones:desarrollo}
+		f(z)\,=\,\sum_{n\geq 0}\,a_n\,\varexp^{2\pi\raizcuarta n z}
+		\dispstop
+	\end{equation}
+	%
+	Se dice que la serie en \eqref{eq:definiciones:desarrollo} es
+	el \emph{desarrollo de Fourier de $f$ en el infinito}.
+	La serie comienza en $n=0$, porque la funci\'on $g$ es holomorfa.
+	Por esta raz\'on, se suele decir que
+	$f$ es ``holomorfa en $\infty$''.
+\end{obsDefiniciones}
+
+A veces se escribe $q$, en lugar de $\varexp^{2\pi\raizcuarta z}$.
+Es la existencia de estos desarrollos lo que hace relevantes a las
+formas modulares en el contexto de Teor\'{\i}a de n\'umeros.
+

@@ -1,0 +1,87 @@
+\ProvidesPackage{abreviacionesModelos}
+
+\def\lista{\@ifstar\@lista\@@lista}
+\def\@lista{\@ifnextchar[{\@listawith}{\@listawithout}}
+\def\@listawith[#1]#2#3{\ensuremath{{#2}^{#1},\,\dots,\,{#2}^{#3}}}
+\def\@listawithout#1#2{\ensuremath{{#1}^{1},\,\dots,\,{#1}^{#2}}}
+\def\@@lista{\@ifnextchar[{\@@listawith}{\@@listawithout}}
+\def\@@listawith[#1]#2#3{\ensuremath{{#2}_{#1},\,\dots,\,{#2}_{#3}}}
+\def\@@listawithout#1#2{\ensuremath{{#1}_{1},\,\dots,\,{#1}_{#2}}}
+
+\renewcommand{\sin}{\ensuremath{\mathsf{sen}\,}}
+\renewcommand{\cos}{\ensuremath{\mathsf{cos}\,}}
+\renewcommand{\exp}[1]{\ensuremath{\mathsf{exp}\,#1}}
+\newcommand{\signo}{\ensuremath{\mathsf{sgn}}}
+
+\newcommand{\partes}{\ensuremath{\mathcal{P}}}
+\newcommand{\toro}[1][]{\ensuremath{\mathbb{T}^{#1}}}
+\newcommand{\proyectivo}[2]{\ensuremath{\mathbb{P}^{#2}\left(#1\right)}}
+\newcommand{\esfera}[1]{\ensuremath{\mathrm{S}^{#1}}}
+\newcommand{\disco}[1]{\ensuremath{\mathrm{D}^{#1}}}
+\newcommand{\inc}[1][]{\ensuremath{\iota_{#1}}}
+\newcommand{\id}[1][]{\ensuremath{\mathsf{id}_{#1}}}
+\newcommand{\MM}[2][]{\ensuremath{\mathrm{M}_{#1}\left(#2\right)}}
+\newcommand{\GL}[2][]{\ensuremath{\mathrm{GL}_{#1}\left(#2\right)}}
+\newcommand{\SL}[2][]{\ensuremath{\mathrm{SL}_{#1}\left(#2\right)}}
+\newcommand{\ortogonal}[1]{\ensuremath{\mathrm{O}\left(#1\right)}}
+\newcommand{\SO}[1]{\ensuremath{\mathrm{SO}\left(#1\right)}}
+\renewcommand{\det}{\ensuremath{\mathsf{det}}}
+\renewcommand{\dim}{\ensuremath{\mathrm{dim}}}
+\newcommand{\codim}{\ensuremath{\mathrm{codim}}}
+\newcommand{\lineal}[1]{\ensuremath{\mathrm{L}\left(#1\right)}}
+\newcommand{\generado}[1]{\ensuremath{\left\langle #1\right\rangle}}
+\newcommand{\permutas}[1]{\ensuremath{\mathbb{S}_{#1}}}
+\newcommand{\rango}[2][]{\ensuremath{\mathsf{rg}_{#1}{#2}}}
+\newcommand{\nulidad}[2][]{\ensuremath{\mathsf{nl}_{#1}{#2}}}
+\newcommand{\euler}[1]{\ensuremath{\chi {#1}}}
+
+\newcommand{\grado}{\ensuremath{\mathsf{gr}}}
+\newcommand{\minimal}[1]{\ensuremath{\mathsf{m}_{#1}}}
+\newcommand{\caracteristico}[1]{\ensuremath{\mathsf{c}_{#1}}}
+\newcommand{\compa}[1]{\ensuremath{M_{#1}}}
+\newcommand{\primario}[2][]{\ensuremath{\mathrm{T}_{#1}{#2}}}
+
+\newcommand{\ford}[1]{\ensuremath{\underline{#1}}}
+
+\renewcommand{\indica}[1]{\ensuremath{\mathbb{I}_{#1}}}
+
+\newcommand{\Endo}[2][]{\ensuremath{\mathrm{End}_{#1}\left(#2\right)}}
+\newcommand{\Auto}[2][]{\ensuremath{\mathrm{Aut}_{#1}\left(#2\right)}}
+
+\newenvironment{ejemplo}
+{
+	\newcommand{\nom}[1]{(\textit{##1})}
+	\noindent\ignorespaces
+	\underline{\textit{Ejemplo}}:
+}
+{
+	\begin{center}\texttt{---X---}\end{center}
+	\par\noindent\ignorespacesafterend
+}
+
+\renewcommand{\ker}{\ensuremath{\mathrm{ker}}}
+\newcommand{\img}{\ensuremath{\mathrm{img}}}
+\newcommand{\Hom}[1]{\ensuremath{\mathrm{Hom}\left(#1\right)}}
+\renewcommand{\dual}[1]{\ensuremath{{#1}^{*}}}
+\newcommand{\tensores}[2][]{\ensuremath{\mathcal{T}^{#1}\left(#2\right)}}
+\newcommand{\exterior}[2][]{\ensuremath{\Lambda^{#1}\left(#2\right)}}
+\newcommand{\simet}[2][]{\ensuremath{\mathcal{S}^{#1}\left(#2\right)}}
+\newcommand{\multilin}[2][]{%
+	\ensuremath{\mathrm{Multilin}_{#1}\left({#2}\right)}}
+\newcommand{\bilin}[2][]{\ensuremath{\mathrm{Bil}_{#1}\left(#2\right)}}
+\newcommand{\lin}[2][]{\ensuremath{\mathrm{L}_{#1}\left({#2}\right)}}
+\newcommand{\alternadas}[2][]{\ensuremath{\mathrm{Alt}_{#1}\left(#2\right)}}
+\newcommand{\simetricas}[2][]{\ensuremath{\mathrm{Sym}_{#1}\left(#2\right)}}
+
+\newcommand{\convol}{\ensuremath{\lrcorner\,}}
+
+\newcommand{\cadenas}[2][]{\ensuremath{\mathrm{C}_{#1}\left(#2\right)}}
+
+\newcommand{\tensor}[1][]{\ensuremath{\otimes_{#1}}}
+\newcommand{\swap}{\ensuremath{\mathsf{swap}}}
+\newcommand{\homolo}[2][]{\ensuremath{\mathrm{H}_{#1}{#2}}}
+\newcommand{\bordes}[2][]{\ensuremath{\mathrm{B}_{#1}{#2}}}
+\newcommand{\ciclos}[2][]{\ensuremath{\mathrm{Z}_{#1}{#2}}}
+
+\newcommand{\anulador}[2][]{\ensuremath{\mathrm{Ann}_{#1}\left(#2\right)}}
+

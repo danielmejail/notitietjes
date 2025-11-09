@@ -1,0 +1,316 @@
+\theoremstyle{plain}
+\newtheorem{teoIntroSimp}{Teorema}[section]
+\newtheorem{coroIntroSimp}[teoIntroSimp]{Corolario}
+\newtheorem{lemaIntroSimp}[teoIntroSimp]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{defIntroSimp}[teoIntroSimp]{Definici\'on}
+\newtheorem{obsIntroSimp}[teoIntroSimp]{Observaic\'on}
+\newtheorem{ejemIntroSimp}[teoIntroSimp]{Ejemplo}
+\newtheorem{ejerIntroSimp}[teoIntroSimp]{Ejercicio}
+
+%-------------
+
+Fijamos un espacio bilineal \emph{alternado} $(V,B)$ sobre un cuerpo $F$.
+
+\begin{teoIntroSimp}\label{teo:simplecticas:dimension}
+	Si $(V,B)$ es un espacio bilineal alternado no degenerado, entonces
+	$\dim\,V$ es par.
+\end{teoIntroSimp}
+
+\begin{proof}
+	Asumiendo que $B$ es alternada, si $M$ es la matriz asociada a $B$ en
+	alguna base, por el Teorema~\ref{teo:matrices:simetria},
+	$\trnsp M=-M$ (y las coordenadas de la diagonal son nulas). Tomando
+	determinantes,
+	\begin{math}
+		\det\,M=(-1)^{\dim\,V}\,\det M
+	\end{math}. Si $B$ es no degenerada, $\det\,M\neq 0$. Si
+	$\car F\neq 2$, $-1\neq 1$. De esto se deduce el resultado en el caso
+	en que la caracter\'{\i}stica del cuerpo de base es distinta de $2$.
+
+	El siguiente argumento es v\'alido en cualquier caracter\'{\i}stica.
+	Supongamos que $B$ es alternada. Si $\dim\,V=1$, entonces $B=0$, con lo
+	cual no puede ser no degenerada. Supongamos, entonces, que
+	$\dim\,V>2$ y que $B$ es no degenerada.
+
+	Si $v\in V$ no es el vector cero, $B(v,-)\neq 0$ en $\dual V$.%
+	\footnote{
+		$L_B$ es inyectiva.
+	}
+	Entonces, $B(v,w)=1$ para cierto $w\in V$.%
+	\footnote{
+		Por linealidad. Toda funcional $F$-lineal $V\rightarrow F$ no
+		nula es una funci\'on sobreyectiva.
+	}
+	Si $U=\generado{v,w}$, entonces $\dim\,U=2$%
+	\footnote{
+		El subconjunto $\{v,w\}$ es l.i. por alternancia de $B$.
+	}
+	y, con respecto a la base, $\{v,w\}$, $B|_U$ est\'a representada por la
+	matriz $\sbmatrix{ & 1 \\ -1 & }$. Esta matriz tiene determinante $1$,
+	es invertible y $B|_U$ es no degenerada. Por el Teorema~%
+	\ref{teo:nodegeneradas:perpendicular}, $V=U\oplus U^\perp$. Adem\'as,
+	como $V$ es no degenerado y $U$ es un subespacio no degenerado,
+	$U^\perp$ tambi\'en es no degenerado. Inducci\'on.
+\end{proof}
+
+\begin{obsIntroSimp}\label{obs:simplecticas:dimension}
+	Si $(V,B)$ es un espacio bilineal sim\'etrico no degenerado, el Lema~%
+	\ref{lema:ortogonales:complemento} garantiza, dado cualquier $v\in V$
+	tal que $B(v,v)\neq 0$, la descomposici\'on ortogonal
+	$V=\generado v\oplus v^\perp$; los subespacios $\generado v$ y
+	$v^\perp$ son no degenerados. An\'alogamente, si $(V,B)$ es bilineal
+	alternado no degenerado, la demostraci\'on del Teorema~%
+	\ref{teo:simplecticas:dimension}, muestra que, dado cualquier $v\in V$,
+	existe otro vector $w\in V$ tal que
+	\begin{itemize}
+		\item $B(v,w)=1$,
+		\item $V=U\oplus U^\perp$, si $U=\generado{v,w}$, y
+		\item $U$ y $U^\perp$ son subespacios no degenerados.
+	\end{itemize}
+	%
+\end{obsIntroSimp}
+
+\begin{defIntroSimp}\label{def:simplecticas:base}
+	Sea $(V,B)$ una espacio alternado no degenerado. Si $\dim\,V=2m\geq 2$,
+	una \emph{base simpl\'ectica} es una base
+	\begin{math}
+		\big\{e_1,\,f_1,\,\dots,\,e_m,\,f_m\big\}
+	\end{math} que cumple:
+	\begin{itemize}
+		\item $B(e_i,f_i)=1$ y
+		\item $U_i=\generado{e_i,f_i}$ son perpendiculares entre
+			s\'{\i}.
+	\end{itemize}
+	%
+\end{defIntroSimp}
+
+\begin{obsIntroSimp}\label{obs:simplecticas:bases}
+	Tambi\'en se llama base simpl\'ectica a cualquier base cuyos vectores
+	cumplen con las dos propiedades de la Definici\'on~%
+	\ref{def:simplecticas:base}, aunque est\'en ordenados de otra manera.
+	Hay dos o tres maneras est\'andar de ordenarlas:
+	\begin{enumerate}[(I)]
+		\item\label{item:simplecticas:base:numerica}
+			con el orden $e_1,\,f_1,\,\dots,\,e_m,\,f_m$, la matriz
+			asociada a $B$ es:
+			\begin{displaymath}
+				\begin{bmatrix}
+					0 & 1 & & & & & \\
+					-1 & 0 & & & & & \\
+					& & 0 & 1 & & & \\
+					& & -1 & 0 & & & \\
+					& & & & \ddots & & \\
+					& & & & & 0 & 1 \\
+					& & & & & -1 & 0
+				\end{bmatrix}
+				\text{ ,}
+			\end{displaymath}
+			%
+		\item\label{item:simplecticas:base:alfabetica}
+			con el orden $e_1,\,\dots,\,e_m,\,f_1,\,\dots,\,f_m$,
+			la matriz asociada es:
+			\begin{displaymath}
+				\begin{bmatrix}
+					& & & 1 & & \\
+					& & & & \ddots & \\
+					& & & & & 1 \\
+					-1 & & & & & \\
+					& \ddots & & & & \\
+					& & -1 & & &
+				\end{bmatrix}
+				\quad\text{y}
+			\end{displaymath}
+			%
+		\item\label{item:simplecticas:base:invertida}
+			con el orden $e_1,\,\dots,\,e_m,\,f_m,\,\dots,\,f_1$,
+			la matriz asociada es:
+			\begin{displaymath}
+				\begin{bmatrix}
+					& & & & & 1 \\
+					& & & & \iddots & \\
+					& & & 1 & & \\
+					& & -1 & & & \\
+					& \iddots & & & & \\
+					-1 & & & & &
+				\end{bmatrix}
+				\text{ .}
+			\end{displaymath}
+			%
+	\end{enumerate}
+	%
+\end{obsIntroSimp}
+
+\begin{ejerIntroSimp}\label{ejer:simplecticas:base}
+	Hallar una f\'ormula para $B$ en coordenadas en la base simpl\'ectica
+	con el orden \eqref{item:simplecticas:base:alfabetica} y relacionarla
+	con la forma del Ejemplo~\ref{ejem:definiciones:determinante}.
+\end{ejerIntroSimp}
+
+\begin{obsIntroSimp}\label{obs:simplecticas:base}
+	En un espacio sim\'etrico no degenerado, cualquier vector $v\in V$ no
+	nulo que cumpla $B(v,v)\neq 0$ es parte de una base ortogonal. En un
+	espacio alternado no degenerado, cualquier vector no nulo es parte de
+	una base simpl\'ectica.
+\end{obsIntroSimp}
+
+\begin{coroIntroSimp}\label{coro:simplecticas:dimension}
+	Todo espacio alternado no degenerado admite una base simpl\'ectica. Dos
+	espacios alternados no degenerados de la misma dimensi\'on son
+	equivalentes.
+\end{coroIntroSimp}
+
+En general, si $V^\perp\neq 0$, elegimos un complemento directo arbitrario
+$W\subset V$, de manera que $V=W\oplus V^\perp$. Como $W\cap V^\perp=0$, $B|_W$
+es no degenerada. Eligiendo una base simpl\'ectica para $W$ y completando con
+una base arbitraria de  $V^\perp$, la forma alternada $B$ tiene asociada una
+matriz de la forma
+\begin{displaymath}
+	\begin{bmatrix}
+		0 & I_r & 0 \\
+		-I_r & 0 & 0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\text{ ,}
+\end{displaymath}
+%
+donde $2r=\dim\,W$. El valor de $r$ no depende de la elecci\'on de complemento
+$W$: $\dim\,W=\dim (V/V^\perp)$ En definitiva, la clase de equivalencia de un
+espacio bilineal alternado est\'a determinada por:
+\begin{itemize}
+	\item la dimensi\'on del espacio, $\dim\,V=n$, y
+	\item su ``grado de degeneraci\'on'', $\dim\,V^\perp=n-2r$.
+\end{itemize}
+%
+
+\begin{ejerIntroSimp}\label{ejer:simplecticas:adjunta}
+	Hallar la adjunta de una matriz
+	\begin{math}
+		\sbmatrix{ A & B \\ C & D }\in\MM[2m\times 2m](F)
+	\end{math}
+	con respecto a la forma bilineal alternada en $F^{2m}$ representada por
+	\eqref{item:simplecticas:base:alfabetica}.
+\end{ejerIntroSimp}
+
+\begin{ejerIntroSimp}\label{ejer:simplecticas:dual}
+	Sea $B$ la forma alternada del Ejemplo~%
+	\ref{ejem:definiciones:alternadas} en $V\oplus\dual V$. Probar que, si
+	$\{\lista* e{m}\}$ es una base de $V$ y $\{\lista\varepsilon{m}\}$ es
+	la base dual en $\dual V$, entonces
+	$\{e^1,\,\varepsilon_1,\,\dots,\,e^m,\,\varepsilon_m\}$ es una base
+	simpl\'ectica para $B$ con respecto a la cual la matriz asociada es
+	\eqref{item:simplecticas:base:numerica}.
+\end{ejerIntroSimp}
+
+\begin{ejerIntroSimp}\label{ejer:simplecticas:parias}
+	Sea $(V,B)$ un espacio bilineal sim\'etrico no degenerado sobre un
+	cuerpo de caracter\'{\i}stica $2$. Probar que $(V,B)$ admite una base
+	ortogonal, si y s\'olo si $B$ \emph{no es} alternada.%
+	\hint{
+		Sin p\'erdida de generalidad, asumir que $\dim\,V\geq 2$. De
+		acuerdo con el comentario despu\'es del Teorema~%
+		\ref{teo:ortogonales:base}, la condici\'on es necesaria. Para
+		ver que es suficiente con no ser alternada, elegir $v_0\in V$
+		tal que $a=B(v_0,v_0)\neq 0$. Notar que, por el Lema~%
+		\ref{lema:ortogonales:complemento}, $v_0^\perp$ es no
+		degenerado. Si, en este subespacio, $B$ no es alternada, el
+		resultado se deduce por un argumento inductivo. Si, en cambio,
+		$B$ es alternada en $v_0^\perp$, existen $e,f\in v_0^\perp$
+		tales que $B(e,f)=1$ y $B(e,e)=B(f,f)=0$ (parte de una base
+		simpl\'ectica). Probar que $v_1:=v_0+e+f$ verifica
+		$B(v_1,v_1)\neq 0$ y que $B$ no es alternada en $v_1^\perp$.
+	}
+\end{ejerIntroSimp}
+
+\paragraph{El \emph{pfaffiano}}
+Hay una manera gen\'erica de determinar una ra\'{\i}z cuadrada del determinante
+de una matriz alternada.
+
+\begin{lemaIntroSimp}\label{lema:simplecticas:pfaff}
+	El determinante de una matriz alternada invertible con coeficientes en
+	un cuerpo $F$ es un cuadrado perfecto no nulo.
+\end{lemaIntroSimp}
+
+\begin{proof}
+	Si $M$ es la matriz y es de tama\~no $n\times n$, por el Corolario~%
+	\ref{coro:simplecticas:dimension}, $n=2m$, $m\geq 1$, y
+	\begin{math}
+		\trnsp C\,M\,C=\sbmatrix{ & I_m \\ -I_m & }
+	\end{math}, para cierta $C$ invertible.
+\end{proof}
+
+\begin{ejemIntroSimp}\label{ejem:simplecticas:pfaff}
+	Si $n=2$,
+	\begin{math}
+		\svmatrix{ & x \\ -x & }=x^2
+	\end{math}. Si $n=4$,
+	\begin{displaymath}
+		\begin{vmatrix}
+			& x & y & z \\
+			-x & & a & b \\
+			-y & -a & & c \\
+			-z & -b & -c &
+		\end{vmatrix}
+		\,=\,(xc-yb+az)^2
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejemIntroSimp}
+
+Gen\'ericamente, Si $M(x_{ij})$ denota la matriz alternada gen\'erica de
+tama\~no $n\times n$, $n=2m$ par, sobre el cuerpo $\bb Q(x_{ij})$, su
+determinante es un polinomio no nulo con coeficientes en $\bb Z$.%
+\footnote{
+	Especializar en la matriz \eqref{item:simplecticas:base:numerica}, por
+	ejemplo.
+}
+En particular, $M(x_{ij})\in\GL[n](\bb Q(x_{ij}))$ y, por el Lema~%
+\ref{lema:simplecticas:pfaff}, su determinante es un cuadrado en
+$\bb Q(x_{ij})$. M\'as aun, como $\bb Z[x_{ij}]$ es un DFU,
+\begin{equation}
+	\label{eq:simplecticas:pfaff}
+	\det(M(x_{ij}))\,=\,(\pfaff(x_{ij}))^2
+	\text{ ,}
+\end{equation}
+%
+donde $\pfaff(x_{ij})\in\bb Z[x_{ij}]$. Este polinomio est\'a determinado a
+menos de un signo. Especializando las variables $x_{ij}$, se obtienen
+f\'ormulas para las ra\'{\i}ces cuadradas de los determinantes de las matrices
+alternadas no degeneradas. Para fijar el signo de $\pfaff(x_{ij})$, nuevamente,
+especializamos en una matriz conocida, por ejemplo la matriz
+\eqref{item:simplecticas:base:numerica}.
+
+\begin{defIntroSimp}\label{def:simplecticas:pfaff}
+	El \emph{polinomio pfaffiano} es el polinomio con coeficientes
+	enteros $\pfaff(x_{ij})\in\bb Z[x_{ij}]$ determinado por
+	\eqref{eq:simplecticas:pfaff} y $\pfaff(\repr B)=1$, donde
+	$\repr B$ denota la matriz \eqref{item:simplecticas:base:numerica}.
+	Si $M\in\MM[n\times n](F)$, el \emph{pfaffiano} de $M$ es la
+	especializaci\'on $\pfaff(M)$.
+\end{defIntroSimp}
+
+El pfaffiano est\'a definida para matrices alternadas no necesariamente
+invertibles. El tama\~no tiene que ser $n\times n$ con $n\geq 2$ par.
+
+\begin{ejerIntroSimp}\label{ejer:simplecticas:pfaff}
+	Si $n=2m\geq 2$, dada una matriz alternada $M$ (no necesariamente
+	invertible),
+	\begin{enumerate}[(i)]
+		\item\label{item:pfaff:cambio}
+			$\pfaff(\trnsp C\,M\,C)=(\det\,C)\,\pfaff(M)$, para
+			toda $C$;
+		\item\label{item:pfaff:transpuesta}
+			$\pfaff(\trnsp M)=(-1)^{n/2}\,\pfaff(M)$;
+		\item\label{item:pfaff:singular}
+			si $M$ no es invertible ($\det\,M=0$), entonces
+			$\pfaff(M)=0$;
+		\item\label{item:pfaff:nosingular}
+			si $M$ no es invertible y, mediante un cambio de base,
+			$\trnsp C\,M\,C$ es la matriz en
+			\eqref{item:simplecticas:base:numerica}, entonces
+			$\pfaff(M)=(\det\,C)^{-1}$.
+	\end{enumerate}
+	%
+\end{ejerIntroSimp}
+

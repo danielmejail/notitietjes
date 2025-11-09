@@ -1,0 +1,53 @@
+\theoremstyle{plain}
+\newtheorem{teoFundamental}{Teorema}[section]
+
+\theoremstyle{definition}
+
+%-------------
+
+El tema central de estas notas es el problema de divisibilidad o
+factorizaci\'{o}n en un dominio conmutativo. En pocas palabras, el objetivo
+ser\'{a} poner en un contexto general el siguiente resultado fundamental:
+
+\begin{teoFundamental}[Teorema fundamental de la aritm\'{e}tica]%
+	\label{teo:fundamental}
+	Dado un n\'{u}mero entero positivo $m$, no nulo y distinto de $1$,
+	existe una lista no vac\'{\i}a de primos positivos $\lista{p}{k}$ tal
+	que
+	\begin{equation}
+		\label{eq:fundamental}
+		m \,=\, p_1\cdots p_k
+		\text{ .}
+	\end{equation}
+	%
+	La lista es \'{u}nica, salvo por el orden de los factores.
+\end{teoFundamental}
+
+Que la lista sea no vac\'{\i}a quiere decir que $k\geq 1$. En
+\eqref{eq:fundamental}, los factores $p_i$ pueden aparecer repetidos, es decir,
+con multiplicidad. Esta expresi\'{o}n se denomina \emph{factorizaci\'{o}n de %
+$m$ como producto de primos}. A veces, usamos el t\'{e}rmino
+``descomposici\'{o}n'' en lugar de ``factorizaci\'{o}n'' y tambi\'{e}n diremos
+que \eqref{eq:fundamental} es la descomposici\'{o}n de $m$ como producto de
+irreducibles.
+
+En el anillo $\bb Z$ de enteros racionales, los conceptos de ``n\'{u}mero
+irreducible'' y de ``n\'{u}mero primo'' coinciden. Esto es cierto en cualquier
+dominio de factorizaci\'{o}n \'{u}nica.%
+\footnote{
+	\ref{:}.
+}
+Pero, a diferencia, de lo que ocurre con los enteros positivos, en general hay
+que tener en cuenta que una descomposici\'{o}n de la forma $a=b\,c$ puede
+variar de distintas maneras, no s\'{o}lo en el orden de los factores. Esto se
+relaciona con la presencia de unidades en un dominio arbitrario. En $\bb Z$,
+las \'{u}nicas unidades son $\{1,-1\}$, con lo que los primos racionales son
+los primos positivos $2,\,3,\,5,\,7,\,\dots$ y los correspondientes negativos
+$-2,\,-3,\,-5,\,-7,\,\dots$. En general, en un dominio $D$, si $p$ es
+irreducible y $u$ es una unidad en $D$, entonces el producto $u\,p$ es
+irreducible, tambi\'{e}n. Los elementos $p$ y $u\,p$ se dicen \emph{asociados}.
+Se ve, as\'{\i}, que, si quisi\'{e}ramos generalizar el Teorema~%
+\ref{teo:fundamental} a un dominio arbitrario, debemos tener en cuenta que es
+posible obtener descomposiciones que difieren en cambiar un factor por un
+asociado.
+

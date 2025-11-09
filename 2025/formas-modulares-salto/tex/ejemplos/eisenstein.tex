@@ -1,0 +1,240 @@
+Las seres de Eisenstein son ejemplos cl\'asicos de formas modulares.
+Una manera de definirlas es mediante una especie de promedio de la
+acci\'on de $\modulgruppe$ sobre una funci\'on particular que, en
+principio, podr\'{\i}a no ser modular. El resultado cumplir\'a con
+la condici\'on \ref{item:modular:transformaciones}, al menos formalmente.
+El problema es verificar que la definici\'on es buena.
+
+Dadas una funci\'on $f:\,\semiplano\rightarrow\Complejos$,
+$g\in\SL(2,\Reales)$, $z\in\semiplano$ y $k$, definimos
+una nueva funci\'on de la siguiente manera:
+\begin{equation}
+	\label{eq:ejemplos:operador}
+	\big(f\baroperador[k] g\big)(z)\,=\,
+		(cz+d)^{-k}\,f(g\accion z)
+	\dispcomma
+\end{equation}
+%
+si $g=\sbmatrix{ * & * \\ c & d }$. De esta manera, podemos
+ver que la condici\'on \ref{item:modular:transformaciones} es
+equivalente a $f\baroperador[k]\gamma=f$ para toda
+$\gamma\in\modulgruppe$.
+
+Si $f=1$ es la funci\'on constante con valor $1$
+y $g=\sbmatrix{ * & * \\ c & d }$, entonces
+\begin{displaymath}
+	1\baroperador[k] g\,=\,
+		\frac 1{(cz+d)^k}
+	\dispstop
+\end{displaymath}
+%
+En particular, si $k$ es par, $1\baroperador[k]\gamma=1$
+para toda $\gamma$ en el subgrupo
+\begin{displaymath}
+	\Gamma_\infty\,=\,\bigg\{
+		\pm\begin{bmatrix} 1 & h \\ & 1 \end{bmatrix}\,:\,
+			h\in\Enteros
+			\bigg\}
+	\dispstop
+\end{displaymath}
+%
+Este subgrupo se puede entender como el estabilizador del punto en el
+infinito.
+M\'as aun, si $\gamma\in\Gamma_\infty$, entonces
+\begin{math}
+	1\baroperador[k]{(\gamma g)}=
+		1\baroperador[k] g
+\end{math}.
+Es decir, $1\baroperador[k] g$ s\'olo depende de la coclase
+$\Gamma_\infty g\subseteq\SL(2,\Reales)$.
+
+\begin{defEjemplos}\label{def:ejemplos:eisenstein:E}
+	Dado $k\in\Enteros$, par, la \emph{serie de Eisenstein de peso $k$}
+	es la serie
+	\begin{displaymath}
+		\Eis[k](z)\,=\,
+		\sum_{\gamma\in\Gamma_\infty\backslash\modulgruppe}\,
+		1\baroperador[k]\gamma
+		\dispstop
+	\end{displaymath}
+	%
+\end{defEjemplos}
+
+\begin{obsEjemplos}\label{obs:ejemplos:eisenstein:E}
+	La serie $\Eis[k]$ coincide con%
+	\footnote{
+		Todo par $(c,d)=1$ es la fila inferior de alguna
+		$\gamma\in\modulgruppe$.
+		Adem\'as, dos matrices $\gamma$ y $\gamma'$ cumplen
+		$\gamma'\gamma^{-1}\in\Gamma_\infty$, si y s\'olo si
+		$\det\,\gamma=\det\,\gamma'$ y sus filas inferiores
+		son iguales.
+	}
+	\begin{equation}
+		\label{eq:ejemplos:eisenstein:E}
+		\Eis[k](z)\,=\,\frac 1 2\,\sum_{\mcd{c,d}=1}\,
+			\frac 1{(cz+d)^k}
+		\dispstop
+	\end{equation}
+	%
+	La serie \eqref{eq:ejemplos:eisenstein:E} es absoluta y
+	uniformemente convergente sobre compactos de $\semiplano$,
+	si $k>2$: fijado $z$, la cantidad de pares $(c,d)$ que
+	cumplen $N\leq |cz+d|<N+1$ es del orden de $N$.
+	En particular, si $k>2$, entonces $\Eis[k]$ es una
+	forma modular de peso $k$.
+\end{obsEjemplos}
+
+Otra versi\'on de la serie de Eisenstein --otra normalizaci\'on--
+es la serie
+\begin{equation}
+	\label{eq:ejemplos:eisenstein:G}
+	\varEis[k](z)\,=\,\frac 1 2\,\sum_{(m,n)\neq(0,0)}\,
+		\frac 1{(mz+n)^k}
+	\dispstop
+\end{equation}
+%
+Esta serie es un m\'ultiplo de $\Eis[k]$ dada por
+\eqref{eq:ejemplos:eisenstein:E}:
+\begin{displaymath}
+	\varEis[k](z)\,=\,\zeta(k)\,\Eis[k](z)
+	\dispcomma
+\end{displaymath}
+%
+donde $\zeta(k)=\sum_{r\geq 1}\,r^{-k}$. Esta normalizaci\'on
+surge naturalmente al considerar sumas sobre los puntos de
+ret\'{\i}culos $L\subset\Complejos$. Las series $\varEis[k](z)$
+corresponden a los ret\'{\i}culos $L=\Enteros\,z+\Enteros\,1$.
+
+Una tercera normalizaci\'on de las series de Eisenstein
+es la siguiente:
+\begin{equation}
+	\label{eq:ejemplos:eisenstein:GG}
+	\varvarEis[k](z)\,=\,\frac{(k-1)!}{(2\pi\raizcuarta)^k}\,
+		\varEis[k](z)
+	\dispstop
+\end{equation}
+%
+La serie \eqref{eq:ejemplos:eisenstein:GG} tiene coeficientes
+racionales.
+
+\begin{teoEjemplos}\label{teo:ejemplos:eisentein:anillo}
+	El anillo de formas modulares es un anillo de
+	polinomios en $\Eis[4]$ y $\Eis[6]$.
+\end{teoEjemplos}
+
+\begin{coroEjemplos}\label{coro:ejemplo:eisenstein:anillo}
+	La desigualdad del \coroname~%
+	\ref{coro:definiciones:cota} es una igualdad.
+\end{coroEjemplos}
+
+\begin{proof}
+	El argumento es el siguiente:
+	\begin{enumerate}[label=\arabic*.]
+		\item\label{item:eisenstein:independencia}
+			las formas modulares $\Eis[4]$ y
+			$\Eis[6]$ son algebraicamente
+			independientes,
+		\item\label{item:eisenstein:generado}
+			el subespacio generado por $\Eis[4]$
+			y por $\Eis[6]$ en peso $k$ tiene
+			dimensi\'on igual a la cota del
+			\coroname~%
+			\ref{coro:definiciones:cota},
+		\item\label{item:eisenstein:cota-inferior}
+			la dimensi\'on de $\modulformen[k]$
+			es, al menos, la dimensi\'on del
+			subespacio de
+			\ref{item:eisenstein:generado}
+		\item\label{item:eisenstein:coro}
+			de la coincidencia de la cota superior
+			con la cota inferior para la
+			dimensi\'on de $\modulformen[k]$,
+			se deduce el \coroname,
+		\item\label{item:eisenstein:teo}
+			de \ref{item:eisenstein:coro} y de
+			\ref{item:eisenstein:independencia},
+			se deduce el \teoname.
+	\end{enumerate}
+	%
+	Veamos c\'omo se deduce cada parte.
+
+	\ref{item:eisenstein:independencia}
+	Las series $\Eis[4](z)^3$ y $\Eis[6](z)^2$ son ambas
+	de peso $12$, pero no son proporcionales (no son l.i.).
+	En caso de que lo fueran, existir\'{\i}a
+	$\lambda\in\Unidades \Complejos$ tal que
+	$\Eis[6](z)^2=\lambda\Eis[4](z)^3$. La funci\'on
+	$f(z)=\Eis[6](z)/\Eis[4](z)$ es meromorfa en
+	$\semiplano$ y en $\infty$. Adem\'as, cumple
+	\ref{item:modular:transformaciones} con $k=2$.
+	Pero la existencia de $\lambda$ implicar\'{\i}a
+	que $f(z)^2=\lambda\Eis[4](z)$ (y tambi\'en que
+	$f(z)^3=\lambda^{-1}\Eis[6](z)$). En particular,
+	$f$ ser\'{\i}a una forma modular no nula de peso $2$.
+	Esto contradice la cota $\dim\,\modulformen[2]\leq 0$.
+	De esta independencia lineal, se deduce la independencia
+	algebraica por un argumento general.
+
+	Si $f$ y $g$ son formas modulares de igual peso que
+	no son proporcionales, entonces son algebraicamente
+	independientes. Si $P(\indet,\varindet)$ es un polinomio
+	con coeficientes complejos tal que
+	$P(f,g)$ es la funci\'on nula, entonces para cada
+	componente homog\'enea $P_d$ de $P$, la funci\'on
+	$P_d(f,g)$ debe ser la funci\'on nula. Deshomogeizando,
+	$P_d(f,g)/g^d=p(f/g)$, par cierto polinomio $p$ en una
+	\'unica variable. Pero $p$ tiene, a lo sumo, finitas
+	ra\'{\i}ces, o bien es el polinomio nulo. Como el
+	cociente $f(z)/g(z)$ toma infinitos valores\dots
+	$p$ debe ser el polinomio nulo. En particular,
+	$P_d$ es nulo, por lo tanto, $P$ es nulo y, en
+	consecuencia, $f$ y $g$ deben ser algebraicamente
+	independientes.
+
+	\ref{item:eisenstein:generado}
+	La funci\'on $\Eis[4](z)^x\Eis[6](z)^y$ es una forma
+	modular de peso $4x+6y$ (si $x$ e $y$ son enteros
+	no negativos). El subespacio generado por $\Eis[4]$
+	y por $\Eis[6]$ en peso $k$ es el generado por el
+	subconjunto
+	\begin{equation}
+		\label{eq:eisenstein:monomios}
+		\cal S_k\,=\,\big\{\Eis[4](z)^x\Eis[6](z)^y\,:\,
+			4x+6y=k\big\}
+		\dispstop
+	\end{equation}
+	%
+	Ahora, si $k\in\Enteros$, la ecuaci\'on $4x+6y=k$
+	tiene soluci\'on $x,y\in\Enteros$, si y s\'olo si
+	$2\mid k$ y, en tal caso, las soluciones est\'an
+	dadas por los pares
+	\begin{displaymath}
+		\big(-k/2+3t,k/2-2t\big)
+		\dispcomma
+	\end{displaymath}
+	%
+	con $t\in\Enteros$. La condici\'on $x,y\geq 0$
+	equivale a $k/6\leq t\leq k/4$. Si escribimos
+	$k=12l+r$ ($r\in\{0,2,4,6,8,10\}$), entonces la
+	cantida de enteros $t$ en el rango es igual a $l+1$,
+	si $r\neq 2$, y es igual a $l$, si $r=2$.
+
+	\ref{item:eisenstein:cota-inferior}
+	$\modulformen[k]$ contiene un subespacio de la
+	dimensi\'on especificada.
+
+	\ref{item:eisenstein:coro}
+	Las cotas coinciden y, por lo tanto, vale la igualdad.
+
+	\ref{item:eisenstein:teo}
+	Toda forma pertenece a alg\'un espacio
+	$\modulformen[k]$ y, por lo tanto, es combinaci\'on
+	lineal de los monomios $\Eis[4]^x\Eis[6]^y$,
+	$4x+6y=k$. O sea, $\Eis[4]$ y $\Eis[6]$ generan el
+	anillo $\modulformen$. La independencia algebraica
+	de estos generadores implica que
+	$\modulformen\simeq\polinomios[\indet,\varindet]{\Complejos}$.
+\end{proof}
+
+

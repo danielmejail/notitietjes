@@ -1,0 +1,259 @@
+\theoremstyle{plain}
+\newtheorem{teoHecke}{\teoname}[subsection]
+\newtheorem{lemaHecke}[teoHecke]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defHecke}[teoHecke]{\defname}
+
+%-------------
+
+Empezamos definiendo el anillo de Hecke en abstracto y enunciando algunas
+de sus propiedades. Usaremos la siguiente notaci\'on:
+$G=\GSp(g,\Racionales)$, $G^+=G\cap\{\multiplier>0\}$,
+% $\Sigma^+=G^+\cap\Mat(2g\times 2g,\Enteros)$
+y $\modulgruppe=\Sp(g,\Enteros)$.
+
+Sea $\cal L$ el espacio vectorial (m\'odulo libre) cuyos elementos son las
+sumas formales de coclases a derecha
+\begin{equation}
+	\label{eq:hecke:elementos}
+	\sum_{\modulgruppe M\subseteq G^+}\,
+		c_{\modulgruppe M}\,\modulgruppe M
+	\dispcomma
+\end{equation}
+%
+con $c_{\modulgruppe M}=0$ para toda coclase salvo una cantidad finita.
+El subgrupo $\modulgruppe$ act\'ua en $\cal L$:
+$(\modulgruppe M)\cdot\gamma=\modulgruppe M\gamma$.
+En el subespacio (subm\'odulo) $\cal L^{\modulgruppe}$, podemos definir
+una operaci\'on:
+\begin{equation}
+	\label{eq:hecke:operacion}
+	\Big(\sum_i\,c_i\,\modulgruppe M_i\Big)\,
+		\Big(\sum_j\,c_j'\,\modulgruppe M_j'\Big)\,=\,
+		\sum_{i,j}\,c_ic_j'\,\modulgruppe M_iM_j'
+	\dispstop
+\end{equation}
+%
+Esta nueva expresi\'on no depende de los representantes
+$M_i\in\modulgruppe M_i$, ni $M_j'\in\modulgruppe M_j'$ y pertenece a
+$\cal L^{\modulgruppe}$.
+Por otro lado, cada doble coclase $\modulgruppe M\modulgruppe$,
+$M\in G^+$ se descompone como uni\'on finita (disjunta) de coclases a
+derecha: $\modulgruppe M\modulgruppe=\bigsqcup_i\,\modulgruppe M_i$ y
+determina, por lo tanto, un elemento de $\cal L$.
+Denotamos por $\Heckerng(G^+,\modulgruppe)$ el espacio vectorial
+(m\'odulo libre) con base las dobles coclases
+$\modulgruppe M\modulgruppe$, $M\in G^+$. La aplicaci\'on
+\begin{displaymath}
+	\modulgruppe M\modulgruppe\,=\,\bigsqcup_i\,\modulgruppe M_i
+		\,\mapsto\,\sum_i\,\modulgruppe M_i
+\end{displaymath}
+%
+determina un isomorfismo
+$\Heckerng(G^+,\modulgruppe)\simeq\cal L^{\modulgruppe}$.
+
+\begin{defHecke}\label{def:hecke}
+	El \emph{\'algebra de Hecke del par $(G^+,\modulgruppe)$} es el
+	\'algebra cuyo espacio subyacente es $\Heckerng(G^+,\modulgruppe)$
+	con producto dado por traslaci\'on de estructura de
+	$\cal L^{\modulgruppe}$.
+\end{defHecke}
+
+Para simplificar la notaci\'on, suponemos $g=2$.
+
+\begin{lemaHecke}[Divisores simpl\'ecticos]
+	\label{lema:hecke:divisores}
+	Sea $\Sigma^+=G^+\cap\Mat(2g\times 2g,\Enteros)$.
+	Si $M\in\Sigma^+$, entonces $\modulgruppe[2] M\modulgruppe[2]$ posee
+	un \'unico representante de la forma
+	\begin{displaymath}
+		\spdiv(M)\,=\,\diagonal{a_1,a_2,d_1,d_2}
+		\dispcomma
+	\end{displaymath}
+	%
+	donde $a_i,d_i\in\Enteros$, $a_1\mid a_2\mid d_2\mid d_1$ y
+	$a_1d_1=a_2d_2=\multiplier(M)\in\Enteros>0$.
+\end{lemaHecke}
+
+\begin{teoHecke}\label{teo:hecke}
+	El \'algebra $\Heckerng(G^+,\modulgruppe[2])$ es conmutativa.
+\end{teoHecke}
+
+\begin{proof}
+	La aplicaci\'on $M\mapsto\adjunta(M)=\multiplier(M)\,M^{-1}$ es
+	una antiinvoluci\'on en $G^+$ que tambi\'en preserva $\modulgruppe[2]$.
+	Adem\'as, se verifica
+	\begin{math}
+		\modulgruppe[2]\adjunta(M)\modulgruppe[2]=
+			\modulgruppe[2] M\modulgruppe[2]
+	\end{math}
+	(si $M$ es diagonal, $\adjunta(M)=JMJ^{-1}$, pero
+	$J\in\modulgruppe[2]$).
+	En particular, dicha antiinvoluci\'on es trivial en
+	$\Heckerng(G^+,\modulgruppe[2])$.
+\end{proof}
+
+Utilizaremos la siguiente notaci\'on para referirnos a ciertas
+(uniones de) dobles coclases o, equivalentemente, elementos del
+\'algebra de Hecke:
+$T(M)=\modulgruppe[2] M\modulgruppe[2]$,
+\begin{displaymath}
+	% T(\lista a g,\,\lista d g)\,=\,T(\diagonal{\lista a g,\,\lista d g})
+	T(a_1,a_2,d_1,d_2)\,=\,T(\diag{a_1,a_2,d_1,d_2})
+	\dispcomma
+\end{displaymath}
+%
+y $\diagonal d=T(d\Id[2g])$.
+
+Los elementos $T(M)$ poseen la siguiente propiead:
+si $\mcd{d_1/a_1,d_1'/a_1'}=1$, entonces
+\begin{displaymath}
+	\begin{aligned}
+		% & T(\lista a g,\,\lista d g)\,
+			% T(a_1',\,\dots,\,a_g',\,d_1',\,\dots,\,d_g') \\
+		% & \qquad\,=\, T(a_1a_1',\,\dots,\,a_ga_g',\,
+			% d_1d_1',\,\dots,\,d_gd_g')
+		T(a_1,a_2,d_1,d_2)\,T(a_1',a_2',d_1',d_2')\,=\,
+			T(a_1a_1',a_2a_2',d_1d_1',d_2d_2')
+		\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+En particular,
+\begin{displaymath}
+	\begin{aligned}
+		% \diagonal d\,T(\lista a g,\,\lista d g) & \,=\,
+			% T(da_1,\,\dots,\,da_g,\,dd_1,\,\dots,\,dd_g) \\
+		% & \,=\, T(\lista a g,\,\lista d g)\,\diagonal d
+		\diagonal d\,T(a_1,a_2,d_1,d_2)\,=\,
+			T(da_1,da_2,dd_1,dd_2)
+		\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Adem\'as, si $m\geq 1$ y
+\begin{displaymath}
+	T(m)\,=\,\cal O_g(m)\,=\,\big\{M\in\Sigma^+\,:\,\multiplier(M)=m\big\}
+	\dispcomma
+\end{displaymath}
+%
+entonces se cumple
+\begin{displaymath}
+	\begin{aligned}
+		T(m) & \,=\,\sum\Big\{
+			% T(\lista a g,\,\lista d g)\,:\,
+			% a_id_i=m,\,
+			% a_i\mid a_{i+1},\,a_g\mid d_g,\,
+			% d_{i+1}\mid d_i
+			T(a_1,a_2,d_1,d_2)\,:\,a_1d_1=a_2d_2=m,\,
+				a_1\mid a_2\mid d_2\mid d_1\Big\} \\
+		& \,=\,\sum\Big\{\modulgruppe[2] M\,:\,
+			\modulgruppe[2] M\subseteq\Sigma^+,\,
+			\multiplier(M)=m\Big\}
+		\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Si $\mcd{m,m'}=1$, entonces $T(m)T(m')=T(mm')$.
+
+An\'alogamente, podemos definir versiones ``locales'' de estos anillos.
+Usamos la siguiente notaci\'on: dado un primo $p$,
+$G_p=\GSp(g,\polinomios[1/p]\Enteros)$,
+$G_p^+=G_p\cap G^+$ y $\Sigma_p^+=\Sigma^+\cap G_p^+$.
+
+\begin{lemaHecke}\label{lema:hecke:locales}
+	El \'algebra $\Heckerng(G^+,\modulgruppe[2])$ est\'a
+	generada por todas las sub\'algebras
+	$\Heckerng(G_p^+,\modulgruppe[2])$.
+\end{lemaHecke}
+
+\begin{proof}
+	Hay una noci\'on de divisor simpl\'ectico \emph{en $p$},
+	$\spdiv[p]$ y se verifica
+	\begin{displaymath}
+		\spdiv(M)\,=\,\prod_p\,\spdiv[p](M)
+		\dispstop
+	\end{displaymath}
+	%
+	Entonces, $T(M)=T(\spdiv(M))=\prod_p\,T(\spdiv[p](M))$.
+\end{proof}
+
+\begin{lemaHecke}\label{lema:hecke:locales:bis}
+	Con $m=p,p^2$, se verifica
+	\begin{displaymath}
+		% T(p)\,=\,T(1,\,\dots,\,1,\,p,\,\dots,\,p)
+		T(p)\,=\,T(1,1,p,p)
+		\dispand
+		% T(p^2)\,=\,\sum_{r=0}^g\,T_r(p^2)
+		T(p^2)\,=\,T_0(p^2)\,+\,T_1(p^2)\,+\,T_2(p^2)
+		\dispcomma
+	\end{displaymath}
+	%
+	donde
+	\begin{displaymath}
+		% T_r(p^2)\,:=\,
+			% T(1,\,\dots,\,1,\,
+				% \underbrace{p,\,\dots,\,p}_{r},\,
+				% p^2,\,\dots,\,p^2,\,
+				% p,\,\dots,\,p)
+		% \dispstop
+		\begin{aligned}
+			T_0(p^2) & \,=\,T(1,1,p^2,p^2) \dispcomma \\
+			T_1(p^2) & \,=\,T(1,p,p^2,p) \dispand \\
+			T_2(p^2) & \,=\,T(p,p,p,p)\,=\,\diagonal p
+			\dispstop
+		\end{aligned}
+	\end{displaymath}
+	%
+\end{lemaHecke}
+
+% Notamos que $T_g(p^2)=\diagonal p$.
+
+\begin{teoHecke}\label{teo:hecke:algebra}
+	Los elementos $T(p)$, $T_0(p^2)$, $T_1(p^2)$ y $T_2(p^2)$
+	%\dots, $T_g(p^2)$
+	generan $\Heckerng(\Sigma_p^+,\modulgruppe[2])$.
+\end{teoHecke}
+
+El \teoname~\ref{teo:hecke:algebra} implica que existen ciertas relaciones
+entre los operadores $T(p^k)$, $k\geq 0$. Estas relaciones se pueden
+encapsular en una serie de potencias.
+
+\begin{teoHecke}\label{teo:hecke:serie}
+	% Si $g=1$, entonces, en
+	% $\Heckerng(\Sigma_p^+,\modulgruppe[1])[\![\indet]\!]$,
+	% \begin{displaymath}
+		% \sum_{k\geq 0}\,T(p^k)\,\indet^k\,=\,
+			% \big(1-T(p)\,X+p\diagonal p\,X^2\big)^{-1}
+		% \dispstop
+	% \end{displaymath}
+	% %
+	Si $g=2$, entonces, en
+	$\Heckerng(\Sigma_p^+,\modulgruppe[2])[\![\indet]\!]$,
+	\begin{displaymath}
+		\sum_{k\geq 0}\,T(p^k)\,\indet^k\,=\,
+			\big(1-p^2\diagonal p\,\indet^2\big)\,
+			\big(1-Q_1(p)\,\indet+Q_2(p)\,\indet^2
+				-Q_3(p)\,\indet^3+Q_4(p)\,\indet^4\big)^{-1}
+		\dispcomma
+	\end{displaymath}
+	%
+	donde
+	\begin{displaymath}
+		\begin{aligned}
+			Q_1(p) & \,=\,T(p)\dispcomma \\
+			Q_2(p) & \,=\,pT_1(p^2)+p\,(p^2+1)\diagonal p
+				\,=\,T(p)^2-T(p^2)-p^2\diagonal p \dispcomma \\
+			Q_3(p) & \,=\,p^3\diagonal pT(p) \dispand \\
+			Q_4(p) & \,=\,p^6\diagonal p^2
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{teoHecke}
+

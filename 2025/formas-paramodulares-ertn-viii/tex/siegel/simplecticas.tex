@@ -1,0 +1,150 @@
+El grupo modular $\SL(2,\Enteros)$ es el grupo de automorfismos del
+ret\'{\i}culo $\Enteros^2$ equipado con
+% pertrechado\footnote{equipado} de
+la forma bilineal alternada:
+\begin{displaymath}
+	\langle (u,v),(w,z)\rangle \,=\,uz-vw
+	\dispstop
+\end{displaymath}
+%
+
+Un poco m\'as en general, si $g\geq 1$, introducimos, fijada en el
+ret\'{\i}culo $\Enteros^{2g}$ una base $\lista e{g},\,\lista f{g}$,
+la forma bilineal alternada:
+\begin{equation}
+	\label{eq:simplecticas:bilineal}
+	\langle e_i,e_j\rangle \,=\,0
+		\dispcomma\quad
+		\langle f_i,f_j\rangle \,=\,0
+		\quad\dispand\quad
+		\langle e_i,f_j\rangle \,=\,
+			\begin{cases}
+				1 \dispcomma & \dispif i= j \dispcomma \\
+				0 \dispcomma & \dispifnot\dispstop
+			\end{cases}
+\end{equation}
+%
+El \emph{grupo modular de Siegel} se define como el grupo de automorfismos de
+$\Enteros^{2g}$ que preserva la forma~\eqref{eq:simplecticas:bilineal}.
+En la base elegida, la matriz de la forma bilineal est\'a dada por
+\begin{equation}
+	\label{eq:simplecticas:matriz}
+	J \,=\, \begin{bmatrix}
+			& & & 1 & & \\
+			& & & & \ddots & \\
+			& & & & & 1 \\
+			-1 & & & & & \\
+			& \ddots & & & & \\
+			& & -1 & & &
+		\end{bmatrix}
+	\,=\,\begin{bmatrix} & \Id[g] \\ -\Id[g] & \end{bmatrix}
+	\dispcomma
+\end{equation}
+%
+donde $\Id[g]$ denota la matriz identidad de tama\~no $g\times g$.%
+\footnote{
+	Espacios en blanco indican que la coordenada correspondiente es nula.
+}
+V\'{\i}a esta elecci\'on de base, este grupo se identifica con el subgrupo de
+matrices
+\begin{displaymath}
+	\modulgruppe[g] \,:=\,\Sp(g,\Enteros)\,=\,
+		\big\{M\in\Mat(2g\times 2g,\Enteros) \,:\,
+			MJ\trnsp M =J\big\}
+	\dispstop
+\end{displaymath}
+%
+Es decir, si $M=\sbmatrix{A & B \\ C & D}$,%
+\footnote{$A$, $B$, $C$ y $D$, matrices cuadradas.}
+entonces
+\begin{displaymath}
+	MJ\trnsp M \,=\,
+		\begin{bmatrix}
+			A\trnsp B-B\trnsp A & A\trnsp D-B\trnsp C \\
+			C\trnsp B-D\trnsp A & C\trnsp D-D\trnsp C
+		\end{bmatrix}
+\end{displaymath}
+%
+y $M\in\modulgruppe[g]$, si y s\'olo si
+\begin{displaymath}
+	A\trnsp B\,=\,B\trnsp A\dispcomma\quad
+	C\trnsp D\,=\,D\trnsp C\quad\dispand\quad
+	A\trnsp D-B\trnsp C\,=\,D\trnsp A-C\trnsp B\,=\,\Id[g]
+	\dispstop
+\end{displaymath}
+%
+En particular, si $M\in\modulgruppe[g]$, entonces
+\begin{displaymath}
+	\begin{bmatrix}
+		A & B \\ C & D
+	\end{bmatrix}\,
+	\begin{bmatrix}
+		\trnsp D & -\trnsp B \\ -\trnsp C & \trnsp A
+	\end{bmatrix} \,=\,
+	\begin{bmatrix}
+		\Id[g] & \\ & \Id[g]
+	\end{bmatrix}
+	\dispcomma
+\end{displaymath}
+%
+lo que muestra que $M$ es inversible con inversa
+% (a ambos lados)
+dada por
+\begin{math}
+	M^{-1}=\sbmatrix{\trnsp D & -\trnsp B \\ -\trnsp C & \trnsp A}
+\end{math} y, en consecuencia, que tambi\'en se verifican las relaciones
+\begin{displaymath}
+	\trnsp D A-\trnsp BC\,=\,\trnsp AD-\trnsp CB\,=\,\Id[g]
+	\dispcomma\quad
+	\trnsp DB\,=\,\trnsp BD\quad\dispand\quad
+	\trnsp AC\,=\,\trnsp CA
+	\dispcomma
+\end{displaymath}
+%
+o sea $\trnsp MJM=J$, tambi\'en.
+
+Un poco \emph{m\'as} en general, una matriz $M\in\Mat(2g\times 2g,\Complejos)$
+es \emph{simpl\'ectica}, si verifica:
+\begin{displaymath}
+	MJ\trnsp M\,=\,\multiplier(M)\,J
+	\dispcomma
+\end{displaymath}
+%
+para cierto escalar inversible $\multiplier(M)$. Si
+$M=\sbmatrix{A & B \\ C & D}$ es simpl\'ectica y
+\begin{equation}
+	\label{eq:simplecticas:adjunta}
+	\adjunta(M)\,=\,
+		\begin{bmatrix}
+			\trnsp D & -\trnsp B \\ -\trnsp C & \trnsp A
+		\end{bmatrix}
+	\dispcomma
+\end{equation}
+%
+entonces $M\adjunta(M)=\adjunta(M)M=\multiplier(M)\,\Id[2g]$.
+Las matrices simpl\'ecticas con coordenadas reales forman un grupo
+que denotamos $\GSp(g,\Reales)$ y
+$\multiplier:\,\GSp(g,\Reales)\rightarrow\Unidades{\Reales}$
+es un morfismo de grupos.
+El grupo modular de Siegel est\'a contenido en el subgrupo
+\begin{displaymath}
+	\GSp(g,\Reales)^+\,=\,\Big\{M\in\GSp(g,\Reales)\,:\,
+		\multiplier(M)>0 \Big\}
+	\dispcomma
+\end{displaymath}
+%
+de aquellas matrices simpl\'ecticas reales cuyo factor
+$\multiplier(M)$ es positivo.
+A modo de ejemplo, las matrices
+\begin{equation}
+	\label{eq:simplecticas:ejemplos}
+	\begin{bmatrix} U & \\ & \trnsp U^{-1} \end{bmatrix}
+		\quad\text{,}\quad
+	\begin{bmatrix} \Id[g] & S \\ & \Id[g] \end{bmatrix}
+		\quad\text{y}\quad
+	J\,=\,\begin{bmatrix} & \Id[g] \\ -\Id[g] & \end{bmatrix}
+\end{equation}
+%
+son simpl\'ecticas con factor $\multiplier=1$,
+si $U\in\GL(g,\Enteros)$ y $\trnsp S=S$; pertenecen a $\modulgruppe[g]$.
+ 

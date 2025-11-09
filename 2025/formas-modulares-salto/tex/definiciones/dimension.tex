@@ -1,0 +1,178 @@
+Si bien una forma modular no define una funci\'on en el espacio
+de \'orbitas $\modulgruppe\backslash\semiplano$, s\'{\i} tiene
+sentido hablar de los ceros de una forma modular en este cociente:
+el factor de automorf\'{\i}a $cz+d$ no tiene ni ceros ni polos
+en $\semiplano$, si $\sbmatrix{ * & * \\ c & d }\in\modulgruppe$.
+M\'as precisamente, si $z\in\semiplano$, $\gamma\in\modulgruppe$ y
+$f$ es una forma modular, entonces
+\begin{displaymath}
+	\orden[{\gamma\accion z}](f)\,=\,\orden[z](f)
+	\dispstop
+\end{displaymath}
+%
+El hecho de que los espacios de formas modulares $\modulformen[k]$
+son de dimensi\'on finita, es consecuencia de que la cantidad de ceros
+(con multiplicidad) de $f\in\modulformen[k]$ que pertenecen a distintas
+\'orbitas (es decir, los ceros en $\modulgruppe\backslash\semiplano$)
+depende s\'olo de $k$ (y de $\modulgruppe$).
+T\'ecnicamente, tambi\'en es necesario tener en cuenta la contribuci\'on
+del orden de anulaci\'on de $f$ en $\infty$ y contar adecuadamente la
+contribuci\'on de ciertos puntos especiales, los puntos el\'{\i}pticos.
+
+\begin{defDefiniciones}\label{def:definiciones:elipticos}
+	Un \emph{punto el\'{\i}ptico} en $\semiplano$ es un punto
+	que queda fijo por alguna matriz $\gamma\in\modulgruppe$,
+	$\gamma\neq\pm\Id$.
+\end{defDefiniciones}
+
+\begin{obsDefiniciones}\label{obs:definiciones:elipticos}
+	Los \'unicos puntos el\'{\i}pticos en $\cFundamental$ son
+	$\raizcuarta$, $\raizcubica$ y $\raizcubica+1$. Con respecto
+	a estos puntos, los estabilizadores (en $\modulgruppe$)
+	tienen \'ordenes $4$ y $6$, respectivamente ($\raizcubica$ y
+	$\raizcubica+1$ pertenecen a la misma \'orbita, con lo que sus
+	estabilizadores son conjugados).
+	El resto de los puntos tiene estabilizador $\pm\Id$.
+	Para cada punto $z\in\semiplano$, definimos un entero $n_z$
+	de la siguiente manera:
+	\begin{displaymath}
+		n_z\,=\,
+			\begin{cases}
+				2 \dispcomma & \dispif
+					z\in\modulgruppe\accion\raizcuarta
+					\dispcomma \\
+				3 \dispcomma & \dispif
+					z\in\modulgruppe\accion\raizcubica
+					\dispand \\
+				1 & \text{en otro caso.}
+			\end{cases}
+			%
+	\end{displaymath}
+	%
+\end{obsDefiniciones}
+
+\begin{defDefiniciones}\label{def:definiciones:orden-en-infinito}
+	El \emph{orden de anulaci\'on en $\infty$} de una forma
+	modular es el menor $n\geq 0$ tal que el coeficiente $a_n$
+	en su desarrollo de Fourier es distinto de cero.
+\end{defDefiniciones}
+
+\begin{teoDefiniciones}\label{teo:definiciones:cota}
+	Sea $f\in\modulformen[k]$, $f\neq 0$. Entonces,
+	\begin{displaymath}
+		\sum_{z\in\modulgruppe\backslash\semiplano}\,
+			\frac 1{n_z}\,\orden[z](f)\,+\,
+			\orden[\infty](f)\,=\,\frac k{12}
+		\dispstop
+	\end{displaymath}
+	%
+\end{teoDefiniciones}
+
+La sumatoria en el \teoname~\ref{teo:definiciones:cota} se realiza
+sobre cualquier sistema de representantes de la \'orbitas de
+$\modulgruppe$ en $\semiplano$.
+
+\begin{proof}
+	Sea $D=D(\epsilon)$ el cerrado que queda despu\'es de
+	eliminar de $\cFundamental$ discos (abiertos) de radio
+	$\epsilon>0$ (suficientemente chico) centrados en cada
+	cero de $f$, en cada punto el\'{\i}ptico, as\'{\i} como
+	el abierto $\{y>\epsilon^{-1}\}$. Integrando a lo largo
+	del borde de este cerrado $f'(z)/f(z)$, el resultado es $0$.
+	Ahora calculamos la integral en distintos segmentos, sumamos
+	y comparamos con el resultado anterior.
+
+	EL contorno de los entornos removidos de los ceros y de
+	los puntos el\'{\i}pticos son:
+	\begin{itemize}
+		\item un c\'{\i}rculo entero, si es alrededor
+			de un punto no el\'{\i}ptico,
+		\item medio c\'{\i}rculo, si es alrededor de
+			$\raizcuarta$ y
+		\item un tercio de c\'{\i}rculo, si es alrededor
+			de $\raizcubica$.
+	\end{itemize}
+	%
+	La integral a lo largo de un borde vertical se compensa con
+	la integral a lo largo del borde opuesto ($f(z+1)=f(z)$ y
+	la orientaci\'on se invierte). La integral a lo largo
+	del borde $\{y=\epsilon^{-1}\}$ aporta
+	$2\pi\raizcuarta\orden[\infty](f)$, pues, v\'{\i}a el cambio
+	de variables $z\mapsto q$, integramos alrededor de un
+	c\'{\i}rculo peque\~no centrado en $q=0$ (recorrido una vez,
+	en sentido antihorario). La contribuci\'on de la integral a
+	lo largo de un c\'{\i}rculo centrado en un punto $z$ es
+	$2\pi\raizcuarta\orden[z](f)/n_z$. Por \'ultimo, la integral
+	a lo largo del arco inferior de $\cFundamental$ da como
+	resultado $\pi\raizcuarta k/6$, pues las dos mitades del arco
+	se identifican v\'{\i}a $S$ y
+	\begin{displaymath}
+		\frac{f'(S\accion z)}{f(S\accion z)}\,=\,
+			\frac{f'(z)}{f(z)}\,+\,\frac k z
+		\dispstop
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{coroDefiniciones}\label{coro:definiciones:cota}
+	La dimensi\'on de $\modulformen[k]$ es $0$ si $k<0$ o
+	impar. Si $k\geq 0$ es par, entonces
+	\begin{displaymath}
+		\dim\,\modulformen[k]\,\leq\,
+			\begin{cases}
+				\piso{k/12}+1\dispcomma & \dispif
+					k\not\equiv 2\tmodulo[12]
+					\dispand \\
+				\piso{k/12}\dispcomma & \dispif
+					k\equiv 2\tmodulo[12]
+					\dispstop
+			\end{cases}
+			%
+	\end{displaymath}
+	%
+\end{coroDefiniciones}
+
+\begin{proof}
+	Tomar $m=\piso{k/12}+1$ puntos no el\'{\i}ptico y
+	$m+1$ formas $\lista f{m+1}\in\modulformen[k]$.
+	Alguna combinaci\'on lineal de ellas, $f$, se anula en los
+	$m$ puntos. Pero como $m>k/12$, por el \teoname~%
+	\ref{teo:definiciones:cota}, $f=0$.
+	Si $k\equiv 2\tmodulo[12]$, se puede mejorar la cota
+	teniendo en cuenta la f\'ormula del \teoname~%
+	\ref{teo:definiciones:cota}.
+\end{proof}
+
+\begin{coroDefiniciones}\label{coro:definiciones:parametrizacion}
+	El espacio $\modulformen[12]$ tiene dimensi\'on $\leq 2$ y,
+	si $f,g\in\modulformen[12]$ son linealmente independientes,
+	entonces $z\mapsto f(z)/g(z)$ es un isomorfismo entre
+	$\modulgruppe\backslash\semiplano\cup\{\infty\}$ y
+	$\bb P^1(\Complejos)$.
+\end{coroDefiniciones}
+
+\begin{proof}
+	La cota se deduce del \coroname~\ref{coro:definiciones:cota}.
+	Sean $f,g\in\modulformen[12]$ dos formas linealmente
+	independientes. Si $\lambda,\mu\in\Complejos$, no ambos nulos,
+	entonces la cantidad de ceros en
+	$\modulgruppe\backslash\semiplano\cup\{\infty\}$ de la diferencia
+	$\lambda f-\mu g$ es exactamente $1$ (tiene peso $12$).
+	En particular, el cociente $\psi(z)=f(z)/g(z)$ toma cada valor
+	de $\Complejos\cup\{\infty\}$ exactamente una vez.
+\end{proof}
+
+\begin{obsDefiniciones}\label{obs:definiciones:cota}
+	Toda terna de formas modulares es algebraicamente
+	dependiente: si $f$, $g$ y $h$ fuesen formas modulares
+	algebraicamente independientes, entonces, para $k$
+	suficientemente grande, la dimensi\'on de $\modulformen[k]$
+	ser\'{\i}a, al menos, la cantidad de monomios en las
+	variables $f$, $g$ y $h$ de peso total $k$, que es cuadr\'atica
+	en $k$.
+\end{obsDefiniciones}
+
+Una consecuencia importante es que, para comparar dos formas modulares
+de igual peso (y grupo), basta con comparar una cantidad finita de
+coeficientes.
+

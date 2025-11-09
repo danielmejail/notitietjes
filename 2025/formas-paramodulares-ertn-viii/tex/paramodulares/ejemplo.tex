@@ -1,0 +1,124 @@
+\theoremstyle{plain}
+\newtheorem{teoGritsenko}{\teoname}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{defGritsenko}[teoGritsenko]{\defname}
+
+%-------------
+
+\begin{defGritsenko}\label{def:jacobi}
+	Una funci\'on
+	\begin{math}
+		\phi:\,\semiplano[1]\times\Complejos\rightarrow\Complejos
+	\end{math}
+	es una \emph{forma de Jacobi de \'{\i}ndice $m$ y peso $k$}, si
+	\begin{enumerate}[label=(J\arabic*)]
+		\item\label{item:jacobi:holomorfia}
+			es holomorfa,
+		\item\label{item:jacobi:transformacion}
+			la funci\'on
+			$\tilde\phi:\,\semiplano[2]\rightarrow\Complejos$
+			definida por
+			\begin{math}
+				\tilde\phi(Z)=\phi(\tau,z)\,
+					\varexp^{2\pi\raizcuarta\omega m}
+			\end{math}
+			es una forma modular de Siegel de g\'enero $2$
+			con respecto al grupo
+			\begin{displaymath}
+				C_{2,1}\,=\,\left\{
+					\begin{bmatrix}
+						* & * & * & * \\
+						& * & * & * \\
+						& & * & \\
+						& * & * & *
+					\end{bmatrix}\right\}\,\cap\,
+					\modulgruppe[2]
+				\dispcomma
+			\end{displaymath}
+			%
+			es decir, $\tilde \phi\operador[k] M=\tilde \phi$,%
+			\footnote{
+				Por un lado,
+				\begin{displaymath}
+					\phi\Big(\frac{a\tau+b}{c\tau+d},
+						\frac z{c\tau+d}\Big)\,=\,
+						(c\tau+d)^k\,
+						\varexp^{2\pi\raizcuarta m%
+							\frac{cz^2}{c\tau+d}}\,
+							\phi(\tau,z)
+				\end{displaymath}
+				%
+				y, por otro,
+				\begin{displaymath}
+					\phi(\tau,z+\lambda\tau+\mu)\,=\,
+						\varexp^{-2\pi\raizcuarta m\,%
+						(\lambda^2\tau+2\lambda z)}\,
+							\phi(\tau,z)
+					\dispstop
+				\end{displaymath}
+				%	
+			}
+			si $M\in C_{2,1}$ y
+		\item\label{item:jacobi:crecimiento}
+			y, adem\'as, la funci\'on $\phi$ admite un desarrollo
+			en serie de Fourier del tipo
+			\begin{displaymath}
+				\phi(\tau,z)\,=\,
+					% \sum_{\binaria{n,r,m}\geq 0}\,
+					\sum_{n\geq 0,r\in\Enteros}\,c(n,r)\,
+					\varexp^{2\pi\raizcuarta\,(n\tau+rz)}
+				\dispcomma
+			\end{displaymath}
+			%
+			con $c(n,r)=0$, a menos que $r^2-4mn\leq 0$.
+	\end{enumerate}
+	%
+	Si $c(n,r)\neq 0$ implica $r^2-4mn<0$,
+	entonces $\phi$ es \emph{cuspidal}.
+\end{defGritsenko}
+
+% Existe un embedding de $\Heckerng(\modulgruppe[2])$ en
+% $\Heckerng(C_{2,1})$ y dos de $\Heckerng(\modulgruppe[1])$.
+% Esto nos permite asociar, a una forma de Jacobi de \'{\i}ndice $t$,
+% una forma paramodular de nivel $t$. El espacio generado por aquellas
+% formas paramodulares obtenidas de esta manera se denomina
+% \emph{espacio de lifts} y cada una de ellas es un \emph{lift de Gritsenko}.
+% Entonces, si $\phi$ es una forma de Jacobi de peso $k$ (si $c(0,0)\neq 0$,
+% pedimos $k\geq 4$) e \'{\i}ndice $t\geq 1$, la funci\'on
+% \begin{displaymath}
+	% \Gritsenko(\phi)(\tau,z,\tau')\,=\,c(0,0)\,\Eis[k](\tau)\,+\,
+		% \sum_{m\geq 1}\,m^{2-k}\,\big(
+			% \phi\operador[k]{T_-(m)}\big)(\tau,z)\,
+			% \varexp^{2\pi\raizcuarta tm\tau'}
+% \end{displaymath}
+% %
+% es una forma modular de peso $k$ con respecto al grupo paramodular
+% $\varGrupoParamodular(t)$ de nivel $t$.
+\begin{teoGritsenko}\label{teo:gritsenko}
+	Sea
+	\begin{math}
+		\phi(\tau,z)=\sum_{n>0,r\in\Enteros}\,c(n,r)\,
+			\varexp^{2\pi\raizcuarta\,(n\tau+rz)}
+	\end{math}
+	una forma de Jacobi de peso $k$ e \'{\i}ndice $N$.
+	La expresi\'on
+	\begin{displaymath}
+		\Gritsenko(\tau,z,\omega)\,=\,\sum_{\binaria{n,r,m}\geq 0}\,
+			\Big(\sum_{\delta\mid\mcd{n,r,m}}\,
+				\delta^{k-1}\,
+				c\big(\tfrac{mn}{\delta^2},
+					\tfrac r \delta\big)\Big)\,
+				\varexp^{n\tau+rz+mN\omega}
+	\end{displaymath}
+	%
+	es una forma paramodular cuspidal de peso $k$ y nivel $N$.
+	Adem\'as,
+	\begin{displaymath}
+		\Gritsenko(\phi)\operador[k]\modularInvolution\,=\,
+			(-1)^k\,\Gritsenko(\phi)
+		\dispstop
+	\end{displaymath}
+	%
+\end{teoGritsenko}
+

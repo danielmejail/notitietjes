@@ -1,0 +1,98 @@
+\theoremstyle{plain}
+\newtheorem{teoIntroOrto}{Teorema}[section]
+\newtheorem{lemaIntroOrto}[teoIntroOrto]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{defIntroOrto}[teoIntroOrto]{Definici\'on}
+\newtheorem{ejemIntroOrto}[teoIntroOrto]{Ejemplo}
+
+%-------------
+
+Fijamos un espacio bilineal \emph{sim\'etrico} $(V,B)$ sobre un cuerpo $F$.
+
+\begin{defIntroOrto}\label{def:ortogonales:base}
+	Decimos que un subconjunto $S\subset V$ es \emph{ortogonal} con
+	respecto a $B$, si $v\perp w$ para todo $v,w\in S$, $v\neq w$. En
+	particular, una \emph{base ortogonal} de $V$ es una base
+	$\{\lista* e{n}\}$ de $V$ tal que $e^i\perp e^j$ si $i\neq j$.
+\end{defIntroOrto}
+
+\begin{ejemIntroOrto}\label{ejem:ortogonales:escalar}
+	La base can\'onica de $F^n$ es una base ortogonal para la forma
+	bilineal sim\'etrica dada por el producto escalar. En esta base, la
+	matriz de la forma bilineal es la matriz identidad, que es diagonal.
+\end{ejemIntroOrto}
+
+\begin{ejemIntroOrto}\label{ejem:ortogonales:alternada}
+	La forma $B(v,w)=v\cdot\sbmatrix{ & 1 \\ 1 & }\,w$ en $\bb R^2$ es
+	sim\'etrica. La base $\{\sbmatrix{ 1 \\ 0 }, \sbmatrix{ 0 \\ 1 }\}$ no
+	es ortogonal. De hecho, no hay bases ortogonales para esta forma
+	bilineal que contengan al vector $\sbmatrix{ 1 \\ 0 }$. La base
+	$\{\sbmatrix{ 1 \\ 1 },\sbmatrix{ 1 \\ -1 }\}$ es ortogonal con
+	respecto a $B$.
+
+	Estas mismas observaciones son ciertas, si se reemplaza $\bb R$ por un
+	cuerpo de caracter\'{\i}stica distinta de $2$. Si el cuerpo de base es
+	de caracter\'{\i}stica $2$, no hay base ortogonal para la forma $B$. En
+	este \'ultimo caso, $B$ no s\'olo es sim\'etrica, sino tambi\'en es
+	alternada.
+\end{ejemIntroOrto}
+
+\begin{lemaIntroOrto}\label{lema:ortogonales:diagonal}
+	Si la caracter\'{\i}stica de $F$ es distinta de $2$ y $B$ no es
+	id\'enticamente cero, entonces existe \emph{alg\'un} $v\in V$ tal que
+	$B(v,v)\neq 0$.
+\end{lemaIntroOrto}
+
+\begin{proof}
+	Ejercicio.
+\end{proof}
+
+\begin{lemaIntroOrto}\label{lema:ortogonales:complemento}
+	Si $v\in V$ es tal que $B(v,v)\neq 0$, entonces
+	$V=\generado v\oplus v^\perp$ y la suma es ortogonal. Si $V$ es no
+	degenerado, entonces $v^\perp$ es no degenerado.
+\end{lemaIntroOrto}
+
+\begin{proof}
+	Ejercicio.
+\end{proof}
+
+Notar que, si $B(v,v)\neq 0$ y $v_1\in V$, entonces $B(v_1,v)=c\,B(v,v)$ para
+cierta constante $c\in F$ y $v_1-c\,v\in v^\perp$. El Lema~%
+\ref{lema:ortogonales:complemento} es v\'alido en cualquier
+caracter\'{\i}stica.
+
+\begin{teoIntroOrto}\label{teo:ortogonales:base}
+	Si la caracter\'{\i}stica de $F$ es distinta de $2$, entonces existe
+	una base ortogonal para $(V,B)$.
+\end{teoIntroOrto}
+
+\begin{proof}
+	Si $a=B(v,v)\neq 0$, entonces podemos elegir $v$ como primer elemento
+	de la base y buscar una base ortogonal para el complemento
+	$v^\perp$. Con respecto a esta base,
+	\begin{displaymath}
+		\repr B \,=\,
+			\begin{bmatrix}
+				a & \\
+				& \repr{B|_{v^\perp}}
+			\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	El valor $a$ aparece como uno (el primero) de los coeficientes y el
+	vector $v$ hallado es el primer elemento de la base.
+\end{proof}
+
+El Teorema~\ref{teo:ortogonales:base} es v\'alido incluso si el espacio no es
+no degenerado. Una base ortogonal es, esencialmente, una descomposici\'on de
+$V$ en suma ortogonal de subespacios de dimensi\'on $1$:
+\begin{displaymath}
+	V\,=\,W_1\,\oplus\,\cdots\,\oplus\,W_n
+	\text{ ,}
+\end{displaymath}
+donde $W_i\perp W_j$, si $i\neq j$. La matriz asociada a una forma bilineal en
+una base ortogonal es diagonal (en particular, es sim\'etrica y $B$ es,
+\emph{a fortiori}, sim\'etrica). Si $\{\lista* e{n}\}$ es una base ortogonal,
+entonces $V$ es no degenerado, si y s\'olo si $e^i\not\perp e^i$ para todo $i$.

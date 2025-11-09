@@ -1,0 +1,275 @@
+\theoremstyle{plain}
+\newtheorem{lemaPrimarios}{Lema}[section]
+\newtheorem{teoDescomposicionPrimaria}[lemaPrimarios]{Teorema}
+\newtheorem{coroDescomposicionPrimaria}[lemaPrimarios]{Corolario}
+% \newtheorem{coroDivisoresElementales}[lemaPrimarios]{Corolario}
+% \newtheorem{lemaDescomposicionDeJordan}[lemaPrimarios]{Lema}
+% \newtheorem{teoDescomposicionDeJordan}[lemaPrimarios]{Teorema}
+
+\theoremstyle{definition}
+\newtheorem{ejemploPrimariosDescomposicion}[lemaPrimarios]{Ejemplo}
+\newtheorem{defPrimario}[lemaPrimarios]{Definici\'{o}n}
+\newtheorem{obsPrimario}[lemaPrimarios]{Observaci\'{o}n}
+% \newtheorem{obsDivisoresElementales}[lemaPrimarios]{Observaci\'{o}n}
+
+%-----------
+
+\begin{ejemploPrimariosDescomposicion}\label{ejemplo:primarios:descomposicion}
+	Supongamos que $m=a\,b$ con $(a,b)=1$ (coprimos), entonces existen
+	$r,s\in\bb Z$ tales que $r\,a+s\,b=1$. Miramos la siguiente
+	sucesi\'{o}n exacta:
+	\begin{center}
+		\begin{tikzcd}
+			& & & \bb Z/b \arrow[dl,"{\multiplicar[a]}"'] & & \\
+			0\arrow[r] & \bb Z/a \arrow[r,"{\multiplicar[b]}"] &
+				\bb Z/m \arrow[rr,"{\reducirmod[b]}"'] & &
+			\bb Z/b \arrow[r]
+				\arrow[ul,"{\multiplicar[r]}"',"\sim"] & 0
+		\end{tikzcd}
+	\end{center}
+	Dado que $r$ es una unidad m\'{o}dulo $b$, $\multiplicar[r]$ es un
+	isomorfismo en $\bb Z/b$. Adem\'{a}s,
+	\begin{align*}
+		\reducirmod[b]\circ(\multiplicar[a]\circ
+			\multiplicar[r]) & \,=\,\id[\bb Z/b]
+		\text{ ,}
+	\end{align*}
+	%
+	pues $r\,a\equiv 1\tmodulo[b]$. An\'{a}logamente, tenemos
+	\begin{align*}
+		\reducirmod[a]\circ(\multiplicar[b]\circ
+			\multiplicar[s]) & \,=\,\id[\bb Z/a]
+		\text{ .}
+	\end{align*}
+	%
+	Pero tambi\'{e}n valen las igualdades
+	\begin{align*}
+		\reducirmod[a]\circ(\multiplicar[a]\circ
+			\multiplicar[r]) \,=\,0 & \quad\text{y}\quad
+		\reducirmod[b]\circ(\multiplicar[b]\circ
+			\multiplicar[s]) \,=\,0
+	\end{align*}
+	%
+	Definamos $\inc[a]=\multiplicar[b]\circ\multiplicar[s]$ e
+	$\inc[b]=\multiplicar[a]\circ\multiplicar[s]$. Entonces, dado
+	$x\in\bb Z$ un entero arbitario,
+	\begin{align*}
+		\inc[b]\circ\reducirmod[b](x) & \,=\,\multiplicar[a](
+				\multiplicar[r](x\tmodulo[b]))
+			\,=\,(r\,a)\,x\tmodulo[m]
+		\text{ .}
+	\end{align*}
+	%
+	De manera similar,
+	\begin{math}
+		\inc[a]\circ\reducirmod[a](x)=(s\,b)\,x\tmodulo[m]
+	\end{math}. Sumando ambas expresiones, deducimos que
+	\begin{align*}
+		\inc[b]\circ\reducirmod[b]\,+\,
+			\inc[a]\circ\reducirmod[a] & \,=\,
+				\id[\bb Z/m]
+		\text{ .}
+	\end{align*}
+	%
+	En conclusi\'{o}n, vale la descomposici\'{o}n
+	\begin{align*}
+		\bb Z/m & \,\simeq\,\bb Z/a\,\oplus\,\bb Z/b
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemploPrimariosDescomposicion}
+
+Sea $D$ un DIP. El siguiente lema podr\'{\i}a pensarse como un refinamiento del
+Lema fundamental~\ref{lema:ciclicos:fundamental} y generaliza la situaci\'{o}n
+descripta en el Ejemplo~\ref{ejemplo:primarios:descomposicion}.
+
+\begin{lemaPrimarios}\label{lema:primarios}
+	Sea $A$ un $D$-m\'{o}dulo y sea $\nu\in D$ tal que
+	$\Anulador(A)=\generado\nu$. Si $\nu=\lambda\,\kappa$, con $\kappa$ y
+	$\lambda$ coprimos. Entonces
+	\begin{align*}
+		A & \,=\,\torsion[A]{\kappa}\,\oplus\,\torsion[A]{\lambda}
+			\,=\,\lambda\cdot A\,\oplus\,\kappa\cdot A
+		\text{ .}
+	\end{align*}
+	%
+\end{lemaPrimarios}
+
+\begin{proof}
+	Como $\kappa$ y $\lambda$ son coprimos,
+	$\generado\kappa+\generado\lambda=1$ y
+	$A=\big(\kappa\cdot A\big)+\big(\lambda\cdot A\big)$. En particular,
+	$\torsion[A]{\kappa}\cap \torsion[A]{\lambda}=0$. Pero
+	$\kappa\cdot A\subset\torsion[A]{\lambda}$ y
+	$\lambda\cdot A\subset\torsion[A]{\kappa}$, con lo cual,
+	$A=\torsion[A]{\kappa}+\torsion[A]{\lambda}$ y, tambi\'{e}n,
+	$\big(\kappa\cdot A\big)\cap\big(\lambda\cdot A\big)=0$.
+\end{proof}
+
+Dicho de otra manera, la descomposici\'{o}n del anulador minimal de un $D$-%
+m\'{o}dulo en factores coprimos se traduce en una descomposici\'{o}n
+an\'{a}loga del $D$-m\'{o}dulo.
+
+\begin{defPrimario}\label{def:primario}
+	Dado un elemento primo $p\in D$, se denomina \emph{$D$-m\'{o}dulo $p$-%
+	primario} a todo $D$-m\'{o}dulo cuyos elementos tengan orden una
+	potencia de $p$. Un \emph{$D$-m\'{o}dulo primario} es un m\'{o}dulo que
+	es $p$-primario para alg\'{u}n primo $p$.
+\end{defPrimario}
+
+\begin{obsPrimario}\label{obs:primario}
+	Todo $D$-m\'{o}dulo $p$-primario es de torsi\'{o}n. Si $A$ es $p$-%
+	primario y $x\in A$, entonces $\Anulador(x)=\generado{p^e}$ para cierto
+	$e\geq 1$, pero el exponente puede no estar acotado en $A$.
+\end{obsPrimario}
+
+\begin{teoDescomposicionPrimaria}[de descomposici\'{o}n primaria]%
+	\label{thm:descomposicionprimaria}
+	Sea $A$ un $D$-m\'{o}dulo de torsi\'{o}n f.g. y sea
+	$\Anulador(A)=\generado\nu$ el anulador minimal de $A$. Si
+	$\nu=p_1^{e_1}\cdots p_r^{e_r}$ es una descomposici\'{o}n de
+	$\nu$ como producto de primos no asociados a potencias,%
+	\footnote{
+		Una expresi\'{o}n de la forma
+		$\nu=p_1^{e_1}\cdots p_r^{e_r}$ es una descomposici\'{o}n o
+		factorizaci\'{o}n de $\nu\in D$ como producto de primos no
+		asociados a potencias, si los elementos de la lista
+		$\lista{p}{r}$ son primos en $D$, coprimos de a pares y
+		$\lista{e}{r}\geq 1$.
+	}
+	entonces
+	\begin{equation}
+		\label{eq:primarios:descomposicion}
+		A \,=\,\primario[p_1]{A}\,\oplus\,\cdots\,\oplus\,
+			\primario[p_r]{A}
+		\text{ ,}
+	\end{equation}
+	%
+	donde
+	\begin{align*}
+		\primario[p]{A} & \,=\,\bigcup_{k\geq 1}\,
+			\Big\{x\in A\,:\,\Anulador(x)= \generado{p^k}\Big\}
+		\,=\,\bigcup_{k\geq 1}\,\Big\{x\in A\,:\,p^k\,x=0\Big\}
+	\end{align*}
+	%
+	es el subm\'{o}dulo $p$-primario maximal en $A$.
+\end{teoDescomposicionPrimaria}
+
+\begin{proof}
+	Si $r=1$, $A=\primario[p_1]{A}$ y no hay nada m\'{a}s que probar. En
+	otro caso, $\nu=\lambda\,\kappa$, con
+	$\lambda=p_1^{e_1}\cdots p_{r-1}^{e_{r-1}}$ y
+	$\kappa=p_r^{e_r}$. Por el Lema~\ref{lema:primarios},
+	$A=\torsion[A]{\kappa}\,\oplus\,\torsion[A]{\lambda}$.
+	Pero $\torsion[A]{\kappa}\subset\primario[p_r]{A}$. Esta inclusi\'{o}n
+	es una igualdad, porque $\nu$ es el anulador minimal
+	($\primario[p_r]{A}\subset \torsion[A]{\kappa}$). An\'{a}logamente,
+	\begin{math}
+		\Anulador(\torsion[A]{\lambda})=
+			\generado{p_1^{e_1}\cdots p_{r-1}^{e_{r-1}}}
+	\end{math} y vale que
+	\begin{math}
+		\primario[p_i]{\big(\torsion[A]{\lambda}\big)}=
+			\primario[p_i]{A}
+	\end{math}, para todo $i\leq r-1$. Inductivamente,
+	\begin{math}
+		\torsion[A]{\lambda}=\primario[p_1]{A}
+			\,\oplus\,\cdots\,\oplus\, \primario[p_{r-1}]{A}
+	\end{math}.
+\end{proof}
+
+Aplicando el Teorema~\ref{teo:torsion:estructura} a un m\'{o}dulo $p$-primario
+f.g., cada sumando c\'{\i}clico en la descomposici\'{o}n es de orden una
+potencia de $p$. Entonces, por ejemplo,
+\begin{equation}
+	\label{eq:primarioporfactoresinvariantes}
+	\primario[p]{A} \,=\,C_1\,\oplus\,\cdots\,\oplus\,C_k
+	\text{ ,}
+\end{equation}
+%
+donde $\Anulador(C_i)=\generado{p^{d_i}}$ y $d_1\geq\cdots\geq d_k$.
+
+\begin{coroDescomposicionPrimaria}\label{coro:descomposicionprimaria}
+	Sea $A$ un $D$-m\'{o}dulo de torsi\'{o}n f.g. Entonces $A$ se
+	descompone como suma directa de subm\'{o}dulos c\'{\i}clicos, cada uno
+	de orden una potencia de un primo en $D$. La lista de los \'{o}rdenes
+	de estos subm\'{o}dulos  es \'{u}nica, salvo permutaciones o
+	reemplazo de un primo por un primo asociado.
+\end{coroDescomposicionPrimaria}
+
+% \begin{coroDivisoresElementales}\label{coro:divisoreselementales}
+	% Sea $B\in F^{n\times n}$ una matriz cuadrada con coeficientes en un
+	% cuerpo $F$. Existe una lista $L$ de potencias $f^{e}$ de polinomios
+	% m\'{o}nicos irreducibles $f\in F[X]$, $e\geq 1$, tal que $B$ es similar
+	% a la suma directa de las matrices compa\~{n}eras $\compa{f^{e}}$ de los
+	% elementos de la misma. Cualquier otra lista de potencias de polinomios
+	% m\'{o}nicos irreducibles (en $F[X]$) con esta propiedad es una
+	% permutaci\'{o}n de $L$.
+% \end{coroDivisoresElementales}
+% 
+% El cuerpo ``de base'' $F$ entra en juego en esta descomposici\'{o}n de una
+% matriz $B$. Por un lado, la relaci\'{o}n de similitud mencionada en el
+% corolario es realizada por una matriz con coeficientes en $F$. Por otra parte,
+% los polinomios $f\in F[X]$ que son irreducibles sobre $F$ pueden dejar de serlo
+% en una extensi\'{o}n $F'\supset F$. Los elementos de la lista $L$ (o sus
+% ideales) se denominan \emph{divisores elementales de $B$} (o de $t_{B}$, o del
+% m\'{o}dulo $A$, en el corolario previo).
+% 
+% \begin{obsDivisoresElementales}\label{obs:divisoreselementales}
+	% La matriz compa\~{n}era $\compa{f^{e}}$ de una potencia $f^{e}$,
+	% $e\geq 1$, de un polinomio m\'{o}nico irreducible $f\in F[X]$ posee un
+	% \'{u}nico divisor elemental: $f^{e}$. La descomposici\'{o}n en sumandos
+	% c\'{\i}clicos primarios (divisores elementales) es \'{u}nica y respeta
+	% sumas directas. Adem\'{a}s, si $B$ y $L$ son como en el corolario
+	% \ref{coro:descomposicionprimaria},
+	% \begin{align*}
+		% \caracteristico{B} \,=\,\pm\,\prod_{g\in L}\,g
+		% & \quad\text{y}\quad
+		% \minimal{B} \,=\,\mathsf{mcm}(L)
+		% \text{ .}
+	% \end{align*}
+	% %
+% \end{obsDivisoresElementales}
+% 
+% \begin{lemaDescomposicionDeJordan}\label{lema:descomposiciondejordan}
+	% Sea $f=X-\lambda\in F[X]$ un polinomio m\'{o}nico, lineal (en
+	% particular irreducible). Sea $C$ un $F[X]$-m\'{o}dulo c\'{\i}clico
+	% $f$-primario. Se $f^{e}=(X-\lambda)^{e}$, $e\geq 1$, su orden. Existe
+	% una base de $V=V_{C}$ tal que la matriz del endomorfismo
+	% correspondiente a $t_{X}:\,c\mapsto cX$ con respecto a la misma sea una
+	% matriz de Jordan \emph{elemental} de tama\~{n}o $e\times e$.
+% \end{lemaDescomposicionDeJordan}
+% 
+% \begin{proof}
+	% Como $f^{e}=(X-\lambda)^{e}$ es el orden de $C$, si $c_{0}\in C$ es un
+	% generador de $C$ en tanto $F[X]$-m\'{o}dulo, entonces el conjunto
+	% $\{c_{0},\,c_{0}\,(X-\lambda),\,\dots,\,c_{o}\,(X-\lambda)^{e-1}\}$ es
+	% una $F$-base de $V_{C}$. La matriz de $t_{X}$ con respecto a esta base
+	% est\'{a} dada por
+	% \begin{equation}
+		% \label{eq:bloquedejordanelemental}
+		% [t_{X}] \,=\,
+			% \begin{bmatrix}
+				% \lambda & & & \\
+				% 1 & \lambda & & \\
+				% & \ddots & \ddots & \\
+				% & & 1 & \lambda
+			% \end{bmatrix}
+		% \text{ .}
+	% \end{equation}
+	% %
+% \end{proof}
+% 
+% \begin{teoDescomposicionDeJordan}[Descomposici\'{o}n de Jordan]%
+	% \label{thm:descomposiciondejordan}
+	% Sea $B\in\MM[n\times n]{F}$ una matriz cuadrada con coeficientes en un
+	% cuerpo $F$. Si el polinomio caracter\'{\i}stico $\caracteristico{B}$ se
+	% factoriza como producto de factores lineales en $F[X]$, entonces $B$ es
+	% similar a una matriz de Jordan, es igual a la suma directa de matrices
+	% de Jordan elementales asociadas a cada uno de los divisores elementales
+	% de $B$. Esta matriz se denomina \emph{forma de Jordan de $B$}. Si
+	% $(X-\lambda)^{e}$ es un divisor elemental de $B$, cualquier forma de
+	% Jordan de $B$ posee un bloque de Jordan como en
+	% \eqref{eq:bloquedejordanelemental}. La forma de Jordan de $B$ es
+	% \'{u}nica, salvo permutaciones de los bloques.
+% \end{teoDescomposicionDeJordan}

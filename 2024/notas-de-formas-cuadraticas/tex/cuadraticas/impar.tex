@@ -1,0 +1,925 @@
+\theoremstyle{plain}
+\newtheorem{teoCuadImp}{\teoname}[section]
+\newtheorem{coroCuadImp}[teoCuadImp]{\coroname}
+\newtheorem{lemaCuadImp}[teoCuadImp]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defCuadImp}[teoCuadImp]{\defname}
+\newtheorem{obsCuadImp}[teoCuadImp]{\obsname}
+\newtheorem{ejemCuadImp}[teoCuadImp]{\ejemname}
+\newtheorem{ejerCuadImp}[teoCuadImp]{\ejername}
+
+%-------------
+
+En su versi\'on m\'as concreta, las formas cuadr\'aticas son polinomios
+homog\'eneos de grado $2$. Por ejemplo,
+\begin{enumerate}[(I)]
+	\item\label{item:impar:ejemplos:i}
+		$x^2+y^2+z^2$
+	\item\label{item:impar:ejemplos:ii}
+		$x^2+5xy-y^2$
+	\item\label{item:impar:ejemplos:iii}
+		$2x^2+3y^2$
+	\item\label{item:impar:ejemplos:iv}
+		$x_1^2+\,\cdots\,+x_n^2$
+	\item\label{item:impar:ejemplos:v}
+		$x_1^2+\,\cdots\,+x_p^2-x_{p+1}^2-\,\cdots\,-x_n^2$
+\end{enumerate}
+%
+Los ejemplos anteriores, salvo \eqref{item:impar:ejemplos:ii}, son
+ejemplos de formas cuadr\'aticas \emph{diagonales}, dado que no aparecen
+t\'erminos cruzados. La forma \eqref{item:impar:ejemplos:ii} se puede
+\emph{diagonalizar} completando cuadrados, mediante un cambio de variables: 
+\begin{displaymath}
+	x^2\,+\,5\,xy\,-\,y^2\,=\,\big(x+\tfrac 5{2}\,y\big)^2\,-\,
+					\tfrac{29} 4\,y^2
+	\text{ .}
+\end{displaymath}
+%
+Las formas \eqref{item:impar:ejemplos:iv} y
+\eqref{item:impar:ejemplos:v} provienen de formas bilineales sim\'etricas
+que conocemos:
+\begin{displaymath}
+	\begin{aligned}
+		x_1^2\,+\,\cdots\,+\,x_n & \,=\,v\,\cdot\,v \quad\text{y} \\
+		x_1^2\,+\,\cdots\,+x_p^2\,-\,x_{p+1}^2\,-\,\cdots\,-\,x_n^2
+			& \,=\,\langle v,v\rangle_{p,q}
+			\text{ ,}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+donde $v=\trnsp{(\lista x{n})}\in\bb R^n$. La forma
+\eqref{item:impar:ejemplos:iii} es diagonal y, sobre $\bb R$, es
+\emph{equivalente} a $x^2+y^2$; sobre $\bb Q$, no son equivalentes. Una
+raz\'on suficiente que explica esta diferencia es que la ecuaci\'on
+\begin{displaymath}
+	2\,x^2\,+\,3\,y^2\,=\,1
+\end{displaymath}
+%
+tiene soluci\'on en variable real, pero no tiene soluci\'on si $x$ e $y$
+s\'olo pueden tomar valores racionales.
+
+Sobre un cuerpo de caracter\'{\i}stica distinta de $2$, toda forma
+cuadr\'atica es diagonalizable. Esto deja de ser cierto sobre un cuerpo de
+caracter\'{\i}stica $2$. Si, adem\'as, todo elemento no nulo del cuerpo de
+base es un cuadrado --en el cuerpo--, entonces toda forma es equivalente a
+\eqref{item:impar:ejemplos:iv}.
+% En lo que resta de esta secci\'on, tratamos el caso de
+% formas cuadr\'aticas sobre cuerpos de caracter\'{\i}stica impar.
+
+\subsection{Definiciones y ejemplos}%
+	\label{subsec:cuadraticas:impar:definiciones}
+Sea $F$ un cuerpo de caracter\'{\i}stica impar y sea $V$ un espacio vectorial
+sobre $F$.
+
+\begin{defCuadImp}\label{def:impar:definicion}
+	Una \emph{forma cuadr\'atica} en $V$ es una funci\'on
+	$Q:\,V\rightarrow F$ que cumple:
+	\begin{enumerate}[(i)]
+		\item\label{item:impar:definicion:homogenea}
+			$Q(c\,v)=c^2\,Q(v)$, para todo $v\in V$ y toda
+			$c\in F$, y
+		\item\label{item:impar:definicion:bilineal}
+			la funci\'on
+			\begin{math}
+				B(v,w):=\tfrac 1{2}\,\big(Q(v+w)-Q(v)-Q(w)\big)
+			\end{math} es bilineal.
+	\end{enumerate}
+	%
+	La funci\'on $B=B_Q$ definida en
+	\eqref{item:impar:definicion:bilineal} se denomina \emph{forma %
+	bilineal asociada} a la forma cuadr\'atica $Q$.
+\end{defCuadImp}
+
+\begin{obsCuadImp}\label{obs:impar:definicion}
+	La relaci\'on entre la forma cuadr\'atica $Q$ y su forma bilineal
+	asociada $B$ se puede expresar como:
+	\begin{equation}
+		\label{eq:impar:definicion:bilineal}
+		Q(v+w)\,=\,Q(v)\,+\,Q(w)\,+\,2\,B(v,w)
+		\text{ .}
+	\end{equation}
+	%
+	La relaci\'on de perpendicularidad correspondiente a $B$ se puede
+	expresar en t\'erminos de $Q$:
+	\begin{equation}
+		\label{eq:impar:definicion:perpendicular}
+		B(v,w)\,=\,0\quad\Leftrightarrow\quad
+			Q(v+w)\,=\,Q(v)\,+\,Q(w)
+		\text{ .}
+	\end{equation}
+	%
+\end{obsCuadImp}
+
+\begin{obsCuadImp}\label{obs:impar:definicion:polinomios}
+	Inductivamente, de la identidad
+	\eqref{eq:impar:definicion:bilineal}, se deduce que
+	\begin{displaymath}
+		Q(v_1+\,\,\cdots\,+v_r)\,=\,Q(v_1)\,+\,\cdots\,+\,Q(v_r)\,+\,
+			2\,\sum_{i<j}\,B(v_i,v_j)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $\lista v{r}\in V$, $r\geq 2$. En particular, fijando una
+	base y usando \eqref{item:impar:definicion:homogenea},
+	\begin{equation}
+		\label{eq:impar:definicion:polinomios}
+		f(\lista x{n}) \,=\,Q(x_1\,e^1+\,\cdots\,+x_n\,e^n)
+			\,=\,\sum_{i=1}^n\,a^i\,x_i^2\,+\,
+				\sum_{i<j}\,a^{ij}\,x_i\,x_j \\
+			% \,=\, a^i\,x_i^2\,+\,\tfrac 1{2}\,a^{ij}\,x_i\,x_j
+		\text{ ,}
+	\end{equation}
+	%
+	donde $a^i=Q(e^i)$ y $a^{ij}=2\,B(e^i,e^j)$. Es decir, en coordenadas,
+	$Q$ est\'a representada por un polinomio homog\'eneo de grado $2$.
+
+	Rec\'{\i}procamente, si $f(\lista x{n})$ es un polinomio homog\'eneo
+	de grado $2$ con coeficientes $a^i$ y $a^{ij}$ ($i<j$), como en
+	\eqref{eq:impar:definicion:polinomios}, la funci\'on
+	$Q:\,V\rightarrow F$ definida por
+	\begin{math}
+		Q(x_1\,e^1+\,\cdots\,+x_n\,e^n):=f(\lista x{n})
+	\end{math} --una vez fijada una base-- verifica
+	\eqref{item:impar:definicion:homogenea} y la funci\'on asociada
+	$B=B_Q$ est\'a dada por
+	\begin{equation}
+		\label{eq:impar:definicion:polinomio:bilineal}
+		B(v,w) % \,=\,\tfrac 1{2}\,\big(Q(v+w)\,-\,Q(v)\,-\,Q(w)\big)
+			\,=\,\sum_{i=1}^n\,a^i\,x_i\,y_i\,+\,\tfrac 1{2}\,
+				\sum_{i<j}\,a^{ij}\,\big(x_i\,y_j+x_j\,y_i\big)
+			\,=\,\repr v\,\cdot\,M\,\repr w
+		\text{ ,}
+	\end{equation}
+	%
+	si $v=x_i\,e^i$, $w=y_i\,e^i$, donde $M$ denota la matriz
+	\begin{displaymath}
+		M\,=\,
+		\begin{bmatrix}
+			a^1 & a^{12}/2 & \cdots & a^{1n}/2 \\
+			a^{12}/2 & a^2 & \cdots & a^{2n}/2 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a^{1n}/2 & a^{2n}/2 & \cdots & a^n
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, $B$ es bilineal y $Q$ es una forma cuadr\'atica.
+\end{obsCuadImp}
+
+De acuerdo con la \obsname~\ref{obs:impar:definicion:polinomios}, la
+elecci\'on de una base determina una correspondencia entre formas cuadr\'aticas y polinomios homog\'eneos de grado $2$, v\'{\i}a
+\eqref{eq:impar:definicion:polinomios}.
+\begin{center}
+	\begin{tikzcd}
+		\left\{\begin{matrix}
+			\text{formas} \\
+			\text{cuadr\'aticas}
+		\end{matrix}\right\} \arrow[r,leftrightarrow] &
+		\left\{\begin{matrix}
+			\text{polinomios homog\'eneos} \\
+			\text{de grado } 2
+		\end{matrix}\right\}
+	\end{tikzcd}
+\end{center}
+Al mismo tiempo, la elecci\'on de
+una base determina una correspondencia entre formas bilineales y matrices.%
+\footnote{
+	\teoname~\ref{teo:matrices:matrices}.
+}
+A trav\'es de esta biyecci\'on, formas sim\'etricas se corresponden con
+matrices sim\'etricas, formas no degeneradas se corresponden con matrices no
+singulares, etc.%
+\footnote{
+	\teoname~\ref{teo:matrices:simetria}, \teoname~%
+	\ref{teo:nodegeneradas:nodegeneradas}.
+}
+\begin{center}
+	\begin{tikzcd}
+		\left\{\begin{matrix}
+			\text{formas bilineales} \\
+			\text{sim\'etricas}
+		\end{matrix}\right\} \arrow[r,leftrightarrow] &
+		\left\{\begin{matrix}
+			\text{matrices} \\
+			\text{sim\'etricas}
+		\end{matrix}\right\}
+	\end{tikzcd}
+\end{center}
+
+\begin{obsCuadImp}\label{obs:impar:definicion:bilineal}
+	Toda forma cuadr\'atica se puede recuperar de su forma bilineal
+	asociada evaluando en la diagonal:
+	\begin{equation}
+		\label{eq:impar:definicion:bilineal:diagonal}
+		Q(v)\,=\,B(v,v)
+		\text{ .}
+	\end{equation}
+	%
+	Rec\'{\i}procamente, dada una forma bilineal $B$, la funci\'on $Q$
+	definida por \eqref{eq:impar:definicion:bilineal:diagonal} es una
+	forma cuadr\'atica y, si $B$ es sim\'etrica, la forma bilineal asociada
+	a $Q$ es $B_Q=B$, por polarizaci\'on.%
+	\footnote{
+		\teoname~\ref{teo:definiciones:polarizacion}.
+	}
+\end{obsCuadImp}
+
+La \obsname~\ref{obs:impar:definicion:bilineal} muestra que existe
+una correspondencia entre formas bilineales sim\'etricas y formas
+cuadr\'aticas.
+\begin{center}
+	\begin{tikzcd}
+		\left\{\begin{matrix}
+			\text{formas bilineales} \\
+			\text{sim\'etricas}
+		\end{matrix}\right\} \arrow[r,leftrightarrow] &
+		\left\{\begin{matrix}
+			\text{formas} \\
+			\text{cuadr\'aticas}
+		\end{matrix}\right\}
+	\end{tikzcd}
+\end{center}
+A trav\'es de esta correspondencia, $B(v,w)=0$ para todo
+$v,w\in V$, si y s\'olo si $Q(v)=0$ para todo $v\in V$. Adem\'as, la
+noci\'on de perpendicularidad se puede expresar tanto en t\'erminos de $B$ como
+en t\'erminos de $Q$, por \eqref{eq:impar:definicion:perpendicular}.
+De esta manera, podemos asociar a toda forma cuadr\'atica una matriz
+sim\'etrica eligiendo una base del espacio. Llamaremos a esta matriz la
+\emph{matriz asociada} a la forma cuadr\'atica.
+
+\begin{ejemCuadImp}\label{ejem:impar:traza}
+	La forma traza $Q(L)=\Traza(L^2)$ en $\Endo[F](V)$ es una forma
+	cuadr\'atica. Si $V=F^2$ y $L$ est\'a representada por la matriz
+	$L=\sbmatrix{ x & y \\ z & t }$, entonces
+	\begin{displaymath}
+		Q(L)\,=\,x^2\,+\,2\,y\,z\,+\,t^2
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejemCuadImp}
+
+\begin{ejemCuadImp}\label{ejem:impar:binaria}
+	Si $f(x,y)=a\,x^2+b\,xy+c\,y^2$, entonces
+	\begin{math}
+		Q\big(\sbmatrix{ x \\ y }\big)=f(x,y)
+	\end{math} es una forma cuadr\'atica \emph{binaria}, en $F^2$. La forma
+	$Q$ est\'a representada por la matriz sim\'etrica
+	$\sbmatrix{ a & b/2 \\ b/2 & c }$ en la base can\'onica:
+	\begin{displaymath}
+		Q\Big(\begin{bmatrix} x \\ y \end{bmatrix}\Big)\,=\,
+		\begin{bmatrix} x \\ y \end{bmatrix}\,\cdot\,
+			\begin{bmatrix} a & b/2 \\ b/2 & c \end{bmatrix}\,
+		\begin{bmatrix} x \\ y \end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	La forma $Q$ tambi\'en se puede expresar como
+	\begin{math}
+		Q\big(\sbmatrix{ x \\ y }\big)=
+			\sbmatrix{ x \\ y }\,\cdot\,\sbmatrix{ a & b \\ & c }\,
+				\sbmatrix{ x \\ y }
+	\end{math}, pero $\sbmatrix{ a & b \\ & c }$ no es una matriz
+	sim\'etrica.
+\end{ejemCuadImp}
+
+\begin{defCuadImp}\label{def:impar:discriminante}
+	El \emph{discriminante} de una forma cuadr\'atica se define como
+	el discriminante de su forma bilineal asociada. Equivalentemente, se
+	define como el determinante de cualquiera de sus matrices asociadas.
+	Este valor est\'a bien definido m\'odulo cuadrados del cuerpo y lo
+	denotamos $\discriminante\,Q$.
+\end{defCuadImp}
+
+\begin{ejemCuadImp}\label{ejem:impar:hiperbolico}
+	El discriminante de la forma $x^2-y^2$ en $F^2$ es $-1$.
+\end{ejemCuadImp}
+
+\begin{defCuadImp}\label{def:impar:espacio}
+	Un \emph{espacio cuadr\'atico} es un par $(V,Q)$, donde $V$ es un
+	espacio vectorial sobre un cuerpo $F$ y $Q:\,V\rightarrow F$ es una
+	forma cuadr\'atica en $V$.
+\end{defCuadImp}
+
+\begin{obsCuadImp}\label{obs:impar:subespacio}
+	Si $(V,Q)$ es un espacio cuadr\'atico y $W\subset V$ es un subespacio
+	vectorial, el par $(W,Q|_W)$ es un espacio cuadr\'atico.
+\end{obsCuadImp}
+
+\subsection{Primeros resultados}\label{subsec:cuadraticas:impar:primeros}
+Sea $(V,Q)$ un espacio cuadr\'atico de dimensi\'on finita $n\geq 1$, sobre un
+cuerpo de caracter\'{\i}stica distinta de $2$.
+
+\begin{teoCuadImp}\label{teo:impar:diagonalizacion}
+	Existe una base de $V$ con respecto a la cual $Q$ se diagonaliza. Es
+	decir,
+	\begin{displaymath}
+		Q\big(x_i\,e^i\big)\,=\,a^i\,x_i^2
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $a^i=Q(e^i)$. El discriminante de $Q$ es igual al producto
+	$a^1\,\cdots\,a^n$.
+\end{teoCuadImp}
+
+\begin{teoCuadImp}\label{teo:impar:ortogonal:discriminante}
+	Si $V=W\oplus U$ con $W\perp U$, entonces
+	$\discriminante\,V=\discriminante\,W\,\discriminante\,U$.
+\end{teoCuadImp}
+
+Para diagonalizar una forma cuadr\'atica, usamos los \lemaname~%
+\ref{lema:ortogonales:diagonal} y \ref{lema:ortogonales:complemento}.%
+\footnote{
+	Sea $(V,B)$ un espacio bilineal no necesariamente sim\'etrico, sobre un
+	cuerpo arbitrario $F$ no necesariamente de caracter\'{\i}stica impar.
+	Si $\lista v{r},\,w\in V$ cumplen
+	\begin{itemize}
+		\item $B(v_i,v_i)\neq 0$ para todo $i$,
+		\item $B(v_i,v_j)=0$ ($v_j\in v_i^\rperp$), si $j>i$, y
+		\item $0\neq w\in v_1^\rperp\cap\,\cdots\,\cap v_r^\rperp$,
+	\end{itemize}
+	%
+	entonces el subconjunto $\{\lista v{r},\,w\}$ es l.i. Si
+	\begin{displaymath}
+		b^i\,v_i\,+\,c\,w\,=\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	se deduce, inductivamente, que $b^i=0$:
+	\begin{displaymath}
+		0 \,=\,B(v_i,b^j\,v_j+c\,w)\,=\,
+			b^1\,B(v_i,v_1)\,+\,\cdots\,b^i\,B(v_i,v_i)
+		\text{ .}
+	\end{displaymath}
+	%
+	El \'unico t\'ermino restante en la combinaci\'on es $c\,w=0$. Como
+	$w\neq 0$, $c=0$ y el subconjunto era l.i. El problema es hallar $w$
+	para proceder inductivamente.
+}
+El proceso eventualmente termina cuando se llega a un subespacio en donde la
+forma cuadr\'atica es id\'enticamente cero (equivalentemente, la forma bilineal
+asociada es id\'enticamente cero; la condici\'on $B(v,v)=0$ es suficiente). Si
+dicho subespacio no es el subespacio nulo, entonces los vectores hallados,
+juntos con cualquier base del subespacio, conforman una base con respecto a la
+cual la forma es diagonal.
+
+\begin{ejerCuadImp}\label{ejer:impar:isotropico}
+	Diagonalizar $Q(x,y,z)=xy+yz+zx$ ?`Cu\'al es su discriminante? Hallar
+	un vector $v$ tal que $Q(v)=0$. Hallar otro vector $w$ tal que $Q(w)=0$
+	y $B(v,w)=1$. Si $U=\generado{v,w}$, calcular el discriminante de
+	$Q|_U$ y de $Q|_{U^\perp}$ ?`Se cumple $U\oplus U^\perp$ para los
+	vectores elegidos?
+\end{ejerCuadImp}
+
+\begin{coroCuadImp}\label{coro:impar:diagonalizacion}
+	Si $a\in F^\times$, entonces $a$ es un coeficiente en alguna
+	diagonalizaci\'on de $Q$, si y s\'olo si $a\in Q(V)$.%
+	\footnote{
+		C.f. el \teoname~\ref{teo:ortogonales:base}.
+	}
+\end{coroCuadImp}
+
+\begin{proof}
+	Si $Q=a\,x^2+\,\cdots$, entonces $Q(1,0,\,\dots,\,0)=a$. Si
+	$Q(v)=a\neq 0$, entonces, aplicando el \lemaname~%
+	\ref{lema:ortogonales:complemento}, $V=\generado v\oplus v^\perp$.
+	Eligiendo una base de $v^\perp$ y complet\'andola con $v$,
+	$Q=a\,x^2+\,\cdots$. Diagonalizando $Q|_{v^\perp}$ se llega a una
+	diagonalizaci\'on de $Q$ en la que $a$ es uno de los coeficientes (el
+	primero).
+\end{proof}
+
+\begin{defCuadImp}\label{def:impar:equivalencia}
+	Dos espacios cuadr\'aticos $(V,Q_V)$ y $(W,Q_W)$ se dicen
+	\emph{isomorfos} y las formas cuadr\'aticas se dicen
+	\emph{equivalentes}, si existe un isomorfismo $A:\,V\rightarrow W$ tal
+	que $Q_W(A\,v)=Q_V(v)$ para todo $v\in V$.
+\end{defCuadImp}
+
+\begin{ejemCuadImp}\label{ejem:impar:equivalencia:hiperbolico}
+	Las formas cuadr\'aticas $x^2-y^2$ y $xy$ son equivalentes sobre
+	cualquier cuerpo (de caracter\'{\i}stica distinta de $2$).
+\end{ejemCuadImp}
+
+\begin{ejemCuadImp}\label{ejem:impar:equivalencia:racional}
+	Las formas cuadr\'aticas $2\,x^2+3\,y^2$ y $x^2+y^2$ son equivalentes
+	sobre $\bb R$, pero no lo son sobre $\bb Q$.
+\end{ejemCuadImp}
+
+\begin{teoCuadImp}\label{teo:impar:equivalencia:bilineal}
+	Dos formas cuadr\'aticas son equivalentes, si y s\'olo si las formas
+	bilineales asociadas lo son.
+\end{teoCuadImp}
+
+\begin{defCuadImp}\label{def:impar:nodegeneradas}
+	Una forma cuadr\'atica se dice \emph{no degenerada}, si su forma
+	bilineal asociada es no degenerada. Respectivamente, si la forma
+	bilineal es degenerada, se dice que la forma cuadr\'atica de la que
+	proviene es \emph{degenerada}.
+\end{defCuadImp}
+
+El siguiente resultado ser\'a relevante m\'as adelante, pero hace uso de las
+nociones reci\'en definidas.
+
+\begin{defCuadImp}\label{def:impar:representa}
+	Decimos que una forma cuadr\'atica $Q$ \emph{representa} un valor $a$,
+	si existe $v\in V$ tal que $Q(v)=a$. Decimos que $Q$ \emph{representa %
+	$0$} o, m\'as precisamente, que \emph{representa $0$ de manera no %
+	trivial}, si existe $v\neq 0$ tal que $Q(v)=0$.
+\end{defCuadImp}
+
+\begin{teoCuadImp}\label{teo:impar:hiperbolico}
+	Sea $(V,Q)$ un espacio cuadr\'atico de dimensi\'on $2$ sobre un cuerpo
+	de caracter\'{\i}stica distinta de $2$. Las siguientes afirmaciones son
+	equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:hiperbolico:forma}
+			en alguna base, $Q=x^2-y^2$;
+		\item\label{item:hiperbolico:discriminante}
+			m\'odulo cuadrados, $\discriminante\,Q=-1$;
+		\item\label{item:hiperbolico:isotropico}
+			la forma $Q$ es no degenerada y representa $0$ de
+			manera no trivial.
+	\end{enumerate}
+	%
+\end{teoCuadImp}
+
+\begin{proof}
+	Si diagonalizamos $Q$, en alguna base $a\,x^2+b\,y^2$. Si $Q$ es no
+	degenerada, $ab\neq 0$. Y, si $Q(x_0,y_0)=0$, o bien $(x_0,y_0)=(0,0)$,
+	o bien $x_0y_0\neq 0$. En tal caso, $b=-a\,\tfrac{x_0^2}{y_0^2}$ y
+	$\discriminante\,Q=-\big(a\,\tfrac{x_0}{y_0}\big)^2$.
+
+	Si $\discriminante\,Q=-1$, en alguna base $Q=a\,x^2+b\,y^2$ con
+	$ab=-1\tmodulo[\cuadrados F]$. Pero
+	\begin{displaymath}
+		a\,x^2\,-\,\tfrac 1{a}\,y^2\,=\,\big(a\,x+y\big)\,
+			\big(x-\tfrac 1{a}\,y\big)
+		\text{ ,}
+	\end{displaymath}
+	%
+	que, despu\'es de un cambio de variables (en $F$), es equivalente a la
+	forma del \ejemname~\ref{ejem:impar:equivalencia:hiperbolico}.
+
+	Si $Q=x^2-y^2$, entonces $\discriminante\,Q=-1$.
+\end{proof}
+
+\subsection{Clasificaci\'on de formas cuadr\'aticas}%
+	\label{subsec:cuadraticas:impar:clasificacion}
+\begin{teoCuadImp}\label{teo:impar:arquimedianas}
+	Toda forma cuadr\'atica definida en un espacio vectorial complejo de
+	dimensi\'on $n$ no degenerada es equivalente, sobre $\bb C$, a
+	$x_1^2+\,\cdots\,+x_n^2$. Toda forma cuadr\'atica definida en un
+	espacio vectorial real de dimensi\'on $n$ no degenerada es equivalente,
+	sobre $\bb R$, a $x_1^2+\,\cdots\,+x_p^2-x_{p+1}^2-\,\cdots\,-x_n^2$
+	para un \'unico $p$ entre $0$ y $n$.
+\end{teoCuadImp}
+
+En el caso real, el valor de $p$, o bien el par $(p,q)$, se denomina
+\emph{signatura} de la forma cuadr\'atica real.
+
+\begin{proof}
+	Que toda forma compleja o real es equivalente a una de las formas
+	mencionadas es consecuencia de que $\modcuadrados{\bb C}=1$ y
+	de que $\modcuadrados{\bb R}=\{\pm1\}$.
+
+	Dado $0\leq p\leq n$, sea
+	$Q_p=x_1^2+\,\cdots\,+x_p^2-x_{p+1}^2-\,\cdots\,-x_n^2$. Veamos que
+	$Q_p\sim Q_{p'}$ implica $p=p'$. La equivalencia de estas dos formas
+	definidas en $\bb R^n$ significa que existen bases
+	$\{\lista* e{n}\}$ y $\{\lista* f{n}\}$ con respecto a las cuales una
+	\'unica forma $Q$ se representa por $Q_p$ y por $Q_{p'}$,
+	respectivamente. En ese caso, si $W=\generado{\lista* e{p}}$ y
+	$W'=\generado{\lista*[{p'+1}] f{n}}$, entonces $Q>0$ en $W$ y $Q<0$ en
+	$W'$. Esto implica que $W\cap W'=0$ y que
+	$\dim(W+W')=\dim\,W+\dim\,W'=p+(n-p')$. Pero $\dim(W+W')\leq n$, con lo
+	que $p-p'\leq 0$.%
+	\footnote{
+		La demostraci\'on depende \'unicamente de
+		$\modcuadrados{\bb R}=\{\pm1\}$ y de la existencia de
+		un orden en $\bb R$ compatible con la estructura algebraica.
+	}
+\end{proof}
+
+\begin{ejerCuadImp}\label{ejer:impar:gauss}
+	Determinar el valor de la integral
+	$\int_{\bb R^n}\,e^{-\pi\,Q(x)}\,\de x$, donde
+	$Q:\,\bb R^n\rightarrow\bb R$ es una forma cuadr\'atica definida
+	positiva.%
+	\hint{
+		Todas las formas de grado $n$ definidas positivas son
+		equivalentes.
+	}
+\end{ejerCuadImp}
+
+\begin{teoCuadImp}\label{teo:impar:finitos:representa}%
+	\footnote{
+		C.f. el \lemaname~\ref{lema:parias:finitos:representa}.
+	}
+	Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica impar y sea $(V,Q)$
+	un espacio cuadr\'atico no degenerado sobre $\bb F$. Si
+	$\dim\,V\geq 3$, entonces $Q$ representa $0$ de manera no trivial.
+\end{teoCuadImp}
+
+\begin{proof}
+	Si $\dim\,V=3$, diagonalizando, podemos suponer que
+	$Q=a\,x^2+b\,y^2+c\,z^2$. Como asumimos que $Q$ es no degenerada,
+	$abc\neq 0$. En esta situaci\'on, podemos hallar una soluci\'on
+	a $Q(x,y,z)=0$ con $z=1$.
+\end{proof}
+
+\begin{lemaCuadImp}\label{lema:impar:finitos:representa}
+	Si $a,b,c\in\bb F^\times$, la ecuaci\'on
+	\begin{equation}
+		\label{eq:impar:finitos:representa}
+		a\,x^2\,+\,b\,y^2\,+\,c\,=\,0
+	\end{equation}
+	%
+	tiene soluci\'on en $\bb F$.
+\end{lemaCuadImp}
+
+\begin{proof}
+	Elevar al cuadrado,
+	$(x\mapsto x^2):\,\bb F^\times\rightarrow\bb F^\times$, es un morfismo
+	cuyo n\'ucleo tiene orden $2$. Si $q=|\bb F|$, entonces
+	$\cuadrados{\bb F}=(q-1)/2$. Si $ab\neq 0$, los subconjuntos
+	$\{a\,x^2\,:\,x\in\bb F\}$ y $\{-b\,y^2-c\,:\,y\in\bb F\}$ est\'an en
+	correspondencia con los cuadrados, $\cuadrados{\bb F}\cup\{0\}$. En
+	particular, tienen el mismo cardinal, que es $(q+1)/2$, se solapan y
+	la ecuaci\'on \eqref{eq:impar:finitos:representa} tiene
+	soluci\'on.
+\end{proof}
+
+\begin{teoCuadImp}\label{teo:impar:universal}%
+	\footnote{
+		C.f. el \lemaname~\ref{teo:parias:universal}.
+	}
+	Sea $F$ un cuerpo de caracter\'{\i}stica distinta de $2$. Si
+	$Q:\,V\rightarrow F$ es una forma cuadr\'atica no degenerada que
+	representa $0$ de manera no trivial, entonces $Q(V)=F$.
+\end{teoCuadImp}
+
+\begin{proof}
+	Sea $v\neq 0$ tal que $Q(v)=0$ y sea $B=B_Q$ la forma bilineal
+	asociada.%
+	\footnote{
+		Notar que, como $Q$ (es decir, $B$) es no degenerada y
+		$Q|_{\generado v}=0$, $\dim\,V\geq 2$.
+	}
+	Como $B$ es no degenerada y $v\neq 0$, existe $w\in V$ tal que
+	$B(v,w)\neq 0$.%
+	\footnote{
+		Necesariamente, $\{v,w\}$ es l.i.
+	}
+	La expresi\'on
+	\begin{displaymath}
+		Q(c\,w+v)\,=\,Q(w)\,+\,2\,B(v,w)\,c
+	\end{displaymath}
+	%
+	define una funci\'on af\'{\i}n en la variable $c\in F$. Como
+	$2\,B(v,w)\neq 0$, la funci\'on es sobreyectiva.
+\end{proof}
+
+\begin{defCuadImp}\label{def:impar:universal}
+	Una forma cuadr\'atica $Q:\,V\rightarrow F$ tal que $Q(V)=F$ se dice
+	que es \emph{universal}.
+\end{defCuadImp}
+
+\begin{coroCuadImp}\label{coro:impar:finitos:universal}%
+	\footnote{
+		C.f. el \lemaname~\ref{lema:parias:finitos:universal}.
+	}
+	Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica impar y sea $(V,Q)$
+	un espacio cuadr\'atico no degenerado sobre $\bb F$. Si
+	$\dim\,V\geq 2$, entonces $Q$ es universal.
+\end{coroCuadImp}
+
+% Representa $0$ de manera no trivial en dimensi\'on $3$, si y s\'olo si
+% es universal en dimensi\'on $2$.
+
+\begin{teoCuadImp}\label{teo:impar:finitos}
+	Sea $\bb F$ un cuerpo finito de caracter\'{\i}stica impar y sea
+	$d\in\nocuadrados{\bb F}$. Toda forma cuadr\'atica
+	definida en un espacio vectorial sobre $\bb F$ de dimensi\'on $n$ no
+	degenerada es equivalente, sobre $\bb F$, a
+	\begin{displaymath}
+		x_1^2\,+\,\cdots\,+\,x_{n-1}^2\,+\,x_n^2
+		\quad\text{o a}\quad
+		x_1^2\,+\,\cdots\,+\,x_{n-1}^2\,+\,d\,x_n^2
+		\text{ .}
+	\end{displaymath}
+	%
+	Estas dos formas no son equivalentes. En particular, la clase de
+	equivalencia de una forma cuadr\'atica no degenerada sobre $\bb F$
+	est\'a determinada por su dimensi\'on y su discriminante.
+\end{teoCuadImp}
+
+\begin{proof}
+	El discriminante de la primera es $1$, mientras que el de la segunda es
+	$d$, que no es cuadrado en $\bb F$. En particular, estas formas no son
+	equivalentes.
+
+	Sea $n=\dim\,Q$. Si $n=1$, $Q(x)=a\,x^2$ (en alguna base) y la clase de
+	equivalencia de $Q$ depende \'unicamente de $a$, m\'odulo cuadrados.
+	Como $\modcuadrados{\bb F}=\{1,d\}$, $Q$ es equivalente a
+	$x^2$, si $a\in\cuadrados{\bb F}$, o bien a $d\,x^2$, si no.
+
+	Si $n\geq 2$, $Q$ es universal y existe $v\in V$ tal que $Q(v)=1$.
+	Eligiendo una base $\{\lista* e{n}\}$ con respecto a la que $Q$ es
+	diagonal y $e^1=v$, podemos asumir que
+	\begin{displaymath}
+		Q(x_i\,e^i)\,=\,x_1^2\,+\,a^2\,x_2^2\,+\,\cdots\,+\,a^n\,x_n^2
+		\text{ .}
+	\end{displaymath}
+	%
+	La forma $Q|_{v^\perp}$ es no degenerada y de dimensi\'on $n-1$.
+	Inductivamente, podemos asumir que
+	$Q|_{v^\perp}=x_2^2+\,\cdots\,+x_{n-1}^2+a\,x_n^2$, donde
+	$a=1$, o bien $a=d$.%
+	\footnote{
+		La demostraci\'on depende de que $1\in Q(V)$ y de que
+		$|\modcuadrados{\bb F}|=2$.
+	}
+\end{proof}
+
+\subsection{Un argumento geom\'etrico}%
+	\label{subsec:cuadraticas:impar:geometria}
+A continuaci\'on, introducimos algunas nociones ``geom\'etricas'' y las
+aplicamos a la clasificaci\'on de formas cuadr\'aticas sobre un cuerpo finito
+de caracter\'{\i}stica impar.
+
+\begin{defCuadImp}\label{def:impar:suma}
+	La \emph{suma directa ortogonal} de espacios cuadr\'aticos
+	$(V_1,Q_1)$ y $(V_2,Q_2)$ es el $(V,Q)$, donde $V=V_1\oplus V_2$ y
+	$Q(v_1+v_2)=Q_1(v_1)+Q_2(v_2)$.
+\end{defCuadImp}
+
+\begin{defCuadImp}\label{def:impar:isotropico}
+	Un \emph{vector isotr\'opico} para una forma cuadr\'atica $Q$ es un
+	vector $v\neq 0$ tal que $Q(v)=0$. Un \emph{espacio isotr\'opico} es un
+	espacio cuadr\'atico que contiene vectores isotr\'opicos, es decir, un
+	espacio cuadr\'atico cuya forma representa $0$ de manera no trivial.
+\end{defCuadImp}
+
+El \teoname~\ref{teo:impar:universal} implica que, en caracter\'{\i}stica
+impar, toda forma isotr\'opica es universal.
+
+\begin{defCuadImp}\label{def:impar:hiperbolico}
+	Un \emph{plano hiperb\'olico} es un espacio cuadr\'atico de dimensi\'on
+	$2$ cuya forma cuadr\'atica es equivalente a $x^2-y^2$.%
+	\footnote{
+		En caracter\'{\i}stica impar, esto es lo mismo que decir
+		equivalente a $x\,y$.
+	}
+\end{defCuadImp}
+
+Escribimos $\hiperbolico$ para denotar un plano hiperb\'olico. Un plano
+hiperb\'olico es lo mismo que un espacio cuadr\'atico de dimensi\'on $2$, no
+degenerado e isotr\'opico (\teoname~\ref{teo:impar:hiperbolico}).
+
+\begin{ejemCuadImp}\label{ejem:impar:pseudoeuclideos}
+	El espacio $\bb R^{2,1}$ es isomorfo a $\hiperbolico\perp\bb R$
+	?`Qu\'e pasa con $\bb R^{p,q}$?%
+	\footnote{
+		Separar los casos $p>q$ y $p<q$.
+	}
+\end{ejemCuadImp}
+
+\begin{teoCuadImp}\label{teo:impar:isotropico}%
+	\footnote{
+		C.f. el \teoname~\ref{teo:parias:isotropico}.
+	}
+	Sea $F$ un cuerpo de caracter\'{\i}stica distinta de $2$ y sea $(V,Q)$
+	un espacio cuadr\'atico no degenerado. Si $Q$ admite un vector
+	isotr\'opico, entonces $V\simeq\hiperbolico\perp W$ y $W\subset V$ es
+	un subespacio no degenerado.
+\end{teoCuadImp}
+
+\begin{proof}
+	Sea $v\neq 0$ tal que $Q(v)=0$. Veamos que existe $u\in V$ tal que
+	$B(u,v)\neq 0$ y $Q(u)=0$.%
+	\footnote{
+		C.f. la demostraci\'on del \teoname~%
+		\ref{teo:simplecticas:dimension}.
+	}
+	Si $Q(u)=0$, listo. Si no, consideramos vectores de la forma $u+c\,v$,
+	$c\in F$. Por un lado, $B(u+c\,v,v)=B(u,v)\neq 0$. Por otro,%
+	\footnote{
+		C.f. la demostraci\'on del \teoname~%
+		\ref{teo:impar:universal}.
+	}
+	\begin{displaymath}
+		Q(u+c\,v)\,=\,Q(u)\,+\,2\,B(u,v)\,c
+		\text{ .}
+	\end{displaymath}
+	%
+	Como esta expresi\'on es af\'{\i}n en $c\in F$, existe $c$ de manera
+	que se cumpla lo pedido con $u+c\,v$ en lugar de $u$.
+
+	Con estas elecciones, $Q(x\,u+y\,v)=2\,x\,y\,B(u,v)$. Si
+	$U=\generado{u,v}$, reescalando, $Q|_U=x\,y$. Entonces, $U$ es un
+	plano hiperb\'olico contenido en $V$ y, en consecuencia, es un
+	subespacio no degenerado. Por el \teoname~%
+	\ref{teo:nodegeneradas:perpendicular}~%
+	\eqref{item:perpendicular:complemento}, si $W=U^\perp$, $V=U\oplus W$
+	y, como $V$ es no degenerado, por la parte
+	\eqref{item:perpendicular:dimension}, $W$ es no degenerado.
+\end{proof}
+
+Si $(V,Q)$ es un espacio cuadr\'atico no degenerado y $\dim\,V\geq 1$,
+inductivamente, $V$ es isomorfo a $\hiperbolico^{\perp\,m}\perp V'$, donde
+$V'\subset V$ es un subespacio \emph{anisotr\'opico}, es decir, tal que no
+existe $v'\in V'$ no nulo que satisface $Q(v')=0$. La forma $Q$ se puede
+expresar, en alguna base, de la siguiente manera:
+\begin{equation}
+	\label{eq:impar:isotropico:equivalente}
+	x_1\,x_2\,+\,\cdots\,+\,x_{2m-1}\,x_{2m}\,+\,Q'
+	\text{ ,}
+\end{equation}
+%
+donde $Q':\,V'\rightarrow F$ es una forma anisotr\'opica de grado $n-2m$
+?`Qu\'e se puede decir al respecto de $m$ y de $Q'$? ?`El valor de $m\geq 0$ y
+la clase de equivalencia de $Q'$ est\'an un\'{\i}vocamente determinados por (la
+clase de) $Q$? Una cosa m\'as o menos inmediata es la siguiente f\'ormula para
+el discriminante:
+\begin{equation}
+	\label{eq:impar:isotropico:discriminante}
+	\discriminante\,V\,=\,(-1)^m\,\discriminante\,V'
+	\text{ .}
+\end{equation}
+%
+
+Volvamos al caso en que $F=\bb F$ es un cuerpo finito de caracter\'{\i}stica
+impar. Fijamos un no cuadrado $d\in\nocuadrados{\bb F}$ y un espacio
+cuadr\'atico $(V,Q)$ no degenerado de dimensi\'on $n$ sobre $\bb F$.
+
+\begin{teoCuadImp}\label{teo:impar:finitos:geometria}
+	La forma cuadr\'atica $Q$ es equivalente, sobre $\bb F$, a
+	\begin{displaymath}
+		x_1\,x_2\,+\,\cdots\,+\,x_{n-3}\,x_{n-2}\,+\,
+			\begin{cases}
+				x_{n-1}\,x_n & \quad\text{o a} \\
+				x_{n-1}^2\,-\,d\,x_n^2 & \text{ ,}
+			\end{cases}
+	\end{displaymath}
+	%
+	si $n$ es par, y a
+	\begin{displaymath}
+		x_1\,x_2\,+\,\cdots\,+\,x_{n-2}\,x_{n-1}\,+\,
+			\begin{cases}
+				x_n^2 & \quad\text{o a} \\
+				d\,x_n^2 & \text{ ,}
+			\end{cases}
+	\end{displaymath}
+	%
+	si $n$ es impar.
+\end{teoCuadImp}
+
+\begin{proof}
+	Si $n=\dim\,V\geq 3$, $V$ posee un vector isotr\'opico y
+	$V\simeq\hiperbolico\perp W$. Si $\dim\,W\geq 3$, $W$ posee un vector
+	isotr\'opico. Repitiendo esto una cantidad finita de veces, hasta
+	conseguimos un subespacio $V'\subset V$ de dimensi\'on $\dim\,V'\leq 2$
+	tal que $V\sim\hiperbolico^m\perp V'$. Si $n$ es par,
+	$\dim\,V'\in\{0,2\}$. Si $n$ es impar, $\dim\,V'=1$. En ambos casos,
+	$V'$ es no degenerado. El resultado se reduce a clasificar las formas
+	no degeneradas de grados $0$, $1$ y $2$, sobre $\bb F$.
+\end{proof}
+
+\begin{lemaCuadImp}\label{lema:impar:finitos:bajas}
+	Si $\dim\,V=1$, entonces $Q$ es equivalente a
+	\begin{displaymath}
+		x^2 \quad\text{o a}\quad d\,x^2
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $\dim\,V=2$, entonces $Q$ es equivalente a
+	\begin{displaymath}
+		x\,y \quad\text{o a}\quad x^2\,-\,d\,y^2
+		\text{ .}
+	\end{displaymath}
+	%
+	En cada caso, las formas no son equivalentes.
+\end{lemaCuadImp}
+
+\begin{proof}
+	Si $\dim\,V=1$, en alguna base $Q=a\,x^2$, $a\neq 0$. Si
+	$a\in\cuadrados{\bb F}$, entonces $Q$ es equivalente a $x^2$. Si
+	$a\not\in\cuadrados{\bb F}$, entonces
+	$a\equiv d\tmodulo[\cuadrados{\bb F}]$ y $Q$ es equivalente a $d\,x^2$.
+
+	Si $\dim\,V=2$, entonces $Q$ es universal, por el \coroname~%
+	\ref{coro:impar:finitos:universal}. En particular,
+	$Q$ representa $1$ y, diagonalizando, es equivalente a $x^2-a\,y^2$,
+	$a\neq 0$. Si $a\in\cuadrados{\bb F}$, entonces $Q$ es equivalente a
+	$x^2-y^2$, que, en caracter\'{\i}stica impar, es equivalente a $x\,y$.
+	Si $a\not\in\cuadrados{\bb F}$, entonces $Q$ es equivalente a
+	$x^2-d\,y^2$.
+
+	En ambos casos, $\dim\,V=1$ y $\dim\,V=2$, las dos representantes
+	pertenecen a clases distintas, como se puede ver calculando sus
+	discriminantes.%
+	\footnote{
+		Otra manera de distinguirlas es por sus im\'agenes, por los
+		valores que representan. La forma $x^2$ s\'olo representa
+		cuadrados (todos), mientras que $d\,x^2$ s\'olo representa no
+		cuadrados (todos). La forma $x\,y$ es isotr\'opica, mientras
+		que $x^2-d\,y^2$ no lo es.
+	}
+\end{proof}
+
+?`C\'omo termina la demostraci\'on del \teoname~%
+\ref{teo:impar:finitos:geometria}? Hay que probar que las formas que
+aparecen en el enunciado no son equivalentes. Hemos clasificado las formas de
+dimensiones bajas --que corresponden a los t\'erminos que aparecen en la
+separaci\'on en casos. Intuitivamente, ser\'{\i}a correcto ``cancelar'' las
+partes id\'enticas y comparar lo que queda.%
+\footnote{
+	C.f. el \teoname~\ref{teo:teoremas:cancelacion:bilineales:general}
+}
+Otra manera es apelar al discriminante. Si $n$ es par, la primera forma tiene
+discriminante $(-1)^{n/2}$, mientras que la segunda tiene discriminante
+$(-1)^{n/2-1}(-d)$. Como $d\not\equiv 1\tmodulo[\cuadrados{\bb F}]$, las formas
+no son equivalentes. El caso con $n$ impar es an\'alogo.
+
+En el siguiente resultado, volvemos al caso general de un cuerpo de
+caracter\'{\i}stica impar y un espacio cuadr\'atico $(V,Q)$ sobre el mismo.
+
+\begin{teoCuadImp}\label{teo:impar:nodegeneradas}
+	Las siguientes afirmaciones son equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:impar:nodegeneradas:discriminante}
+			la forma $Q$ es no degenerada, es decir,
+			$\discriminante\,Q\neq 0$;
+		\item\label{item:impar:nodegeneradas:variables}
+			si $n=\dim\,V$, en ninguna base se puede expresar $Q$
+			como un polinomio homog\'eneo de grado $2$ en menos de
+			$n$ variables;
+		\item\label{item:impar:nodegeneradas:derivadas}
+			con respecto a cualquier base, expresando a $Q$ como
+			polinomio homog\'eneo de grado $2$, la \'unica
+			soluci\'on com\'un en $V$ a las ecuaciones
+			$\partial Q/\partial x_i=0$ es $v=0$.
+	\end{enumerate}
+	%
+\end{teoCuadImp}
+
+\begin{proof}
+	La afirmaci\'on \eqref{item:impar:nodegeneradas:discriminante} y
+	la afirmaci\'on \eqref{item:impar:nodegeneradas:variables} son
+	equivalentes: para un lado, diagonalizar; para el otro, diagonalizar en
+	bloques (separar las variables superfluas). La afirmaci\'on
+	\eqref{item:impar:nodegeneradas:discriminante} y la afirmaci\'on
+	\eqref{item:impar:nodegeneradas:derivadas} son equivalentes: el
+	sistema de ecuaciones $\partial Q/\partial x_i=0$ est\'a representado
+	por la matriz
+	\begin{displaymath}
+		\begin{bmatrix}
+			2\,a^1 & a^{12} & \cdots & a^{1n} \\
+			a^{12} & 2\,a^2 & \cdots & a^{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a^{1n} & a^{2n} & \cdots & 2\,a^n
+		\end{bmatrix}\,=\,2\,M
+	\end{displaymath}
+	%
+	igual a dos veces la matriz $M$ asociada a la forma bilineal asociada a
+	$Q$.
+\end{proof}
+
+Sea $V$ un espacio vectorial de dimensi\'on $n\geq 1$ sobre un cuerpo $F$ de
+caracter\'{\i}stica distinta de $2$ y sea $Q$ una forma cuadr\'atica en $V$ no
+nula. Fijando una base de $V$, la forma $Q$ est\'a representada por un
+polinomio homog\'eneo de grado $2$ y determina una hipersuperficie proyectiva
+definida sobre $F$.
+
+\begin{coroCuadImp}\label{coro:impar:cuadricas}
+	Si $n\geq 3$, entonces $Q$ es no degenerada, si y s\'olo si la
+	hipersuperficie $\{Q=0\}$ en $\bb P^{n-1}(\algclos F)$ es irreducible
+	y suave. Cuando $n=2$, $\{Q=0\}$ contiene dos puntos en
+	$\bb P^1(\algclos F)$, si $Q$ es no degenerada, y contiene un punto, si
+	$Q$ es degenerada.
+\end{coroCuadImp}
+
+% \subsection{Algunos invariantes}\label{subsec:cuadraticas:impar:invariantes}
+% La dimensi\'on de un espacio cuadr\'atico $(V,Q)$ es un invariante. El
+% discriminante $\discriminante\,Q$ y la imagen $Q(V)\subset F$ tambi\'en lo
+% son.
+
+\begin{ejerCuadImp}\label{ejer:impar:norma}
+	Sea $K/F$ una extensi\'on cuadr\'atica. Probar que la funci\'on norma
+	$\Norma[K/F]$ es una forma cuadr\'atica no degenerada, sin vectores
+	isotr\'opicos.
+\end{ejerCuadImp}
+
+\begin{ejerCuadImp}\label{ejer:impar:traza}
+	Sea $K=\bb Q(\theta)$, donde $\theta$ es ra\'{\i}z de un polinomio
+	irreducible c\'ubico de la forma $f=X^3+a\,X+b$. Sea
+	$Q(\alpha)=\Traza[K/\bb Q](\alpha^2)$. Probar que $Q$ es una forma
+	cuadr\'atica sobre $\bb Q$ cuya clase de equivalencia est\'a
+	determinada por el valor $4\,a^3+27\,b^2$.%
+	\footnote{
+		Interpretar.
+	}
+\end{ejerCuadImp}
+

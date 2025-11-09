@@ -1,0 +1,115 @@
+Dado un n\'umero natural $N\geq 1$, el \emph{subgrupo principal de %
+congruencia de nivel $N$} es el siguiente subgrupo del grupo modular:
+% \footnote{
+	% Se omite la referencia al g\'enero, $g$.
+% }
+\begin{displaymath}
+	\GrupoPrincipal(N) \,=\,\Big\{M\in\modulgruppe[g]\,:\,
+		M\equiv\Id[g]\tmodulo[N]\Big\}
+	\dispstop
+\end{displaymath}
+%
+Este subgrupo es el n\'ucleo del morfismo
+$\modulgruppe[g]\rightarrow \Sp(g,\Enterosmod[N])$ dado por reducir las
+coordenadas m\'odulo $N$; es un subgrupo normal de \'{\i}ndice finito. Un
+\emph{subgrupo de congruencia} es un subgrupo $K\leq\GSp(g,\Reales)^+$ que
+cumple con:
+\begin{itemize}
+	\item
+		%\label{item:subgrupos:conmensurabilidad}
+		ser \emph{conmensurable con $\modulgruppe[g]$}, es decir,
+		$K\cap\modulgruppe[g]$ tiene \'{\i}ndice finito en
+		$\modulgruppe[g]$ y en $K$, y
+	\item
+		%\label{item:subgrupos:nivel}
+		contener un subgrupo principal de congruencia.
+\end{itemize}
+%
+Por ejemplo, si $g=2$, los subgrupos
+\begin{displaymath}
+	\begin{aligned}
+		\varGrupoSiegel(N) & \,:=\,\bigg\{
+			\begin{bmatrix} A & B \\ C & D \end{bmatrix}\in
+				\modulgruppe[2]\,:\,C\equiv0\tmodulo[N]
+			\bigg\}\,=\,\modulgruppe[2]\,\cap\,
+				\begin{bmatrix}
+					\Enteros & \Enteros & \Enteros & \Enteros \\
+					\Enteros & \Enteros & \Enteros & \Enteros \\
+					N\Enteros & N\Enteros & \Enteros & \Enteros \\
+					N\Enteros & N\Enteros & \Enteros & \Enteros
+				\end{bmatrix}
+			\dispand \\
+		\varGrupoParamodular(N) & \,:=\,\Sp(2,\Racionales)\,\cap\,
+			\begin{bmatrix}
+				\Enteros & \Enteros & \tfrac 1 N\Enteros & \Enteros \\
+				N\Enteros & \Enteros & \Enteros & \Enteros \\
+				N\Enteros & N\Enteros & \Enteros & N\Enteros \\
+				N\Enteros & \Enteros & \Enteros & \Enteros
+			\end{bmatrix}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+son subgrupos de congruencia. El grupo $\varGrupoSiegel(N)$ se conoce como
+\emph{grupo de congruencia de Siegel de nivel $N$}; el grupo
+$\varGrupoParamodular(N)$ es el \emph{grupo paramodular de nivel $N$}.
+% \footnote{
+	% En general,
+	% \begin{displaymath}
+		% \Sp[2g](\bb Q)\,\cap\,
+			% \begin{bmatrix}
+				% \Id[g] & \\ & P
+			% \end{bmatrix}\,\MM[g\times g](\Enteros)\,
+			% \begin{bmatrix}
+				% \Id[g] & \\ & P^{-1}
+			% \end{bmatrix}
+	% \end{displaymath}
+	% donde $P=\diag(\lista t{g})$, $t_i\in\Enteros$, $t_i|t_{i+1}$.
+% }
+Los subgrupos
+\begin{displaymath}
+	\begin{aligned}
+		\varGrupoKlingen(N) & \,:=\, \modulgruppe[2]\,\cap\,
+				\begin{bmatrix}
+					\Enteros & \Enteros & \Enteros & \Enteros \\
+					N\Enteros & \Enteros & \Enteros & \Enteros \\
+					N\Enteros & N\Enteros & \Enteros & N\Enteros \\
+					N\Enteros & \Enteros & \Enteros & \Enteros
+				\end{bmatrix}
+			\,=\,\modulgruppe[2]\,\cap\,\varGrupoParamodular(N)
+			\dispand \\
+		\varGrupoBorel(N) & \,:=\, \modulgruppe[2]\,\cap\,
+				\begin{bmatrix}
+					\Enteros & \Enteros & \Enteros & \Enteros \\
+					N\Enteros & \Enteros & \Enteros & \Enteros \\
+					N\Enteros & N\Enteros & \Enteros & N\Enteros \\
+					N\Enteros & N\Enteros & \Enteros & \Enteros
+				\end{bmatrix}
+			% \,=\,\varGrupoSiegel(N)\,\cap\,\varGrupoParamodular(N)
+			\,=\,\varGrupoSiegel(N)\,\cap\,\varGrupoKlingen(N)
+			\dispcomma
+	\end{aligned}
+	%
+\end{displaymath}
+%
+el \emph{subgrupo de congruencia de Klingen} y
+el \emph{subgrupo de congruencia de Borel}, respectivamente,
+tambi\'en son subgrupos de congruencia.
+Todos estos grupos contienen al subgrupo principal de nivel $N$.
+\begin{figure}[h]
+	\centering
+	\begin{tikzcd}[row sep=small]
+		& \modulgruppe[2] & & \\
+		& & & \varGrupoParamodular(N) \\
+		\varGrupoSiegel(N) \arrow[uur,-] & & & \\
+		& & \varGrupoKlingen(N) \arrow[uur,-] \arrow[uuul,-] & \\
+		& \varGrupoBorel(N) \arrow[ur,-] \arrow[uul,-] & &
+	\end{tikzcd}
+	\caption{Diagrama de las relaciones de inclusi\'on entre los %
+		subgrupos de congruencia.}
+	\label{fig:icongruencia:subgrupos}
+\end{figure}
+
+Los subgrupos de congruencia admiten una noci\'on de forma modular; la
+definici\'on es an\'aloga a la de formas de Siegel para el grupo
+$\modulgruppe[g]$.

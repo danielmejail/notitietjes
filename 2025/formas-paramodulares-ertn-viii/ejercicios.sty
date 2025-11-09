@@ -1,0 +1,28 @@
+\ProvidesPackage{ejercicios}
+
+\newcommand{\quedacomoejercicio}{\hl{\textbf{(ejercicio)}}}
+\newcommand{\hintname}{Hint}
+\newcommand{\hint}[1]{\footnote{\hintname: #1}}
+
+\newcommand{\soluname}{Soluci\'on}
+\newenvironment{solucion}[1][\soluname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+
+% \theoremstyle{definition}
+% \newtheorem{ejer}{Ejercicio}
+% \newcommand{\bej}{\begin{ejer}}
+% \newcommand{\eej}{\end{ejer}}
+% 
+% \theoremstyle{remark}
+% \newtheorem*{solu}{Soluci\'on}
+% \newcommand{\bso}{\begin{solu}}
+% \newcommand{\eso}{\end{solu}}
+

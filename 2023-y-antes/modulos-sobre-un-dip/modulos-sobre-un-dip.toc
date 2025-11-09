@@ -1,0 +1,23 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Otras convenciones}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}M\'{o}dulos noetherianos}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Dominios de ideales principales}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}M\'{o}dulos c\'{\i }clicos}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}M\'{o}dulos de torsi\'{o}n y el Teorema de estructura}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Definiciones y enunciado del teorema}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Demostraci\'{o}n del Teorema de estructura}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Unicidad de la descomposici\'{o}n \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces 3\hbox {}\unskip \@@italiccorr )}}}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}La noci\'{o}n de longitud}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}M\'{o}dulos primarios y el Teorema de descomposici\'{o}n}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Referencias}{22}

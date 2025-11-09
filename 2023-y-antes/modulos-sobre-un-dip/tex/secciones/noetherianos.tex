@@ -1,0 +1,84 @@
+\theoremstyle{plain}
+\newtheorem{teoNoetherSubmodFG}{Teorema}[section]
+\newtheorem{lemaNoetherSEC}[teoNoetherSubmodFG]{Lema}
+\newtheorem{teoModuloSobreNoetheriano}[teoNoetherSubmodFG]{Teorema}
+
+\theoremstyle{definition}
+\newtheorem{obsNoetherSubmodMax}[teoNoetherSubmodFG]{Observaci\'{o}n}
+
+%-----------
+
+Sea $R$ un anillo con unidad. Sea $A$ un $R$-m\'{o}dulo (a derecha). Se dice
+que \emph{$A$ cumple con la condici\'{o}n de cadenas ascendentes (de %
+subm\'{o}dulos)}, o que \emph{$A$ es noetheriano}, si toda sucesi\'{o}n
+\begin{align*}
+	S_{0} & \,\subset\, S_{1}\,\subset\,\cdots\,\subset\,A
+\end{align*}
+%
+de subm\'{o}dulos es eventualmente constante, es decir, existe $m\geq 0$
+tal que $S_{m+k}=S_{m}$ para todo $k\geq 0$ ($S_{n+1}=S_{n}$ para todo
+$n\geq m$).
+
+\begin{teoNoetherSubmodFG}\label{teo:noetherianos:submodfg}
+	Un $R$-m\'{o}dulo a derecha cumple con la condici\'{o}n de cadenas
+	ascendentes, si y s\'{o}lo si todo subm\'{o}dulo es f.g. En particular,
+	en tal caso, el $R$-m\'{o}dulo es f.g.
+\end{teoNoetherSubmodFG}
+
+Se dice que el anillo \emph{$R$ es noetheriano a derecha}, si $R_{R}$ es
+noetheriano en tanto $R$-m\'{o}dulo a derecha. Si $R$ es conmutativo, se dice,
+simplemente, que $R$ es noetheriano. Todo dominio de ideales principales es
+noetheriano.
+
+\begin{obsNoetherSubmodMax}\label{obs:noetherianos:submodmax}
+	Todo m\'{o}dulo noetheriano posee subm\'{o}dulos propios maximales. En
+	particular, todo anillo noetheriano posee ideales (unilaterales)
+	propios maximales. M\'{a}s aun, sean $R$ y $Q$ anillos y sea $M$ un
+	$Q,R$-bim\'{o}dulo, noetheiano respecto de $R$. Consideremos la familia
+	de sub-$R$-m\'{o}dulos de $M$ invariantes por la acci\'{o}n de $Q$ a
+	izquierda. Dentro de esta familia tomamos una cadena, $\cal C$. Si
+	$N=\bigcup\,\cal C$, entonces $N$ es un sub-$Q,R$-bim\'{o}dulo de $M$.
+	Podr\'{\i}a no ser propio, \emph{a priori}. Pero $N$ es f.g., por ser
+	sub-$R$-m\'{o}dulo, es decir que existe un conjunto finito
+	$\{\lista{x}{n}\}$ de generadores de $N$ (en tanto $R$-m\'{o}dulo).
+	Ahora, como $x_1\in N$, existe $S_1\in\cal C$ tal que $x_1\in S_1$.
+	Para $k>1$, existe $S_k\in\cal C$ tal que $x_k\in S_k$. Si $x_k$ no
+	perteneciera a $S_{k-1}$, entonces, como $\cal C$ es un conjunto
+	totalmente ordenado, $S_{k-1}\subset S_k$. En todo caso, para $k>1$,
+	existe $S_k$ tal que $S_{k-1}$ est\'{e} contenido en $S_k$ y $x_k$
+	pertenezca a $S_k$. Inductivamente, $S_n\supset\{\lista{x}{n}\}$ y,
+	dado que $N$ est\'{a} generado por este conjunto, $S_n$ es un
+	$R$-m\'{o}dulo y $N\supset S_n$,
+	\begin{align*}
+		N & \,=\,\bigcup\,\cal C\,=\,S_n\,\in\,\cal C
+	\end{align*}
+	%
+	es un elemento de la cadena y, en particular, de la familia de
+	sub-$Q,R$-bim\'{o}dulos propios de $M$. Como corolario, todo anillo
+	noetheriano posee ideales \emph{bil\'{a}teros} propios maximales,
+	tambi\'{e}n.
+\end{obsNoetherSubmodMax}
+
+\begin{lemaNoetherSEC}\label{lema:noetherianos:sec}
+	Sea
+	\begin{tikzcd}[column sep=small]
+		0\arrow[r] & A\arrow[r] & B\arrow[r] & C\arrow[r] & 0
+	\end{tikzcd}
+	una suceseci\'{o}n exacta corta de $R$-m\'{o}dulos a derecha. Entonces
+	$B$ es noetheriano, si y s\'{o}lo si $A$ y $C$ lo son.
+\end{lemaNoetherSEC}
+
+\begin{teoModuloSobreNoetheriano}%
+	\label{teo:noetherianos:modulosobrenoetheriano}
+	Si $R$ es un anillo noetheriano a derecha, un $R$-m\'{o}dulo a derecha
+	es noetheriano, si (y s\'{o}lo si) es f.g. (Rec\'{\i}procamente, si
+	$R$ tiene esta propiedad, entonces es noetheriano).
+\end{teoModuloSobreNoetheriano}
+
+\begin{proof}
+	Considerar
+	\begin{tikzcd}[column sep=small]
+		0\arrow[r] & R^{n-1}\arrow[r] & R^{n}\arrow[r] & R\arrow[r] & 0
+	\end{tikzcd}
+	e inducci\'{o}n en $n$.
+\end{proof}

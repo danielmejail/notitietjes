@@ -1,0 +1,202 @@
+Si una funci\'on $f$ satisface \ref{item:modular:transformaciones}
+con $k=0$, entonces $f$ define una funci\'on en las \'orbitas
+$\modulgruppe\backslash\semiplano$.
+Si $k\neq 0$, esto no es cierto (salvo talvez en el caso de la
+funci\'on constante $0$).
+Sin embargo, entender el comportamiento de $f$ en un conjunto de
+representantes adecuado es esencialmente todo lo que se necesita
+para algunas aplicaciones.
+
+Ahora bien, el grupo modular $\modulgruppe$ contiene las matrices
+$\pm\Id$, que son los \'unicos elementos de $\SL(2,\Reales)$ que
+act\'uan trivialmente en $\semiplano$.
+En particular, toda forma modular de peso entero impar debe ser
+id\'enticamente cero. Si $\gamma\in\SL(2,\Reales)$, ser\'a conveniente
+pensar en las matrices $\pm\gamma$ como la misma.
+
+\begin{obsDefiniciones}\label{obs:definiciones:generadores}
+	M\'odulo $\pm\Id$, el subgrupo
+	$\modulgruppe\subgrpeq\SL(2,\Reales)$ est\'a generado
+	por las matrices
+	\begin{displaymath}
+		T\,=\,\begin{bmatrix} 1 & 1 \\ & 1 \end{bmatrix}
+		\dispand
+		S\,=\,\begin{bmatrix} & -1 \\ 1 & \end{bmatrix}
+		\dispstop
+	\end{displaymath}
+	%
+	Estas matrices act\'uan de la siguiente manera:
+	\begin{displaymath}
+		z\,\mapsto\,z+1\dispand
+		z\,\mapsto\,-1/z
+		\dispstop
+	\end{displaymath}
+	%
+	En particular, para verificar si una funci\'on $f$ cumple
+	con la propipedad \ref{item:modular:transformaciones},
+	alcanza con verificar que se cumplan las siguientes
+	igualdades:
+	\begin{displaymath}
+		f(z+1)\,=\,f(z)\dispand
+		f(-1/z)\,=\,z^k\,f(z)
+		\dispcomma
+	\end{displaymath}
+	%
+	donde $k$ ser\'{\i}a el peso de $f$.
+\end{obsDefiniciones}
+
+\begin{defDefiniciones}\label{def:definiciones:fundamental}
+	Un \emph{dominio fundamental} es un subconjunto
+	$\cal F\subseteq\semiplano$ que
+	\begin{enumerate}[label=(F\arabic*)]
+		\item\label{item:fundamental:abierto}
+			es abierto,
+		\item\label{item:fundamental:representantes}
+			no contiene dos puntos de la misma \'orbita
+			y toda \'orbita interseca su clausura y
+		\item\label{item:fundamental:conexo}
+			es conexo.
+	\end{enumerate}
+	%
+\end{defDefiniciones}
+
+\newcommand{\aFundamental}[1][]{\ensuremath{\mathcal{F}_{#1}}}
+\newcommand{\sFundamental}[1][]{\ensuremath{\widetilde{\mathcal F}_{#1}}}
+\newcommand{\cFundamental}[1][]{\ensuremath{\overline{\mathcal F}_{#1}}}
+\begin{teoDefiniciones}\label{teo:definiciones:fundamental}
+	El conjunto
+	\begin{displaymath}
+		\aFundamental\,=\,\big\{z\in\semiplano\,:\,
+			|z|>1,\,|\Real(z)|<1/2\big\}
+	\end{displaymath}
+	%
+	es un dominio fundamental para $\modulgruppe$.
+\end{teoDefiniciones}
+
+\begin{proof}
+	Si $z\in\semiplano$, el subconjunto
+	$L=\{mz+n\,:\,m,n\in\Enteros\}\subset\Complejos$ es un
+	ret\'{\i}culo y posee un punto de m\'odulo m\'{\i}nimo
+	$cz+d$ (minimiza $|mz+n|$ con $m,n\in\Enteros$ no ambos nulos).
+	Deber ser $\mcd{c,d}=1$, por minimalidad. Entonces, existe
+	$\gamma_1\in\modulgruppe$ tal que
+	$\gamma_1=\sbmatrix{ * & * \\ c & d }$. Por la f\'ormula
+	\eqref{eq:definiciones:imaginaria}, el valor
+	$\Imag(\gamma_1\accion z)$ es m\'aximo entre
+	$\Imag(\gamma\accion z)$, $\gamma\in\modulgruppe$.
+	Sea $h\in\Enteros$ tal que $|\Real(\gamma_1\accion z + h)|\leq 1/2$
+	y sea $z^*=T^h\gamma_1\accion z=\gamma_1\accion z + h$.
+	El punto $z^*\in\cFundamental$: si fuese $|z^*|<1$, entonces
+	$\Imag(S\accion{z^*})=\Imag(z^*)/|z^*|^2>\Imag(z^*)$
+	contradir\'{\i}a la maximalidad de $\Imag(z^*)$.
+
+	Supongamos, ahora, que $z_1,z_2\in\aFundamental$ y que
+	$\gamma\in\modulgruppe$ satisfacen $\gamma\accion{z_1}=z_2$.
+	Como $|\Real(z_1)|<1/2$ y tambi\'en $|\Real(z_2)|<1/2$,
+	debe ser $c\neq 0$, o bien $c=b=0$ (o sea $\gamma=\pm\Id$;
+	hay una f\'ormula para la parte real, tambi\'en, pero
+	oscurecer\'{\i}a; talvez en otros contextos tal f\'ormula
+	se vuelve imprescindible, por falta de intuici\'on o
+	visi\'on/visibilidad). Si fuese $c\neq 0$, notando que
+	$\Imag(z)>\sqrt 3/2$ para $z\in\aFundamental$, se ve que
+	\begin{displaymath}
+		\frac{\sqrt 3} 2\,<\,\Imag(z_2)\,=\,
+			\frac{\Imag(z_1)}{|cz_1+d|^2}\,\leq\,
+			\frac{\Imag(z_1)}{c^2\Imag(z_1)^2}\,<\,
+			\frac 2{c^2\sqrt 3}
+		\dispstop
+	\end{displaymath}
+	%
+	Pero, entonces, deber\'{\i}a ser $c=\pm 1$. Esto es absurdo,
+	pues $|\pm z_1+d|\geq |z_1|>1$ y, por lo tanto, suponiendo
+	sin p\'erdida de generalidad que era $\Imag(z_1)\leq\Imag(z_2)$,
+	\begin{displaymath}
+		\Imag(z_1)\,\leq\,\Imag(z_2)\,=\,
+			\frac{\Imag(z_1)}{|\pm z_1+d|^2}\,<\,\Imag(z_1)
+		\dispstop
+	\end{displaymath}
+	%
+\end{proof}
+
+% \paragraph{Aplicaci\'on: finitud del n\'umero de clases}
+% \newcommand{\red}{\ensuremath{\mathsf{red}}}
+% Una forma cuadr\'atica binaria es una expresi\'on del tipo
+% \begin{displaymath}
+	% Q(x,y)\,=\,Ax^2\,+\,Bxy\,+\,Cy^2
+	% \dispstop
+% \end{displaymath}
+% %
+% su discriminante es $B^2-4AC$. Si $A,B,C\in\Enteros$, entonces
+% $D=B^2-4AC\in\Enteros$ y, de hecho, $D\equiv 0,1\tmodulo[4]$.
+% Si el discriminante de una forma cuadr\'atica es negativo,
+% entonces la forma es definida. En particular, toma s\'olo
+% valores positivos o s\'olo valores negativos. En el primer caso,
+% decimos que la forma es definida positiva. Esto es lo mismo que
+% pedir que $A>0$.
+% 
+% El grupo $\modulgruppe$ act\'ua en el conjunto $\cal Q$ de formas
+% cuadr\'aticas (binarias, con coeficientes enteros):
+% si $Q\in\cal Q$ y $\gamma=\sbmatrix{ a & b \\ c & d }\in\modulgruppe$,
+% entonces podemos definir una nueva forma cuadr\'atica por
+% \begin{displaymath}
+	% (Q\cdot\gamma)(x,y)\,=\,Q(ax+by,cx+dy)
+	% \dispstop
+% \end{displaymath}
+% %
+% Se verifica que $Q\cdot\gamma\in\cal Q$.
+% Dos formas $Q$ y $Q'$ son (propiamente) equivalentes, si existe
+% $\gamma\in\modulgruppe$ tal que $Q'=Q\cdot\gamma$.
+% 
+% Dado $D\equiv 0,1\tmodulo[4]$, sea $\cal Q_D\subseteq\cal Q$
+% el subconjunto de formas de discriminante $D$.
+% Si $Q$ y $Q'$ son equivalentes entonces:
+% \begin{itemize}
+	% \item $Q$ y $Q'$ tienen igual discriminante y
+	% \item $Q$ y $Q'$ toman los mismos valores (la misma cantidad de veces).
+% \end{itemize}
+% %
+% En particular, $\modulgruppe$ act\'ua en $\cal Q$ preservando cada
+% $\cal Q_D$. M\'as aun, si $D<0$ y $\cal Q_D^+\subseteq\cal Q_D$ es el
+% subconjunto de formas de discriminante $D$ y definidas positivas, entonces
+% $\modulgruppe$ preserva $\cal Q_D^+$.
+% 
+% \begin{teoDefiniciones}\label{teo:definiciones:numero}
+	% La contidad de clases de equivalencia propia de formas
+	% cuadr\'aticas binarias, con coeficientes enteros, de
+	% discriminante $D<0$ y definidas positivas es finito.
+% \end{teoDefiniciones}
+% 
+% \begin{proof}
+	% Dada $Q=\binaria{A,B,C}\in\cal Q_D^+$,
+	% definimos $z_Q\in\semiplano$ por
+	% \begin{displaymath}
+		% z_Q\,=\,\frac{-B+\sqrt D}{2A}
+	% \end{displaymath}
+	% %
+	% (donde $\sqrt D$ es la ra\'{\i}z de $D$ perteneciente a $\semiplano$;
+	% o sea, podemos elegir consistentemente una ra\'{\i}z
+	% $z_Q$ de cada polinomio $Q(z,1)$, de manera que $z_Q\in\semiplano$).
+	% Se puede comprobar que, si $\gamma\in\modulgruppe$ y $Q\in\cal Q_D^+$,
+	% entonces
+	% \begin{displaymath}
+		% z_{Q\cdot\gamma}\,=\,\gamma^{-1}\accion{z_Q}
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% Adem\'as, $z_Q\in\sFundamental$, si y s\'olo si $Q$
+	% pertenece al subconjunto de formas reducidas:
+	% \begin{displaymath}
+		% \cal Q_D^{+,\red}\,=\,
+			% \big\{\binaria{A,B,C}\in\cal Q_D^+\,:\,
+				% -A<B\leq A<C\dispor
+				% 0\leq B\leq A=C\big\}
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% Pero el subconjunto $\cal Q_D^{+,\red}$ es finito y
+	% toda $Q\in\cal Q_D^+$ es propiamente equivalente a una
+	% (\'unica) $Q'\in\cal Q_D^{+,\red}$, pues
+	% $z_Q$ es equivalente v\'{\i}a $\modulgruppe$ a un
+	% (\'unico) $z'\in\sFundamental$.
+% \end{proof}
+% 

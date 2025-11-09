@@ -1,0 +1,460 @@
+\theoremstyle{definition}
+\newtheorem{defMonoide}{Definici\'{o}n}[section]
+\newtheorem{ejemploMonoide}[defMonoide]{Ejemplo}
+\newtheorem{defMonoideUnidades}[defMonoide]{Definici\'{o}n}
+\newtheorem{obsMonoideUnidades}[defMonoide]{Observaci\'{o}n}
+\newtheorem{defSubmonoide}[defMonoide]{Definici\'{o}n}
+\newtheorem{obsSubmonoide}[defMonoide]{Observaci\'{o}n}
+\newtheorem{ejemploSubmonoide}[defMonoide]{Ejemplo}
+\newtheorem{defMonoideMorfismo}[defMonoide]{Definici\'{o}n}
+\newtheorem{obsMonoideMorfismo}[defMonoide]{Observaci\'{o}n}
+\newtheorem{defMonoideCociente}[defMonoide]{Definici\'{o}n}
+\newtheorem{obsMonoideCociente}[defMonoide]{Observaci\'{o}n}
+\newtheorem{ejemploMonoideCociente}[defMonoide]{Ejemplo}
+\newtheorem{obsMonoideMonomorfismo}[defMonoide]{Observaci\'{o}n}
+
+\theoremstyle{plain}
+\newtheorem{propoMonoideCociente}[defMonoide]{Proposici\'{o}n}
+
+%-------------
+
+\begin{defMonoide}\label{def:monoide}
+	Un \emph{monoide} es una terna $(M,*,e)$ conformada por un conjunto
+	\emph{no vac\'{\i}o} $M$, una operaci\'{o}n binaria
+	$*:\,M\times M\rightarrow M$ \emph{asociativa} y un elemento $e\in M$
+	con la propiedad de que $e*x=x=x*e$ cualquiera sea $x\in M$. Llamamos
+	\emph{producto en $M$} a la operaci\'{o}n binaria $*$ y \emph{unidad %
+	de $M$} al elemento $e$. Si la operaci\'{o}n $*$ es conmutativa,
+	decimos que el monoide es \emph{conmutativo}.
+\end{defMonoide}
+
+Para simplificar la notaci\'{o}n, a veces escribiremos $x\,y$ en lugar de
+$x*y$. Tambi\'{e}n diremos, simplemente, que $M$ es un monoide, sin hacer
+expl\'{\i}citas la operaci\'{o}n $*$ ni la unidad $e$.
+
+\begin{ejemploMonoide}\label{ejemplo:monoide:naturales}
+	La terna $(\bb N_0,+,0)$, conformada por el conjunto de n\'{u}meros
+	naturales con el $0$, la suma usual en $\bb N_0$ y el $0$ como primer
+	elemento, es un monoide. Tambi\'{e}n es un monoide la terna
+	$(\bb Z,+,0)$.
+\end{ejemploMonoide}
+
+\begin{ejemploMonoide}\label{ejemplo:monoide:naturales:multiplicativo}
+	La terna $(\bb N,\cdot,1)$ es un monoide con el producto dado por la
+	multiplicaci\'{o}n usual en $\bb N$. Tambi\'{e}n son monoides
+	$(\bb N_0,\cdot,1)$ y $(\bb Z,\cdot,1)$.
+\end{ejemploMonoide}
+
+\begin{ejemploMonoide}\label{ejemplo:monoide:anillo}
+	En general, si $R$ es un anillo (con unidad), entonces
+	$(R,+,0)$ y $(R,\cdot,1)$ son monoides, donde $+$ denota la suma en
+	$R$ y $\cdot$ denota el producto en $R$.
+\end{ejemploMonoide}
+
+\begin{ejemploMonoide}\label{ejemplo:monoide:anillo:conjuntomultiplicativo}
+	Sea $R$ un anillo, Si $R^\times$ denota el grupo de unidades (elementos
+	con inverso multiplicativo), entonces $(R^\times,\cdot,1)$ es un
+	monoide. M\'{a}s en general, si $M\subset R$ es un subconjnto
+	multiplicativamente cerrado que contiene a $1$, entonces $(M,\cdot,1)$
+	es un monoide.%
+	\footnote{
+		Si no asumimos que $1\in M$, se obtiene un \emph{semigrupo}.
+	}
+	En particular, si $D$ es un dominio, $(D\setmin\{0\},\cdot,1)$ es un
+	monoide.
+\end{ejemploMonoide}
+
+\begin{ejemploMonoide}\label{ejemplo:monoide:partes}
+	Sea $S$ un conjunto y sea $\partes(S)$ el conjunto de partes de $S$.
+	Las ternas $(\partes(S),\cap,S)$, $(\partes(S),\cup,\varnothing)$ y
+	$(\partes(S),\Delta,\varnothing)$ son monoides.
+\end{ejemploMonoide}
+
+\begin{defMonoideUnidades}\label{def:monoide:unidades}
+	Sea $M$ un monoide. Decimos que $x\in M$ es \emph{invertible a %
+	izquierda}, si existe $x'\in M$ tal que $x'\,x=e$ y que es
+	\emph{invertible a derecha}, si existe $x'$ tal que $x\,x'=M$. Decimos
+	que $x\in M$ es \emph{invertible},%
+	\footnote{
+		Tambi\'{e}n decimos que $x$ es una \emph{unidad en $M$}, en el
+		caso del monoide multiplicativo de un anillo.
+	}
+	si es invertible a izquierda y a derecha.
+	% Denotamos por $M^\times$ al subconjunto de elementos invertibles
+	% en $M$.
+\end{defMonoideUnidades}
+
+\begin{obsMonoideUnidades}\label{obs:monoide:unidades}
+	Sea $M$ un monoide y sea $U\subset M$ el subconjunto de elementos
+	invertibles. Dado $x\in U$, existen, por definici\'{o}n, $x',x''\in M$
+	tales que $x'\,x=e=x\,x''$. Como el producto en $M$ es asociativo,
+	podemos deducir que
+	\begin{align*}
+		x' & \,=\,x'\,e\,=\,x'\,(x\,x'')\,=\,(x'\,x)\,x''\,=\,e\,x''
+			\,=\,x''
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, si $x$ es invertible, entonces los inversos a izquierda y
+	a derecha coinciden. En particular, si $x$ es invertible, hay un
+	\'{u}nico elemento de $M$ que es inverso $x$ (tanto a derecha, como a
+	izquierda). Por otro lado, si $M$ es conmutativo, no hay distinci\'{o}n
+	entre inversos a izquierda e inversos a derecha, con lo cual, en ese
+	caso, s\'{o}lo tiene sentido hablar de elementos invertibles y de
+	inversos, a secas.
+\end{obsMonoideUnidades}
+
+\begin{defSubmonoide}\label{def:submonoide}
+	Un \emph{submonoide} de un monoide $(M,*,e)$ es un subconjunto
+	$N$ de $M$ que contiene a la unidad y es cerrado por la
+	multiplicaci\'{o}n en $M$. En s\'{\i}mbolos, $N\subset M$,
+	\begin{enumerate}[(i)]
+		\item $e\in N$ y
+		\item $x,y\in N$ implica $x*y\in N$.
+	\end{enumerate}
+	%
+\end{defSubmonoide}
+
+\begin{obsSubmonoide}\label{obs:submonoide}
+	Si $N\subset M$ es un submonoide de $(M,*,e)$, entonces
+	$(N,*,e)$ es un monoide. Si $N\subset M$ es un submonoide de $(M,*,e)$
+	y $\tilde N\subset N$ es un submonoide de $(N,*,e)$, entonces
+	$\tilde N\subset M$ es un submonoide de $(M,*,e)$.
+\end{obsSubmonoide}
+
+\begin{obsSubmonoide}\label{obs:submonoide:unidades}
+	Si $M$ es un monoide, el subconjunto $U\subset M$ de elementos
+	invertibles es un submonoide. En particular, es un monoide con la
+	estructura heredada de $M$. M\'{a}s aun, es un grupo con dicha
+	estructura. Los elementos invertibles a izquierda constituyen un
+	submonoide de $M$, como tambi\'{e}n los invertibles a derecha.
+\end{obsSubmonoide}
+
+\begin{ejemploSubmonoide}\label{ejemplo:submonoide:naturales}
+	En el Ejemplo~\ref{ejemplo:monoide:naturales}, $\bb N_0\subset\bb Z$ es
+	un submonoide de $(\bb Z,+,0)$.
+\end{ejemploSubmonoide}
+
+\begin{ejemploSubmonoide}\label{ejemplo:submonoide:naturales:multiplicativo}
+	En el Ejemplo~\ref{ejemplo:monoide:naturales:multiplicativo},
+	$\bb N_0\subset\bb Z$ es un submonoide de $(\bb Z,\cdot,1)$ y
+	$\bb N\subset\bb N_0$ es un submonoide de $(\bb N_0,\cdot,1)$.
+\end{ejemploSubmonoide}
+
+\begin{ejemploSubmonoide}\label{ejemplo:submonoide:dominio}
+	Dado un dominio $D$, el conjunto de unidades $D^\times$ es submonoide
+	de $D\setmin\{0\}$.
+\end{ejemploSubmonoide}
+
+\begin{defMonoideMorfismo}\label{def:monoide:morfismo}
+	Dados monoides $(M,*_M,e_M)$ y $(N,*_N,e_N)$, un
+	\emph{morfismo de monoides (de $M$ en $N$)} es una funci\'{o}n
+	$f:\,M\rightarrow N$ que verifica:
+	\begin{enumerate}[(i)]
+		\item\label{def:monoide:morfismo:i}
+			$f(e_M)=e_N$ y
+		\item\label{def:monoide:morfismo:ii}
+			$f(x*_M y)=f(x)*_N f(y)$, para todo par de elementos
+			$x,y\in M$.
+	\end{enumerate}
+	%
+\end{defMonoideMorfismo}
+
+En general, omitiremos los sub\'{\i}ndices para distinguir el producto en $M$
+del producto en $N$ y la unidad de $M$ de la unidad de $N$.
+
+\begin{obsMonoideMorfismo}\label{obs:monoide:morfismo:nucleoimagen}
+	Si $f:\,M\rightarrow N$ es un morfismo de monoides, los subconjuntos
+	\begin{align*}
+		K\,:=\,f^{-1}(e) \,=\,
+			\big\{x\in M\,:\,f(x)=e\big\}\,\subset\,M
+			& \quad\text{e}\quad
+		\img(f) \,=\,\big\{f(x)\,:\,x\in M\big\}\,\subset\,N
+	\end{align*}
+	%
+	son submonoides. Por el \'{\i}tem~\ref{def:monoide:morfismo:i} de la
+	Definici\'{o}n~\ref{def:monoide:morfismo}, $e\in K$ y, por el
+	\'{\i}tem~\ref{def:monoide:morfismo:ii}, si $x,y\in K$, entonces
+	$f(x\,y)=f(x)\,f(y)=e\,e=e$ y $x\,y\in K$. En definitiva, $K\subset M$
+	es un submonoide. Por otro lado, como $f(e)=e$, $e\in\img(f)$ y si
+	$f(x),f(y)\in\img(f)$, entonces $f(x)\,f(y)=f(x\,y)\in\img(f)$,
+	tambi\'{e}n. As\'{\i}, vemos que $\img(f)\subset N$ es un submonoide.
+\end{obsMonoideMorfismo}
+
+Si $f:\,M\rightarrow N$ es morfismo de grupos, $K=f^{-1}(e)$ es, simplemente,
+el n\'{u}cleo de $f$. Pero en la categor\'{\i}a de monoides, no existe una
+manera can\'{o}nica de asociarle un objeto n\'{u}cleo a un morfismo. El
+submonoide $K$ no tiene, en general, la propiedad universal correspondiente.
+
+\begin{obsMonoideCociente}\label{obs:monoide:cociente}
+	Dado un morfismo $f:\,M\rightarrow N$ podemos definir la siguiente
+	relaci\'{o}n en $M$
+	\begin{equation}
+		\label{eq:monoide:cociente:mismaimagen}
+		x\,\sim\,y \,\Leftrightarrow\,f(x)\,=\,f(y)
+		\text{ .}
+	\end{equation}
+	%
+	Esta relaci\'{o}n es reflexiva, sim\'{e}trica y transitiva, con lo que
+	es de equivalencia. Al conjunto de clases $M/\sim$ podemos darle una
+	estructura de monoide. Si $x\in M$, denotamos su clase en $M/\sim$ por
+	$\clase x$. Dados $x,y\in M$, definimos
+	\begin{equation}
+		\label{eq:monoide:cociente}
+		\clase x\conj *\clase y \,:=\,\clase{x\,y}
+		\text{ .}
+	\end{equation}
+	%
+	La clase $\clase{x\,y}$ est\'{a} bien definida, pues, si $x\sim x'$ e
+	$y\sim y'$, entonces
+	\begin{align*}
+		f(x'\,y') & \,=\, f(x')\,f(y') \,=\, f(x)\,f(y) \,=\, f(x\,y)
+		\text{ .}
+	\end{align*}
+	%
+	La clase $\clase e$ es un elemento neutro con respecto a $\conj *$:
+	\begin{align*}
+		\clase e\conj *\clase x \,=\,\clase{e\,x} \,=\,\clase x
+			& \quad\text{y}\quad
+		\clase x\conj *\clase e \,=\,\clase{x\,e} \,=\,\clase x
+		\text{ .}
+	\end{align*}
+	%
+	En definitiva, $(M/\sim,\conj *,\clase e)$ es un monoide.
+\end{obsMonoideCociente}
+
+La construcci\'{o}n de la Observaci\'{o}n~\ref{obs:monoide:cociente} se puede
+generalizar. Sea $M$ un monoide y supongamos dada una relaci\'{o}n de
+equivalencia en $M$ con la propiedad
+\begin{equation}
+	\label{eq:monoide:cociente:congruencia}
+	x\sim x',\,y\sim y' \,\Rightarrow x\,y\sim x'\,y'
+	\text{ .}
+\end{equation}
+%
+Entonces, si $M/\sim$ denota el conjunto de clases de equivalencia, $\conj *$
+denota la operaci\'{o}n binaria en $M/\sim$ definida como en
+\eqref{eq:monoide:cociente} y $\conj e=\clase e$, la terna
+$(M/\sim,\conj *,\conj e)$ es un monoide. Si $f:\,M\rightarrow N$ es un
+morfismo, la relaci\'{o}n en $M$ definida por $f(x)=f(y)\Rightarrow x\sim y$
+cumple con \eqref{eq:monoide:cociente:congruencia}.
+
+\begin{defMonoideCociente}\label{def:monoide:cociente}
+	Dado un monoide $M$, una relaci\'{o}n de equivalencia $\sim$ en $M$ que
+	verifica \eqref{eq:monoide:cociente:congruencia} se denomina
+	\emph{relaci\'{o}n de congruencia}. Si $\sim$ es una relaci\'{o} de
+	congruencia en $M$, llamamos \emph{monoide cociente (de $M$ por %
+	$\sim$)} al monoide $(M/\sim,\conj *,\conj e)$, donde $\conj e$ denota
+	la clase de $e$ con respecto a $\sim$ y $\conj *$ est\'{a} definida por
+	\eqref{eq:monoide:cociente}.
+\end{defMonoideCociente}
+
+En realidad, la construcci\'{o}n de la Observaci\'{o}n~%
+\ref{obs:monoide:cociente} es equivalente a la Definici\'{o}n~%
+\ref{def:monoide:cociente}, es decir, todo monoide cociente se puede
+recuperar como el m\'{o}dulo cociente por una relaci\'{o}n de la forma
+$f(x)=f(y)\Rightarrow x\sim y$, para alg\'{u}n morfismo $f:\,M\rightarrow N$.
+Notemos que, dado un monoide $M$ y una relaci\'{o}n de congruencia en $M$, la
+aplicaci\'{o}n $q:\,M\rightarrow M/\sim$ dada por $q(x)=\clase x$ --donde
+$\clase x=\{y\in M\,:\,y\sim x\}$ denota la clase de $x$ respecto de la
+relaci\'{o}n-- es un morfismo de monoides. M\'{a}s aun, vale que
+\begin{align*}
+	x\,\sim\, y & \,\Leftrightarrow\,q(x)\,=\,q(y)
+	\text{ ,}
+\end{align*}
+%
+con lo que la relaci\'{o}n $\sim$ en $M$ es un caso particular del tipo de
+relaciones visto en la Observaci\'{o}n~\ref{obs:monoide:cociente}.
+
+% \begin{obsMonoideCociente}\label{obs:monoide:cociente:nucleo}
+	% Dado un monoide $M$ y una relaci\'{o}n de congruencia en $M$, si
+	% denotamos $q:\,M\rightarrow M/\sim$ al morfismo dado por tomar clase,
+	% entonces
+	% \begin{align*}
+		% \ker(q) & \,=\,\big\{x\in M\,:\,\clase x=\clase e\big\}
+			% \,=\,\big\{x\in M\,:\,x\sim e\big\}\,=\,\clase e
+		% \text{ .}
+	% \end{align*}
+	% %
+	% Si $f:\,M\rightarrow N$ es un morfismo y $\sim$ es la relaci\'{o}n
+	% asociada, entonces
+	% \begin{align*}
+		% \ker(q) & \,=\,\big\{x\in M\,:\,f(x)=e\big\}\,=\,\ker(f)
+		% \text{ .}
+	% \end{align*}
+	% %
+% \end{obsMonoideCociente}
+
+Supongamos dados una relaci\'{o}n de congruencia en $M$ y un morfismo
+$f:\,M\rightarrow N$. Supongamos, adem\'{a}s, que se cumple
+\begin{equation}
+	\label{eq:monoide:cociente:universal}
+	x\,\sim\,y \,\Rightarrow\,f(x)=f(y)
+	\text{ .}
+\end{equation}
+%
+Dada una clase $\clase x$ con respecto a $\sim$, no hay ambig\"{u}edad en el
+valor de $f(x)$. La aplicaci\'{o}n $\conj f:\,M/\sim\rightarrow N$ dada por
+\begin{equation}
+	\label{eq:monoide:cociente:factorizacion}
+	\conj f\big(\clase x\big) \,:=\,f(x)
+\end{equation}
+%
+est\'{a} bien definida, pues $f(x)$ no depende del representante $x$ de la
+clase. Si $x,y\in M$,
+\begin{align*}
+	\conj f\big(\clase x\,\clase y\big) & \,=\,\conj f\big(
+		\clase{x\,y}\big) \,=\,f(x\,y) \,=\,f(x)\,f(y)
+		\,=\,\conj f\big(\clase x\big)\,\conj f\big(\clase y\big)
+	\text{ .}
+\end{align*}
+%
+Concluimos que $\conj f$ es un morfismo de monoides. Resumimos la discusi\'{o}n
+anterior en el resultado siguiente.
+
+\begin{propoMonoideCociente}\label{propo:monoide:cociente}
+	Sea $M$ un monoide y $\sim$ una relaci\'{o}n de congruncia en $M$.
+	Dado un morfismo $f:\,M\rightarrow N$ que verifica
+	\eqref{eq:monoide:cociente:universal}, existe un \'{u}nico morfismo
+	$\conj f:\,M/\sim\rightarrow N$ tal que
+	\begin{equation}
+		\label{eq:monoide:cociente:propiedaduniversal}
+		f \,=\,\conj f\circ q
+		\text{ .}
+	\end{equation}
+	%
+\end{propoMonoideCociente}
+
+En t\'{e}rminos de diagramas, el morfismo $\conj f$ es \'{u}nico tal que el
+siguiente diagrama conmuta:
+\begin{center}
+	\begin{tikzcd}
+		M \arrow[d,"q"'] \arrow[r,"f"] & N \\
+		M/\sim \arrow[ur,dashed,"\conj f"'] &
+	\end{tikzcd}
+\end{center}
+
+\begin{ejemploMonoideCociente}\label{ejemplo:monoide:cociente:enteros}
+	Sea $M=\bb Z_{\not=0}$ el monoide compuesto por los enteros no nulos%
+	\footnote{
+		No hay raz\'{o}n para quitar el $0$ a los fines de obtener
+		una relaci\'{o}n de congruencia. Como nos interesar\'{a}
+		entender el monoide multiplicativo de los elementos no nulos de
+		un dominio, incluimos este ejemplo.
+	}
+	con el producto usual y sea $U\subset M$ el submonoide $U=\{1,-1\}$.
+	Decimos que dos enteros no nulos $n$ y $m$ son \emph{asociados}, si
+	$m=n$ o $m=-n$. Para simplificar, $m$ y $n$ son asociados, si existe
+	$u\in U$ tal que $n=u\,m$.%
+	\footnote{
+		Podr\'{\i}amos decir tambi\'{e}n que $m$ y $n$ son asociados,
+		si $|m|=|n|$.
+	}
+	La relaci\'{o}n entre enteros de ser asociados es de equivalencia y,
+	m\'{a}s aun, de congruencia: si $m= u\,m'$ y $n= v\,n'$, con $u,v\in U$
+	entonces
+	\begin{align*}
+		m\,n & \,=\,(u\,m')\,(v\,n')\,=\,(u\,v)\,(m'\,n')
+		\text{ .}
+	\end{align*}
+	%
+	Como $u\,v\in U$, concluimos que $m\,n\sim m'\,n'$. El cociente
+	$M/\sim$ es isomorfo a $\bb N$.
+\end{ejemploMonoideCociente}
+
+Generalizando un poco el Ejemplo~\ref{ejemplo:monoide:cociente:enteros}, dado
+un monoide conmutativo $M$ y un submonoide $U\subset M$ que es, adem\'{a}s, un
+grupo, definimos una relaci\'{o}n en $M$ por
+\begin{equation}
+	\label{eq:monoide:cociente:coclase}
+	x\,\sim\,y \,\Leftrightarrow\, x\,\in\,U\,y\,=\,
+		\big\{u\,y\,:\,u\in U\big\}
+	\text{ .}
+\end{equation}
+%
+Esta relaci\'{o}n es reflexiva pues $1\in U$, es transitiva porque
+$U$ es cerrado por la multiplicaci\'{o}n en $M$ y, como todo elemento de $U$
+posee inverso, es sim\'{e}trica. La conmutatividad del producto en $M$
+garantiza que esta relaci\'{o}n sea de congruencia.
+
+\begin{ejemploMonoideCociente}\label{ejemplo:monoide:cociente:longitud}
+	Dado $m\in\bb Z_{\not=0}$, definimos su \emph{longitud} como la
+	cantidad de factores irreducibles en su descompsici\'{o}n, si $m$ es
+	positivo, o en la descomposici\'{o}n de $-m$, si es negativo, de
+	acuerdo con el Teorema~\ref{teo:fundamental}. Denotamos la longitud de
+	$m$ por $\longitud(m)$. Por ejemplo, si $m=p$ es un primo,
+	$\longitud(p)=1$, si $m\in\{1,-1\}$, entonces $\longitud(m)=0$ y, si
+	$m=a\,b$ con $a$ y $b$ enteros no nulos, entonces
+	\begin{equation}
+		\label{eq:monoide:cociente:longitud}
+		\longitud(m) \,=\,\longitud(a)\,+\,\longitud(b)
+		\text{ .}
+	\end{equation}
+	%
+	En particular, la aplicaci\'{o}n
+	$\longitud:\,\bb Z_{\not=0}\rightarrow\bb N_0$ es un morfismo de
+	monoides. La ecuaci\'{o}n \eqref{eq:monoide:cociente:longitud} muestra
+	que este morfismo toma los mismos valores en enteros asociados, con lo
+	que se factoriza por $\bb N$. Pero existen enteros no asociados con la
+	misma longitud: $\longitud(2)=\longitud(3)=1$ --m\'{a}s en general, si
+	$p$ y $q$ son primos distintos no asociados,
+	$\longitud(p)=\longitud(q)=1$.
+\end{ejemploMonoideCociente}
+
+El Ejemplo~\ref{ejemplo:monoide:cociente:longitud} muestra que no toda
+relaci\'{o}n de congruencia en un monoide $M$ --incluso en el caso
+conmutativo-- es de la forma \eqref{eq:monoide:cociente:coclase}.
+
+\begin{obsMonoideMonomorfismo}\label{obs:monoide:monomorfismo}
+	Sea $f:\,M\rightarrow N$ un morfismo de monoides y supongamos que $f$
+	es una funci\'{o}n inyectiva. Veamos que $f$ es un monomorfismo (en el
+	sentido categ\'{o}rico). Si $h,k:\,\tilde N\rightarrow M$ son morfismos
+	tales que $f\circ h=f\circ k$, entonces, dado $\tilde x\in\tilde N$,
+	\begin{align*}
+		f(h(\tilde x))\,=\,f(k(\tilde x)) & \,\Rightarrow\,
+			h(\tilde x)\,=\,k(\tilde x)
+		\text{ .}
+	\end{align*}
+	%
+	Como $\tilde x$ era arbitrario, $h=k$ y $f$ es monomorfismo.
+	Rec\'{\i}procamente, supongamos que $f$ es monomorfismo y sean
+	$x,y\in M$ tales que $f(x)=f(y)$. Sea
+	$\tilde N=\bb N_0$ y sean
+	$h,k:\,\bb N_0\rightarrow M$ los morfismos
+	\begin{align*}
+		h(n) \,:=\,x^n & \quad\text{y}\quad
+			k(n) \,:=\,y^n
+	\end{align*}
+	%
+	(con la convenci\'{o}n de que $x^0:=e$ e $y^0:=e$). Entonces
+	\begin{align*}
+		f\circ k(n) & \,=\,f(x)^n \,=\, f(y)^n
+			\,=\,f\circ h(n)
+		\text{ .}
+	\end{align*}
+	%
+	Como $f$ es monomorfismo, $k=h$ y, en particular,
+	\begin{align*}
+		x & \,=\,h(1) \,=\,k(1)\,=\,y
+	\end{align*}
+	%
+\end{obsMonoideMonomorfismo}
+
+No es cierto, sin embargo, que todo epimorfismo entre monoides sea
+sobreyectivo. Por ejemplo, el morfismo $f:\,\bb N_0\rightarrow\bb Z$
+determinado por $f(1)=1$ (inclusi\'{o}n) es epi, pero no sobre. Si
+$h,k:\,\bb Z\rightarrow M$ son dos morfismos tales que $h\,f=k\,f$, entonces
+$h(b)=k(b)$, para todo $b\geq 0$. En particular,
+\begin{align*}
+	h(b)+h(-b) & \,=\,h(b-b)\,=\,h(0)\,=\,0\,=\,k(0)\,=\,k(b-b)\,=\,
+		k(b)+k(-b)
+	\text{ .}
+\end{align*}
+%
+Por unicidad del inverso en monoides, $h(-b)=k(-b)$, tambi\'{e}n.%
+\footnote{
+	En la categor\'{\i}a de anillos, la inclusi\'{o}n
+	$\bb Z\hookrightarrow\bb Q$ es un ejemplo de epimorfismo que no es
+	sobreyectivo. El argumento es similar al del ejemplo anterior.
+}
+

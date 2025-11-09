@@ -1,0 +1,335 @@
+\theoremstyle{plain}
+\newtheorem{teoDIPDFU}{Teorema}[section]
+\newtheorem{propoDIPNoetheriano}[teoDIPDFU]{Proposici\'{o}n}
+\newtheorem{coroDIPNoetheriano}[teoDIPDFU]{Corolario}
+\newtheorem{propoDIPMCD}[teoDIPDFU]{Proposici\'{o}n}
+\newtheorem{propoDIPPrimalidad}[teoDIPDFU]{Proposici\'{o}n}
+\newtheorem{propoMCDExtension}[teoDIPDFU]{Proposici\'{o}n}
+\newtheorem{teoEuclideo}[teoDIPDFU]{Teorema}
+
+\theoremstyle{definition}
+\newtheorem{obsDIPMCD}[teoDIPDFU]{Observaci\'{o}n}
+\newtheorem{defEuclideo}[teoDIPDFU]{Definici\'{o}n}
+\newtheorem{ejemploEuclideo}[teoDIPDFU]{Ejemplo}
+\newtheorem{obsEuclideoEjemplos}[teoDIPDFU]{Observaci\'{o}n}
+
+%-------------
+
+El objetivo principal de esta secci\'{o}n es demostrar el siguiente resultado.
+
+\begin{teoDIPDFU}\label{teo:dips:dfu}
+	Todo D.I.P. es un D.F.U.
+\end{teoDIPDFU}
+
+Si $D$ es un dominio \'{\i}ntegro, el monoide $M:=D\setmin\{0\}$ es conmutativo
+y cancelativo. El dominio $D$ es un D.F.U., precisamente cuando $M$ es
+factorial. Empezamos demostrando que, si $D$ es un D.I.P., entonces $M$
+satisface la condici\'{o}n de cadenas e divisores. Por el Corolario~%
+\ref{coro:existencia}, ser\'{a} suficiente demostrar que $D$ es noetheriano.
+
+\begin{propoDIPNoetheriano}\label{propo:dips:noetheriano}
+	Todo D.I.P. es un anillo noetheriano.
+\end{propoDIPNoetheriano}
+
+\begin{proof}
+	Sea $D$ un D.I.P. Todo ideal en $D$ es de la forma $\generado a$ para
+	cierto $a\in D$. Entonces, dada una familia $\{I_j\}_{j\geq 1}$ de
+	ideales de $D$ tales que $I_j\subset I_{j+1}$ para todo $j\geq 1$,
+	definimos $I:=\bigcup_{j\geq 1}\,I_j$. Esta uni\'{o}n es un ideal y,
+	por lo tanto, existe $a\in D$ tal que $I=\generado a$. Ahora, como
+	$a\in\bigcup_{j\geq 1}\,I_j$, existe $j$ tal que $a\in I_j$. En ese
+	caso, $I_j=I$ y, en consecuencia, $I_{j+k}=I_j$ para todo $k\geq 0$.
+\end{proof}
+
+\begin{coroDIPNoetheriano}\label{coro:dips:noetheriano}
+	Si $D$ es un D.I.P., el monoide $D\setmin\{0\}$ satisface la
+	condici\'{o}n de cadenas de divisores.
+\end{coroDIPNoetheriano}
+
+\begin{propoDIPMCD}\label{propo:dips:mcd}
+	Si $D$ es un D.I.P., el monoide $D\setmin\{0\}$ satisface la
+	condici\'{o}n del M.C.D.
+\end{propoDIPMCD}
+
+\begin{proof}
+	Sean $a,b\in M:=D\setmin\{0\}$ y sea $I=\generado{a,b}$ el ideal
+	generado por $a$ y por $b$. Como $D$ es un D.I.P., existe $d\in D$ tal
+	que $\generado d=I$. Necesariamente, como $I\neq 0$, $d\in M$,
+	Afirmamos que $d$ es un M.C.D. para $a$ y $b$. Si logramos demostrar
+	esta afirmaci\'{o}n, como $a$ y $b$ eran elementos arbitrarios de $M$,
+	habremos demostrado que todo par de elementos no nulos admite un
+	M.C.D. y que
+	\begin{equation}
+		\label{eq:dips:mcd}
+		\generado{a,b} \,=\,\generado{\mcd{a}{b}}
+		\text{ .}
+	\end{equation}
+	%
+	Ahora, como $a,b\in\generado d$, $d\in M$ es un divisor com\'{u}n. Si
+	$c\in M$ es un divisor com\'{u}n de $a$ y de $b$, entonces
+	\begin{align*}
+		\generado d & \,=\,\generado{a,b}\,\subset\,\generado c
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, $c|d$.
+\end{proof}
+
+A continuaci\'{o}n, damos una demostraci\'{o}n independiente de la
+Proposici\'{o}n~\ref{propo:dips:mcd} de que en un D.I.P. se verifica la
+condici\'{o}n de primalidad.
+
+\begin{propoDIPPrimalidad}\label{propo:dips:primalidad}
+	Si $D$ es un D.I.P., el monoide $D\setmin\{0\}$ satisface la
+	condici\'{o}n de primalidad.
+\end{propoDIPPrimalidad}
+
+\begin{proof}
+	Si $p\in M:=D\setmin\{0\}$ es un irreducible, entonces el ideal
+	$I=\generado p$ es maximal en $D$, pues, si $J\triangleleft D$ es un
+	ideal tal que $I\subset J$ y $J=\generado x$, entonces $x|p$ y
+	$x\sim p$ o $x\sim 1$. En el primer caso, $J=I$ y, en el segundo,
+	$J=D$. Pero todo ideal maximal es primo.%
+	\footnote{
+		Sea $I$ un ideal maximal en un anillo conmutativo $R$. Si
+		$a\not\in I$, por maximalidad, $1=x\,a+y$, para ciertos
+		$x\in R$ e $y\in I$. Si, adem\'{a}s, $a\,b\in I$, entonces
+		$b=x\,(a\,b)+b\,y\in I$.
+	}
+	Por lo tanto, si $a,b\in M$ son tales que $a\,b\in\generado p$, se
+	cumple que, o bien $a\in\generado p$, o bien $b\in\generado p$. Es
+	decir, o bien $p|a$, o bien $p|b$.
+\end{proof}
+
+\begin{proof}[Demostraci\'{o}n de \ref{teo:dips:dfu}]
+	Sea $D$ un D.I.P. y sea $M:=D\setmin\{0\}$. Por el Corolario~%
+	\ref{coro:dips:noetheriano}, el monoide $M$ satisface la condici\'{o}n
+	de cadenas de divisores. Por la Proposici\'{o}n~\ref{propo:dips:mcd},
+	$M$ satisface la condici\'{o}n del M.C.D. --equivalentemente, por
+	la Proposici\'{o}n~\ref{propo:dips:primalidad}, $M$ satisface la
+	condici\'{o}n de primalidad. En todo caso, $M$ es factorial, por el
+	Teorema~\ref{teo:factorial:equivalencias}.
+\end{proof}
+
+\begin{obsDIPMCD}\label{obs:dips:mcd}
+	Sean $D$ y $E$ dominios \'{\i}ntegros que satisfacen la condici\'{o}n
+	del M.C.D. y supongamos que $D\subset E$ es un subanillo. Dados
+	$a,b\in D$, tenemos, \emph{a priori}, dos definiciones de M.C.D. para
+	$a$ y $b$. Sea $d=\mcd[D]{a}{b}$ un M.C.D. para $a$ y $b$ vistos como
+	elementos de $D$ y sea $e=\mcd[E]{a}{b}$ un M.C.D. vistos como
+	elementos de $E$. En general, como $d\in E$ y $d$ divide a $a$ y a $b$
+	en $D$, los divide en $E$ y, por definici\'{o}n $d|e$. Si asumimos que
+	$D$ es un D.I.P., entonces, por \eqref{eq:dips:mcd}, existen $x,y\in D$
+	tales que
+	\begin{align*}
+		d & \,=\,x\,a\,+\,y\,b
+		\text{ .}
+	\end{align*}
+	%
+	En particular, en tal caso, $e|d$, tambi\'{e}n.
+\end{obsDIPMCD}
+
+Como caso particular de la Observaci\'{o}n~\ref{obs:dips:mcd} tenemos el
+resultado siguiente.
+
+\begin{propoMCDExtension}\label{propo:mcd:extension}
+	Sea $D$ un D.I.P. y sea $E$ un D.F.U. tales que $D$ es subanillo de
+	$E$. Dados $a,b\in D$, se cumple que
+	\begin{align*}
+		\mcd[E]{a}{b} & \,\sim\,\mcd[D]{a}{b}
+	\end{align*}
+	%
+	(asociados en $E$).
+\end{propoMCDExtension}
+
+Para probar que un dominio particular es un D.I.P. es \'{u}til saber qu\'{e}
+estructura adicional posee el anillo. Una clase importante de dominios que son
+dominios de ideales principales es la clase de dominios euclideos.
+
+\begin{defEuclideo}\label{def:euclideo}
+	Un dominio $D$ es un \emph{dominio euclideo} (D.E.), si existe una
+	funci\'{o}n $\delta:\,D\rightarrow\bb Z_{\geq 0}$ que verifica que,
+	dados $a,b\in D\setmin\{0\}$, existen $q,r\in D$ tales que
+	\begin{align*}
+		a \,=\,q\,b\,+\,r & \quad\text{y}\quad
+			\delta(r)\,<\,\delta(b)
+		\text{ .}
+	\end{align*}
+	%
+	La funci\'{o}n $\delta$ se suele denominar \emph{funci\'{o}n euclidea}.
+\end{defEuclideo}
+
+\begin{teoEuclideo}\label{teo:euclideo}
+	Todo D.E. es un D.I.P.
+\end{teoEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:enteros}
+	El anillo de enteros racionales $\bb Z$ es un D.E. con la funci\'{o}n
+	$\delta(a):=|a|$.
+	% Tambi\'{e}n es un D.E. si consideramos
+	% $\delta(a):=\frac{1}{p^{v_p(a)}}$, donde $v_p$ es la valuaci\'{o}n
+	% $p$-\'{a}dica para un primo $p$.
+	% No, la imagen tiene que caer en $\bb Z_{\geq 0}$.
+\end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:polinomios}
+	El anillo de polinomios con coeficientes en un cuerpo es un D.E.
+	con funci\'{o}n euclidea $\delta(f):=2^{\grado(f)}$. En este caso, es
+	m\'{a}s conveniente considerar el grado y polinomio nulo como caso
+	a parte.
+	% $\delta(f)=\alpha^{\grado(f)}$, $\alpha>1$
+\end{ejemploEuclideo}
+% 
+% \begin{ejemploEuclideo}\label{ejemplo:euclideo:padicos}
+	% El anillo de enteros $p$-\'{a}dicos $\bb Z_p$ con la funci\'{o}n
+	% $\delta(a):=\frac{1}{p^{v_p(a)}}$ es un D.E.
+% \end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:gauss}
+	En $\bb Z[i]$, la funci\'{o}n $\delta(a)=\Norma(a)$ es una
+	funci\'{o}n euclidea. Notamos que $\delta(a)\in\bb Z_{\geq 0}$ para
+	todo $a\in\bb Z[i]$ y que $\delta(a)=0$, si y s\'{o}lo si $a=0$. Sean
+	$a=m+n\,i$ y $b=x+y\,i$, con $m,n,x,y\in\bb Z$. Si $b\neq 0$, podemos
+	tomar el cociente $a/b$:
+	\begin{align*}
+		a\,b^{-1} & \,=\,\frac{a\,\conj b}{\Norma(b)} \,=\,
+			\frac{(m+n\,i)\,(x+y\,i)}{x^2+y^2} \,=\,
+				\frac{m\,x-n\,y}{x^2+y^2}\,+\,
+				\frac{n\,x+m\,y}{x^2+y^2}\,i
+		\text{ .}
+	\end{align*}
+	%
+	Si bien los coeficientes de $a\,b^{-1}$ son, en principio, racionales,
+	existen $q\in\bb Z[i]$ y $u,v\in\bb Q$ tales que $|u|,|v|\leq 1/2$ y
+	\begin{align*}
+		a\,b^{-1} & \,=\,q\,+\,(u+v\,i)
+		\text{ .}
+	\end{align*}
+	%
+	Pero $\Norma(u+v\,i)=u^2+v^2\leq 1/2$, con lo cual,
+	\begin{align*}
+		a & \,=\,q\,b\,+\,r
+		\text{ ,}
+	\end{align*}
+	%
+	donde $r=(u+v\,i)\,b\in\bb Z[i]$ y $\delta(r)\leq (1/2)\delta(b)$.
+\end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:cuadraticoreal}
+	En el anillo $\bb Z[\sqrt 2]$, definimos
+	$\delta(x+y\,\sqrt 2)=|x^2-2\,y^2|$. Veamos que $\delta$ es una
+	funci\'{o}n euclidea. Notamos que $\delta(a)=|\Norma(a)|$, donde
+	\begin{align*}
+		\Norma(x+y\,\sqrt 2) & \,=\,
+			(x+y\,\sqrt 2)\,(x-y\,\sqrt 2)\,=\,x^2\,-\,2\,y^2
+		\text{ .}
+	\end{align*}
+	%
+	Al igual que en el Ejemplo~\ref{ejemplo:euclideo:gauss}, $\Norma$ es
+	una funci\'{o}n multiplicativa, $\Norma(a)\in\bb Z$, si
+	$a\in\bb Z[\sqrt 2]$ y $\Norma(a)=0$, si y s\'{o}lo si $a=0$. Sean
+	$a,b\in\bb Z[\sqrt 2]$ y $b\neq 0$. Entonces, existe
+	$q\in\bb Z[\sqrt 2]$ tal que $a\,b^{-1}-q=u+v\,\sqrt 2$, con
+	$u,v\in\bb Q$ y $|u|,|v|\leq 1/2$. Dado que
+	\begin{align*}
+		\delta(u+v\,\sqrt 2) & \,=\,|u^2-2\,v^2|\,\leq\,
+			\frac{1}{4}\,+\,\frac{1}{2}
+		\text{ ,}
+	\end{align*}
+	%
+	deducimos que $a=q\,b+r$, donde $r=(u+v\,\sqrt 2)\,b$ y
+	$\delta(r)\leq (3/4)\,\delta(b)$.
+\end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:noejemplo}
+	El anillo $\bb Z[\sqrt{-3}]$ no es D.E. Si quisi\'{e}ramos repetir el
+	argumento de los ejemplos anteriores, llegar\'{\i}amos a que
+	$a=q\,b+r$, con $\delta(r)\leq\delta(b)$, donde
+	$\delta(a)=\Norma(a)=x^2+3\,y^2$ es la funci\'{o}n norma en el anillo.
+	Para ver que no es D.E., probamos que no es un D.F.U. Por ejemplo,
+	\begin{align*}
+		(1+\sqrt{-3})\,(1-\sqrt{-3}) & \,=\,4\,=\,2^2
+	\end{align*}
+	%
+	y, tanto $2$ como $1\pm\sqrt{-3}$ son irreducibles no asociados. Que no
+	son asociados, se debe a que las \'{u}nicas unidades en el anillo son
+	$\{\Norma=\pm1\}=\{\pm1\}$.%
+	\footnote{
+		C.f. el Ejemplo~\ref{ejemplo:irreducible:cuadraticoimaginario}.
+	}
+	Para ver que son irreducibles, bastar\'{a} con demostrar que no
+	hay elementos de norma $\pm 2$ en $\bb Z[\sqrt{-3}]$. Pero
+	$x^2+3\,y^2=\pm 2$, con $x,y\in\bb Z$ implica $y=0$ y $x^2=2$, que no
+	tiene soluci\'{o}n.
+\end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:noejemplo:nodfu}
+	El anillo $\bb Z[\sqrt{-5}]$ no es un D.F.U., por el Ejemplo~%
+	\ref{ejemplo:factorial:cuadraticoimaginario}. En particular, no es
+	D.I.P., ni tampoco es D.E. El argumento con la norma no funciona:
+	quedar\'{\i}a $\delta(r)\leq (5/4)\,\delta(b)$.
+\end{ejemploEuclideo}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:cuadraticoimaginario}
+	El anillo $\bb Z[w]$, donde $w=\frac{1+\sqrt{-3}}{2}$, es un D.E.
+	Nuevamente, tomamos la funci\'{o}n $\delta(a)=|\Norma(a)|$. Para
+	demostra que este anillo es euclideo, notamos que
+	\begin{align*}
+		\bb Z[w] & \,=\,\bb Z\,\oplus\,\bb Z\,w \,=\,
+			\tfrac{1}{2}\,\bb Z\,\oplus\,
+				\tfrac{1}{2}\,\bb Z\,\sqrt{-3}
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, $a\in\bb Z[w]$, si $a=x+y\,\sqrt{-3}$, donde $x$ e $y$ son
+	enteros o la mitad de un entero. En este anillo, la norma est\'{a} dada
+	por
+	\begin{align*}
+		\Norma(x+y\,\sqrt{-3}) & \,=\,x^2+3\,y^2
+		\text{ .}
+	\end{align*}
+	%
+	Si $a,b\in\bb Z[w]$ y $b\neq 0$, entonces $a\,b^{-1}\in\bb Q(w)$. Por
+	lo tanto, existen $q\in\bb Z[w]$ y $u,v\in\bb Q$ tales que
+	$a\,b^{-1}=q+(u+v\,\sqrt{-3})$, pero, ahora, $|u|,|v|\leq 1/4$.
+	Entonces, $a=q\,b+r$, donde $r=(u+v\,\sqrt{-3})\,b$ y
+	\begin{align*}
+		\delta(r)\,=\,\delta(u+v\,\sqrt{-3})\,\delta(b)
+			\,\leq\,\Big(\tfrac{1}{8}+\tfrac{3}{8}\Big)\,\delta(b)
+			\,=\,\tfrac{1}{2}\,\delta(b)
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemploEuclideo}
+
+\begin{obsEuclideoEjemplos}\label{obs:euclideo:ejemplos}
+	Un \emph{dominio de Dedekind} --como los anillos de enteros en un
+	cuerpo de n\'{u}meros, como en los Ejemplos~%
+	\ref{ejemplo:euclideo:enteros}, \ref{ejemplo:euclideo:gauss},
+	\ref{ejemplo:euclideo:cuadraticoreal},
+	\ref{ejemplo:euclideo:noejemplo},
+	\ref{ejemplo:euclideo:noejemplo:nodfu} y
+	\ref{ejemplo:euclideo:cuadraticoimaginario}-- es D.I.P., si y s\'{o}lo
+	si es D.F.U.
+\end{obsEuclideoEjemplos}
+
+\begin{ejemploEuclideo}\label{ejemplo:euclideo:noejemplo:polinomios}
+	El anillo de polinomios $k[X]$ con coeficientes en un cuerpo es un
+	D.I.P., pues es D.E. Pero el anillo $k[X,Y]$ de polinomios en dos
+	indeterminadas, si bien es D.F.U., no es D.I.P.: el ideal
+	$\generado{X,Y}$ no puede ser principal. En el Ejemplo~%
+	\ref{ejemplo:existencia:nonoetheriano}, mostramos un dominio que no es
+	noetheriano, pero que es D.F.U.
+\end{ejemploEuclideo}
+
+En alg\'{u}n sentido, el anillo $k[X,Y]$ es un ejemplo ``gen\'{e}rico'' de un
+D.F.U. que no es D.I.P. De manera similar, podemos obtener un ejemplo
+gen\'{e}rico de un dominio que no es D.F.U. considerando
+$k[X,Y,Z,W]/\generado{X\,Y-Z\,W}$. Si $k$ es un cuerpo que posee una ra\'{\i}z
+$i=\sqrt{-1}$, entonces en $k[X,Y,Z]/\generado{X^2+Y^2+Z^2-1}$ se verifica que
+\begin{align*}
+	(X+Y\,i)\,(X-Y\,i) & \,=\,X^2\,+\,Y^2 \,=\,
+		1\,-\,Z^2\,=\,(1-Z)\,(1+Z)
+	\text{ .}
+\end{align*}
+%

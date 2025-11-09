@@ -1,0 +1,578 @@
+\theoremstyle{plain}
+\newtheorem{teoIntroNodeg}{Teorema}[section]
+\newtheorem{lemaIntroNodeg}[teoIntroNodeg]{Lema}
+
+\theoremstyle{definition}
+\newtheorem{defIntroNodeg}[teoIntroNodeg]{Definici\'on}
+\newtheorem{obsIntroNodeg}[teoIntroNodeg]{Observaci\'on}
+\newtheorem{ejemIntroNodeg}[teoIntroNodeg]{Ejemplo}
+\newtheorem{ejerIntroNodeg}[teoIntroNodeg]{Ejercicio}
+
+%-------------
+
+\begin{teoIntroNodeg}\label{teo:nodegeneradas:nodegeneradas}
+	Sea $(V,B)$ un espacio bilineal. Las siguientes condiciones son
+	equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:nodegeneradas:matriz}
+			con respecto a alguna base $\{\lista* e{n}\}$ de $V$,
+			la matriz asociada $B(e^i,e^j)$ es invertible;
+		\item\label{item:nodegeneradas:inyectiva}
+			si $v\neq 0$, entonces $B(v_1,v)\neq 0$ para alg\'un
+			$v_1\in V$;
+		\item\label{item:nodegeneradas:sobre}
+			todo elemento de $\dual V$ es de la forma $B(-,v)$
+			para alg\'un $v\in V$;
+		\item\label{item:nodegeneradas:biyectiva}
+			todo elemeneto de $\dual V$ es de la forma $B(-,v)$
+			para un \'unico $v\in V$.
+	\end{enumerate}
+	%
+	En tal caso, \emph{toda} representaci\'on matricial de $B$ es
+	invertible.
+\end{teoIntroNodeg}
+
+\begin{proof}
+	% Ejercicio.
+	Las condiciones \eqref{item:nodegeneradas:inyectiva},
+	\eqref{item:nodegeneradas:sobre} y \eqref{item:nodegeneradas:biyectiva}
+	hacen referencia a la inyectividad, sobreyectividad y biyectividad,
+	respectivamente, de la transformaci\'on lineal
+	$R_B:\,V\rightarrow\dual V$. Como $\dim\,V<\infty$, \'estas son
+	equivalentes. La condici\'on \eqref{item:nodegeneradas:matriz}
+	significa que la matriz asociada a $B$ en alguna base es invertible.
+	Pero esto equivale a que $R_B$ sea un isomorfismo.
+\end{proof}
+
+\begin{defIntroNodeg}\label{def:nodegeneradas:nodegeneradas}
+	Una forma bilineal $B$ en un espacio $V$ se dice \emph{no degenerada},
+	si cumple cualquiera de las condiciones equivalentes enunciadas en el
+	Teorema~\ref{teo:nodegeneradas:nodegeneradas}. En caso contrario, se
+	dice que $B$ es \emph{degenerada}.
+\end{defIntroNodeg}
+
+\begin{obsIntroNodeg}\label{obs:nodegeneradas:nodegeneradas}
+	El Teorema~\ref{teo:nodegeneradas:nodegeneradas} caracteriza las
+	formas no degeneradas \emph{a derecha}, aquellas tales que $R_B$ es
+	inyectiva (sobre o, equivalentemente, biyectiva). Ahora, si $M$ es una
+	matriz, entonces $M$ es invertible, si y s\'olo si $\trnsp M$ lo es. Si
+	$M$ es la matriz asociada a $B$ en alguna base, $\cal B$, entonces $M$
+	es la matriz de la transformaci\'on lineal $R_B:\,V\rightarrow\dual V$,
+	con respecto a dicha base en $V$ y su base dual en $\dual V$,
+	$\dual{\cal B}$. Por otro lado, si $J:\,V\rightarrow\ddual V$ es el
+	isomorfismo can\'onico
+	\begin{equation}
+		\label{eq:nodegeneradas:dobledual}
+		J(v)(\varphi)\,=\,\varphi(v)
+		\text{ ,}
+	\end{equation}
+	%
+	la matriz $\trnsp M$ es la matriz de la transformaci\'on transpuesta
+	$\dual{R_B}:\,\ddual V\rightarrow\dual V$, con respecto a
+	$\dual{\cal B}$ y a la base $J(\cal B)$. Pero, v\'{\i}a la
+	identificaci\'on \eqref{eq:nodegeneradas:dobledual}, $\dual{R_B}=L_B$.
+	La codici\'on \eqref{item:nodegeneradas:matriz} significa que $R_B$ es
+	biyectiva. Pero $R_B$ es biyectiva, si y s\'olo si $\dual{R_B}=L_B$ lo
+	es. En definitiva, $B$ es no degenerada a derecha, si y s\'olo si lo es
+	a izquierda. El Teorema~\ref{teo:nodegeneradas:nodegeneradas} garantiza
+	que $V$ parametriza $\dual V$ v\'{\i}a $R_B$, si $B$ es no degenerada
+	a derecha; todo elemento de $\dual V$ es de la forma
+	$B(-,v)$. Pero, entonces, $L_B$ tambi\'en es un isomorfismo y todo
+	elemento de $\dual V$ se puede escribir de la forma $B(v,-)$ para
+	alg\'un $v\in V$.
+\end{obsIntroNodeg}
+
+Si $V$ es de dimensi\'on finita, $\ddual V=V$ (naturalmente isomorfos).
+Adem\'as, por un argumento de dimensi\'on, $V\simeq\dual V$, es decir,
+\emph{existe} un isomorfismo. Pero dicho isomorfismo no es can\'onico. Una
+forma bilineal es, esencialmente, una t.l. $V\rightarrow\dual V$. Una forma
+bilineal no degenerada es una elecci\'on de isomorfismo entre estos espacios.
+
+Si $V=\{0\}$, entonces $\dual V\simeq V$, de manera \'unica. Paralelamente, hay
+una \'unica forma bilineal en $V$. Por esta raz\'on, se considera que el
+espacio cero con su \'unica forma bilineal es un espacio bilineal no
+degenerado. Sin embargo, dicha forma no admite una matriz que la represente,
+pues \'unica base en $\{0\}$ es vac\'{\i}a.
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:pseudoeuclideos}
+	El producto escalar en $\bb R^n$, al igual que las formas
+	$\langle\cdot,\cdot\rangle_{p,q}$ definidas en el Ejemplo~%
+	\ref{ejem:matrices:pseudoeuclideos}, son no degeneradas; est\'an
+	representadas por matrices invertibles en la base can\'onica.%
+	\footnote{
+		Aunque podr\'{\i}a ocurrir $\langle v,v\rangle_{p,q}=0$,
+		para alg\'un $v\neq 0$.
+	}
+	Todas ellas parametrizan el dual del espacio vectorial
+	$\bb R^n$, el mismo espacio, pero de distintas maneras. Si
+	\begin{math}
+		M=
+		\left[\begin{smallmatrix}
+			I_p & 0 \\ 0 & -I_q
+		\end{smallmatrix}\right]
+	\end{math}, entonces, usando que $M^{-1}=\trnsp M=M$,
+	\begin{displaymath}
+		\begin{aligned}
+			\langle v,w\rangle_{p,q} & \,=\,v\,\cdot\,(M\,w)
+				\,=\,(M\,v)\,\cdot\,w \quad\text{y} \\
+			v\,\cdot\,w & \,=\,\langle v,M^{-1}\,w\rangle_{p,q}
+				\,=\,\langle v,M\,w\rangle_{p,q}
+				\,=\,\langle M\,v,w\rangle_{p,q}
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:alternadas}
+	La forma bilineal alternada del Ejemplo~%
+	\ref{ejem:definiciones:alternadas} es no degenerada, pues
+	$\varphi(v)=0$, para todo $v\in V$ si y s\'olo si $\varphi=0$,
+	y para todo $\varphi\in\dual V$, si y s\'olo si $v=0$.
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:killing}
+	Si $\frak g$ es un \'algebra de Lie de dimensi\'on finita y sea
+	\begin{equation}
+		\label{eq:nodegeneradas:killing}
+		\killing(x,y)\,=\,\Traza(\adjoint[x]\,\adjoint[y])
+	\end{equation}
+	%
+	su \emph{forma de Killing}. Es una forma bilineal sim\'etrica. Si el
+	cuerpo de base es de caracter\'{\i}stica $0$, $\frak g$ es semisimple,
+	si y s\'olo si $\killing$ es no degenerada.
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:subespaciodegenerado}
+	El espacio bilineal $\bb R^{2,1}$, por ejemplo, es no degenerado, como
+	se mencion\'o en el Ejemplo~\ref{ejem:nodegeneradas:pseudoeuclideos}.
+	Sin embargo, el plano $W$ generado por $v_1=(1,0,1)$ y por
+	$v_2=(0,1,0)$ es degenerado con respecto a la restricci\'on de la forma
+	$\langle\cdot,\cdot\rangle_{2,1}$. Por ejemplo, $v_1\in W^\perp$.
+\end{ejemIntroNodeg}
+
+\begin{obsIntroNodeg}\label{obs:nodegeneradas:subespaciodegenerado}
+	Un espacio bilineal no degenerado, puede contener subespacios tales que
+	la restricci\'on de la misma forma bilineal a dicho subespacio es
+	degenerada, como ocurre en el Ejemplo~%
+	\ref{ejem:nodegeneradas:subespaciodegenerado}. Esto no ocurre, si el
+	cuerpo de base es $\bb R$ y la forma es definida positiva. La propiedad
+	de una forma bilineal real de ser (semi) definida positiva es
+	hereditaria.
+\end{obsIntroNodeg}
+
+\begin{teoIntroNodeg}\label{teo:nodegeneradas:perpendicular}
+	Sea $(V,B)$ un espacio bilineal sim\'etrico o alternado.%
+	\footnote{
+		Es decir, un espacio en donde la relaci\'on de
+		perpendicularidad es sim\'etrica (c.f. el Teorema~%
+		\ref{teo:definiciones:perpendicular}).
+	}
+	\footnote{
+		Si $B$ es arbitraria, no necesariamente sim\'etrica ni
+		alternada, la relaci\'on $\perp$ deja de ser sim\'etrica y
+		distinguimos entre $W^\lperp$ y $W^\rperp$ en el \'{\i}tem~%
+		\eqref{item:perpendicular:complemento}. Esto da lugar a
+		versiones a izquierda y a derecha de
+		\eqref{item:perpendicular:complemento:b} y de
+		\eqref{item:perpendicular:complemento:c}. Asumiendo dimensi\'on
+		finita, se puede probar que
+		\begin{displaymath}
+			\begin{aligned}
+			\text{\eqref{item:perpendicular:complemento:a}}
+				& \,\Rightarrow\,\big(
+			\text{\eqref{item:perpendicular:complemento:b}}_L
+				\wedge
+			\text{\eqref{item:perpendicular:complemento:b}}_R
+				\big) \quad\text{que} \\
+			\text{\eqref{item:perpendicular:complemento:b}}_L
+				& \,\Rightarrow\,
+			\text{\eqref{item:perpendicular:complemento:c}}_L
+				\,\Rightarrow\,
+			\text{\eqref{item:perpendicular:complemento:a}}
+				\quad\text{e, ir\'onicamente, %
+					sim\'etricamente, que} \\
+			\text{\eqref{item:perpendicular:complemento:b}}_R
+				& \,\Rightarrow\,
+			\text{\eqref{item:perpendicular:complemento:c}}_R
+				\,\Rightarrow\,
+			\text{\eqref{item:perpendicular:complemento:a}}
+			\end{aligned}
+			%
+		\end{displaymath}
+		%
+		La raz\'on es que no hay una distinci\'on entre degeneraci\'on
+		a derecha y degeneraci\'on a izquierda.
+	}
+	\begin{enumerate}[(1)]
+		\item\label{item:perpendicular:complemento}
+			Si $W\subset V$ es un subespacio, las siguientes
+			condiciones son equivalentes:
+			\begin{enumerate}[(a)]
+				\item\label{item:perpendicular:complemento:a}
+					el subespacio $W$ es no degenerado;
+				\item\label{item:perpendicular:complemento:b}
+					$W\cap W^\perp=0$;
+				\item\label{item:perpendicular:complemento:c}
+					$V=W\oplus W^\perp$.
+			\end{enumerate}
+			%
+		\item\label{item:perpendicular:dimension}
+			Si $V$ es no degenerado, entonces
+			$\dim\,W+\dim\,W^\perp=\dim\,V$ y $(W^\perp)^\perp=W$.
+	\end{enumerate}
+	%
+	En particular, si $V$ es no degenerado, un subespacio es no degenerado,
+	si y s\'olo si $W^\perp$ lo es.
+\end{teoIntroNodeg}
+
+\begin{proof}
+	Que $B$ sea no degenerada a izquierda significa
+	$w\neq 0\Rightarrow B(w,w_1)$ para alg\'un $w_1$. Esto implica
+	$W\cap W^\lperp=0$ (notar que $W^\lperp$ es un subespacio de $V$, no
+	de $W$).
+
+	Ahora, vemamos que $W\cap W^\lperp=0$ implica $W\oplus W^\lperp=V$.
+	Dado que la intersecci\'on de los subespacios es cero, s\'olo resta
+	probar que $W+W^\lperp=V$, es decir que todo elemento de $V$ es suma
+	de un elementon de $W$ m\'as uno en $W^\lperp$. Sea
+	$L:\,W\rightarrow\dual W$ la t.l. $L(w)=B(w,-)|_W$. Su n\'ucleo,
+	$W\cap W^\lperp$ es, por hip\'otesis, nulo. Por lo tanto, puesto que
+	$\dim\,W<\infty$,%
+	\footnote{
+		Aqu\'{\i} usamos que $W$ tiene dimensi\'on finita, y no $V$.
+	}
+	vale que $\dim\,\dual W=\dim\,W$ y, entonces, $L$ es sobreyectiva.
+	Dado $v\in V$, $B(v,-)|_W=B(w,-)|_W$, para alg\'un $w\in W$, y
+	$v-w\in W^\lperp$.
+
+	Finalmente, si $V=W\oplus W^\lperp$, entonces $B(w,w_1)=0$ para todo
+	$w_1\in W$ implica que $w\in W^\lperp$ y $w=0$. En consecuencia, $B$ es
+	no degenerada a izquierda.
+
+	Para probar \eqref{item:perpendicular:dimension}, supongamos que
+	$V$ es no degenerado, es decir $L_B:\,V\rightarrow\dual V$ es un
+	isomorfismo. Por Hahn-Banach (?), la restricci\'on
+	$\dual V\rightarrow\dual W$ es sobre. El n\'ucleo de la composici\'on
+	es $W^\lperp$. As\'{\i},
+	\begin{displaymath}
+		V/W^\lperp\,\simeq\,\dual W
+		\text{ .}
+	\end{displaymath}
+	%
+	Calculando dimensiones, $\dim\,V-\dim\,W^\lperp=\dim\,W$.%
+	\footnote{
+		En particular, $\dim\,W^\lperp=\dim\,W^\rperp$.
+	}
+	Ahora, $W\subset (W^\lperp)^\rperp$. Por un argumento de dimensi\'on,
+	$W=(W^\lperp)^\rperp$.%
+	\footnote{
+		En particular, $(W^\lperp)^\rperp=(W^\rperp)^\lperp$.
+	}
+	Por \eqref{item:perpendicular:complemento:b} (su versi\'on a izquierda
+	y su versi\'on a derecha), cuando $V$ es no degenerado,
+	$W=(W^\lperp)^\rperp=(W^\rperp)^\lperp$ y $W$ es no degenerado, si y
+	s\'olo si $W^\lperp$ lo es, si y s\'olo si $W^\rperp$ lo es.
+\end{proof}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:subespaciodegenerado:bis}
+	Siguiendo con el Ejemplo~\ref{ejem:nodegeneradas:subespaciodegenerado},
+	si bien $W=\generado{(1,0,1),(0,1,0)}$ es degenerado con respecto a la
+	restricci\'on de $\langle\cdot,\cdot\rangle_{2,1}$, se puede ver que
+	\begin{displaymath}
+		W^\perp\,=\,\generado{(1,0,1)}\,\subset\,W
+		\text{ .}
+	\end{displaymath}
+	%
+	Entonces $\bb R^{2,1}$ no es suma directa de $W$ y $W^\perp$. Sin
+	embargo, $\dim\,W+\dim\,W^\perp=3$. Esto es consistente con el hecho de
+	que $\bb R^{2,1}$ es no degenerado pero la restricci\'on de la forma al
+	subespacio $W$ s\'{\i} lo es.
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:complemento}
+	En $V=\bb R^2$ con la forma $B((x,y),(x_1,y_1))=xx_1$, el vector
+	$(0,1)$ es perpendicular a todo el espacio. Es decir, $V^\perp\neq 0$ y
+	la forma es degenerada. Sin embargo, el subespacio $W=\generado{(1,0)}$
+	es no degenerado con respecto a la restricci\'on $B|_W$. Por lo tanto,
+	$\bb R^2=W\oplus W^\perp$. Efectivamente, $W^\perp=\generado{(0,1)}$.
+	Adem\'as, se verifica que $(W^\perp)^\perp=\bb R^2\neq W$, que $W$ es
+	no degenerado, pero $W^\perp$ es degenerado.
+\end{ejemIntroNodeg}
+
+\begin{teoIntroNodeg}\label{teo:nodegeneradas:propiedades}
+	Sea $(V,B)$ un espacio bilineal no degenerado. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:propiedades:hiperplanos}
+			todo hiperplano en $V$ es de la forma
+			$\{w\,:\,w\perp v\}$ para alg\'un $v\neq 0$ y de la
+			forma $\{w\,:\,v_1\perp w\}$ para alg\'un $v_1\neq 0$;
+		\item\label{item:propiedades:vectores}
+			si $B(v,w)=B(v,w_1)$ para todo $v\in V$, entonces
+			$w=w_1$;
+		\item\label{item:propiedades:transformaciones}
+			si $B(v,A\,w)=B(v,A_1\,w)$ para todo $v,w\in V$,
+			entonces $A=A_1$;
+		\item\label{item:propiedades:bilineales}
+			toda forma bilineal en $V$ es de la forma
+			$B(v,A\,w)$ para alguna t.l. $A:\,V\rightarrow V$.%
+			\footnote{
+				El hecho de que toda forma bilineal admite
+				una representaci\'on matricial y que, tomando
+				una base, se puede expresar en t\'erminos del
+				producto escalar es un caso particular de este
+				resultado.
+			}
+	\end{enumerate}
+	%
+\end{teoIntroNodeg}
+
+\begin{proof}
+	Para \ref{item:propiedades:hiperplanos}, usar que los hiperplanos son
+	n\'ucleos de funcionales lineales.
+\end{proof}
+
+Si $(V,B)$ es un espacio bilineal no degenerado y $A:\,V\rightarrow V$ es una
+transformaci\'on lineal, la funci\'on
+\begin{displaymath}
+	\tilde B(v,w)\,=\,B(A\,v,w)
+\end{displaymath}
+%
+es una forma bilineal en $V$. Existe, por el Teorema~%
+\ref{teo:nodegeneradas:propiedades}, una \emph{\'unica} transformaci\'on lineal
+$\adjnt A:\,V\rightarrow V$ tal que
+\begin{equation}
+	\label{eq:nodegeneradas:adjunta}
+	B(A\,v,w)\,=\,B(v,\adjnt A\,w)
+	\text{ ,}
+\end{equation}
+%
+para todo $v,w\in V$.
+
+\begin{defIntroNodeg}\label{def:nodegeneradas:adjunta}
+	Si $(V,B)$ es un espacio bilineal no degenerado y $A:\,V\rightarrow V$
+	es una t.l., la \'unica t.l. $\adjnt A:\,V\rightarrow V$ que verifica
+	\eqref{eq:nodegeneradas:adjunta} se denomina \emph{adjunta} de $A$, con
+	respecto a $B$.
+\end{defIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:adjunta:escalar}
+	En $F^n$ con el producto escalar, la adjunta de una transformaci\'on
+	lineal representada por una matriz $A\in\MM[n\times n](F)$ en la base
+	can\'onica es la transformaci\'on representada por $\trnsp A$ en la
+	misma base.
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:adjunta}
+	En $\bb R^2$ con la forma bilineal
+	\begin{displaymath}
+		B\Big( \begin{bmatrix} x \\ y \end{bmatrix},
+			\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}\Big)\,=\,
+			\begin{bmatrix} x \\ y \end{bmatrix}\,\cdot\,
+			\begin{bmatrix} 3 & \\ & -2 \end{bmatrix}\,
+				\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}
+		\text{ ,}
+	\end{displaymath}
+	%
+	la adjunta de una matriz est\'a dada por:
+	\begin{displaymath}
+		\adjnt{\begin{bmatrix} a & b \\ c & d \end{bmatrix}} \,=\,
+			\begin{bmatrix}
+				a & -(2/3)\,c \\ -(3/2)\,b & d
+			\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejemIntroNodeg}
+
+\begin{ejemIntroNodeg}\label{ejem:nodegeneradas:adjunta:degenerada}
+	La forma del Ejemplo~\ref{ejem:nodegeneradas:complemento} es
+	degenerada. Se verifica que, si
+	\begin{math}
+		A=\sbmatrix{ a & b \\ c & d }
+	\end{math},
+	\begin{displaymath}
+		B\Big(A\,\begin{bmatrix} 1 \\ 0 \end{bmatrix},
+			\begin{bmatrix} 0 \\ 1 \end{bmatrix}\Big) \,=\,b
+			\quad\text{y que}\quad
+		B\Big(\begin{bmatrix} 1 \\ 0 \end{bmatrix},A'\,
+			\begin{bmatrix} 0 \\ 1 \end{bmatrix}\Big) \,=\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	para cualquier matriz $A'$. En particular, si $b\neq 0$, $A$ no posee
+	adjunta con respecto a $B$.
+\end{ejemIntroNodeg}
+
+\begin{teoIntroNodeg}\label{teo:nodegeneradas:adjunta:matriz}
+	Sea $(V,B)$ un espacio bilineal no degenerado y sea
+	$A:\,V\rightarrow V$ una t.l. Fijemos una base
+	$\repr{\cdot}:\,V\rightarrow F^n$ de $V$. Sea $M$ la matriz asociada a
+	$B$ con respecto a esta base y sean $\repr A$ y $\repr{\adjnt A}$ las
+	matrices de $A$ y de $\adjnt A$, respectivamente, en la base elegida.
+	Entonces,
+	\begin{displaymath}
+		\repr{\adjnt A}\,=\,M^{-1}\,\trnsp{\repr A}\,M
+		\text{ .}
+	\end{displaymath}
+	%
+\end{teoIntroNodeg}
+
+\begin{proof}
+	Comprobar que se cumple $R_B\,\adjnt A=\dual A\,R_B$ y pasar a la
+	representaci\'on matricial. Se puede dar otra demostraci\'on, usando la
+	identidad que define la adjunta, \eqref{eq:nodegeneradas:adjunta},
+	pasando a la representaci\'on matricial de dicha identidad y usando que
+	el producto escalar en $F^n$ es una forma bilineal no degenerada.
+\end{proof}
+
+La noci\'on de transformaci\'on dual-transpuesta tiene sentido incluso para
+transformaciones lineales que no son endomorfismos (por ejemplo, en el caso
+$V\rightarrow\dual V$). Si $A:\,V\rightarrow W$ es una transformaci\'on lineal
+entre espacios vectoriales y cada uno de ellos tiene asociada una forma
+bilineal no degenerada, deber\'{\i}a ser posible dar una noci\'on de
+transformaci\'on adjunta $\adjnt A:\,W\rightarrow V$, relacion\'andola con la
+transpuesta $\dual A:\,\dual W\rightarrow\dual V$.
+\begin{center}
+	\begin{tikzcd}
+		V \arrow[d, "A"'] \\ W
+	\end{tikzcd}
+	\qquad
+	\begin{tikzcd}
+		\dual V & V \arrow[l, "R"'] \\
+		\dual W\arrow[u,"\dual A"] &
+			W \arrow[l,"R"] \arrow[u, dashed, "\adjnt A"']
+	\end{tikzcd}
+\end{center}
+
+\begin{defIntroNodeg}\label{def:nodegeneradas:perpendicular}
+	Si $A:\,V\rightarrow W$ es una transformaci\'on lineal entre espacios
+	bilineales, decimos que $A$ \emph{preserva la relaci\'on de %
+	ortogonalidad}, si
+	\begin{displaymath}
+		v\,\perp\,v_1\,\Rightarrow\,A\,v\,\perp\,A\,v_1
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $v,v_1\in V$.%
+	\footnote{
+		No asumimos que $\dim\,V=\dim\,W$.
+	}
+\end{defIntroNodeg}
+
+\begin{teoIntroNodeg}\label{teo:nodegeneradas:perpendicularidad}
+	Dados espacios bilineales no degenerados, $(V,B_V)$ y $(W,B_W)$, y una
+	t.l. $A:\,V\rightarrow W$, las siguientes propiedades son equivalentes:
+	\begin{enumerate}[(i)]
+		\item\label{item:perpendicularidad:preserva}
+			$A$ preserva la relaci\'on de ortogonalidad;
+		\item\label{item:perpendicularidad:constante}
+			$B_W(A\,v,A\,v_1)=c\,B_V(v,v_1)$, para todo
+			$v,v_1\in V$, para cierta constante $c\in F$;
+		\item\label{item:perpendicularidad:adjunta}
+			$\adjnt A\,A=c\,\id[V]$, para cierta constante
+			$c\in F$.
+	\end{enumerate}
+	%
+\end{teoIntroNodeg}
+
+\begin{obsIntroNodeg}\label{obs:nodegeneradas:perpendicularidad}
+	En particular, del Teorema~\ref{teo:nodegeneradas:perpendicularidad} se
+	deduce que, si $A:\,V\rightarrow W$ preserva las formas bilineales, es
+	decir, si $B_W(A\,v,A\,v_1)=B_V(v,v_1)$, para todo $v,v_1\in V$,
+	entonces $A$ tiene inversa a izquierda; la inversa a izquierda est\'a
+	dada pro $\adjnt A$. Adem\'as, si $W=V$, $A^{-1}$ existe y es igual a
+	$\adjnt A$ y, por el \teoname~\ref{teo:nodegeneradas:adjunta:matriz},
+	si $M$ es la matriz asociada a $B$ en una base,
+	$M=\trnsp{\repr A}\,M\,\repr A$, es decir, $\repr A$, como matriz de
+	cambio de base, no afecta a $M$.
+\end{obsIntroNodeg}
+
+\begin{lemaIntroNodeg}\label{lema:nodegeneradas:perpendicularidad}
+	Sea $V$ un $F$-e.v. y sea $T:\,V\rightarrow V$ una t.l. Entonces,
+	\begin{enumerate}[(1)]
+		\item\label{item:perpendicularidad:preserva:rectas}
+			si, para toda recta $L\subset V$ que pasa por el
+			origen, $T(L)\subset L$, entonces $T$ es una homotecia;
+		\item\label{item:perpendicularidad:preserva:hiperplanos}
+			si, para todo hiperplano $H\subset V$ que pasa por el
+			origen, $T(H)\subset H$, entonces $T$ es una homotecia.
+	\end{enumerate}
+	%
+\end{lemaIntroNodeg}
+
+\begin{proof}[Demostraci\'on del Teorema~%
+	\ref{teo:nodegeneradas:perpendicularidad}]
+	Asumiendo \eqref{item:perpendicularidad:preserva}, podemos afirmar que,
+	para todo $v,v_1\in V$, si $B_V(v,v_1)=0$, entonces
+	$B_W(A\,v,A\,v_1)=0$ y $B_V(v,\adjnt A\,A\,v_1)=0$. En particular,
+	la t.l. $\adjnt A\,A:\,V\rightarrow V$ preserva todos los hiperplanos.
+	Apelando al Lema~\ref{lema:nodegeneradas:perpendicularidad}, deducimos
+	\eqref{item:perpendicularidad:constante}.
+
+	Las afirmaciones \eqref{item:perpendicularidad:constante} y
+	\eqref{item:perpendicularidad:adjunta} son equivalentes porque $B_V$ es
+	no degenerada.
+\end{proof}
+
+\begin{ejerIntroNodeg}\label{ejer:nodegeneradas:adjunta:doble}
+	?`Para qu\'e t.l. $A$ se cumple que $\aadjnt A=A$?
+\end{ejerIntroNodeg}
+
+\begin{ejerIntroNodeg}\label{ejer:nodegeneradas:dimension}
+	Sea $V$ un espacio sim\'etrico o alternado y sea $W\subset V$ un
+	subespacio tal que $\dim\,W+\dim\,W^\perp=\dim\,V$. Entonces, si
+	$U\subset W^\perp$ es tal que $U+W=V$, $U=W^\perp$.
+\end{ejerIntroNodeg}
+
+\begin{ejerIntroNodeg}\label{ejer:nodegeneradas:anulador}
+	Si $W\subset V$ es un subespacio ($\dim\,V<\infty$) y
+	$W'=\{\varphi\in\dual V\,:\,\varphi(W)=0\}$, entonces
+	$\dim\,W'+\dim\,W=\dim V$.
+\end{ejerIntroNodeg}
+
+\begin{ejerIntroNodeg}\label{ejer:nodegeneradas:perfecto}
+	Una funci\'on bilineal $B:\,V\times W\rightarrow F$ se dice
+	\emph{perfecta},%
+	\footnote{
+		O \emph{pairing perfecto}.
+	}
+	si
+	\begin{displaymath}
+		\begin{aligned}
+			\big(v\,\mapsto\,B(v,-)\big) & \,:\,
+				V\,\rightarrow\,\dual W
+			\quad\text{y} \\
+			\big(w\,\mapsto\,B(-,w)\big) & \,:\,
+				W\,\rightarrow\,\dual V
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	son isomorfismos. Dada una funci\'on bilineal $B$ en $V\times W$ y
+	dado un subespacio $U\subset V$, se define
+	\begin{math}
+		U^\perp=\{w\in W\,:\,B(U,w)=0\}
+	\end{math}. Si $B$ es perfecta, entonces la funci\'on inducida
+	\begin{displaymath}
+		U\,\times\,\big(W/U^\perp\big)\,\rightarrow\,F
+	\end{displaymath}
+	%
+	es perfecta.
+\end{ejerIntroNodeg}
+
+\begin{ejerIntroNodeg}\label{ejer:nodegeneradas:adjunta:propiedades}
+	Si $B$ es una forma bilineal no degenerada en $V$, entonces
+	\begin{itemize}
+		\item $\adjnt{(A_1+A_2)}=\adjnt{A_1}+\adjnt{A_2}$,
+		\item $\adjnt{(c\,A)}=c\,\adjnt A$,
+		\item $\adjnt{\id[V]}=\id[V]$,
+		\item $\adjnt{(A_1\,A_2)}=\adjnt{A_2}\,\adjnt{A_1}$,
+		\item $\adjnt{(A^{-1})}=(\adjnt A)^{-1}$,
+		\item $\det\,\adjnt A=\det\,A$, $\Traza(\adjnt A)=\Traza(A)$ y
+			$\caracteristico[{\adjnt A}]=\caracteristico[A]$.
+	\end{itemize}
+	%
+\end{ejerIntroNodeg}
+

@@ -1,0 +1,177 @@
+\theoremstyle{plain}
+\newtheorem{lemaLongitudNorma}{Lema}[section]
+
+\theoremstyle{definition}
+\newtheorem{ejemploCuadraticoImaginarioPrimalidad}[lemaLongitudNorma]{Ejemplo}
+\newtheorem{ejemploCuadraticoImaginarioCadenas}[lemaLongitudNorma]{Ejemplo}
+\newtheorem{ejemploCuadraticoReal}[lemaLongitudNorma]{Ejemplo}
+\newtheorem{ejemploPolinomiosEnteros}[lemaLongitudNorma]{Ejemplo}
+\newtheorem{obsPolinomiosEnteros}[lemaLongitudNorma]{Observaci\'{o}n}
+\newtheorem{ejemploPotenciasRacionales}[lemaLongitudNorma]{Ejemplo}
+
+%-------------
+
+\begin{ejemploCuadraticoImaginarioPrimalidad}%
+	\label{ejemplo:cuadraticoimaginario:primalidad}
+	Ya mencionamos en el Ejemplo~%
+	\ref{ejemplo:factorial:cuadraticoimaginario} que $\bb Z[\sqrt{-5}]$ no
+	es un D.F.U. Esto era consecuencia de que ten\'{\i}amos dos
+	factorizaciones esencialmente distintas para $9$:
+	$3\not\sim 2\pm\sqrt{-5})$, pero
+	\begin{align*}
+		9 & \,=\,3\cdot 3 \,=\,(2+\sqrt{-5})\,(2-\sqrt{-5})
+		\text{ .}
+	\end{align*}
+	%
+	Supongamos que $x,y\in\bb Z[\sqrt{-5}]$ son tales que $x|y$. Entonces
+	la norma de $x$ divide a la norma de $y$. Si, adem\'{a}s, asumimos que
+	$x\,\conj x=y\,\conj y$, entonces $x\sim y$. Dado que $3$ y
+	$2+\sqrt{-5}$ y $2-\sqrt{-5}$ son de norma $9$ y que no son asociados,
+	deducimos que $3$ no es primo en este anillo, pues:
+	\begin{itemize}
+		\item $3|(2+\sqrt{-5})\,(2-\sqrt{-5})$, pero
+		\item $3\nmid 2\pm\sqrt{-5}$.
+	\end{itemize}
+	%
+	An\'{a}logamente, $2\pm\sqrt{-5}$ no son primos, tampoco. 
+\end{ejemploCuadraticoImaginarioPrimalidad}
+
+Es decir, $\bb Z[\sqrt{-5}]$ no satisface la condici\'{o}n de primalidad.
+Veamos que, sin embargo, s\'{\i} satisface la condici\'{o}n de cadenas de
+divisores. El argumento es similar al que usamos arriba para mostrar que $3$ no
+es primo. Por esta raz\'{o}n y porque es v\'{a}lido m\'{a}s en general, lo
+dejamos expresado en el siguiente lema. Si $x\in\bb Z[\sqrt{-5}]$, usamos la
+notaci\'{o}n $\Norma(x)$ para referirnos a la norma de $x$.
+
+\begin{lemaLongitudNorma}\label{lema:longitud:norma}
+	Sean $x,y\in\bb Z[\sqrt{-5}]$ tales que $x|y$. Entonces
+	$\Norma(x)|\Norma(y)$. Si, adem\'{a}s, $\Norma(x)\sim\Norma(y)$,
+	entonces $x\sim y$. Equivalentemente, si $x$ es un divisor propio de
+	$y$, entonces $\Norma(x)$ es un divisor propio de $\Norma(y)$.
+\end{lemaLongitudNorma}
+
+\begin{ejemploCuadraticoImaginarioCadenas}%
+	\label{ejemplo:cuadraticoimaginario:cadenas}
+	El anillo $\bb Z[\sqrt{-5}]$ satisface la condici\'{o}n de cadenas de
+	divisores. Si $\{x_i\}_{i\geq 0}$ es una sucesi\'{o}n de divisores, es
+	decir, elementos del anillo tales que $x_{i+1}|x_i$, entonces,
+	aplicando la norma, obtenemos una sucesi\'{o}n de divisores
+	$\{\Norma(x_i)\}_{i\geq 0}$ en $\bb Z$. Pero el anillo de enteros
+	racionales es un D.F.U. y, por lo tanto, satisface la condici\'{o}n de
+	cadenas de divisores. En particular, existe $k\geq 0$ tal que
+	$\Norma(x_i)\sim\Norma(x_k)$ para todo $i\geq k$. Por el Lema~%
+	\ref{lema:longitud:norma}, esto implica que $x_i\sim x_k$ para
+	$i\geq k$. En definitiva, $\bb Z[\sqrt{-5}]$ satisface la condici\'{o}n
+	de cadenas de divisores.
+\end{ejemploCuadraticoImaginarioCadenas}
+
+Como veremos en la secci\'{o}n~\ref{sec:existenciayunicidad}, todo dominio
+\'{\i}ntegro noetheriano satisface la condici\'{o}n de cadenas de divisores. El
+anillo $\bb Z[\sqrt{-5}]$, como todo anillo de enteros, es noetheriano y, en
+particular, satisface la condici\'{o}n de cadenas de divisores. El argumento
+del Ejemplo~\ref{ejemplo:cuadraticoimaginario:cadenas} sigue siendo v\'{a}lido
+en un anillo de enteros algebraicos, o siempre que haya un morfismo ``norma''
+con imagen en un D.F.U.
+
+\begin{ejemploCuadraticoReal}\label{ejemplo:cuadraticoreal}
+	Sea $\bb Z[\sqrt{10}]$ el subanillo de $\bb R$ de elementos de la
+	forma $a+b\,\sqrt{10}$, con $a,b\in\bb Z$. Este anillo satisface la
+	condici\'{o}n de cadenas de divisores. Definimos el conjugado de
+	$x=a+b\,\sqrt{10}$ como $\conj x=a-b\,\sqrt{10}$ y su norma como
+	$\Norma(x)=a^2-10\,b^2$. La norma es un morfismo de monoides
+	\begin{align*}
+		\Norma & \,:\,\bb Z[\sqrt{10}]\setmin\{0\}
+			\,\rightarrow\,\bb Z\setmin\{0\}
+		\text{ ,}
+	\end{align*}
+	%
+	por lo tanto, $x|y$ implica $\Norma(x)|\Norma(y)$. En particular, las
+	unidades de $\bb Z[\sqrt{10}]$ tienen norma $-1$ o $1$.
+	Rec\'{\i}procamente, si $\Norma(x)=\pm1$, entonces $x$ es una unidad
+	con inverso $\pm\conj x$. En definitiva, el Lema~%
+	\ref{lema:longitud:norma} es cierto con $\bb Z[\sqrt{10}]$ en lugar de
+	$\bb Z[\sqrt{-5}]$ y $\bb Z[\sqrt{10}]\setmin\{0\}$ satisface la
+	condici\'{o}n de cadenas de divisores. Pero el anillo no es un D.F.U.
+	Veamos primero que $2$, $5$ y $\sqrt{10}$ son irreducibles.
+
+	La norma de $2$ es $4$, con lo cual, el problema de determinar si $2$
+	es o no irreducible se reduce a determinar si existen elementos de
+	norma $\pm2$. Si existiesen $a,b\in\bb Z$ tales que
+	\begin{align*}
+		a^2\,-\,10\,b^2 & \,=\,\pm2
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $a^2\equiv\pm2\,\tmodulo[5]$. Pero esta congruencia no tiene
+	soluci\'{o}n, pues, los posibles restos cuadr\'{a}ticos m\'{o}dulo $5$
+	son $0$, $1$ y $4$. An\'{a}logamente, no existen elementos de norma
+	$\pm5$, pues, si
+	\begin{align*}
+		a^2\,-\,10\,b^2 & \,=\,\pm5
+		\text{ ,}
+	\end{align*}
+	%
+	entonces, $5|a$, $5\nmid b$ y $\mp 5\equiv 10\,b^2\tmodulo[25]$. En
+	particular, $b$ debe ser soluci\'{o}n de
+	\begin{align*}
+		\mp\,1 & \,\equiv\,2\,b^2\modulo[5]
+		\text{ ,}
+	\end{align*}
+	%
+	que es imposible. Esto demuestra que $2$ y $5$ son irreducibles en
+	$\bb Z[\sqrt{10}]$. En cuanto a $\sqrt{10}$, ninguno de los divisores
+	propios de $\Norma(\sqrt{10})=-10$ pertenece a la imagen del morfismo
+	$\Norma$, con lo que $\sqrt{10}$ es irreducible.
+
+	Ahora bien, en $\bb Z[\sqrt{10}]$ valen las igualdades
+	\begin{align*}
+		10 & \,=\,2\cdot 5\,=\,(\sqrt{10})^2
+		\text{ .}
+	\end{align*}
+	%
+	Pero $2\not\sim\sqrt{10}$ (ni tampoco es $5$ asociado de $\sqrt{10}$).
+	En definitiva, $10$ admite dos factorizaciones esencialmente distintas.
+\end{ejemploCuadraticoReal}
+
+\begin{ejemploPolinomiosEnteros}\label{ejemplo:polinomiosenteros}
+	Sea $\bb Z[X]$ el anillo de polinomios en una variable con coeficientes
+	enteros. Puesto que $\bb Z$ es un dominio, las unidades en $\bb Z[X]$
+	son exactamente las unidades en $\bb Z$, es decir, $-1$ y $1$. Esto
+	significa que $f\sim g$, si y s\'{o}lo si $f=\pm g$. Dado
+	$f\in\bb Z[X]$, denotamos el grado de $f$ por $\grado(f)$. El grado de
+	un polinomio tiene la siguiente propiedad:
+	\begin{equation}
+		\label{eq:polinomiosenteros}
+		\grado(f\,g) \,=\,\grado(f)\,+\,\grado(g)
+		\text{ .}
+	\end{equation}
+	%
+	En particular, si $f|g$, vale que $\grado(f)\leq\grado(g)$. M\'{a}s
+	aun, si $f$ es un divisor propio de $g$, entonces la desigualdad es
+	estricta. Concluimos, as\'{\i}, que no pueden existir cadenas no
+	acotadas de divisores.
+\end{ejemploPolinomiosEnteros}
+
+\begin{obsPolinomiosEnteros}\label{obs:polinomiosenteros}
+	La propiedad del grado expresada en \eqref{eq:polinomiosenteros} es
+	cierta para todo anillo de polinomios con coeficientes en un dominio
+	\'{\i}ntegro. En particular, dado un dominio $D$, las unidades en
+	$D[X]$ son exactamente las unidades en $D$ y el monoide
+	$D[X]\setmin\{0\}$ satisface la condici\'{o}n de cadenas de divisores.
+\end{obsPolinomiosEnteros}
+
+\begin{ejemploPotenciasRacionales}\label{ejemplo:potenciasracionales}
+	Sea $D$ el anillo que se obtiene agregando a $\bb Z[X]$ ``las
+	ra\'{\i}ces de $X$''. Es decir, existe un elemento que denotamos
+	$X^{1/2}$ tal que $(X^{1/2})^2=X$ y, en general existe $X^{1/N}\in D$
+	tal que $(X^{1/N})^N=X$. Entonces $D$ es un dominio \'{\i}ntegro que no
+	satisface la condici\'{o}n de cadenas de divisores, ya que incluye, por
+	ejemplo, la sucesi\'{o}n de divisores propios
+	$\{X^{1/2^i}\}_{i\geq 0}$.
+
+	Para evitar problemas de definici\'{o}n, podemos considerar el
+	subanillo $\bb Z[\sqrt 2,\,\sqrt[4] 2,\,\dots]$ de $\bb C$ (o de
+	$\bb R$). En particular, por ser subanillo de un cuerpo, debe ser
+	dominio, y se puede comprobar que $\{\sqrt[2^i] 2\}_{i\geq 0}$ es una
+	sucesi\'{o}n de divisores propios.
+\end{ejemploPotenciasRacionales}

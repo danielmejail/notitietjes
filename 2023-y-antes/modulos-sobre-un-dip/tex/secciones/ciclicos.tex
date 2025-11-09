@@ -1,0 +1,641 @@
+\theoremstyle{plain}
+\newtheorem{lemaCiclicosFundamental}{Lema}[section]
+\newtheorem{propoSumandoCiclico}[lemaCiclicosFundamental]{Proposici\'{o}n}
+\newtheorem{propoCiclicosCorrespondenciaSubmodulos}[lemaCiclicosFundamental]%
+	{Proposici\'{o}n}
+\newtheorem{propoCorrespondenciaCocientesDeCiclico}[lemaCiclicosFundamental]%
+	{Proposici\'{o}n}
+
+\theoremstyle{definition}
+\newtheorem{defCiclicos}[lemaCiclicosFundamental]{Definici\'{o}n}
+\newtheorem{obsCiclicos}[lemaCiclicosFundamental]{Observaci\'{o}n}
+\newtheorem{defCiclicosSobreDIP}[lemaCiclicosFundamental]{Definici\'{o}n}
+\newtheorem{obsCiclicosSobreDIP}[lemaCiclicosFundamental]{Observaci\'{o}n}
+\newtheorem{ejemploCiclicosEnteros}[lemaCiclicosFundamental]{Ejemplo}
+\newtheorem{ejemploCiclicosSumandoDirecto}[lemaCiclicosFundamental]{Ejemplo}
+\newtheorem{ejemploGrupoCiclico}[lemaCiclicosFundamental]{Ejemplo}
+
+%-----------
+
+Sea $R$ un anillo.
+
+\begin{defCiclicos}\label{def:ciclicos}
+	Un $R$-m\'{o}dulo $C$ se dice \emph{c\'{\i}clico} si est\'{a} generado
+	por un \'{u}nico elemento, es decir, existe $c_0\in C$ tal que
+	\begin{align*}
+		C & \,=\,\generado[R]{c_0}
+		\text{ .}
+	\end{align*}
+	%
+	Decimos que $c_0$ es un \emph{generador} de $C$ o que $C$
+	\emph{est\'{a} generado por $c_0$}.
+\end{defCiclicos}
+
+\begin{obsCiclicos}\label{obs:ciclicos}
+	Dado un $R$-m\'{o}dulo c\'{\i}clico $C$ y un generador $c_{0}\in C$,
+	queda determinado un epimorfismo $R\rightarrow C$ por
+	$1\in R\mapsto c_{0}\in C$. El m\'{o}dulo $C$ es isomorfo a un cociente
+	de $R$ por un subm\'{o}dulo (un ideal) $I\leq R$:
+	\begin{align*}
+		C & \,\simeq\,R/I
+		\text{ .}
+	\end{align*}
+	%
+	El ideal $I$ no es otra cosa que el \emph{anulador de $C$}, o bien
+	de $c_0$, en $R$:
+	\begin{align*}
+		I & \,=\,\Anulador[R](C) \,=\,\Anulador(C) \,=\,
+			\Anulador(c_0)
+		\text{ .}
+	\end{align*}
+	%
+\end{obsCiclicos}
+
+Ahora tomamos un DIP, $D$. En este caso, todo ideal tiene la forma
+$I=\generado{\mu}$, para cierto $\mu\in D$; el generador del ideal, $\mu$,
+est\'{a} determinado salvo unidades en $D$.
+
+\begin{defCiclicosSobreDIP}\label{def:ciclicos:sobredip}
+	Sea $C=\generado{c_0}$ un $D$-m\'{o}dulo c\'{\i}clico. El \emph{orden %
+	de $C$} es cualquier elemento $\mu\in D$ tal que
+	$C\simeq D/\generado{\mu}$. A veces, tambi\'{e}n llamaremos
+	\emph{orden de $C$} al ideal $\generado{\mu}$. Dado un $D$-m\'{o}dulo
+	$A$ y $x\in A$ el \emph{orden de $x$} es el orden del subm\'{o}dulo
+	c\'{\i}clico, $\generado x\subset A$, generado por $x$.
+\end{defCiclicosSobreDIP}
+
+\begin{obsCiclicosSobreDIP}\label{obs:ciclicos:sobredip}
+	Si $C$ es un $D$-m\'{o}dulo c\'{\i}clico, entonces
+	$\Anulador(C)=\generado{\mu}$. Si $\mu=0$, $C\simeq D$ es libre.
+\end{obsCiclicosSobreDIP}
+
+\begin{ejemploCiclicosEnteros}\label{ejemplo:ciclicos:enteros}
+	Tomamos $D=\bb Z$ y $\mu=m\in\bb Z$. Si $C=\bb Z/\generado{m}$,
+	entonces $C$ posee $m$ elementos y $m$, el menor entero positivo tal
+	que $m\cdot 1=0$, es el orden de $C$. Los $\bb Z$-m\'{o}dulos son
+	exactamente los grupos abelianos. Los cocientes $\bb Z/\generado{m}$
+	son precisamente los grupos c\'{\i}clicos; el grupo c\'{\i}clico de $m$
+	elementos se corresponde con el cociente de $\bb Z$ por el ideal
+	$m\bb Z$. A un grupo finito se le asocian dos n\'{u}meros que dan una
+	idea de su tama\~{n}o y su ``din\'{a}mica'': su cardinal, es decir, la
+	cantidad de elementos, y su \emph{orden}, el menor entero positivo
+	$m$ tal que $x^m=1$ para todo $x$ del grupo. Para los grupos
+	c\'{\i}clicos estas dos nociones coinciden: si $C=\generado{x}$, su
+	orden es el menor entero positivo $m$ tal que $x^m=1$, y $x^k$ son
+	todos distintos para $k\in [\![1,m]\!]$.
+\end{ejemploCiclicosEnteros}
+
+Si $n\mid m$, entonces la inclusi\'{o}n de ideales
+$\generado{m}\subset\generado{n}$ induce un morfismo sobreyectivo
+\begin{align*}
+	\reducirmod[n] & \,:\,\bb Z/m \,\rightarrow\,\bb Z/n
+	\text{ ,}
+\end{align*}
+%
+dado por reducir m\'{o}dulo $n$ --es decir,
+$j\tmodulo[m]\mapsto j\tmodulo[n]$-- y cuyo n\'{u}cleo es el subm\'{o}dulo
+$\generado{n\tmodulo[m]}\subset\bb Z/m$. Por otro lado, si $m=n\cdot k$,
+tenemos un morfismo bien definido
+\begin{align*}
+	\multiplicar[k] & \,:\,\bb Z/n\,\rightarrow\,\bb Z/m
+	\text{ ,}
+\end{align*}
+%
+dado por multiplicar por $k$: la imagen de $i\tmodulo[n]$ es
+$k\cdot i\tmodulo[m]$. Esta aplicaci\'{o}n est\'{a} bien definida: si
+$i\in i'+l\cdot n$ en $\bb Z$, entonces
+\begin{align*}
+	k\cdot i & \,=\,k\cdot i'+(k\cdot l)\cdot n
+		\,=\,k\cdot i' +l\cdot m
+	\text{ .}
+\end{align*}
+%
+En particular, la clase m\'{o}dulo $m$ de $k\cdot i$ est\'{a} bien definida,
+cualquiera sea el representante $i$ de la clase m\'{o}dulo $n$. Esta
+aplicaci\'{o}n es un morfismo de $\bb Z$-m\'{o}dulos: multiplicar es lineal.
+Finalmente, este morfismo es inyectivo:
+\begin{align*}
+	k\cdot i\,\equiv\,0\modulo[m]\,\Leftrightarrow\,
+		k\cdot i\,=\,l\cdot m\,=\,k\cdot(l\cdot n)
+		\,\Leftrightarrow\,i\,=\,l\cdot n
+		\,\Leftrightarrow\, i\,\equiv\,0\modulo[n]
+	\text{ .}
+\end{align*}
+%
+La imagen de este morfismo es el subm\'{o}dulo generado por $k$ en $\bb Z/m$,
+es decir, $\generado{k\tmodulo[m]}$.
+% Para la segunda equivalencia, requerimos que $\bb Z$ sea un dominio.
+% Notemos que este \'{u}ltimo morfismo proviene del morfismo an\'{a}logo
+% $\bb Z\rightarrow\bb Z$. Podemos resumir la situaci\'{o}n con los siguientes
+% diagramas:
+% \begin{center}
+	% \begin{tikzcd}
+		% 0 \arrow[r] &
+			% \generado{n\tmodulo[m]}=
+				% \generado{n}/\generado{m}
+				% \arrow[r] &
+			% \bb Z/m \arrow[r,"{\reducirmod[n]}"] &
+			% \bb Z/n \arrow[r] & 0
+	% \end{tikzcd}
+% 
+	% \begin{tikzcd}
+		% 0\arrow[r] & \bb Z \arrow[r,"{\multiplicar[k]}"]
+				% \arrow[d] &
+			% \bb Z \arrow[d] \arrow[r,"{\reducirmod[k]}"] &
+			% \bb Z/k \arrow[d,equal] \arrow[r] & 0 \\
+		% 0\arrow[r] & \bb Z/n \arrow[r,"{\multiplicar[k]}"'] &
+			% \bb Z/m \arrow[r,"{\reducirmod[k]}"'] &
+			% \bb Z/k \arrow[r] & 0
+	% \end{tikzcd}
+% \end{center}
+Notemos que, si $x\in\generado{k\tmodulo[m]}$, entonces
+$n\cdot x\equiv 0\tmodulo[m]$. Rec\'{\i}procamente, si
+$n\cdot x\equiv 0\tmodulo[m]$, entonces
+\begin{align*}
+	n\cdot x & \,=\,l\cdot m \,=\,n\cdot (k\cdot l)
+\end{align*}
+%
+y, en particular, $x=k\cdot l$. En definitiva,
+\begin{align*}
+	\img(\multiplicar[k]) & \,=\,\generado{k\tmodulo[m]}\,=\,
+		\ker(\multiplicar[n])
+	\text{ ,}
+\end{align*}
+%
+donde $\multiplicar[n]:\,\bb Z/m\rightarrow\bb Z/m$ es el morfismo dado por
+multiplicar por $n$ las clases m\'{o}dulo $m$. As\'{\i}, podemos armar la
+siguiente sucesi\'{o}n exacta:
+\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r] & \bb Z/n \arrow[r,"{\multiplicar[k]}"] &
+			\bb Z/m \arrow[r,"{\multiplicar[n]}"] &
+			\bb Z/m \arrow[r] & \bb Z/n \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+
+Estas observaciones son v\'{a}lidas, en general, para cualquier m\'{o}dulo
+c\'{\i}clico sobre un DIP. M\'{a}s precisamente, si $D$ es un DIP,
+$C=\generado{c_0}$ es un m\'{o}dulo c\'{\i}clico de orden $\mu$ y
+$\mu=\kappa\cdot\nu$ en $D$, entonces lo morfismos an\'{a}logos a los del
+Ejemplo~\ref{ejemplo:ciclicos:enteros} producen la siguiente sucesi\'{o}n
+exacta:
+\begin{center}
+	\begin{tikzcd}
+		0\arrow[r] & D/\generado{\nu}
+			\arrow[r,"{\multiplicar[\kappa]}"]
+				\arrow[d,dashed] &
+			D/\generado{\mu} \arrow[d,"\sim"]
+				\arrow[r,"{\multiplicar[\nu]}"] &
+			D/\generado{\mu} \arrow[d,"\sim"] \arrow[r] &
+			D/\generado{\nu} \arrow[r] \arrow[d,dashed] & 0 \\
+		0\arrow[r] & \generado{\kappa\cdot c_0} \arrow[r] &
+			C=\generado{c_0} \arrow[r,"{\multiplicar[\nu]}"'] &
+			C \arrow[r] &
+			C/\generado{\nu\cdot c_0} \arrow[r] & 0
+	\end{tikzcd}
+\end{center}
+La exactitud en la composici\'{o}n $\multiplicar[\nu]\circ\multiplicar[\kappa]$
+es el resultado del siguiente lema.
+
+\begin{lemaCiclicosFundamental}[fundamental]\label{lema:ciclicos:fundamental}
+	Sea $C$ un $D$-m\'{o}dulo c\'{\i}clico de orden $\mu$ y supongamos que
+	$\mu=\nu\cdot\kappa$ es una factorizaci\'{o}n en $D$. Si $x\in C$ es
+	tal que $\nu\cdot x=0$, entonces existe $x'\in C$ tal que
+	$\kappa\cdot x'=x$.
+\end{lemaCiclicosFundamental}
+
+\begin{proof}
+	Sea $C=\generado{c_{0}}$ y sea $\lambda\in D$ tal que
+	$x=\lambda\cdot c_{0}$. Si $\nu\cdot x=0$, entonces
+	$\nu\cdot\lambda\in\generado{\mu}$. Esto significa que existe
+	$\lambda'\in D$ tal que $\nu\cdot\lambda=\nu\cdot(\kappa\cdot\lambda')$.
+	Como $D$ es dominio, cancelando, $\lambda=\kappa\cdot\lambda'$.
+	As\'{\i}, $x=\kappa\cdot x'$ con $x'=\lambda'\cdot c_{0}$.
+\end{proof}
+
+\begin{propoSumandoCiclico}\label{propo:sumandociclico}
+	Sea $A$ un $D$-m\'{o}dulo noetheriano. Sea $C\subset A$ un
+	subm\'{o}dulo c\'{\i}clico de orden $\mu$. Si $\mu\in\Anulador{A}$
+	($\mu\cdot A=0$), entonces $C$ es un sumando directo de $A$.
+\end{propoSumandoCiclico}
+
+\begin{proof}
+	Como $A$ es noetheriano, existe un conjunto finito $\{\lista{a}{k}\}$
+	tal que
+	\begin{align*}
+		A & \,=\, C+\generado{\lista{a}{k}}
+		\text{ .}
+	\end{align*}
+	%
+	Si $k=0$, $A=C$ y no hay nada que probar. Para $k\geq 1$, definimos
+	$a=a_{k}$ y $A_{0}=C+\generado{\lista{a}{k-1}}$. Supongamos,
+	inductivamente, que la proposici\'{o}n es cierta cuando $A/C$ est\'{a}
+	generado por, a lo sumo, $k-1$ elementos. La condici\'{o}n
+	$\mu\cdot A=0$ implica $\mu\cdot A_{0}=0$ y, por hip\'{o}tesis
+	inductiva, $C$ es sumando directo de $A_{0}$:
+	\begin{equation}
+		\label{eq:ciclicos:sumandociclico}
+		A_{0} \,=\,C\oplus B_{0}
+		\text{ .}
+	\end{equation}
+	%
+	Es decir, existe un complemento $B_{0}\subset A_{0}$ de $C$ en $A_{0}$:
+	\begin{align*}
+		A_{0} \,=\,C+B_{0} & \quad\text{y}\quad
+			C\cap B_{0}\,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	Dado que $A=A_{0}+\generado{a}$, el cociente $A/A_{0}$ es c\'{\i}clico
+	generado por la clase $a+A_0$. Si $\kappa\in D$ es el orden de este
+	cociente, $\mu\cdot(A/A_0)=0$ implica que
+	$\mu\in\Anulador(A/A_0)=\generado{\kappa}$ y existe $\nu\in D$ tal que
+	$\mu=\nu\cdot\kappa$.%
+	\footnote{
+		Notemos que
+		$\Leftrightarrow A=A_0\Leftrightarrow\kappa\in D^\times$ y
+		podemos aplicar la hip\'{o}tesis inductiva. Es decir,
+		$A_0\not=A$ equivale a que exista una factorizaci\'{o}n no
+		trivial de $\mu$ en $D$.
+	}
+
+	Ahora bien, como $\kappa$ anula a $A/A_0$, debe estar
+	$\kappa\cdot a\in A_0$. Por \eqref{eq:ciclicos:sumandociclico},
+	existen $x\in C$ y $b_{0}\in B_{0}$ tales que
+	$\kappa\cdot a=x+b_{0}$. Multiplicando por $\nu$, se deduce que
+	$\nu\cdot x+\nu\cdot b_{0}=0$ y, por lo tanto, $\nu\cdot x=0$ (y
+	$\nu\cdot b_{0}=0$). Por el Lema~\ref{lema:ciclicos:fundamental},
+	existe $x'\in C$ tal que $x=\kappa\cdot x'$, de lo que se deduce una
+	igualdad
+	\begin{equation}
+		\label{eq:ciclicos:sumandodirecto:bis}
+		\kappa\cdot (a-x') \,=\, b_{0}
+		\text{ .}
+	\end{equation}
+	%
+	Si $a'=a-x'$, entonces $A=A_{0}+\generado{a}=A_{0}+\generado{a'}$.
+	En particular, $A/A_{0}$ est\'{a} generado por la clase $a'+A_{0}$.
+	Definimos $B=B_{0}+\generado{a'}$ y observamos que $A=C+B$. Pero
+	tambi\'{e}n se cumple $C\cap B=0$.%
+	\footnote{
+		Esto es as\'{\i}, pues, en primer lugar, si $c\in C$,
+		$b_0'\in B_{0}$ y $\alpha\in D$ verifican
+		$c=\alpha\cdot a'+b_0'\in C\cap B$, entonces
+		$\alpha\cdot a'=c-b_0'\in A_{0}$ y $\alpha\in\generado{\kappa}$
+		y, en segundo lugar, $\alpha\cdot a'$ es m\'{u}ltiplo de
+		$b_{0}$ (por \eqref{eq:ciclicos:sumandodirecto:bis}),
+		tambi\'{e}n, con lo que $c\in C\cap B_{0}=0$.
+	}
+	Se ve, entonces, que $B$ es un complemento para $C$ en $A$ y el paso
+	inductivo queda demostrado.
+\end{proof}
+
+\begin{ejemploCiclicosSumandoDirecto}\label{ejemplo:ciclicos:sumandodirecto}
+	Si $D = F$ es un cuerpo y $A=V$ un $F$-e.v. de dimensi\'{o}n finita,
+	entonces todo subespacio de dimensi\'{o}n $1$ est\'{a} complementado.
+	Un poco m\'{a}s en general, si $t\in\Endo[F](V)$, $V$ es un m\'{o}dulo
+	sobre el \'{a}lgebra de polinomios $F[X]$ con acci\'{o}n dada por
+	$X\cdot v=t(v)$. Este m\'{o}dulo es f.g. (es de dimensi\'{o}n finita
+	sobre $F$) y, por lo tanto, es noetheriano. Si $C\subset V$ es el
+	subespacio $C=\generado{v,t\,v,t^2\,v,\,\dots}$, entonces existe un
+	subespacio $t$-invariante $W\subset V$ tal que
+	\begin{align*}
+		V & \,=\,C\,\oplus\,W
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemploCiclicosSumandoDirecto}
+
+\begin{ejemploGrupoCiclico}\label{ejemplo:ciclicos:grupociclico}
+	Sea $C$ un grupo c\'{\i}clico (abstracto). Sea $x$ un generador del
+	grupo y sea $C'\leq C$ un subgrupo. Para todo $z\in C'$, existe
+	$k\in\bb Z$ tal que $z=x^k$. Queremos probar que $C'$ es c\'{\i}clico.
+	Si $C'=1$, no hay nada que probar. Supongamos que este no es el caso y
+	sea $n\geq 1$ el menor entero \emph{positivo} $k$ tal que $x^k\in C'$.
+	% Como tambi\'{e}n $x^{-n}\in C'$, este n\'{u}mero se caracteriza por
+	% ser el entero de valor absoluto m\'{a}s chico tal que $x^n$ o
+	% $x^{-n}$ pertenece a $C'$.
+	Afirmamos que $C'=\generado{y}$, con $y=x^n$. Sea $z\in C'$ y sea
+	$\tilde n$ tal que $z=x^{\tilde n}$.
+	% Por definici\'{o}n, $|\tilde n|\geq n$, con lo que podemos escribir
+	Escribimos $\tilde n=q\,n+r$, con $q,r\in\bb Z$ y $0\leq r<n$, y
+	\begin{align*}
+		x^r & \,=\,x^{\tilde n - q\,n} \,=\,z\,y^{-q}\,\in\,C'
+		\text{ .}
+	\end{align*}
+	%
+	Por definici\'{o}n de $n$, debe ser $r=0$ y $z=y^q\in\generado y$.
+\end{ejemploGrupoCiclico}
+
+\begin{ejemploGrupoCiclico}\label{ejemplo:ciclicos:grupociclico:bis}
+	Sea $G$ un grupo abstracto, no necesariamente abeliano, de orden $m$.%
+	\footnote{
+		Estamos llamando \emph{orden de $G$} al menor entero positivo
+		$m$ tal que, para todo $x\in G$, $x^m=1$. Es decir, \emph{a %
+		priori}, $G$ podr\'{\i}a ser infinito. Para referirnos
+		espc\'{\i}ficamente a la cantidad de elementos de $G$ usaremos
+		la palabra ``cardinal'' y escribiremos $\cardinal{G}$. Si
+		supi\'{e}semos que $\cardinal{G}<\infty$, entonces, como
+		$x^{\cardinal{G}}=1$ para todo $x\in G$, debe ser
+		$m\leq\cardinal{G}$.
+	}
+	Entonces $G$ es un grupo c\'{\i}clico, si y s\'{o}lo si, por cada
+	divisor $d\mid m$, $G$ posee a lo sumo un subgrupo c\'{\i}clico de
+	orden $d$. Demostremos esta afirmaci\'{o}n.
+
+	Supongamos, primero, que $G$ es c\'{\i}clico de orden $m$, que est\'{a}
+	generado por un elemento $x_0$, y sea $d$ un divisor del orden --en
+	particular, esto implica que el cardinal de $G$ es finito e igual a
+	$m$. El elemento $x = x_0^{m/d}$ verifica:
+	\begin{align*}
+		& x^n=1\,\Leftrightarrow\,d\mid n
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $C_d:\equiv\generado{x}\leq G$ es un subgrupo
+	c\'{\i}clico de orden $d$. Tomemos, ahora, dos subgrupos c\'{\i}clicos
+	$\generado{y},\generado{z}\leq G$ ambos de orden un divisor de $d$.
+	Existen $k,l\in\bb Z$ tales que $y=x_0^k$ e $z=x_0^l$. Entonces
+	\begin{align*}
+		x_0^{d\,(k-l)} & \,=\,(yz^{-1})^d\,=\,y^d\,(z^d)^{-1}\,=\,1
+		\text{ ,}
+	\end{align*}
+	%
+	de lo que se deduce que $k\equiv l\tmodulo[m/d]$. En consecuencia, todo
+	subgrupo c\'{\i}clico de orden un divisor de $d$ es de la forma
+	$\generado{x_0^{t\,(m/d)}}$ para alg\'{u}n entero $t$. As\'{\i}, todo
+	subgrupo c\'{\i}clico de orden un divisor de $d$, est\'{a} contenido en
+	$C_d$ y, por cardinalidad, $C_d$ es el \'{u}nico subgrupo de $G$ de
+	orden exactamente $d$.
+
+	Supongamos, ahora, que, para cada divisor $d\mid m$, $G$ posee a lo
+	sumo un subgrupo c\'{\i}clico de orden $d$. Veamos, en primer lugar,
+	que esto implica que $G$ es finito. Si $G=1$, no hay nada que probar.
+	En otro caso, sea $x\in G$, $x\not =1$. El subgrupo $C=\generado{x}$ es
+	c\'{\i}clico y $x^m=1$ implica que $C$ es finito. Si $d$ es el orden de
+	$C$, el menor entero positivo tal que $x^d=1$, entonces $d\mid m$.
+	Ahora, o bien $G=C$ es c\'{\i}clico, o bien existe $x'\in G\setmin C$.
+	En este segundo caso, $C'=\generado{x'}$ es un subgrupo c\'{\i}clico,
+	finito y de orden un divisor de $m$ que, por unicidad, debe ser
+	distinto de $d$. Para cada divisor $d\mid m$ elegimos $C_d\leq G$
+	c\'{\i}clico de orden $d$ o $C_d=1$, si no existe tal subgrupo.
+	Afirmamos que
+	\begin{align*}
+		G & \,=\,\bigcup_{d\mid m}\,C_d
+		\text{ .}
+	\end{align*}
+	%
+	Si $x\in G$, por lo que dijimos antes, o bien $x=1$, o bien
+	$\generado{x}$ es uno de los subgrupos $C_d$. En todo caso, $x$
+	pertenece a la uni\'{o}n de la derecha. Ahora bien, la uni\'{o}n se
+	realiza sobre una cantidad finita de divisores $d$ y cada uno de los
+	subgrupos $C_d$ es finito. Por lo tanto, $G$ es finito. M\'{a}s
+	precisamente, como:
+	\begin{itemize}
+		\item $C_d=1$ o $C_d=\generado{x}$ (lo segundo s\'{o}lo si
+			existe $x$ de orden $d$),
+		\item $e\mid d\Rightarrow C_e\leq C_d$ (por unicidad) y
+		\item la cantidad de elementos de orden $d$ es, a lo sumo,
+			$\phideeuler(d)$ (tambi\'{e}n por unicidad),
+	\end{itemize}
+	%
+	tenemos la siguiente cota:
+	\begin{align*}
+		\cardinal{G} & \,\leq\,\sum_{d\mid m}\,\phideeuler(d) \,=\,m
+		\text{ .}
+	\end{align*}
+	%
+	Dado que, adem\'{a}s, $m\leq\cardinal{G}$, debe valer la igualdad. En
+	particular, debe existir $x\in G$ de orden exactamente $m$.
+	% Veamos, en segundo lugar, que todo subgrupo c\'{\i}clico de $G$ es
+	% normal. Si $x,y\in G$, los subgrupos $\generado{x}$ y
+	% $\generado{yxy^{-1}}$ son c\'{\i}clicos de igual orden. Por
+	% hip\'{o}tesis, deben ser el mismo subgrupo. Esto quiere decir que
+	% \begin{align*}
+		% y\,x\,y^{-1} & \,=\,x^k
+		% \text{ ,}
+	% \end{align*}
+	% %
+	% para alg\'{u}n $k$, e $y\generado{x}y^{-1}\subset\generado{x}$,
+	% cualquiera sea $y\in G$. La prueba de que $G$ es c\'{\i}clico procede,
+	% finalmente, por inducci\'{o}n en el cardinal de $G$. Si $G=1$, no hay
+	% nada que probar. Si $G\not=1$, existe un subgrupo c\'{\i}clico no
+	% trivial $1\not =C\triangleleft G$. El grupo cociente $G'=G/C$ es
+	% finito y de cardinal menor que el cardinal de $G$ y cumple que
+	% $(x')^m=1$ en $G'$.%
+	% \footnote{
+		% $m$ podr\'{\i}a ser mayor al orden de $G'$.
+	% }
+	% Supongamos que $C_1',C_2'\leq G'$ son c\'{\i}clicos no triviales de
+	% orden (un divisor de) $d$ un divisor de $m$ y sean $x_1',x_2'\in G$
+	% tales que $C_i'=\generado{x_i'C}$. Entonces existen $k_1,k_2>0$ los
+	% m\'{a}s chicos posibles tales que
+	% \begin{align*}
+		% (x_1')^d\,=\,x^{k_1} & \quad\text{y}\quad (x_2')^d\,=\,x^{k_2}
+		% \text{ .}
+	% \end{align*}
+	% %
+	% Si $0<k_1\leq k_2$, $k_2=q\,k_1+r$ con $0\leq r<k_1$. Pero entonces
+	% \begin{math}
+		% (x_2')^d=x^{q\,k_1}\,x^r=(x_1')^{d\,q}\,x^r
+	% \end{math} y
+	% \begin{align*}
+		% (x_1')^{-d}\,(x_1')^{d\,q}\,x^r & \,=\,x^{-k_1}\,x^{k_2}
+	% \end{align*}
+	% %
+	% Notemos que, si $C\triangleleft G$ es un subgrupo c\'{\i}clico
+	% normal, entonces $\centraliza[G](C)$ es normal en $G$ tambi\'{e}n. Sean
+	% $C=\generado{x}$, $g\in\centraliza[G](C)$ e $y\in G$. Entonces, si
+	% $y^{-1}x=x^ly^{-1}$, para alg\'{u}n $l$, vale que
+	% $yx^l=yx^ly^{-1}y=yy^{-1}xy=xy$. En particular,
+	% \begin{align*}
+		% (y\,g\,y^{-1})\,x & \,=\,(y\,g)\,x^l\,y^{-1}\,=\,
+			% y\,x^l\,g\,y^{-1}\,=\,x\,(y\,g\,y^{-1})
+		% \text{ ,}
+	% \end{align*}
+	% %
+	% de lo que se deduce que $ygy^{-1}\in\centraliza[G](C)$, tambi\'{e}n.
+\end{ejemploGrupoCiclico}
+
+El siguiente resultado generaliza esta observaci\'{o}n a m\'{o}dulos
+c\'{\i}clicos sobre un DIP.
+
+\begin{propoCiclicosCorrespondenciaSubmodulos}%
+	\label{propo:ciclicos:correspondenciasubmodulos}
+	Sea $C$ un $D$-m\'{o}dulo c\'{\i}clico de orden $\mu$. Entonces:
+	\begin{enumerate}
+		\item\label{item:ciclicos:correspondenciasubmodulos:i}
+			todo subm\'{o}dulo $C'\subset C$ es c\'{\i}clico de
+			orden $\mu'$ un divisor de $\mu$;
+		\item\label{item:ciclicos:correspondenciasubmodulos:ii}
+			dado un ideal principal
+			$\generado{\lambda}\supset\generado{\mu}$ en $D$,
+			existe un \'{u}nico subm\'{o}dulo $C'\subset C$ de
+			orden $\lambda$.
+	\end{enumerate}
+\end{propoCiclicosCorrespondenciaSubmodulos}
+
+\begin{proof}
+	Sea $C'\subset C$ un subm\'{o}dulo. Como $C$ es c\'{\i}clico existe un
+	epimorfismo $\theta:\,D\rightarrow C$, lo que, como $D$ es noetheriano,
+	implica que $C$ es noetheriano. Como $C'$ es un subm\'{o}dulo de $C$,
+	es noetheriano, tambi\'{e}n. En particular, $C'$ es f.g. Sea $c_0\in C$
+	un generador --concretamente, el generador $c_0=\theta(1)$-- y sean
+	$\lista{c}{k}\in C'$ tales que $C'=\generado{\lista{c}{k}}$. Como
+	$c_i\in C$, existen $a_i\in D$ tales que $c_i=a_i\,c_0$. Los
+	coeficientes $a_i$ generan un ideal en $D$. Sea $\nu\in D$ un generador
+	de este ideal:
+	\begin{align*}
+		\generado{\nu} & \,=\,\generado{\lista{a}{k}} \,\subset\, D
+		\text{ .}
+	\end{align*}
+	%
+	Elegimos $b_i\in D$ de manera que $a_i=b_i\,\nu$ y definimos
+	$c_0'=\theta(\nu)$. Entonces
+	\begin{align*}
+		c_i & \,=\,\theta(a_i) \,=\,\theta(b_i\,\nu)\,=\,b_i\,c_0'
+		\text{ .}
+	\end{align*}
+	%
+	De esto se deduce que
+	\begin{math}
+		C'=\generado{\lista{c}{k}}\subset\generado{c_0'}\subset C
+	\end{math}. Rec\'{\i}procamente, $\nu=\sum_i\,b_i'\,a_i$ para ciertos
+	$b_i'\in D$. Entonces
+	\begin{align*}
+		c_0' & \,=\,\theta(\nu)\,=\,\theta\Big(\sum_i\,b_i'\,a_i\Big)
+			\,=\, \sum_i\,b_i'\,c_i
+		\text{ ,}
+	\end{align*}
+	%
+	que es una expresi\'{o}n en $C'$. En definitiva,
+	\begin{math}
+		C'=\generado{c_0'}=\generado{\theta(\nu)}
+	\end{math} y, como $\mu\cdot C'=0$, $\mu$ debe ser un m\'{u}ltiplo del
+	orden del sub-$D$-m\'{o}dulo ($D$-subm\'{o}dulo) c\'{\i}clico $C'$.
+	Esto demuestra~\ref{item:ciclicos:correspondenciasubmodulos:i}.
+
+	Sean, ahora, $C',C''\subset C$ subm\'{o}dulos (necesariamente
+	c\'{\i}clicos) de orden $\generado{\lambda}$, ambos. Por~%
+	\ref{item:ciclicos:correspondenciasubmodulos:i}, la suma $C'+C''$
+	tambi\'{e}n es c\'{\i}clica y, si $\mu'$ es su orden, la cadena de
+	inclusiones
+	\begin{math}
+		C',C'' \subset C'+C''\subset C
+	\end{math} implica que
+	\begin{math}
+		\generado\lambda \supset \generado{\mu'} \supset
+				\generado\mu
+	\end{math}.%
+	\footnote{
+		A partir de este punto, ya no se hace referencia a $C$.
+	}
+	Dado que $\lambda\cdot\big(C'+C''\big)=0$, debe cumplirse
+	$\lambda\in\generado{\mu'}$ y
+	\begin{align*}
+		\generado{\lambda} & \,=\,\generado{\mu'}
+		\text{ .}
+	\end{align*}
+	%
+	Pero, entonces, $C'$ (por ejemplo) es un subm\'{o}dulo c\'{\i}clico de
+	orden $\lambda$ del m\'{o}dulo noetheriano $C'+C''$, que verifica
+	$\lambda\cdot\big(C'+C''\big)=0$. Por la Proposici\'{o}n~%
+	\ref{propo:sumandociclico},
+	\begin{align*}
+		C'+C'' & \,=\,C'\oplus B
+		\text{ ,}
+	\end{align*}
+	%
+	para cierto $B\subset C'+C''$. Sea $c_0$ un generador de $C'+C''$ y sea
+	$c_0'$ un generador de $C'$. Sea $\theta:\,D\rightarrow C'+C''$ el
+	epimorfismo dado por $\theta(1)=c_0$ y sea $\theta':\,D\rightarrow C'$
+	el epimorfismo $\theta'(1)=c_0'$. Tomamos $\kappa\in D$ tal que
+	$c_0'=\kappa\,c_0$ y $\gamma\in D$ y $b\in B$ tales que
+	$c_0=\gamma\,c_0'+b$. Entonces
+	\begin{align*}
+		c_0' & \,=\,\kappa\,c_0 \,=\,(\kappa\gamma)\,c_0'+\kappa\,b
+		\text{ .}
+	\end{align*}
+	%
+	Como $C'\cap B=0$, vale que $\kappa\,b=0$ y
+	$1-\kappa\gamma\in\generado{\lambda}$, es decir,
+	$\theta'(1)=\theta'(\kappa\gamma)$. Pero, como el n\'{u}cleo de
+	$\theta'$ coincide con el n\'{u}cleo de $\theta$,
+	\begin{align*}
+		\theta(1) & \,=\,\theta(\kappa\gamma)
+		\text{ ,}
+	\end{align*}
+	%
+	tambi\'{e}n. Ahora, como $D$ es conmutativo, multiplicar por $\gamma$
+	es un morfismo de $D$-m\'{o}dulos. En particular,
+	\begin{align*}
+		c_0 & \,=\,\theta(1) \,=\,\gamma\,\theta(\kappa)
+			\,=\,\gamma\,c_0'
+		\text{ ,}
+	\end{align*}
+	%
+	que pertenece a $C'$. As\'{\i}, $C'=C'+C''$. An\'{a}logamente,
+	$C''=C'+C''$ y $C'=C''$.
+\end{proof}
+
+La siguiente proposici\'{o}n caracteriza los cocientes de los m\'{o}dulos
+c\'{\i}clicos.
+
+\begin{propoCorrespondenciaCocientesDeCiclico}%
+	\label{propo:correspondenciacocientesdeciclico}
+	Sea $C$ un $D$-m\'{o}dulo c\'{\i}clico de orden $\mu$. \emph{(i)} Todo
+	cociente de $C$ es c\'{\i}clico de orden
+	$\generado{\nu}+\generado{\mu}$, para alg\'{u}n elemento $\nu\in D$;
+	\emph{(ii)} dado $\nu\in D$, existe un cociente de $C$ de orden
+	$\generado{\nu}+\generado{\mu}$.
+\end{propoCorrespondenciaCocientesDeCiclico}
+
+\begin{proof}
+	Sea $\generado{\nu}$ un ideal (principal) arbitrario de $D$. Sea
+	$\theta:\,D\rightarrow C$ \emph{un} epi y sea
+	$C'=\theta\big(\langle\nu\rangle\big)$ el subm\'{o}dulo imagen del ideal
+	$\generado{\nu}$. Entonces el siguiente diagrama es conmutativo y
+	sus filas y columnas son exactas:
+	\begin{center}
+	\begin{tikzcd}
+		& 0\arrow[d] & 0\arrow[d] & 0\arrow[d] & \\
+		0\arrow[r] & \nu\cap\mu \arrow[r]\arrow[d] &
+			\mu \arrow[r]\arrow[d] &
+			\begin{array}{l}
+				\mu/\nu\cap\mu \\
+				\quad\simeq(\nu+\mu)/\nu
+			\end{array}
+				\arrow[r]\arrow[d] & 0 \\
+		0\arrow[r] & \nu \arrow[r]\arrow[d] & D \arrow[r]
+			\arrow[d,"\theta"'] &
+			D/\nu \arrow[r]\arrow[d,"\bar{\theta}"] & 0 \\
+		0\arrow[r] & C' \arrow[r]\arrow[d] & C \arrow[r,"\pi"']
+			\arrow[d] &
+			C/C' \arrow[r]\arrow[d] & 0 \\
+		& 0 & 0 & 0 &
+	\end{tikzcd}
+	\end{center}
+	% En particular, $\nu\simeq D$ v\'{\i}a $1\mapsto\nu$, $C\simeq D/\mu$,
+	% $C'\simeq \nu/\nu\cap\mu$ y $\mu/\nu\cap\mu\simeq(\nu+\mu)/\nu$.
+	% Sea $\zeta\in D/\nu$ tal que $\bar{\theta}(\zeta)=0$. Sea $z\in D$ tal
+	% que $[z]=z+\generado{\nu}=\zeta$. Entonces
+	% $\pi\theta(z)=\bar{\theta}[z]=0$ y $\theta(z)\in C'$. Existe
+	% $\kappa\in D$ tal que $\theta(\nu\kappa)=\theta(z)$. Entonces
+	% $z-\nu\kappa\in\generado{\mu}$. As\'{\i},
+	% $z\in\generado{\nu}+\generado{\mu}$. Rec\'{\i}procamente, si $z$
+	% pertenece a $\generado{\nu}+\generado{\mu}$, y $\zeta=[z]$, como
+	% $(\nu+\mu)/\nu\simeq\mu/\nu\cap\mu$, existe $y\in\generado{\mu}$ tal
+	% que $[y]=\zeta$. Entonces $\bar{\theta}(\zeta)=\pi\theta(y)=\pi(0)=0$.
+	% Esto demuestra la exactitud de la tercera columna en $D/\nu$.
+	En definitiva,
+	\begin{align*}
+		C/C' & \,\simeq\, (D/\nu)/((\nu+\mu)/\nu) \,\simeq\,
+			D/(\nu+\mu)
+		\text{ .}
+	\end{align*}
+	%
+
+	Por otro lado, si $C'\subset C$ es un subm\'{o}dulo,
+	$C'=\theta\big(\langle\nu\rangle\big)$ para alg\'{u}n ideal
+	$\generado{\nu}\subset D$, con lo cual, todo cociente es de esta forma.
+\end{proof}

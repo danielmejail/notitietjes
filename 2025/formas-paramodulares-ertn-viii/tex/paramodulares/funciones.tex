@@ -1,0 +1,206 @@
+\theoremstyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{defFuncionesPara}{\defname}[subsection]
+
+%-------------
+
+Dada $M$, \emph{operador de peso $k$} en una funci\'on $F$ definida en
+$\semiplano[g]$ asocia, a $F$, la funci\'on
+\begin{equation}
+	\label{eq:funciones:para:operador}
+	F\operador[k] M(\Omega)\,=\,
+		% \frac{\multiplier(M)^{kg/2}}{\det(C\Omega+D)^k}\,
+		\frac{\multiplier(M)^{kg-\frac{g(g+1)}{2}}}{\det(C\Omega+D)^k}\,
+		F(M\accion \Omega)
+	\dispstop
+\end{equation}
+%
+% Otra versi\'on del operador asocia a $F$ la funci\'on
+% \begin{equation}
+	% \label{eq:funciones:para:operador:bis}
+	% F\varoperador[k] M(\Omega)\,=\,
+		% \frac{\multiplier(M)^{kg-\frac{g(g+1)}{2}}}{\det(C\Omega+D)^k}\,
+		% F(M\accion \Omega)
+	% \dispstop
+% \end{equation}
+% %
+% La relaci\'on entre ambos est\'a dada por
+% \begin{displaymath}
+	% F\varoperador[k] M\,=\,
+		% \multiplier(M)^{kg/2-\frac{g(g+1)} 2}\,F\operador[k] M
+	% \dispstop
+% \end{displaymath}
+% %
+
+\begin{defFuncionesPara}\label{def:funciones:para}
+	Si $K$ es un subgrupo de congruencia, una
+	\emph{forma modular (de Siegel) de peso $k$ y g\'enero $g$ %
+	con respecto a $K$} es una funci\'on
+	$F:\,\semiplano[g]\rightarrow\Complejos$
+	\begin{enumerate}[label=(P\arabic*)]
+		\item\label{item:funciones:para:holomorfia}
+			holomorfa,
+		\item\label{item:funciones:para:transformacion}
+			que verifica $F\operador[k] M=F$,
+			para toda $M\in K$, y
+		\item\label{item:funciones:para:crecimiento}
+			tal que
+			la funci\'on $F\operador[k] M$ est\'a acotada
+			en regiones $\{Y\geq c\Id[g]\}$,
+			para toda $M\in\modulgruppe[g]$.
+	\end{enumerate}
+	%
+	La forma $F$ es \emph{cuspidal}, si adem\'as satisface
+	\begin{equation}
+		\label{eq:funciones:para:cuspidal}
+		\Siegel F\operador[k] M\,=\,0
+		\dispcomma
+	\end{equation}
+	%
+	para toda $M\in\modulgruppe[g]$.
+\end{defFuncionesPara}
+
+% Al espacio de formas modulares que verifican
+% \eqref{eq:funciones:para:transformacion} lo denotamos $\modulformen[k](K)$.
+% Usando el operador de peso $k$, podemos tambi\'en definir formas cuspidales:
+% una forma $F\in\modulformen[k](K)$ es \emph{cuspidal}, si
+% \emph{para toda $M\in\modulgruppe[g]$},
+% \begin{equation}
+	% \label{eq:funciones:para:cuspidal}
+	% \Siegel F\operador[k] M\,=\,0
+	% \dispstop
+% \end{equation}
+% %
+
+Toda forma modular $F$ admite un desarrollo en serie de Fourier.
+Para describirlo, introducimos la siguiente notaci\'on:
+\begin{displaymath}
+	\begin{aligned}
+		\Simetricas g(\Racionales) & \,=\,
+			\Big\{S\in\Mat(g\times g,\Racionales)\,:\,\trnsp S=S\Big\} \\
+		\Positivas{g,\semi}(\Racionales) & \,=\,
+			\Big\{S\in\Simetricas g(\Racionales)\,:\,S\geq 0\Big\} \\
+		\Positivas g(\Racionales) & \,=\,
+			\Big\{S\in\Simetricas g(\Racionales)\,:\,S>0\Big\} \\
+		\EnterasPositivas{g,\semi} & \,=\,
+			\Big\{T\in\Positivas{g,\semi}(\Racionales)\,:\,
+				2T\text{ es par}\Big\} \\
+		\EnterasPositivas g & \,=\,
+			\Big\{T\in\Positivas g(\Racionales)\,:\,
+				2T\text{ es par}\Big\} \\
+		n(S) & \,=\,
+			\begin{bmatrix} \Id[g] & S \\ & \Id[g] \end{bmatrix}
+			\qquad\text{(\phantom)}
+			n \,:\,\Simetricas g(\Racionales)\,\rightarrow\,
+				\Sp(g,\Racionales)
+			\text{\phantom()} \\
+		u(U) & \,=\,
+			\begin{bmatrix} U & \\ & \trnsp U^{-1}\end{bmatrix}
+			\qquad\text{(\phantom)}
+			u \,:\,\GL(g,\Racionales)\,\rightarrow\,
+				\Sp(g,\Racionales)
+			\text{\phantom()}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Las matrices sim\'etricas constituyen un espacio vectorial, $\Simetricas g$;
+las matrices definidas positivas y semidefinidas positivas,
+$\Positivas g$ y $\Positivas{g,\semi}$ son conos en $\Simetricas g$. Los
+subconjuntos $\EnterasPositivas g$ y $\EnterasPositivas{g,\semi}$ est\'an
+conformados por aquellas matrices que representan formas cuadr\'aticas enteras,
+definidas positivas y semidefinidas positivas, respectivamente; son
+ret\'{\i}culos en los respectivos conos. Las aplicaciones $X\mapsto n(X)$ y
+$U\mapsto u(U)$ son morfismos de grupos.
+
+Con esta notaci\'on, podemos expresar el desarrollo en serie de una forma de
+Siegel para $\modulgruppe[g]$ de la siguiente manera:
+\begin{displaymath}
+	F(\Omega)\,=\,\sum_{T\in\EnterasPositivas{g,\semi}}\,
+		a(T)\,e^{2\pi i\traza(T\Omega)}
+	\text{ ;}
+\end{displaymath}
+%
+si $F$ es cuspidal, indexamos sobre $\EnterasPositivas g$.
+En general, si $F\in\modulformen[k](K)$,
+% Intersecamos con $\Positivas{g,\semi}$, porque $F$ es holomorfa.
+\begin{equation}
+	\label{eq:funciones:para:fourier}
+	F(\Omega)\,=\,\sum_{T\in\dual R\cap\Positivas{g,\semi}}\,a(T)\,
+		\varexp^{2\pi i\traza(T\Omega)}
+		\dispcomma
+\end{equation}
+%
+donde $\dual R$ denota el ret\'{\i}culo dual con respecto a la forma traza en
+$\Simetricas g$ del ret\'{\i}culo
+\begin{displaymath}
+	R\,:=\,R(K)\,=\,\big\{S\in\Simetricas g\,:\,n(S)\in K\big\}
+	\dispstop
+\end{displaymath}
+%
+Por ejemplo, si $g=2$, con respecto a los subgrupos de congruencia mencionados,
+\begin{itemize}
+	\item $R(\varGrupoSiegel(N))=\Simetricas 2(\Racionales)\cap\Mat(2\times 2,\Enteros)$ y
+		$\dual R\cap\Positivas{2,\semi}=\EnterasPositivas{2,\semi}$;
+	\item $R(\varGrupoKlingen(N))=R(\varGrupoBorel(N))=R(\varGrupoSiegel(N))$;
+	\item
+		\begin{math}
+			R(\varGrupoParamodular(N))=\Big\{
+				\sbmatrix{ a/N & b \\ b & c }\,:\,
+				a,b,c\in\Enteros\Big\}
+		\end{math} y
+		\begin{math}
+			\dual R=\Big\{
+				\sbmatrix{ m & r/2 \\ r/2 & n }\,:\,
+				m,r,n\in\Enteros,\,N|m\Big\}
+		\end{math}.
+\end{itemize}
+%
+En este \'ultimo caso, escribimos
+\begin{math}
+	\EnterasPositivas[N]{2,\semi}:=\dual R\cap\Positivas{2,\semi}
+\end{math}; es el conjunto de formas cuadr\'aticas enteras semidefinidas
+positivas $mx^2+rxy+ny^2$ con $m\in N\Enteros$.
+
+Las transformaciones $u(U)$ vinculan los varios coeficientes de Fourier. Si
+$F\in\modulformen[k](K)$, entonces
+\begin{equation}
+	\label{eq:funciones:para:coeficientes}
+	a(T[U])\,=\,\det(U)^k\,a(T)
+	\text{ ,}
+\end{equation}
+%
+para toda $U\in\GL(g,\Racionales)$ tal que $u(U)\in K$. Por ejemplo,
+\begin{itemize}
+	\item $u(U)\in\varGrupoSiegel(N)$, si y s\'olo si
+		$U\in\GL(2,\Enteros)$;
+	\item $u(U)\in\varGrupoParamodular(N)$, si y s\'olo si
+		$U\in\generado{\Gamma_0(N),\sbmatrix{ 1 & \\ & -1 }}$.%
+		\footnote{
+			Aqu\'{\i}, $\Gamma_0(N)$ denota el subgrupo de
+			congruencia de nivel $N$ en $\SL(2,\Enteros)$.
+		}
+\end{itemize}
+%
+
+Los operadores de Hecke $T(m)$, $m\in\Naturales$, son operadores de
+doble coclase, pero se pueden describir en t\'erminos de su efecto
+en los coeficientes de Fourier de una forma paramodular.
+Si $N=p$ es primo y $q\neq p$ es primo y $T\geq 0$,
+\begin{displaymath}
+	\begin{aligned}
+		a(T;F\operador[k]{T(q)}) & \,=\,a(q\,T(q);F)
+				\,+\,q^{2k-3}\,a\big(\tfrac 1 q\,T;F\big) \\
+		& \qquad\,+\,q^{k-2}\,\sum_{j\tmodulo[q]}\,
+			a\big(\tfrac 1 q\,T[\sbmatrix{ 1 & 0 \\ jp & q }];F
+				\big) \\
+		& \qquad\,+\,q^{k-2}\,
+			a\big(\tfrac 1 q\,T[\sbmatrix{ 1 & 0 \\ 0 & q }];F
+				\big)
+		\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+

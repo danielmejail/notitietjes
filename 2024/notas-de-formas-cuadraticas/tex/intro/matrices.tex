@@ -1,0 +1,204 @@
+\theoremstyle{plain}
+\newtheorem{teoIntroMat}{Teorema}[section]
+
+\theoremstyle{definition}
+\newtheorem{defIntroMat}[teoIntroMat]{Definici\'on}
+\newtheorem{ejemIntroMat}[teoIntroMat]{Ejemplo}
+\newtheorem{obsIntroMat}[teoIntroMat]{Observaci\'on}
+
+%-------------
+
+Generalizando el Ejemplo~\ref{ejem:definiciones:escalar}, sobre un cuerpo
+arbitrario $F$, si $n\geq 1$ es entero, definimos el \emph{producto escalar}
+en $F^n$ por:%
+\footnote{
+	Como producto matricial, $x\cdot y=\trnsp x\,y$.
+}
+\begin{displaymath}
+	x\,\cdot\,y\,=\,\sum_{i=1}^n\,x_iy_i
+	\text{ ,}
+\end{displaymath}
+%
+si $\trnsp x=(\lista x{n})$ e $\trnsp y=(\lista y{n})$. Si
+$M\in\MM[n\times n](F)$ es una matriz con coeficientes en el cuerpo $F$,
+\begin{displaymath}
+	B(x,y) \,=\,x\,\cdot\,M\,y
+\end{displaymath}
+%
+tambi\'en define una forma bilineal. Toda forma bilineal es de este tipo.
+
+Sea $(V,B)$ un espacio bilineal de dimensi\'on $n\geq 1$ y sea
+$\{\lista* e{n}\}$ una base del espacio vectorial. Usando la bilinealidad de
+$B$,
+\begin{equation}
+	\label{eq:matrices:base}
+	B(v,w)\,=\,\sum_{i,j=1}^n\,x_iy_i\,B(e^i,e^j)
+	\text{ ,}
+\end{equation}
+%
+si $v=x_ie^i$ y $w=y_je^j$.
+
+\begin{defIntroMat}\label{def:matrices:matrices}
+	La \emph{matriz} de $B$ en la base $\{\lista* e{n}\}$ es
+	\begin{displaymath}
+		M_{ij}\,=\,B(e^i,e^j)
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defIntroMat}
+
+Si $v\in V$, escribimos $\repr v$ para referirnos a la representaci\'on del
+vector $v$ en una base. Con esta notaci\'on, se verifica que
+\begin{displaymath}
+	B(v,w)\,=\,\repr v\,\cdot\,M\,\repr w
+	\text{ .}
+\end{displaymath}
+%
+
+\begin{ejemIntroMat}\label{ejem:matrices:matrices}
+	Determinar las matrices asociadas a los espacios de los ejemplos de la
+	secci\'on \S~\ref{sec:intro:definiciones} en alguna base.
+\end{ejemIntroMat}
+
+\begin{teoIntroMat}\label{teo:matrices:matrices}
+	La elecci\'on de una base determina una correspondencia (isomorfismo)
+	entre (los espacios de) formas bilineales en $V$ y matrices en
+	$\MM[n\times n](F)$.
+\end{teoIntroMat}
+
+\begin{ejemIntroMat}\label{ejem:matrices:pseudoeuclideos}
+	En $\bb R^n$, si $p,q\geq 0$ y $p+q=n$, definimos
+	\begin{displaymath}
+		\langle x,y\rangle_{p,q}\,=\,x_1y_1\,+\,\cdots\,+\,x_py_p\,-\,
+			x_{p+1}y_{p+1}\,-\,\cdots\,-\,x_ny_n
+		\text{ .}
+	\end{displaymath}
+	%
+	La matriz asociada a $\langle\cdot,\cdot,\rangle_{p,q}$ en la base
+	can\'onica de $\bb R^n$ es
+	\begin{displaymath}
+		\begin{bmatrix} I_p & 0 \\ 0 & -I_q \end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	La forma, al igual que la matriz, es sim\'etrica. Denotamos estos
+	espacios por $\bb R^{p,q}$. El espacio del Ejemplo~%
+	\ref{ejem:definiciones:hiperbolico} coincide con $\bb R^{1,1}$.
+	El espacio $\bb R^{3,1}$ se denomina \emph{espacio de Minkowski}.
+	El espacio $\bb R^{n,0}$ es $\bb R^n$ con el producto escalar,
+	usualmente llamado \emph{espacio euclideo}.
+\end{ejemIntroMat}
+
+\begin{teoIntroMat}\label{teo:matrices:dual}
+	Sea $(V,B)$ un espacio bilineal y sea $\cal B=\{\lista* e{n}\}$ una
+	base de $V$. La matriz asociada a $B$ con respecto a $\cal B$ coincide
+	con la matriz asociada a la t.l. $R_B:\,V\rightarrow\dual V$ con
+	respecto a $\cal B$ y su base dual.
+\end{teoIntroMat}
+
+\begin{proof}
+	Sea $\repr\cdot:\,V\rightarrow F^n$ el isomorfismo dado por elegir la
+	base $\cal B$ de $V$ y sea $\repr\cdot':\,\dual V\rightarrow F^n$ el
+	isomorfismo correspondiente a elegir la base dual a $\cal B$ en
+	$\dual V$. Sea $\dual{\cal B}=\{\lista\varepsilon{n}\}$ dicha base. La
+	matriz de $R_B$ con respecto a estas bases tiene \emph{columnas}
+	$\repr{R_B(e^j)}'$. Si
+	\begin{displaymath}
+		R_B(e^j)\,=\,c^i\varepsilon_i
+		\text{ ,}
+	\end{displaymath}
+	%
+	evaluando en $e^i$ recuperamos los coeficientes:
+	\begin{displaymath}
+		c^i\,=\,R_B(e^j)(e^i)\,=\,B(e^i,e^j)\,=\,M_{ij}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{obsIntroMat}\label{obs:matrices:dual}
+	Podr\'{\i}amos haber definido la matriz de $B$ por $N\,v\cdot w$. En
+	ese caso, hubi\'esemos deducido que esta matriz coincide con la
+	matriz de $L_B$.
+\end{obsIntroMat}
+
+\begin{teoIntroMat}\label{teo:matrices:simetria}
+	Sea $(V,B)$ un espacio bilineal y sea $M$ la matriz asociada a $B$ en
+	alguna base. Entonces,
+	\begin{itemize}
+		\item $B$ es sim\'etrica, si y s\'olo si $\trnsp M=M$;
+		\item $B$ es antisim\'etrica, si y s\'olo si $\trnsp M=-M$;
+		\item $M$ es alternada, si y s\'olo si $\trnsp M=-M$ y las
+			coordenadas en la diagonal de $M$ son nulas.
+	\end{itemize}
+	%
+\end{teoIntroMat}
+
+\begin{teoIntroMat}\label{teo:matrices:cambio}
+	Sea $(V,B)$ un espacio bilineal y sean $\repr[1]\cdot$ y
+	$\repr[2]\cdot$ dos bases en $V$. Sea $C$ la matriz de cambio de base
+	cuyas columnas representan los vectores de la segunda base en
+	t\'erminos de la primera.%
+	\footnote{
+		$\repr[1] v\,=\,C\,\repr[2] v$, para $v\in V$.
+	}
+	Si $M$ es la matriz asociada a $B$ en la base $\repr[1]\cdot$, entonces
+	la matriz en la base $\repr[2]\cdot$ es $\trnsp CMC$.
+\end{teoIntroMat}
+
+\begin{proof}
+	La demostraci\'on depende de la identificaci\'on $\dual{F^n}=F^n$
+	v\'{\i}a el producto escalar.
+\end{proof}
+
+\begin{defIntroMat}\label{def:matrices:equivalentes}
+	Dos espacios bilineales $(V,B_V)$ y $(W,B_W)$ se dicen
+	\emph{equivalentes}, si existe un isomorfismo $A:\,V\rightarrow W$ tal
+	que
+	\begin{displaymath}
+		B_W(A\,v,A\,v_1)\,=\,B_V(v,v_1)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $v,v_1\in V$.%
+	\footnote{
+		En t\'erminos de las matrices asociadas, dos formas son
+		equivalentes, si y s\'olo si existen bases de $V$ y de $W$ con
+		respecto a las cuales las matrices correspondientes a $B_V$ y a
+		$B_W$, $M$ y $N$, son equivalentes, es decir, existe $C$
+		invertible tal que $M=\trnsp C\,N\,C$.
+	}
+\end{defIntroMat}
+
+\begin{ejemIntroMat}\label{ejem:matrices:equivalentes}
+	Las formas
+	\begin{displaymath}
+		v\,\cdot\,\begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}\,w
+		\quad\text{y}\quad
+		v\,\cdot\,\begin{bmatrix} 1/2 & 0 \\ 0 & 1/2 \end{bmatrix}\,w
+	\end{displaymath}
+	%
+	en $\bb R^2$ son equivalentes v\'{\i}a el cambio de base
+	\begin{displaymath}
+		\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejemIntroMat}
+
+\begin{defIntroMat}\label{def:matrices:discriminante}
+	El \emph{discriminante} de una forma bilineal $B$ se define como
+	el determinante de cualquier representaci\'on de $B$ como matriz.
+\end{defIntroMat}
+
+\begin{obsIntroMat}\label{obs:matrices:discriminante}
+	Este valor est\'a determinado a menos de cuadrados. Si $M$ es la
+	matriz de $B$ en alguna base, entonces $\discriminante(B)$ es la clase
+	de $\det(M)$ en $F/{F^\times}^2$.%
+	\footnote{
+		$\discriminante(B):=0$, si $\det(M)=0$ en alguna (y, por lo
+		tanto, en toda) base, o bien $\discriminante(B)$ es la clase
+		de $\det(M)$ en el grupo $F^\times/{F^\times}^2$.
+	}
+\end{obsIntroMat}
+

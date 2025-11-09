@@ -1,0 +1,53 @@
+\theoremstyle{plain}
+\newtheorem{teoExtUni}{\teoname}[section]
+
+\theoremstyle{definition}
+\newtheorem{defExtUni}[teoExtUni]{\defname}
+
+%-------------
+
+\subsection{Formas hermitianas}\label{subsec:extension:unitarios:hermitianas}
+Sea $K$ un anillo de divisi\'on, al que vamos a llamar ``cuerpo no
+necesariamente conmutativo''. Supongamos, adem\'as, que contamos con un
+``antiautomorfismo'' $\tau:\,K\rightarrow K$. Sea $V/K$ un m\'odulo a derecha.
+
+\begin{defExtUni}\label{def:unitarios:pairing}
+	Un \emph{pairing generalizado} (o forma $\tau$-sesquilineal) en $V$ es
+	una funci\'on biaditiva $B:\,V\times V\,\rightarrow K$ que verifica%
+	\footnote{
+		C.f. \cite[p.~102]{ArtinGeometric}. Definimos una estructura
+		\emph{a izquierda} en $V$ por
+		\begin{displaymath}
+			a\,v\,=\,v\,a^\tau
+			\text{ .}
+		\end{displaymath}
+		%
+		Con esta estructura,
+		\begin{math}
+			B(v,a\,w)=B(v,w\,a^\tau)=B(v,w)\,a^\tau
+		\end{math}. Si $a$ pertenece al centro de $K$, entonces
+		$a^\tau$ tambi\'en es central. Para elementos centrales, se
+		verifica que $B(v,a\,w)=B(v\,a,w)$.
+	}
+	\begin{displaymath}
+		B(v,w\,a)\,=\,B(v,w)\,a
+		\quad\text{y}\quad
+		B(v\,a,w)\,=\,a^\tau\,B(v,w)
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defExtUni}
+
+El siguiente resultado generaliza el \teoname~%
+\ref{teo:definiciones:perpendicular}
+
+\begin{teoExtUni}\label{teo:unitarios:perpendicular}
+	La relaci\'on de perpendicularidad en $(V,B)$ es sim\'etrica, si y
+	s\'olo si $B$ es sim\'etrica, alternada o \emph{hermitiana}.
+\end{teoExtUni}
+
+\subsection{Caracter\'{\i}stica $2$}\label{subsec:extension:unitarios:parias}
+Los espacios cuadr\'aticos sobre cuerpos de caracter\'{\i}stica $2$ tienen
+cierta semejanza con los espacios \emph{unitarios}.
+
+

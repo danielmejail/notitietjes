@@ -1,0 +1,40 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper}
+\usepackage{graphicx}
+% \usepackage{mathdots}
+% \usepackage{wrapfig}
+\usepackage{makeidx}
+
+\input{./headers/formato.tex}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage[unicode]{hyperref}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+% \resetcounteronoverlays{saveenumi}
+
+
+\title{Formas cuadr\'aticas y algunas formas automorfas}
+\subtitle{Parte II: Formas paramodulares}
+\author{}
+\date{} % Activate to display a given date or no date (if empty),
+	% otherwise the current date is printed
+
+% \makeindex
+
+\begin{document}
+
+\input{./headers/caratula.tex}
+
+%-------
+
+\input{./headers/cuerpo.tex}
+
+\end{document}
+

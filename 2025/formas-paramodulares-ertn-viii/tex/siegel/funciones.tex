@@ -1,0 +1,338 @@
+\theoremstyle{plain}
+\newtheorem{teoFunciones}{\teoname}[subsection]
+\newtheorem{coroFunciones}[teoFunciones]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{obsFunciones}[teoFunciones]{\obsname}
+
+%-------------
+
+El \emph{semiplano de Siegel (de g\'enero $g$)} es el conjunto conformado por
+las matrices sim\'etricas, de tama\~no $g\times g$ y de coordenadas complejas,
+cuya parte imaginaria es definida positiva:
+\begin{displaymath}
+	\semiplano[g]\,=\,\Big\{ \Omega=X+iY\in\Mat(g\times g,\Complejos)\,:\,
+		\trnsp\Omega=\Omega,\,\,Y>0\Big\}
+	\dispstop
+\end{displaymath}
+%
+Si $g=1$, $\semiplano[1]$ es el semiplano complejo. Si $g=2$,
+$\Omega=\sbmatrix{ \omega & z \\ z & \tau }\in\semiplano[2]$, si y s\'olo si
+\begin{displaymath}
+	\Imag(\omega),\,\Imag(\tau)\,>\,0
+	\quad\vardispand\quad
+	\Imag(z)^2\,<\,\Imag(\omega)\,\Imag(\tau)
+	\dispstop
+\end{displaymath}
+%
+En general, el semiplano de Siegel es un abierto convexo dentro del
+espacio de matrices complejas sim\'etricas; es una variedad compleja
+y su dimensi\'on es $g(g+1)/2$.
+
+El grupo $\GSp(g,\Reales)^+$ act\'ua en $\semiplano[g]$ v\'{\i}a:
+\begin{equation}
+	\label{eq:funciones:moebius}
+	M\accion\Omega\,=\,\big(A\Omega+B\big)\,\big(C\Omega+D\big)^{-1}
+	\dispcomma
+\end{equation}
+%
+para cada $M=\sbmatrix{A & B \\ C & D}\in\GSp[2g](\bb R)^+$ y
+$\Omega\in\semiplano[g]$; la acci\'on es transitiva y cada $M$ induce una
+transformaci\'on biholomorfa cuya inversa est\'a dada por
+\eqref{eq:simplecticas:adjunta}.
+Las matrices \eqref{eq:simplecticas:ejemplos} act\'uan por:
+\begin{equation}
+	\label{eq:funciones:ejemplos}
+	\Omega\,\mapsto\,U\Omega\trnsp U\dispcomma\quad
+		\Omega\,\mapsto\,\Omega+S\quad\dispand\quad
+		\Omega\,\mapsto\,-\Omega^{-1}
+		\dispstop
+\end{equation}
+%
+
+Una \emph{forma modular (de Siegel) de g\'enero $g$ y peso $k$ con respecto %
+al grupo $\modulgruppe[g]$} es una funci\'on
+$F:\,\semiplano[g]\rightarrow\Complejos$
+\begin{enumerate}[label=(M\arabic*)]
+	\item\label{item:funciones:holomorfia}
+		holomorfa en $\semiplano[g]$,%
+		\footnote{
+			Una funci\'on en varias variables complejas es
+			holomorfa, si localmente admite un desarrollo en
+			serie de potencias; equivalentemente, dicha
+			funci\'on es holomorfa en su dominio de
+			definici\'on, si es holomorfa en cada variable
+			por separado \cite{Gunning}.
+		}
+	\item\label{item:funciones:transformacion}
+		que, si $M=\sbmatrix{ * & * \\ C & D }\in\modulgruppe[g]$ y
+		$\Omega\in\semiplano[g]$, cumple
+		\begin{equation}
+			\label{eq:funciones:transformacion}
+			F(M\accion\Omega)\,=\,\det(C\Omega+D)^k\,F(\Omega)
+			\dispand
+		\end{equation}
+		%
+	\item\label{item:funciones:crecimiento}
+		% si $g=1$,
+		acotada en regiones de la forma $\{Y\geq c\Id[g]\}$,
+		$c\in\Reales$, $c>0$.
+\end{enumerate}
+%
+
+Las formas modulares de Siegel de peso $k$ constituyen un espacio vectorial
+de dimensi\'on finita \cite[Ch.~II, \S~4, Thm.~2]{Klingen}, que denotamos
+$\modulformen[k](\modulgruppe[g])$
+De \eqref{eq:funciones:transformacion}, se deducen las siguientes reglas
+de transformaci\'on para una forma modular $F$:
+\begin{enumerate}[label=(\roman*)]
+	\item\label{item:funciones:unimodular}
+		$F(U\Omega\trnsp U)=\det(U)^k\,F(\Omega)$,
+		si $U\in\GL(g,\Enteros)$;
+	\item\label{item:funciones:traslacion}
+		$F(\Omega+S)=F(\Omega)$,
+		si $\trnsp S=S\in\Mat(g\times g,\Enteros)$;
+	\item\label{item:funciones:reflexion}
+		$F(-\Omega^{-1})=\det(\Omega)^k\,F(\Omega)$.
+\end{enumerate}
+%
+
+De \ref{item:funciones:traslacion} y de \ref{item:funciones:crecimiento},
+se deduce que toda forma modular admite un desarrollo en serie de Fourier
+del tipo:
+\begin{equation}
+	\label{eq:funciones:fourier}
+	F(\Omega)\,=\,\sum_{T\geq 0}\,a(T)\,
+		\varexp^{2\pi\raizcuarta\traza(T\Omega)}
+	\dispcomma
+\end{equation}
+%
+La sumatoria se realiza sobre las matrices sim\'etricas $\trnsp T=T$
+tales que: $2T$ tiene coordenadas enteras y pares en la diagonal y
+$T$ es semidefinida positiva.
+Si $g=1$, \eqref{eq:funciones:fourier} es el desarrollo de Fourier
+usual, donde $T\in\Enteros$. Si $g=2$, entonces
+$T=\sbmatrix{ m & r/2 \\ r/2 & n }$, $n,r,m\in\Enteros$, representa
+formas cuadr\'aticas binarias con coeficientes enteros.
+
+La serie \eqref{eq:funciones:fourier} converge absoluta y uniformemente
+sobre compactos de $\semiplano[g]$ y podemos recuperar los coeficientes:
+\begin{equation}
+	\label{eq:funciones:coeficientes}
+	a(T)\,=\,\int_{X\tmodulo[1]}\,F(\Omega)\,
+		\varexp^{-2\pi\raizcuarta\traza(T\Omega)}\,\de X
+	\dispstop
+\end{equation}
+%
+
+De \ref{item:funciones:unimodular} y de \eqref{eq:funciones:coeficientes},
+se deduce que
+\begin{displaymath}
+	a(UT\trnsp U)\,=\,(\det\,U)^k\,a(T)
+	\dispstop
+\end{displaymath}
+%
+En particular, $kg\not\equiv 0\tmodulo[2]$ implica
+$\modulformen[k](\modulgruppe[g])=0$.
+
+\begin{teoFunciones}\label{teo:koecher}
+	Supongamos que $g>1$. Si $F$ satisface
+	% \ref{item:funciones:unimodular} y \ref{item:funciones:traslacion}
+	% y la serie \eqref{eq:funciones:fourier} \emph{converge puntualmente},
+	\ref{item:funciones:holomorfia} y \ref{item:funciones:transformacion},
+	entonces $F$
+	satisface \ref{item:funciones:crecimiento}.
+	% est\'a acotada en regiones de la forma $\{Y\geq c\Id[g]\}$.
+\end{teoFunciones}
+
+\begin{proof}
+	Como \eqref{eq:funciones:fourier} converge en
+	$\Omega=\raizcuarta\Id[g]$, existe $\alpha>0$ tal que
+	\begin{displaymath}
+		|a(T)|\,\leq\,\alpha\varexp^{2\pi\raizcuarta\traza(T)}
+		\dispstop
+	\end{displaymath}
+	%
+	Afirmamos que $a(T)\neq 0$ implica $T\geq 0$. Asumiendo esto,
+	\begin{displaymath}
+		F(\Omega)\,=\,\sum_{T\geq 0}\,a(T)\,
+			\varexp^{2\pi\raizcuarta\traza(T\Omega)}\,\ll\,
+			\sum_{T\geq 0}\,|a(T)|\,\varexp^{-2\pi c\traza(T)}
+		\dispcomma
+	\end{displaymath}
+	%
+	uniformemente en $\{Y\geq c\Id[g]\}$.
+	Pero el lado derecho converge, pues es la serie de Fourier
+	(que converge a.u./c. de $\semiplano[g]$)
+	evaluada en el punto $\raizcuarta c\Id[g]$.
+	% La cota se puede deducir asumiendo la hip\'otesis m\'as d\'ebil
+	% (a priori) de convergencia puntual:
+	% Por otro lado, como la serie \eqref{eq:funciones:fourier}
+	% converge en $\Omega=\raizcuarta \frac c 2\Id[g]$, existe $\beta>0$
+	% tal que
+	% \begin{displaymath}
+		% |a(T)|\,\leq\,\beta\,\varexp^{\pi c\traza(T)}
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% En particular, de la cota anterior para $F(\Omega)$, obtenemos
+	% \begin{displaymath}
+		% F(\Omega)\,\ll\,\sum_{T\geq 0}\,\varexp^{-\pi c\traza(T)}\,\ll\,
+			% 1\,+\,\sum_{d\geq 1}\,d^{g(g+1})/2\,
+				% \varexp^{-\pi cd}\,<\,\infty
+		% \dispcomma
+	% \end{displaymath}
+	% %
+	% donde, para la \'ultima cota, estamos usando que
+	% \begin{math}
+		% \cardinal{\big\{T\geq 0\,:\,%
+			% 2T\text{ par y }\traza(T)=d\big\}}=
+			% \BigO{d^{g(g+1)/2}}
+	% \end{math}.
+
+	Con respecto a la afirmaci\'on, si $T$ \emph{no es} semidefinida
+	positiva, existe $V_1$ de coordenadas enteras y contenido $1$
+	tal que $T[V_1]<0$. Completando $V_1$ a una $V\in\GL(g,\Enteros)$,
+	cambiando $T$ por $T[V]$ y usando $a(T[V])=(\det\,V)^k\,a(T)$,
+	podemos suponer que $T_{11}<0$. Ahora, sea
+	$U=\sbmatrix{ U^* & \\ & \Id[g-2] }$, con
+	$U^*=\sbmatrix{ 1 & m \\ & 1 }$ y $m\in\Enteros$. El coeficiente
+	\begin{displaymath}
+		|a(T)|\,=\,|a(T[U])|\,\leq\,\alpha\,
+			\varexp^{2\pi\traza(T[U])}
+		\dispcomma
+	\end{displaymath}
+	%
+	pero $\traza(T[U])=\traza(T)+2T_{12}m+T_{11}m^2$ tiende a
+	$-\infty$ ($m\to\infty$), pues $T_{11}<0$.
+\end{proof}
+
+% \begin{obsFunciones}\label{obs:koecher}
+	% En la demostraci\'on del \teoname~\ref{teo:koecher},
+	% probamos la siguiente afirmaci\'on.
+	% Supongamos que $F(\Omega)$ satisface
+	% % \ref{item:funciones:unimodular}, \ref{item:funciones:traslacion}
+	% % y la serie \eqref{eq:funciones:fourier} converge (puntualmente).
+	% \ref{item:funciones:holomorfia} y \ref{item:funciones:transformacion}.
+	% Si $a(T)\neq 0$ implica $T\geq 0$, \emph{entonces} $F$ est\'a
+	% acotada en regiones de la forma $\{Y\geq c\Id[g]\}$
+	% (es decir, cumple \ref{item:funciones:crecimiento}).
+	% Rec\'{\i}procamente, si $F(\Omega)$ est\'a acotada en regiones de la
+	% forma $\{Y\geq c\Id[g]\}$, entonces $a(T)=0$ para $T\not\geq 0$:
+	% de la expresi\'on \eqref{eq:funciones:coeficientes},
+	% si $|F(\Omega)|\leq C$ en la regi\'on $\{Y\geq c\Id[g]\}$, entonces
+	% \begin{displaymath}
+		% |a(T)|\,\leq\,C\,\varexp^{2\pi\traza(TY)}
+		% \dispcomma
+	% \end{displaymath}
+	% %
+	% si $Y\geq c\Id[g]$. Si $T\not\geq 0$ y
+	% $T=\sbmatrix{ T^* & T_2 \\ \trnsp T_2 & T_4 }$, $T^*\in\Enteros$,
+	% cambiando $T$ por $T[V]$, $V\in\GL(g,\Enteros)$, podemos asumir
+	% $T^*<0$. Eligiendo $Y=\sbmatrix{ Y^* & Y_2 \\ \trnsp Y_2 & Y_4 }$
+	% tal que $Y_2=0$, tenemos $\traza(TY)=T^*Y^*+\traza(T_4Y_4)$.
+	% Si $Y^*=mc$ e $Y_4=c\Id[g-1]$, se cumple
+	% \begin{displaymath}
+		% \traza(TY)\,=\,m\,T^*+\traza(T_4)\,<\,0
+		% \dispcomma
+	% \end{displaymath}
+	% %
+	% para $m>0$ suficientemente grande,
+	% y, por lo tanto,
+	% % con $m$ tendiendo a $\infty$,
+	% deducimos que $a(T)=0$.
+% \end{obsFunciones}
+
+Si $F$ es una forma modular, entonces su expansi\'on de Fourier es
+del tipo
+\begin{displaymath}
+	F(\Omega)\,=\,\sum_{T\geq 0}\,a(T)\,
+		\varexp^{2\pi\raizcuarta\traza(T\Omega)}
+	\dispcomma
+\end{displaymath}
+%
+donde, ahora sabemos, $a(T)\neq 0$, s\'olo si $T\geq 0$, es decir,
+$T$ representa una forma cuadr\'atica semidefinida positiva,
+con coeficientes enteros.
+En particular, si $g=2$,
+% y escribimos $T=\sbmatrix{n & r/2 \\ r/2 & m }$ con $n,r,m\in\Enteros$,
+% la condici\'on $T\geq 0$ se traduce en
+% \begin{displaymath}
+	% n,m\,\geq\,0\quad\dispand\quad r^2-4mn\,\leq\,0
+	% \dispstop
+% \end{displaymath}
+% %
+% Usando estas coordenadas,
+podemos reescribir la expansi\'on de Fourier de una forma
+de Siegel de g\'enero $2$ de la siguiente manera:
+\begin{equation}
+	\label{eq:funciones:fourier:dos}
+	F(\tau,z,\omega)\,=\,\sum_{\binaria{n,r,m}\geq 0}\,a(n,r,m)\,
+			\varexp^{2\pi\raizcuarta\,(n\tau+rz+m\omega)}
+	\dispcomma
+\end{equation}
+%
+donde la condici\'on $\binaria{n,r,m}\geq 0$ quiere decir que la
+forma es semidefinida positiva: $n,m,4mn-r^2\geq 0$.
+Si agrupamos los t\'erminos en funci\'on de $m\geq 0$,
+\begin{equation}
+	\label{eq:funciones:fourier-jacobi}
+	F(\tau,z,\omega)\,=\,\sum_{m\geq 0}\,f_m(\tau,z)\,
+		\varexp^{2\pi\raizcuarta \omega m}
+	\dispstop
+\end{equation}
+%
+Las funciones $f_m$ son \emph{formas de Jacobi de \'{\i}ndice $m$}
+y la expansi\'on \eqref{eq:funciones:fourier-jacobi} se conoce como
+la \emph{expansi\'on de Fourier-Jacobi de $F$} \cite{EichlerZagier}.
+
+% \begin{coroFunciones}\label{coro:peso-negativo}
+	% Si $k<0$, $\modulformen[k](\modulgruppe[g])=0$.
+% \end{coroFunciones}
+% 
+% \begin{proof}
+	% Si $F$ es de peso $k$ invariante por $\modulgruppe[g]$, entonces
+	% la funci\'on $h(\Omega)=(\det\,Y)^{k/2}\,F(\Omega)$ es invariante por
+	% $\modulgruppe[g]$. Como $(\det\,Y)^{-1}$ est\'a acotada en
+	% $\{Y\geq c\Id[g]\}$, si $F(\Omega)$ est\'a acotada en estas regiones y
+	% $k<0$, tambi\'en lo estar\'a $h(\Omega)$. En particular, en tal caso,
+	% $h(\Omega)$ estar\'a acotada en $\semiplano[g]$:
+	% $(\det\,y)^{k/2}\,|F(\Omega)|\leq C$. Entonces,
+	% \emph{para toda $Y$},
+	% \begin{displaymath}
+		% \begin{aligned}
+			% \big|a(T)\,\varexp^{-2\pi\raizcuarta\traza(TY)}\big|
+				% & \,=\, \left|\int_{X\tmodulo[1]}\,F(\Omega)\,
+					% \varexp^{-2\pi\raizcuarta\traza(TX)}\,
+						% \de X \right| \\
+				% & \,\leq\, \sup\big\{|F(\Omega)|\,:\,
+					% X\tmodulo[1]\big\}\,\leq\,
+					% C\,(\det\,Y)^{-k/2}
+		% \dispstop
+		% \end{aligned}
+		% %
+	% \end{displaymath}
+	% %
+	% De lo que se deduce ($Y\to 0$) que $a(T)=0$.
+% \end{proof}
+% 
+% Haciendo un juego de este estilo, se puede probar que, dada $c>0$,
+% existen un compacto $K$ (contenido en el dominio fundamental)
+% y una constante $\alpha$ tales que
+% \begin{displaymath}
+	% \sup\big\{|F(\Omega)|\,:\,Y\geq c\Id[g]\big\}\,\leq\,\alpha^k\,
+		% \sup\big\{|F(\Omega)|\,:\,\Omega\in K\big\}
+	% \dispstop
+% \end{displaymath}
+% %
+% En particular, con $c>0$ suficientemente chico, $\{Y\geq c\Id[g]\}$
+% contiene al dominio fundamental en su interior.
+% 
+% \begin{coroFunciones}\label{coro:peso-cero}
+	% Si $k=0$, $\modulformen[0](\modulgruppe[g])=\Complejos$.
+% \end{coroFunciones}
+% 
+% \begin{proof}
+	% Aplicar principio del m\'aximo.
+% \end{proof}
+

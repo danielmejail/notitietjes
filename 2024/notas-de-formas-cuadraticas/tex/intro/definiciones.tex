@@ -1,0 +1,537 @@
+\theoremstyle{plain}
+\newtheorem{teoIntroDef}{\teoname}[section]
+\newtheorem{coroIntroDef}[teoIntroDef]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defIntroDef}[teoIntroDef]{\defname}
+\newtheorem{ejemIntroDef}[teoIntroDef]{\ejemname}
+\newtheorem{obsIntroDef}[teoIntroDef]{\obsname}
+
+%-------------
+
+\begin{defIntroDef}\label{def:definiciones:bilineal}
+	Sea $F$ un cuerpo y sea $V$ un espacio vectorial sobre $F$. Una
+	\emph{forma bilineal} en $V$ es una funci\'on
+	$B:\,V\times V\rightarrow F$, lineal en cada coordenada, es decir, para
+	todo $c\in F$ y $v,v_1,w\in V$,
+	\begin{displaymath}
+		B(v+v_1,w)\,=\,B(v,w)\,+\,B(v_1,w) \quad\text{y}\quad
+		B(cv,w)\,=\,c\,B(v,w)
+	\end{displaymath}
+	%
+	y, para todo $c\in F$, $v,w,w_1\in V$,
+	\begin{displaymath}
+		B(v,w+w_1)\,=\,B(v,w)\,+\,B(v,w_1) \quad\text{y}\quad
+		B(v,cw)\,=\,c\,B(v,w)
+		\text{ .}
+	\end{displaymath}
+	%
+	Un \emph{espacio bilineal} es un par $(V,B)$, donde $V$ es un espacio
+	vectorial y $B$ es una forma bilineal en $V$.
+\end{defIntroDef}
+
+Alginas formas bilineales reciben nombres especiales.
+
+\begin{defIntroDef}\label{def:definiciones:simetrica}
+	Una forma bilineal $B$ en $V$ se dice \emph{sim\'etrica}, si
+	\begin{displaymath}
+		B(v,w)\,=\,B(w,v)
+		\text{ , para todo } v,w\in V\text{ .}
+	\end{displaymath}
+	%
+	La forma $B$ e dice \emph{antisim\'etrica}, si
+	\begin{displaymath}
+		B(v,w)\,=\,-B(w,v)
+		\text{ , para todo } v,w\in V
+	\end{displaymath}
+	%
+	y sea dice \emph{alternada}, si
+	\begin{displaymath}
+		B(v,v)\,=\,0
+		\text{ , para todo } v\in V\text{ .}
+	\end{displaymath}
+	%
+\end{defIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:escalar}
+	El producto escalar en $\bb R^n$ es una forma bilineal.
+	% Si $F$ es un
+	% cuerpo arbitrario y $n\geq 1$, el producto en $F^n$ definido por
+	% \begin{displaymath}
+		% x\cdot y\,=\,\sum_{i=1}^n\,x_iy_i
+		% \text{ ,}
+	% \end{displaymath}
+	% %
+	% donde $x=(\lista x{n})$ e $y=(\lista y{n})$, es una forma bilineal.
+	% M\'as en general, si $V$ es un espacio vectorial de dimensi\'on $n$,
+	% eligiendo una base del espacio y definiendo, para $v,w\in V$,
+	% \begin{displaymath}
+		% B(v,w)\,=\,\repr v\cdot \repr w
+		% \text{ ,}
+	% \end{displaymath}
+	% %
+	% la funci\'on $B$ es una forma bilineal.
+\end{ejemIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:determinante}
+	En $\bb R^2$, la funci\'on
+	\begin{displaymath}
+		B((x,y),(x_1,y_1))\,=\,xy_1\,-\,x_1y\,=\,
+			\begin{vmatrix} x & x_1 \\ y & y_1 \end{vmatrix}
+	\end{displaymath}
+	%
+	es bilineal, es antisim\'etrica y alternada.
+\end{ejemIntroDef}
+
+\begin{teoIntroDef}\label{teo:definiciones:alternadas}
+	Toda forma alternada es antisim\'etrica. En caracter\'{\i}stica
+	distinta de $2$, las nociones de forma alternada y forma
+	antisim\'etrica coinciden; en caracter\'{\i}stica $2$, las nociones de
+	forma antisim\'etrica y de forma sim\'etrica coinciden.
+\end{teoIntroDef}
+
+\begin{proof}
+	Considerar la identidad
+	\begin{equation}
+		\label{eq:definiciones:alternadas}
+		B(v+w,v+w)\,-\,B(v,v)\,-\,B(w,w)\,=\,B(v,w)\,+\,B(w,v)
+		\text{ ,}
+	\end{equation}
+	%
+	v\'alida para todo $v,w\in V$. En caracter\'{\i}stica impar, $2$ es una
+	unidad, mientras que, en caracter\'{\i}stica $2$, $-1=1$.
+\end{proof}
+
+\begin{obsIntroDef}\label{obs:definiciones:alternadas}
+	Sea $m\geq 4$ un entero (par) y sea
+	\begin{displaymath}
+		B(v,w)\,=\,v\cdot
+		\begin{bmatrix} m/2 & 1 \\ -1 & m/2 \end{bmatrix}\,w
+		\text{ ,}
+	\end{displaymath}
+	%
+	para $v,w\in\big(\enterosmod[m]\big)^2$. La funci\'on $B$ es
+	$\enterosmod[m]$-bilineal en el $\enterosmod[m]$-m\'odulo
+	$\big(\enterosmod[m]\big)^2$, es antisim\'etrica pero no es ni
+	sim\'etrica, ni alternada.
+\end{obsIntroDef}
+
+\begin{teoIntroDef}\label{teo:definiciones:descomposicion}
+	En caracter\'{\i}stica distinta de $2$, toda forma bilineal se escribe,
+	de manera \'unica, como suma de una forma sim\'etrica con una forma
+	alternada.
+\end{teoIntroDef}
+
+\begin{proof}
+	La funci\'on $B(v,w)+B(w,v)$ es sim\'etrica, mientras que
+	$B(v,w)-B(w,v)$ es alternada (incluso en caracter\'{\i}stica $2$).
+\end{proof}
+
+\begin{teoIntroDef}\label{teo:definiciones:polarizacion}
+	En caracter\'{\i}stica distinta de $2$, las formas sim\'etricas quedan
+	determinadas por sus valores \emph{en la diagonal}, es decir, por
+	$B(v,v)$ con $v\in V$.
+\end{teoIntroDef}
+
+\begin{proof}
+	Recordar la identidad \eqref{eq:definiciones:alternadas}.%
+	\footnote{
+		Esta misma identidad implica que, si $B$ es
+		\emph{antisim\'etrica}, entonces $B(v,v)$ es lineal en $v$.
+	}
+\end{proof}
+
+El hecho de que, para una forma sim\'etrica $B$, la funci\'on de dos variables
+$B(v,w)$ se puede recuperar a partir de la funci\'on de una sola variable
+$B(v,v)$ recibe el nombre de \emph{polarizaci\'on}.
+
+\begin{ejemIntroDef}\label{ejem:definiciones:hiperbolico}
+	La forma bilineal en $\bb R^2$ definida por
+	\begin{displaymath}
+		B((x,y),(x_1,y_1))\,=\,xx_1\,-\,yy_1
+	\end{displaymath}
+	%
+	es sim\'etrica. Comparar con la forma del Ejemplo~%
+	\ref{ejem:definiciones:determinante}. En la diagonal,
+	$B((x,y),(x,y))=x^2-y^2$.
+\end{ejemIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:cruzado}
+	La forma bilineal
+	\begin{displaymath}
+		B((x,y),(x_1,y_1))\,=\,xy_1+yx_1
+	\end{displaymath}
+	%
+	es sim\'etrica. En la diagonal, $B((x,y),(x,y))=2xy$. En particular,
+	en los vectores de la base can\'onica,
+	$B((1,0),(1,0))=B((0,1),(0,1))=0$. Sin embargo, $B$ no es
+	id\'enticamente cero; no es cierto que $B(v,v)=0$ para \emph{todo}
+	$v\in\bb R^2$.
+\end{ejemIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:traza}
+	Sea $V$ un $F$-e.v. de dimensi\'on finita. Las t.l.
+	$L:\,V\rightarrow V$, los endomorfismos, conforman un $F$-e.v.,
+	denotado $\Endo[F](V)$. En este espacio, definimos
+	\begin{displaymath}
+		B(L,L_1)\,=\,\Traza(LL_1)
+		\text{ .}
+	\end{displaymath}
+	%
+	Esta funci\'on es una forma bilineal en $\Endo[F](V)$, denominada la
+	\emph{forma traza}. Es una forma bilineal sim\'trica. Esto se deduce de
+	la identidada caracter\'{\i}stica:
+	\begin{equation}
+		\label{eq:definiciones:traza}
+		\Traza(LL_1)\,=\,\Traza(L_1L)
+		\text{ .}
+	\end{equation}
+	%
+\end{ejemIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:alternadas}
+	Sea $V$ un espacio vectorial de dimensi\'on finita y sea $\dual V$ su
+	espacio dual. En $V\oplus\dual V$, definimos%
+	\footnote{
+		Comparar con el Ejemplo~\ref{ejem:definiciones:determinante}.
+		Interpretar dicho ejemplo en t\'erminos de esta construcci\'on.
+		El espacio $\bb R^2$ es \emph{autodual}. Mejor dicho, v\'{\i}a
+		la forma bilineal dada por el producto escalar,
+		$\bb R^2\simeq\dual{(\bb R^2)}$.
+	}
+	\begin{displaymath}
+		B((v,\varphi),(w,\psi))\,=\,\psi(v)\,-\,\varphi(w)
+		\text{ .}
+	\end{displaymath}
+	%
+	Es una forma alternada.
+\end{ejemIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:integral}
+	En el espacio de funciones continuas en el intervalo $[0,1]$, la
+	funci\'on
+	\begin{displaymath}
+		B(f,g)\,=\,\int_0^1\,f(t)g(t)\,\de t
+	\end{displaymath}
+	%
+	es bilineal y sim\'etrica. Si $k:\,[0,1]^2\rightarrow\bb R$ es
+	continua,
+	\begin{displaymath}
+		B_k(f,g)\,=\,\int_{[0,1]^2}\,f(s)\,g(t)\,k(s,t)\,\de s\,\de t
+	\end{displaymath}
+	%
+	es bilineal ?`Qu\'e condiciones sobre $k$ permiten deducir que $B_k$ es
+	sim\'etrica o antisim\'etrica?
+\end{ejemIntroDef}
+
+\begin{obsIntroDef}\label{obs:definiciones:hermitianas}
+	Sea $H:\,\bb C^n\times\bb C^n\rightarrow\bb C$ la funci\'on definida
+	por
+	\begin{displaymath}
+		H(z,w)\,=\,\sum_{i=1}^n\,z_i\conj{w_i}
+		\text{ .}
+	\end{displaymath}
+	%
+	Esta funci\'on es \emph{biaditiva} y ``saca escalares afuera'', siempre
+	y cuando consideremos \'unicamente escalares \emph{reales}.%
+	\footnote{
+		O sea, es $\bb R$-lineal, aunque el codominio no es el cuerpo
+		de base.
+	}
+	Si $c\in\bb C$, entonces
+	\begin{displaymath}
+		B(cv,w)\,=\,c\,B(v,w)\quad\text{y}\quad
+		B(v,cw)\,=\,\conj c\,B(v,w)
+		\text{ ,}
+	\end{displaymath}
+	%
+	es decir, es $\bb C$-lineal en la primera coordenada, pero
+	``conjugada lineal'' en la segunda (saca los escalares conjugados).
+	En particular, $H$ \emph{no es} $\bb C$-bilineal. Adem\'as, $H$
+	verifica
+	\begin{displaymath}
+		H(w,v)\,=\,\lconj{H(v,w)}
+		\text{ ,}
+	\end{displaymath}
+	%
+	con lo cual, incluso consider\'andola como una forma $\bb R$-lineal,
+	restrngiendo escalares a $\bb R$, $H$ \emph{no es} sim\'etrica; es
+	``conjugada sim\'etrica''. Estas funciones de variable compleja se
+	denominan \emph{formas hermitianas}.
+\end{obsIntroDef}
+
+Sobre el cuerpo de n\'umeros reales (o m\'as en general, sobre cuerpos
+\emph{formalmente reales}), hay otra noci\'on importante.
+
+\begin{defIntroDef}\label{def:definiciones:positivas}
+	En un espacio vectorial real $V$, una forma bilineal $B$ se dice
+	\emph{semidefinida positiva}, si $B(v,v)\geq 0$. Si, adem\'as,
+	$B(v,v)=0\Rightarrow v=0$, entonces $B$ se dice \emph{definida}
+	positiva.
+\end{defIntroDef}
+
+\begin{defIntroDef}\label{def:definiciones:perpendicular}
+	En un espacio bilineal $(V,B)$, dos vectores $v$ y $w$ se dicen
+	\emph{perpendiculares} u \emph{ortogonales}, si $B(v,w)=0$. Escribimos
+	$v\perp w$ para indicar que se verifica dicha igualdad. Si
+	$W_1,W_2\subset V$ son subespacios (o, m\'as en general, subconjuntos),
+	escribimos $W_1\perp W_2$ para indicar que $w_1\perp w_2$ para todo
+	$w_1\in W_1$ y todo $w_2\in W_2$.
+\end{defIntroDef}
+
+La relaci\'on de perpendicularidad es lineal en cada argumento, pero
+podr\'{\i}a no ser sim\'etrica.
+
+\begin{obsIntroDef}\label{obs:definiciones:perpendicularidad:espacios}
+	Podr\'{\i}a ocurrir que $W_1\perp W_2$, pero $W_1\cap W_2\neq 0$.
+\end{obsIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:perpendicular}
+	En $\bb R^2$, con respecto a la forma
+	$B((x,y),(x_1,y_1))=xx_1+xy_1-yx_1-yy_1$, se verifica que
+	\begin{displaymath}
+		(1,0)\,\perp\,(1,-1)
+		\quad\text{pero}\quad
+		(1,-1)\,\not\perp\,(1,0)
+	\end{displaymath}
+	%
+\end{ejemIntroDef}
+
+\begin{teoIntroDef}\label{teo:definiciones:perpendicular}
+	La relaci\'on de perpendicularidad en $(V,B)$ es sim\'etrica, si y
+	s\'olo si $B$ es sim\'etrica o alternada.
+\end{teoIntroDef}
+
+\begin{obsIntroDef}\label{obs:definiciones:perpendicular}
+	Fijados $u,v,w\in V$, existe una combinaci\'on de $v$ y de $w$ que es
+	perpendicular a $u$, es decir, existen $a,b\in F$ tales que
+	$av+bw\perp u$. Esto es lo mismo que decir que existen $a,b\in F$ tales
+	que
+	\begin{displaymath}
+		a\,B(v,u)\,+\,b\,B(w,u)\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	Podemos elegir, por ejemplo, $a=B(w,u)$ y $b=-B(v,u)$.
+\end{obsIntroDef}
+
+\begin{proof}
+	Si $B(w,v)=\pm B(v,w)$, entonces $B(v,w)=0\Leftrightarrow B(w,v)=0$ y
+	$\perp$ es una relaci\'on sim\'etrica.
+
+	Rec\'{\i}procamente, supongamos que $v\perp w\Leftrightarrow w\perp v$.
+	Sean $u,v,w\in V$ y $x:=av+bw$ con $a,b\in F$ como en la
+	Observaci\'on~\ref{obs:definiciones:perpendicular}. Entonces,
+	$B(x,u)=0$. Por hip\'otesis, $B(u,x)=0$, tambi\'en. Esto quiere decir
+	que, para todo $u,v,w\in V$,
+	\begin{equation}
+		\label{eq:definiciones:perpendicular}
+		B(w,u)\,B(u,v)\,=\,B(v,u)\,B(u,w)
+		\text{ .}
+	\end{equation}
+	%
+	En particular, eligiendo $w=u$ en
+	\eqref{eq:definiciones:perpendicular},
+	\begin{displaymath}
+		\big(B(u,v)\,-\,B(v,u)\big)\,B(u,u)\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	As\'{\i}, se deduce que, para todo $u,v\in V$,
+	\begin{equation}
+		\label{eq:definiciones:perpendicular:i}
+		B(u,v)\,\neq\,B(v,u)\,\Rightarrow B(u,u)\,=\,0
+		\text{ .}
+	\end{equation}
+	%
+	Supongamos, ahora, que $B$ no es sim\'etrica. Esto significa que
+	existen $u_0,v_0\in V$ tales que
+	\begin{equation}
+		\label{eq:definiciones:perpendicular:ii}
+		B(u_0,v_0)\,\neq\,B(v_0,u_0)
+		\text{ .}
+	\end{equation}
+	%
+	De~\eqref{eq:definiciones:perpendicular:i}, $B(u_0,u_0)=B(v_0,v_0)=0$.
+	Queremos deducir que $B(w,w)=0$ para todo $w\in V$. Para ello, podemos
+	asumir que
+	\begin{equation}
+		\label{eq:definiciones:perpendicular:iii}
+		B(u_0,w)\,=\,B(w,u_0)\quad\text{y que}\quad
+		B(v_0,w)\,=\,B(w,v_0)
+		\text{ .}
+	\end{equation}
+	%
+	De \eqref{eq:definiciones:perpendicular}, con $u=u_0$ y $v=v_0$,
+	\begin{displaymath}
+		B(w,u_0)\,B(u_0,v_0)\,=\,B(v_0,u_0)\,B(u_0,w)
+		\text{ .}
+	\end{displaymath}
+	%
+	Pero, por~\eqref{eq:definiciones:perpendicular:iii},
+	\begin{displaymath}
+		B(u_0,w)\,\big(B(u_0,v_0)\,-\,B(v_0,u_0)\big)\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	El par\'entesis no es cero, por~%
+	\eqref{eq:definiciones:perpendicular:ii}, con lo cual $B(u_0,w)=0$.
+	Intercambiando los roles de $u_0$ y de $v_0$, se deduce que
+	$B(v_0,w)=0$, tambi\'en. De nuevo, por~%
+	\eqref{eq:definiciones:perpendicular:iii},
+	\begin{equation}
+		\label{eq:definiciones:perpendicular:iv}
+		B(u_0,w)\,=\,B(w,u_0)\,=\,0 \quad\text{y}\quad
+		B(v_0,w)\,=\,B(w,v_0)\,=\,0
+		\text{ .}
+	\end{equation}
+	%
+	La primera de las ecuaciones en
+	\eqref{eq:definiciones:perpendicular:iv} implica que
+	\begin{displaymath}
+		B(u_0,v_0+w)\,=\,B(u_0,v_0)\quad\text{y}\quad
+		B(v_0+w,u_0)\,=\,B(v_0,u_0)
+		\text{ .}
+	\end{displaymath}
+	%
+	Como los t\'erminos de la derecha son distintos, por~%
+	\eqref{eq:definiciones:perpendicular:i},
+	\begin{displaymath}
+		B(v_0+w,v_0+w)\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+	De esto, de que $B(v_0,v_0)$ y de la segunda ecuaci\'on en
+	\eqref{eq:definiciones:perpendicular:iv}, se deduce, por bilinealidad,%
+	\footnote{
+		Biaditividad es suficiente para este paso.
+	}
+	que $B(w,w)=0$.
+	% \cite[Theorem~1.17]{ConradBilinear}.
+\end{proof}
+
+\begin{defIntroDef}\label{def:definiciones:subespacio-ortogonal}
+	Si $W\subset V$ es un subespacio (o, m\'as en general, un subconjunto),
+	los subconjuntos
+	\begin{displaymath}
+		W^\lperp\,:=\,\big\{
+			v\in V\,:\,v\perp W\big\} \quad\text{y}\quad
+		W^\rperp\,:=\,\big\{
+			v\in V\,:\,W\perp v\big\}
+	\end{displaymath}
+	%
+	son subespacios de $V$. Los llamaremos \emph{subespacios de vectores %
+	ortogonales a $W$} (a izquierda o a derecha, seg\'un corresponda).
+\end{defIntroDef}
+
+Si la relaci\'on $\perp$ es sim\'etrica, no hay distinci\'on entre estos
+subespacios y escribimos, directamente, $W^\perp$ para referirnos al mismo.
+Escribimos $v$ en lugar de $\{v\}$ o de $\generado v$ para referirnos a los
+vectores perpendiculares a un vector $v$.
+
+\begin{ejemIntroDef}\label{ejem:definiciones:hiperbolico:bis}
+	En el espacio del Ejemplo~\ref{ejem:definiciones:hiperbolico}, se
+	cumple $(1,1)\perp (1,1)$, pero $(1,1)\neq 0$. M\'as aun,
+	$(1,1)^\perp=\generado{(1,1)}$. A diferencia de lo que ocurre con el
+	producto escalar en $\bb R^2$, $W+W^\perp\neq\bb R^2$. El mismo
+	fen\'omeno se ve en el espacio del Ejemplo~%
+	\ref{ejem:definiciones:determinante}.
+\end{ejemIntroDef}
+
+\begin{defIntroDef}\label{def:definiciones:subespacio}
+	Si $(V,B)$ es un espacio bilineal y $W\subset V$ es un subespacio, la
+	restricci\'on de $B$ a $W$ es una forma bilineal. Denotamos dicha
+	forma por $B|_W$ (en lugar de $B|_{W\times W}$). El par
+	$(W,B|_W)$ es un espcio bilineal denominado, \emph{subespacio} de
+	$(V,B)$.
+\end{defIntroDef}
+
+\begin{defIntroDef}\label{def:definiciones:suma}
+	Dados espacios bilineales $(V_1,B_1)$ y $(V_2,B_2)$, denotamos por
+	$B_1\oplus B_2$ la forma bilineal en $V_1\oplus V_2$ definida por
+	\begin{displaymath}
+		\big(B_1\oplus B_2\big)(v_1+v_2,w_1+w_2)\,=\,
+		B_1(v_1,w_1)\,+\,B_2(v_2,w_2)
+	\end{displaymath}
+	%
+	es bilineal. Dicha forma se denomina \emph{suma} de $B_1$ y de $B_2$.
+	El espacio bilineal $(V_1\oplus V_2,B_1\oplus B_2)$ se denomina
+	\emph{suma ortogonal}.
+\end{defIntroDef}
+
+\begin{ejemIntroDef}\label{ejem:definiciones:suma}
+	El espacio del Ejemplo~\ref{ejem:definiciones:perpendicular} es la suma
+	de los espacios de los Ejemplos~\ref{ejem:definiciones:determinante} y
+	\ref{ejem:definiciones:hiperbolico}.
+\end{ejemIntroDef}
+
+Las formas bilineales est\'an relacionadas con el espacio dual. Sea $V$ un
+espacio vectorial sobre un cuerpo $F$. Si $B$ es una forma bilineal en $V$,
+para cada $v\in V$, la funci\'on
+\begin{displaymath}
+	\big(w\,\mapsto\,B(v,w)\big)\,:\,V\,\rightarrow\,F
+\end{displaymath}
+%
+es lineal. De esta manera, queda definida una apliacaci\'on
+\begin{displaymath}
+	L_B\,:\,V\,\rightarrow\,\dual V
+	\text{ ,}
+\end{displaymath}
+%
+que es lineal. Rec\'{\i}procamente, dada una transformaci\'on lineal
+$L:\,V\rightarrow\dual V$, la funci\'on
+\begin{displaymath}
+	B_L(v,w)\,=\,L(v)(w)
+\end{displaymath}
+%
+es bilineal. Las aplicaciones $B\mapsto L_B$ y $L\mapsto B_L$ son inversas
+una de la otra y determinan una biyecci\'on (isomorfismo lineal) entre (los
+espacios de) formas bilineales en $V$ y transformaciones lineales
+$V\rightarrow\dual V$.
+
+Esta correspondencia no es la \'unica entre formas bilineales y
+transformaciones lineales. Dada una forma bilineal $B$ en $V$, tambi\'en
+podr\'{\i}amos definir $R_B(w)(v)=B(v,w)$. La funci\'on
+$R_B:\,V\rightarrow\dual V$ es lineal y determina una correspondencia
+(isomorfismo lineal) entre (los espacios de) formas bilineales en $V$ y
+transformaciones lineales $V\rightarrow\dual V$. Ambas correspondencias est\'an
+relacionadas.
+
+\begin{teoIntroDef}\label{teo:definiciones:dual}
+	Si $(V,B)$ es de dimensi\'on finita, entonces $L_B$ y $R_B$ son
+	duales. Es decir, v\'{\i}a la identificaci\'on natural entre $V$ y su
+	doble dual $\ddual V$, la \emph{dualizaci\'on}%
+	\footnote{
+		La transformaci\'on \emph{transpuesta}.
+	}
+	$\dual{L_B}:\,\ddual V\rightarrow\dual V$ de
+	$L_B:\,V\rightarrow\dual V$ coincide con $R_B:\,V\rightarrow\dual V$.
+\end{teoIntroDef}
+
+\begin{coroIntroDef}\label{coro:definiciones:dual}
+	Sea $B$ una forma bilineal en $V$. Si $V$ es de dimensi\'on finita,
+	$\dim\,V^\lperp=\dim\,V^\rperp$.
+\end{coroIntroDef}
+
+\begin{proof}
+	La transformaci\'on $L_B:\,V\rightarrow\dual V$ induce una
+	transformaci\'on
+	\begin{displaymath}
+		V\,\rightarrow\,\dual{(V/V^\rperp)}
+		\text{ .}
+	\end{displaymath}
+	%
+	El n\'ucleo de esta transformaci\'on es $V^\lperp$. De esto se deduce
+	que
+	\begin{displaymath}
+		\codim[V]\,V^\lperp\,\leq\,\codim[V]\,V^\rperp
+		\text{ .}
+	\end{displaymath}
+	%
+	An\'alogamente, $R_B$ induce una transformaci\'on lineal de $V$ en
+	$\dual{(V/V^\lperp)}$ cuyo n\'ucleo es $V^\lperp$, de lo que se deduce
+	la desigualdad opuesta. En definitiva, las codimensiones de
+	$V^\lperp$ y de $V^\rperp$ son iguales. Si $V$ es de dimensi\'on
+	finita, sus dimensiones son iguales.
+\end{proof}
+

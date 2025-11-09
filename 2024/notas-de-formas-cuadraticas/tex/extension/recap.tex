@@ -1,0 +1,926 @@
+\theoremstyle{plain}
+\newtheorem{teoExtRec}{\teoname}[section]
+\newtheorem{coroExtRec}[teoExtRec]{\coroname}
+\newtheorem{lemaExtRec}[teoExtRec]{\lemaname}
+\newtheorem{propoExtRec}[teoExtRec]{\proponame}
+
+\theoremstyle{definition}
+\newtheorem{defExtRec}[teoExtRec]{\defname}
+\newtheorem{obsExtRec}[teoExtRec]{\obsname}
+\newtheorem{ejemExtRec}[teoExtRec]{\ejemname}
+\newtheorem{ejerExtRec}[teoExtRec]{\ejername}
+
+%-------------
+
+\subsection{Espacios bilineales}\label{subsec:extension:recap:bilineales}
+De acuerdo con la \defname~\ref{def:definiciones:bilineal}, un \emph{espacio %
+bilineal} es un par $(V,B)$, donde $V$ es un espacio vectorial sobre un cuerpo,
+$F$, y $B:\,V\times V\rightarrow F$ es una forma bilineal.
+
+\begin{defExtRec}\label{def:recap:morfismo:bilineal}
+	Un \emph{morfismo de espacios bilineales},
+	\begin{displaymath}
+		(V,B_V)\,\rightarrow\,(W,B_W)
+	\end{displaymath}
+	%
+	es una t.l. $A:\,V\rightarrow W$ tal que
+	\begin{displaymath}
+		B_W(A\,v,A\,v_1)\,=\,B_V(v,v_1)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $v,v_1\in V$.
+\end{defExtRec}
+
+Es decir, un morfismo entre espacios bilineales es una t.l. entre los e.v.
+subyacentes que preserva las formas bilineales. Los morfismos de espacios
+bilineales preservan la relaci\'on de ortogonalidad.%
+\footnote{
+	C.f. la \defname~\ref{def:nodegeneradas:perpendicular}.
+}
+En t\'erminos de la \defname~\ref{def:recap:morfismo:bilineal}, la
+\obsname~\ref{obs:nodegeneradas:perpendicularidad} se reinterpreta de la
+siguiente manera: todo morfismo de espacios bilineales \emph{no degenerados} es
+inyectivo.
+
+\begin{defExtRec}\label{def:recap:morfismo:embedding}
+	Un \emph{embedding isom\'etrico} es un morfismo inyectivo de espacios
+	bilineales. Una \emph{isometr\'{\i}a} es un embedding isom\'etrico que
+	es sobreyectivo.
+\end{defExtRec}
+
+\begin{ejemExtRec}\label{ejem:recap:morfismo:embedding}
+	Si $(V,B)$ es un espacio bilineal y $W\subset V$ es un subespacio, la
+	inclusi\'on de $W\hookrightarrow V$ es un embedding isom\'etrico de
+	$B|_W$ en $B$.
+\end{ejemExtRec}
+
+\begin{obsExtRec}\label{obs:recap:categoria:bilineales}
+	Los espacios bilineales, junto con los morfismos de espacios bilineales
+	conforman una categor\'{\i}a, la \emph{categor\'{\i}a de espacios %
+	bilineales}. Las equivalencias de espacios bilineales son los
+	isomorfismos de la categor\'{\i}a. Los espacios bilineales con los
+	embeddings isom\'etricos como morfismos constituyen una
+	subcategor\'{\i}a. Esta subcategor\'{\i}a no es \emph{plena}; los
+	espacios bilineales no degenerados con los embeddings isom\'etricos
+	como morfismos constituyen una subcategor\'{\i}a plena.
+\end{obsExtRec}
+
+El espacio vectorial nulo sobre un cuerpo $F$ admite, salvo isomorfismo, una
+\'unica forma bilineal, la trivial. El par compuesto por este espacio y esta
+forma bilineal es un espacio bilineal en la categor\'{\i}a de espacios
+bilineales sobre el cuerpo $F$. No es cualquier objeto de la categor\'{\i}a; es
+un \emph{objeto inicial}. Este objeto tambi\'en es un \emph{objeto final} en la
+categor\'{\i}a, pues, dado $(V,B)$, existe una \'unica t.l. $V\rightarrow 0$ y
+la misma es un morfismo de $(V,B)$ en $0$. Pero, si nos restringimos a la
+subcategor\'{\i}a de espacios bilineales no degenerados, $0$ deja de ser un
+objeto final. No hay objeto final en la categor\'{\i}a de espacios bilineales
+no degenerados, aunque s\'{\i} existe objeto inicial.
+
+Algo similar sucede con las construcciones de suma directa y producto directo.
+Si $(V,B_V)$ y $(W,B_W)$ son espacios bilineales, $(V\oplus W,B_{V\oplus W})$,
+donde
+\begin{equation}
+	\label{eq:recap:suma-directa:bilineales}
+	B_{V\oplus W}(v+w,v_1+w_1)\,=\,B_V(v,v_1)\,+\,B_W(w,w_1)
+	\text{ ,}
+\end{equation}
+%
+es un espacio bilineal y es un \emph{coproducto} en la categor\'{\i}a de
+espacios bilineales; tambi\'en es un \emph{producto} en la misma
+categor\'{\i}a. Las inclusiones can\'onicas en $V\oplus W$ son embeddings
+isom\'etricos, con lo cual la suma directa tambi\'en es un coproducto en la
+subcategor\'{\i}a de espacios no degenerados; pero, al igual que el espacio
+nulo, deja de ser un producto en la subcategor\'{\i}a. La suma directa la
+llamamos \emph{suma directa ortogonal}.
+
+Adem\'as de la construcci\'on de suma directa, el \emph{producto tensorial} de
+dos espacios bileneales $(V,B_V)$ y $(W,B_W)$ es el par
+$(V\tensor W,B_{V\tensor W})$, cuya forma bilineal est\'a dada, en tensores
+elementales, por
+\begin{equation}
+	\label{eq:recap:producto-tensorial:bilineales}
+	B_{V\tensor W}(v\tensor w,v_1\tensor w_1)\,=\,
+		B_V(v,v_1)\,B_W(w,w_1)
+	\text{ .}
+\end{equation}
+%
+La matriz asociada al producto tensorial es el \emph{producto de Kronecker} de
+las matrices asociadas a cada uno de los factores.
+
+\begin{defExtRec}\label{def:recap:ortogonal:bilineales}
+	El \emph{grupo ortogonal} de $(V,B)$ es el subgrupo
+	\begin{displaymath}
+		\OO(V,B)\,=\,\Big\{A\in\GL(V)\,:\,B(A\,v,A\,v_1)=B(v,v_1)
+			\text{ para todo } v,v_1\in V\Big\}
+	\end{displaymath}
+	%
+	de $\GL(V)$. Tambi\'en denotamos este subgrupo por $\OO(V)$ o por
+	$\OO(B)$.
+\end{defExtRec}
+
+Si $A\in\OO(B)$, tomando bases,
+\begin{equation}
+	\label{eq:recap:ortogonal:bilineales:determinante}
+	(\det\,A)^2\,\discriminante\,B\,=\,\discriminante\,B
+	\text{ .}
+\end{equation}
+%
+En particular, \emph{si $B$ es no degenerada}, $\det(A)\in\{\pm 1\}$.%
+\footnote{
+	Si $B$ es degenerada, diagonalizando, se ve que existen
+	endomorfismos que preservan $B$ y que no son invertibles,
+	necesariamente, o que, aunque sean invertibles, no tengan
+	determinante a $\pm 1$.
+}
+
+Si $B$ es no degenerada, podemos hablar de la adjunta $\adjnt A$ de
+$A\in\OO(V)$. Si $V=F^n$, identificamos $F^n$ con su dual y
+$A\in\MM[n\times n](F)$, entonces $A$ preserva la forma bilineal $B$,
+si y s\'olo si $\trnsp A$ la preserva:
+\begin{displaymath}
+	\begin{aligned}
+		& B(A\,v,A\,v_1)\,=\,B(v,v_1)
+			\quad\text{para todo }v,v_1
+		\quad\Rightarrow\quad \adjnt A\,A=I \\
+		& \qquad\quad\Rightarrow\quad A\,\adjnt A=I
+		\quad\Rightarrow\quad\trnsp{\adjnt A}\,\trnsp A=I \\
+		& \qquad\quad\Rightarrow\quad
+			B(\trnsp A\,v,\trnsp A\,v_1)\,=\,B(v,v_1)
+			\quad\text{para todo }v,v_1
+		\text{ .}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+
+\begin{defExtRec}\label{def:recap:ortogonal:bilineales:rotaciones}
+	Una \emph{rotaci\'on} en $V$ (con respecto a $B$)
+	es un elemento $A\in\OO(B)$ tal que $\det(A)=1$. Una \emph{reflexi\'on}
+	es un elemento $A\in\OO(B)$ tal que $\det(A)=-1$.
+\end{defExtRec}
+
+\begin{lemaExtRec}\label{lema:recap:ortogonal:bilineales:complemento}
+	Si $v\in V$ es tal que $B(v,v)\neq 0$, entonces
+	\begin{displaymath}
+		V\,=\,\generado v\,\oplus\,v^\lperp
+			\,=\,\generado v\,\oplus\,v^\rperp
+		\text{ .}
+	\end{displaymath}
+	%
+	Si la relaci\'on de perpendicularidad es sim\'etrica, entonces
+	$v^\lperp=v^\rperp$ y la suma $V=v\oplus v^\perp$ es ortogonal.
+	Adem\'as, en este caso, si $V$ es no degenerado, entonces $v^\perp$
+	es no degenerado.
+\end{lemaExtRec}
+
+\begin{proof}
+	Ver el \lemaname~\ref{lema:ortogonales:complemento}.
+\end{proof}
+
+\begin{ejemExtRec}\label{ejem:recap:ortogonal:bilineales:complemento}
+	Sea $B=\sbmatrix{ 1 & 1 \\ & 1 }$. Si la caracter\'{\i}stica del
+	cuerpo es impar, el vector $v=\sbmatrix{ 1 \\ 0 }$ cumple
+	$B(v,v)\neq 0$. Los subespacios ortogonales son
+	$v^\lperp=\generado{\sbmatrix{ 0 \\ 1 }}$ y
+	$v^\rperp=\generado{\sbmatrix{ 1 \\ -1 }}$ (si la caracter\'{\i}stica
+	del cuerpo es $2$, $v^\rperp=\generado v$).
+\end{ejemExtRec}
+
+% \begin{lemaExtRec}\label{lema:recap:ortogonal:bilineales:diagonal}
+	% Sea $(V,B)$ un espacio bilineal tal que la relaci\'on de
+	% perpendicularidad es sim\'etrica. Si $B$ no es alternada,
+	% entonces existe alg\'un $v\in V$ tal que $B(v,v)\neq 0$.
+% 
+	% Sea $(V,B)$ un espacio bilineal sim\'etrico. Si $B$ no es
+	% id\'enticamente cero, entonces existe alg\'un $v\in V$ tal que
+	% $B(v,v)\neq 0$.
+% \end{lemaExtRec}
+% 
+% \begin{proof}
+	% Si la caracter\'{\i}stica del cuerpo es $2$, entonces
+	% $v\mapsto B(v,v)$ es lineal. Si la caracter\'{\i}stica es impar, ver
+	% el \lemaname~\ref{lema:ortogonales:diagonal}.
+% \end{proof}
+
+\begin{propoExtRec}\label{propo:recap:ortogonal:bilineales:determinante}
+	Sea $(V,B)$ un espacio bilineal tal que la relaci\'on de
+	perpendicularidad es sim\'etrica. Si $B$ no es alternada,
+	el determinante $\det:\,\OO(B)\rightarrow\{\pm 1\}$ es un morfismo
+	sobreyectivo.
+	Si la caracter\'{\i}stica del cuerpo es $2$, el morfismo es
+	sobreyectivo trivialmente.
+\end{propoExtRec}
+
+\begin{proof}
+	Si, para todo $x,y\in V$, $B(x,y)=0$ implica $B(y,x)=0$, se verifica
+	que, para toda terna $u,v,w\in V$, se verifica%
+	\footnote{
+		Ver \eqref{eq:definiciones:perpendicular}.
+	}
+	\begin{equation}
+		\label{eq:recap:ortogonal:bilineales:determinante}
+		B(v,u)\,B(u,w)\,=\,B(u,v)\,B(w,u)
+		\text{ .}
+	\end{equation}
+	%
+	La idea es construir un elemento de determinante $-1$.
+	% Si $B$ est\'a diagonalizada, entonces
+	% $\diagonal{1,\,\cdots,\,1,\,-1}$ preserva $B$ y tiene determinante
+	% $-1$. Esta transformaci\'on es la reflexi\'on con respecto al
+	% hiperplano $(0,\,\cdots,\,0,\,1)^\perp$. En general, si
+	Si $u\in V$ es un vector tal que $B(u,u)\neq 0$, definimos
+	$\refl[u]:\,V\rightarrow V$ por
+	\begin{equation}
+		\label{eq:recap:ortogonal:bilineales:reflexion}
+		\refl[u](v)\,=\,v\,-\,\frac{B(v,u)+B(u,v)}{B(u,u)}\,u
+		\text{ .}
+	\end{equation}
+	%
+	La transformaci\'on \eqref{eq:recap:ortogonal:bilineales:reflexion}
+	cumple:
+	\begin{itemize}
+		\item $B(\refl[u](v),\refl[u](w))=B(v,w)$ para todo $v,w\in V$
+			(por
+			\eqref{eq:recap:ortogonal:bilineales:determinante}),
+		\item $\refl[u](u)=-u$ y
+		\item $\refl[u](v)=v$, si $v\in u^\perp$.
+	\end{itemize}
+	%
+	Por el \lemaname~\ref{lema:recap:ortogonal:bilineales:complemento},
+	% Por el \lemaname~\ref{lema:ortogonales:complemento},
+	$V=\generado u\oplus u^\perp$. Eligiendo una base adecuada (empezando
+	con $u$), la transformaci\'on $\refl[u]$ est\'a representada por
+	la matriz
+	\begin{displaymath}
+		\begin{bmatrix}
+			-1 & & & \\
+			& 1 & & \\
+			& & \ddots & \\
+			& & & 1
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, $\det(\refl[u])=-1$.
+\end{proof}
+
+% Si $(V,B)$ es no degenerado, entonces el subespacio $u^\perp$ es no
+% degenerado, tambi\'en. La simetr\'{\i}a de $B$ garantiza que $\refl[u]$
+% preserve $B$. En general, si $v\in u^\lperp$, $\refl[u](v)=v$ y
+% $B(\refl[u](v),\refl[u](w))=B(v,w)$.
+
+\subsection{Espacios cuadr\'aticos}\label{subsec:extension:recap:cuadraticos}
+De acuerdo con la \defname~\ref{def:impar:espacio}, un \emph{espacio %
+cuadr\'atico} es un par $(V,Q)$, donde $V$ es un espacio vectorial sobre un
+cuerpo, $F$, y $Q:\,V\rightarrow F$ es una forma cuadr\'atica.
+
+\begin{defExtRec}\label{def:recap:morfismo}
+	Un \emph{morfismo de espacios cuadr\'aticos},
+	\begin{displaymath}
+		(V,Q_V)\,\rightarrow\,(W,Q_W)
+		\text{ ,}
+	\end{displaymath}
+	%
+	es una t.l. $A:\,V\rightarrow W$ tal que
+	\begin{displaymath}
+		Q_W(A\,v)\,=\,Q_V(v)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para todo $v\in V$.
+\end{defExtRec}
+
+Un morfismo entre espacios cuadr\'aticos es una t.l. entre los e.v. subyacentes
+que preserva las formas cuadr\'aticas. Dado que
+\eqref{eq:impar:definicion:perpendicular} y que
+\eqref{eq:parias:definicion:perpendicular}, los morfismos de espacios
+cuadr\'aticos preservan la relaci\'on de perpendicularidad (expresada tanto en
+t\'erminos de formas cuadr\'aticas, como en t\'erminos de formas bilineales).
+Los espacios cuadr\'aticos, junto con los morfismos de espacios cuadr\'aticos
+conforman una categor\'{\i}a, la \emph{categor\'{\i}a de espacios %
+cuadr\'aticos} ?`Qu\'e podemos decir de los morfismos entre espacios no
+degenerados? El razonamiento depender\'a de la caracter\'{\i}stica.
+
+Supongamos que $(V,Q_V)$ y $(W,Q_W)$ son espacios cuadr\'aticos no degenerados
+y sea $A:\,V\rightarrow W$ un morfismo. Si $\car F\neq 2$, entonces que las
+formas cuadr\'aticas sean no degeneradas equivale a que las formas bilineales
+asociadas lo sean. En particular, en este caso, $A$ debe ser inyectiva. Otro
+argumento es el siguiente: si $A\,v=0$, entonces, para todo $v_1\in V$,
+\begin{equation}
+	\label{eq:recap:nodegeneradas:morfismo:bilineales}
+	0\,=\,B_W(0,A\,v_1)\,=\,B_W(A\,v,A\,v_1)\,=\,B_V(v,v_1)
+	\text{ ,}
+\end{equation}
+%
+con lo cual $v\in V^\perp$. Aqu\'{\i}, $B_V$ y $B_W$ son las formas bilineales
+correspondientes a $Q_V$ y a $Q_W$. Si $B_V$ es no degenerada, $V^\perp=0$,
+$v=0$ y $A$ es inyectiva. Notemos que en
+\eqref{eq:recap:nodegeneradas:morfismo:bilineales} \emph{\'unicamente %
+usamos que $A$ es un morfismo de espacios bilineales}. Si $\car F=2$,
+$V^\perp$ podr\'{\i}a no ser cero, pero $Q:\,V^\perp\rightarrow F$ es
+inyectiva. Como $A$ es morfismo \emph{de espacios cuadr\'aticos}, si
+$v\in V^\perp$ y $A\,v=0$, entonces
+\begin{equation}
+	\label{eq:recap:nodegeneradas:morfismo:cuadraticas}
+	0\,=\,Q_W(0)\,=\,Q_W(A\,v)\,=\,Q_V(v)
+	\text{ ,}
+\end{equation}
+%
+con lo cual $v\in V^\perp\cap\{Q_V=0\}$ y $v=0$.%
+\footnote{
+	Notemos que alcanza con asumir que el dominio es no degenerado, tanto
+	si pensamos en formas bilineales, como si pensamos en formas
+	cuadr\'aticas.
+}
+
+\begin{defExtRec}\label{def:recap:embedding}
+	Un \emph{embedding isom\'etrico} es un morfismo inyectivo de espacios
+	cuadr\'aticos. Una \emph{isometr\'{\i}a} es un embedding isom\'etrico
+	que es sobreyectivo.
+\end{defExtRec}
+
+\begin{teoExtRec}\label{teo:recap:embedding}
+	Todo morfismo entre espacios cuadr\'aticos no degenerados es un
+	embedding isom\'etrico.
+\end{teoExtRec}
+
+% El argumento anterior muestra que, en caracter\'{\i}stica $2$, las nociones de
+% forma cuadr\'atica y de forma bilineal son fundamentalmente distintas. No
+% podemos recuperar la forma cuadr\'atica de la forma bilineal asociada, en
+% general y existen morfismos de espacios bilineales que no son morfismos de los
+% espacios cuadr\'aticos de los que provienen.
+% 
+Toda forma cuadr\'atica tiene asociada una forma bilineal.%
+\footnote{
+	La definici\'on depende de la caracter\'{\i}stica.
+}
+De esta manera, podemos definir una aplicaci\'on que a cada espacio
+cuadr\'atico le asigna su espacio bilineal correpondiente:
+\begin{equation}
+	\label{eq:recap:funtor}
+	(V,Q)\,\mapsto\,(V,B_Q)
+	\text{ .}
+\end{equation}
+%
+Si $A:\,V\rightarrow W$ es morfismo de espacios cuadr\'aticos $(V,Q_V)$ y
+$(W,Q_W)$, entonces
+\begin{displaymath}
+	\begin{aligned}
+		\ast\,B_W(A\,v,A\,v_1) & \,=\,
+			Q_W(A\,v+A\,v_1)\,-\,Q_W(A\,v)\,-\,Q_W(A\,v_1) \\
+			& \,=\,Q_V(v+v_1)\,-\,Q_V(v)\,-\,Q_V(v_1) \\
+			& \,=\,\ast\,B_V(v,v_1)
+		\text{ ,}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+donde $B_V$ y $B_W$ son las formas bilineales asociadas y $\ast\in\{1,2\}$. En
+particular, $A$ es morfismo entre los espacios bilineales correspondientes. De
+esta manera, la asignaci\'on~\ref{eq:recap:funtor} determina un
+\emph{funtor} de la categor\'{\i}a de espacios cuadr\'aticos en la
+categor\'{\i}a de espacios bilineales.
+
+\begin{obsExtRec}\label{obs:recap:nodegeneradas:morfismo}
+	El funtor de la categor\'{\i}a de espacios cuadr\'aticos en la
+	categor\'{\i}a de espacios bilineales se restringe a un funtor en la
+	subcategor\'{\i}a plena de espacios bilineales no degenerados desde la
+	subcategor\'{\i}a tambi\'en plena de espacios cuadr\'aticos no
+	degenerados.
+\end{obsExtRec}
+
+\begin{ejerExtRec}\label{ejer:recap:nodegeneradas:cuadraticas}
+	% Probar que, si $v\in V$ es tal que $Q(v+w)-Q(w)$ es constante en
+	% funci\'on de $w\in V$, entonces $Q(v+w)=Q(v)+Q(w)$ para todo $w\in V$,
+	% es decir, $v\in V^\perp$.
+	Probar que
+	\begin{displaymath}
+		v\,\in\,V^\perp\quad\Leftrightarrow\quad
+			Q(v+w)\,-\,Q(w)
+			\text{ es constante.}
+	\end{displaymath}
+	%
+	Probar que $Q$ es no degenerada, si y s\'olo si,%
+	\footnote{
+		Si $Q$ es no degenerada y $v\in V^\perp$, entonces
+		$Q(v+w)\neq Q(w)$ para todo $w$.
+	}
+	\begin{displaymath}
+		v\,\neq\,0\quad\Rightarrow\quad
+			Q(v+w)\neq Q(w)
+			\text{ para alg\'un }w\in V
+			\text{ .}
+	\end{displaymath}
+	%
+\end{ejerExtRec}
+
+\begin{defExtRec}\label{def:recap:ortogonal:cuadraticos}
+	El \emph{grupo ortogonal} de $(V,Q)$ es el subgrupo
+	\begin{displaymath}
+		\OO(V,Q)\,=\,\Big\{A\in\GL(V)\,:\,Q(A\,v)=Q(v)
+			\text{ para todo } v\in V\Big\}
+	\end{displaymath}
+	%
+	de $\GL(V)$. Tambi\'en denotamos este subgrupo por $\OO(Q)$ o por
+	$\OO(V)$.
+\end{defExtRec}
+
+Si la caracter\'{\i}stica del cuerpo es impar, entonces $\OO(Q)=\OO(B_Q)$. En
+general, que $A$ preserve $Q$ implica que $A$ preserva $B_Q$.
+
+\subsection{Geometr\'{\i}a}\label{subsec:extension:recap:geometria}
+Empecemos reformulando algunos resultados de las secciones
+\S\S~\ref{sec:intro:nodegeneradas}, \ref{sec:cuadraticas:impar} y
+\ref{sec:cuadraticas:parias}.
+
+\begin{teoExtRec}\label{teo:recap:radical}
+	Sea $(V,B)$ un espacio bilineal tal que $v\perp w$ es una relaci\'on
+	sim\'etrica. Existe un subespacio $W\subset V$ tal que $B|_W$ es no
+	degenerada y
+	\begin{displaymath}
+		V\,=\,V^\perp\,\oplus\,W
+		\text{ .}
+	\end{displaymath}
+	%
+\end{teoExtRec}
+
+\begin{proof}
+	Si $v\perp w$ es una relaci\'on sim\'etrica, entonces
+	$V^\lperp=V^\rperp=V^\perp$. Basta, entonces, con elegir un complemento
+	de $V^\perp$ en $V$.
+	% Si $V=V^\lperp+W$, entonces
+	% \begin{displaymath}
+		% \begin{aligned}
+			% w\in W^\rperp & \quad\Rightarrow\quad
+			% B(w_1,w)\,=\,0\quad\text{para todo }w_1\in W \\
+			% & \quad\Rightarrow\quad
+			% B(v,w)\,=\,0\quad\text{para todo } v\in V \\
+			% & \quad\Rightarrow\quad
+				% w\in V^\rperp
+		% \end{aligned}
+		% %
+	% \end{displaymath}
+	% %
+	% Con lo cual $W^\rperp=V^\rperp$. Por otro lado,
+	% \begin{displaymath}
+		% W\,\cap\,W^\lperp\,=\,0
+		% \quad\Leftrightarrow\quad B|_W \text{ es no degenerada}
+			% \quad\Leftrightarrow\quad W\,\cap\,W^\rperp\,=\,0
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% De esta manera, si $V^\lperp\cap W=0$, entonces $W^\rperp\cap W=0$ y
+	% $W$ es no degenerado.
+\end{proof}
+
+\begin{ejemExtRec}\label{ejem:recap:radical}
+	Si $B=\sbmatrix{ 0 & 1 \\ 0 & 0 }$, entonces
+	$V^\lperp=\generado{\sbmatrix{ 0 \\ 1 }}$ y
+	$V^\rperp=\generado{\sbmatrix{ 1 \\ 0 }}$. En particular,
+	$V=V^\lperp\oplus V^\rperp$. No es cierto en general que el mismo
+	subespacio se complemento directo (ortogonal) tanto de $V^\lperp$ como
+	de $V^\rperp$.
+%
+	Si $B=\sbmatrix{ & 1 & \\ & & 1 \\ \phantom{0} & & }$, entonces
+	$V^\lperp=\generado{\sbmatrix{ 0 \\ 0 \\ 1 }}$ y
+	$V^\rperp=\generado{\sbmatrix{ 1 \\ 0 \\ 0 }}$. Si
+	$W=\generado{\sbmatrix{ 1 \\ 0 \\ 0 },\sbmatrix{ 0 \\ 1 \\ 0 }}$,
+	entonces $W$ es complemento directo de $V^\lperp$, pero
+	$V^\rperp\cap W\neq 0$. En particular, $B|_W$ no es no degenerada. De
+	hecho, $B|_W=\sbmatrix{ & 1 \\ \phantom{0} & }$, en la base de los
+	generadores.
+%
+	?`Qu\'e condiciones garantizan que exista alg\'un complemento com\'un?
+\end{ejemExtRec}
+
+\begin{obsExtRec}\label{obs:recap:radical}
+	Si $V=V^\lperp+W$, entonces $V^\rperp=W^\rperp$. Si, adem\'as,
+	$V^\rperp\cap W=0$, entonces $B|_W$ es no singular y
+	$W^\lperp\cap W=0$. Pero, en particular, esto implica
+	$V^\lperp\cap W=0$ y $W$ es complemento directo de $V^\lperp$ en $V$.
+	Esto fuerza que las dimensiones cumplan
+	$\dim\,W+\dim\,V^\lperp=\dim\,V$ y, en consecuencia,
+	$\dim\,W+\dim\,V^\rperp=\dim\,V$. Pero, entonces, $W$ es complemento de
+	$V^\rperp$, tambi\'en ?`Existe, en general, $W$ tal que $V=V^\lperp+W$
+	y $V^\rperp\cap W=0$?
+\end{obsExtRec}
+
+% El Teorema~\ref{teo:impar:isotropico} garantiza que, en un espacio
+% cuadr\'atico no degenerado $(V,Q)$ sobre un cuerpo de caracter\'{\i}stica
+% impar, todo vector isotr\'opico ($Q(u)=0$) se completa a un plano
+% hiperb\'olico, existe $v\in V$ tal que $\generado{u,v}$ es isomorfo
+% (isom\'etrico) a un plano hiperb\'olico. M\'as aun, $\generado{u,v}^\perp$ es
+% no degenerado y el espacio admite una descomposici\'on de la forma
+% $V=\generado{u,v}\oplus\generado{u,v}^\perp$.
+% 
+% El comentario posterior a la demostraci\'on del resultado muestra que se puede
+% proceder de manera inductiva hasta que resulte imposible encontrar vectores
+% isotr\'opicos, de manera que $V=\hiperbolico^{\perp m}\perp W$, donde
+% $W\subset V$ es anisotr\'opico. Pero quedaba pendiente la cuesti\'on de la
+% invarianza del valor de $m$, de la dimensi\'on de \emph{la parte isotr\'opica}.
+
+\begin{defExtRec}\label{def:recap:isotropico}
+	Un vector $v$ en un espacio cuadr\'atico $(V,Q)$ se dice
+	\emph{isotr\'opico}, si $v\neq0$ y $Q(v)=0$.%
+	\footnote{
+		En \cite[p.~114]{GroveClassical}, estos vectores se denominan
+		\emph{singulares}.
+	}
+	El espacio cuadr\'atico $(V,Q)$ se dice \emph{isotr\'opico}, si es no
+	degenerado y admite un vector isotr\'opico. Un subespacio $W\subset V$
+	se dice \emph{totalmente isotr\'opico}, si $Q(w)=0$, para todo
+	$w\in W$.%
+	\footnote{
+		En caracter\'{\i}stca impar, esto equivale a que la forma
+		bilineal asociada sea id\'enticamente cero en el subespacio.
+		En particular, $(W,B|_W)$ es degenerado, con lo que, de acuerdo
+		con la definici\'on, \emph{no es un espacio isotr\'opico}.
+	}
+\end{defExtRec}
+
+En un espacio cuadr\'atico $(V,Q)$, deber\'{\i}amos hacer una distinci\'on
+entre aquellos vectores que cumplen $Q(v)=0$ y aquellos que cumplen
+$B_Q(v,v)=0$. En caracter\'{\i}stica distinta de $2$, son \emph{los mismos %
+vectores}, pero en caracter\'{\i}stica $2$, $B_Q(v,v)=0$ para todo $v$,
+mientras que la condici\'on $Q(v)=0$ es restrictiva. La confuci\'on aparece
+cuando introducimos la noci\'on de subespacios isotr\'opicos, totalmente
+isotr\'opicos, anisotr\'opicos, degenerados y no degenerados. De nuevo, en
+caracter\'{\i}stica impar, no hay distinci\'on, pero, en caracter\'{\i}stica
+$2$, s\'{\i} la hay: $Q=0$ implica $B_Q=0$, pero no siempre es cierta la
+vuelta; si $A$ preserva $Q$, entonces preserva $B_Q$, pero no es cierto en
+general que si preserva $B_Q$, entonces preserve $Q$; si $B_Q$ es no
+degenerada, entonces $V^\perp=0$ y $Q$ es no degenerada, pero $Q$ puede ser
+no degenerada con $V^\perp\neq 0$. En particular, en caracter\'{\i}stica $2$,
+no es lo mismo un subespacio totalmente isotr\'opico ($Q$ id\'enticamente cero)
+que un subespacio en donde $B_Q$ sea id\'enticamente cero.
+
+Los espacios bilineales sim\'etricos se diagonalizan, los espacios bilineales
+alternados son simpl\'ecticos. Los espacios cuadr\'aticos son h\'{\i}birdos de
+estos dos tipos de geometr\'{\i}as. Algunos de los resultados v\'alidos para
+los espacios en donde la relaci\'on de perpendicularidad es sim\'etrica son
+v\'alidos para espacios cuadr\'aticos. Un poco m\'as espec\'{\i}ficamente,
+resultados acerca del espacio bilineal son reemplazados por resultados acerca
+del espacio cuadr\'atico. Esta distinci\'on tiene especial relevancia en
+caracter\'{\i}stica $2$, pues el funtor $Q\mapsto B_Q$ no es una equivalencia.
+
+\begin{teoExtRec}\label{teo:recap:isotropico:bilineales}
+	Sea $(V,B)$ un espacio bilineal en donde la relaci\'on de
+	perpendicularidad es sim\'etrica. Si la caracter\'{\i}stica del cuerpo
+	es $2$, asumimos que $B$ es alternada. Si $u\in V$ es un vector no nulo
+	tal que $B(u,u)=0$, entonces:
+	\begin{itemize}
+		\item existe un segundo vector $v\in V$ no nulo tal que
+			$B(v,v)=0$ y $B(u,v)=1$,
+		\item $B$ es no degenerada en $\generado{u,v}$ y
+			\begin{displaymath}
+				V\,=\,\generado{u,v}\,\oplus\,
+					\generado{u,v}^\perp
+				\text{ .}
+			\end{displaymath}
+			%
+	\end{itemize}
+	%
+	En particular, $\generado{u,v}\simeq\hiperbolico$.
+\end{teoExtRec}
+
+\begin{proof}
+	Ver el \teoname~\ref{teo:impar:isotropico}.
+	Si $B$ es no degenerada, $V^\perp=0$. Entonces, dado que $u\neq 0$,
+	existe $v\in V$ tal que $B(u,v)\neq 0$. Reescalando, podemos asumir que
+	$B(u,v)=1$. Considerando vectores de la forma
+	$c\,u+v\in\generado{u,v}$, $c\in F$,
+	\begin{displaymath}
+		B(c\,u+v,c\,u+v)\,=\,B(v,v)\,+\,2\,c
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $2\neq 0$, \'esta es una funci\'on af\'{\i}n y existe un (\'unico)
+	valor de $c\in F$ tal que $B(c\,u+v,c\,u+v)=0$. Con esta elecci\'on,
+	\begin{displaymath}
+		B(u,c\,u+v)\,=\,c\,B(u,u)\,+\,B(u,v)\,=\,B(u,v)\,=\,1
+		\text{ ,}
+	\end{displaymath}
+	%
+	pues $B(u,u)=0$. Reemplazamos $v$ por $c\,u+v$. En todo caso, $u$ y $v$
+	son l.i.
+\end{proof}
+
+\begin{teoExtRec}\label{teo:recap:isotropico}
+	Sea $(V,Q)$ un espacio cuadr\'atico no degenerado sobre un cuerpo
+	arbitrario. Si $e\in V$ es un vector isotr\'opico, entonces:
+	\begin{itemize}
+		\item existe un segundo vector isotr\'opico $f\in V$ tal que
+			$B(e,f)=1$,
+		\item $B$ es no degenerada en $\generado{e,f}$ y
+			\begin{displaymath}
+				V\,=\,\generado{e,f}\,\oplus\,
+					\generado{e,f}^\perp
+				\text{ .}
+			\end{displaymath}
+			%
+	\end{itemize}
+	%
+	En particular, $\generado{e,f}\simeq\hiperbolico$.
+\end{teoExtRec}
+
+\begin{proof}
+	Ver el \teoname~\ref{teo:parias:isotropico}.
+	Si $Q$ es no degenerada, $Q:\,V^\perp\rightarrow F$ es inyectiva.
+	Entonces, dado que $Q(e)=0$, $e\not\in V^\perp$ y existe $f$ tal que
+	$B_Q(e,f)\neq 0$. Reescalando, podemos asumir que $B_Q(e,f)=1$.
+	Considerando vectores de la forma $c\,e+f\in\generado{e,f}$, $c\in F$,
+	la funci\'on
+	\begin{displaymath}
+		Q(c\,e+f)\,=\,Q(f)\,+\,\ast\,c
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $\ast\in\{1,2\}$, es af\'{\i}n y existe un (\'unico) valor de
+	$c\in F$ tal que $Q(c\,e+f)=0$. Con esta elecci\'on,
+	\begin{displaymath}
+		B_Q(e,c\,e+f)\,=\,c\,B_Q(e,e)\,+\,B_Q(e,f)\,=\,B_Q(e,f)\,=\,1
+		\text{ ,}
+	\end{displaymath}
+	%
+	pues $B_Q(e,e)=0$.%
+	\footnote{
+		Si la caracter\'{\i}stica es impar, esto se debe a que
+		$Q(e)=B_Q(e,e)$. Si la caracter\'{\i}stica es $2$, $B_Q$ es
+		alternada.
+	}
+	Reemplazamos $f$ por $c\,e+f$. En todo caso, $e$ y $f$ son l.i.
+\end{proof}
+
+\begin{obsExtRec}\label{obs:recap:isotropico:bilineales}
+	Los planos hiperb\'olicos fueron definidos como espacios
+	cuadr\'aticos de dimensi\'on $2$ que admiten una base $\{e,f\}$ tal
+	que $Q(e)=Q(f)=0$ y $B(e,f)=1$. El subespacio $\generado{u,v}$ del
+	\teoname~\ref{teo:recap:isotropico:bilineales} no es un plano
+	hiperb\'olico: aunque sea $B=B_Q$, \textit{a priori} no se sabe si
+	$Q(u)=0$. El isomorfismo $\generado{u,v}\simeq\hiperbolico$ es en
+	tanto espacios bilineales. El \teoname~\ref{teo:recap:isotropico}
+	garantiza que, si se sabe que, adem\'as, $e$ es isotr\'opico, entonces
+	el vector $f$ (que se construye esencialmente de la misma manera) es
+	isotr\'opico tambi\'en. En particular, en este caso, el isomorfismo
+	$\generado{e,f}\simeq\hiperbolico$ es de espacios cuadr\'aticos.
+\end{obsExtRec}
+
+\begin{obsExtRec}\label{obs:recap:isotropico}
+	Todo espacio isotr\'opico es universal, pues contiene una copia del
+	plano hiperb\'olico, que es universal.
+\end{obsExtRec}
+
+% \begin{obsExtRec}\label{obs:recap:nodegenerada}
+	% En cualquier caracter\'{\i}stica, si $(V,Q)$ es un espacio
+	% cuadr\'atico tal que la forma bilineal asociada, $B_Q$, es no
+	% degenerada, entonces $Q$ es no degenerada. En particular, las
+	% condiciones del \teoname~\ref{teo:recap:isotropico:subespacio} son
+	% m\'as fuertes que las del \teoname~\ref{teo:recap:isotropico}.
+% \end{obsExtRec}
+
+\begin{teoExtRec}\label{teo:recap:isotropico:subespacio:bilineales}
+	Sea $(V,B)$ un espacio bilineal no degenerado tal que la relaci\'on de
+	perpendicularidad es sim\'etrica. Si la caracter\'{\i}stica del cuerpo
+	es $2$, asumimos que $B$ es alternada. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:recap:isotropico:subespacio:bilineales:i}
+			si $U\subset V$ es un subespacio tal que $B|_U=0$
+			% ?```totalmente degenerado''?
+			y de dimensi\'on $m\geq 1$, existe un subespacio
+			$U'\subset V$ tal que $B|_{U'}=0$, de
+			dimensi\'on $m$ y tal que $U\cap U'=0$ y
+			$U+U'\simeq\hiperbolico^{\perp m}$;
+		\item\label{item:recap:isotropico:subespacio:bilineales:ii}
+			si $Z\subset V$ es un subespacio tal que
+			$U\perp Z$ y $U\cap Z=0$, entonces podemos elegir
+			$U'$ de manera que $U'\perp Z$ y $U'\cap Z=0$.
+			% \footnote{
+				% En particular, lo mismo es cierto para
+				% $U+U'$, por linealidad.
+			% }
+	\end{enumerate}
+	%
+\end{teoExtRec}
+
+\begin{teoExtRec}\label{teo:recap:isotropico:subespacio}
+	Sea $(V,Q)$ un espacio cuadr\'atico tal que la forma bilineal asociada,
+	$B_Q$, es no degenerada. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:recap:isotropico:subespacio:i}
+			si $U\subset V$ es un subespacio totalmente
+			isotr\'opico de dimensi\'on $m\geq 1$, existe un
+			subespacio $U'\subset V$ totalmente isotr\'opico de
+			dimensi\'on $m$ tal que $U\cap U'=0$ y
+			$U+U'\simeq\hiperbolico^{\perp m}$;
+		\item\label{item:recap:isotropico:subespacio:ii}
+			si $Z\subset V$ es un subespacio tal que
+			$U\perp Z$ y $U\cap Z=0$, entonces podemos elegir
+			$U'$ de manera que $U'\perp Z$ y $U'\cap Z=0$.
+			% \footnote{
+				% En particular, lo mismo es cierto para
+				% $U+U'$, por linealidad.
+			% }
+	\end{enumerate}
+	%
+\end{teoExtRec}
+
+\begin{proof}
+	% Ver la Observaci\'on~\ref{obs:simplecticas:dimension}.
+	La forma bilineal $B_Q$ es no degenerada. Entonces, podemos proceder de
+	la siguiente manera. Sea $W=\generado{\lista[2] e{m}}\perp Z$. Si
+	$W^\perp\subset e_1^\perp$, entonces
+	\begin{displaymath}
+		\generado{e_1}\,=\,e_1^\pperp\,\subset\,
+			W^\pperp\,=\,W
+		\text{ .}
+	\end{displaymath}
+	%
+	Las igualdades son consecuencia de que \emph{el espacio bilineal}
+	$(V,B_Q)$ es no degenerado.%
+	\footnote{
+		\teoname~\ref{teo:nodegeneradas:perpendicular}.
+	}
+	Pero $\generado{e_1}\cap W=0$, con lo que existe $w\in W^\perp$ tal que
+	$B_Q(e_1,w)\neq 0$. El argumento de la demostraci\'on del Teorema~%
+	\ref{teo:recap:isotropico}, muestra que existe un (\'unico)
+	$f_1\in\generado{e_1,w}$ tal que $Q(f_1)=0$ y $B_Q(e_1,f_1)=1$. El
+	subespacio $H_1=\generado{e_1,w}=\generado{e_1,f_1}$ es un plano
+	hiperb\'olico y
+	\begin{displaymath}
+		H_1\,\subset\,W^\perp
+		\text{ ,}
+	\end{displaymath}
+	%
+	por definici\'on. De nuevo, como $B_Q$ es no degnerada, 
+	$W=W^\pperp\subset H_1^\perp$. Como $H_1$ es no degenerado,
+	% \footnote{
+		% Esto es cierto en cualquier caracter\'{\i}stica.
+	% }
+	$H_1^\perp$ tambi\'en lo es.
+	% \footnote{
+		% Teorema~\ref{teo:nodegeneradas:perpendicular}, usando que
+		% $B_Q$ es no degenrada.
+	% }
+	Inductivamente en $m$,
+	% ?`En $\dim\,W$? Conceptualmente, no. Pero, talvez, funciona.
+	podemos concluir, con $H_1^\perp$ jugando el
+	papel del espacio ambiente no degenerado, que existen
+	$\lista[2] f{m}\in H_1^\perp$ que cumplen con las condiciones
+	siguientes:
+	\begin{itemize}
+		\item $Q(f_i)=0$ y $B_Q(e_i,f_i)=1$,
+		\item si $H_i=\generado{e_i,f_i}$, entonces
+			$H_i\simeq\hiperbolico$ y son ortogonales y linealmente
+			disjuntos.
+	\end{itemize}
+	%
+	El subespacio $U':=\generado{\lista f{m}}$ cumple lo pedido.
+\end{proof}
+
+\begin{obsExtRec}\label{obs:recap:isotropico:subespacio}
+	De la demostraci\'on, si $\{\lista e{m}\}$ es una base de $U$, existen
+	$\lista f{m}$ tales que $B(e_i,f_i)=1$ y $U'=\generado{\lista f{m}}$.
+	Adem\'as, si $H_i=\generado{e_i,f_i}$, entonces $H_i\simeq\hiperbolico$
+	y son ortogonales y linealmente disjuntos.
+\end{obsExtRec}
+
+% \begin{obsExtRec}\label{obs:recap:isotropico:subespacio:parias}
+	% Sobre un cuerpo de caracter\'{\i}stica impar, esta condici\'on es
+	% equivalente a la primera. En caracter\'{\i}stica $2$, debemos asumir
+	% expl\'{\i}citamente que $V^\perp=0$, o bien que
+	% $(U+Z)\cap V^\perp=0$. Aunque $V^\perp$ puede ser no trivial, la
+	% funci\'on $Q:\,V^\perp\rightarrow F$ es inyectiva y
+	% $U\cap V^\perp=0$. Consideremos $V'\subset V$ tal que $U\subset V'$ y
+	% $V=V'\oplus V^\perp$. Entonces, $B_Q|_{V'}$ es no degenerada%
+	% \footnote{
+		% !`En particular, $Q|_{V'}$ es no degenerada!
+	% }
+	% y podemos aplicar el argumento anterior, aunque la
+	% caracter\'{\i}stica sea $2$, con $V'$ en lugar de $V$.%
+	% \footnote{
+		% Si $B_Q$ es id\'enticamente cero, entonces $V^\perp=V$ (y,
+		% rec\'{\i}procamente, $V^\perp=V$ implica $B_Q=0$). En este
+		% caso (y s\'olo en \'este), $Q$ es diagonal
+		% (caracter\'{\i}stica $2$). Pero, si $Q$ es no degenerada, y
+		% $V^\perp=V$, entonces $U=0$, con lo cual, el enunciado del
+		% Teorema es trivialmente cierto, en este caso.
+	% }
+	% En general, deber\'{\i}amos asumir que $(U+Z)\cap V^\perp=0$ o,
+	% directamente, que $V^\perp=0$, es decir, que el espacio bilineal
+	% asociado es no degenerado.
+% \end{obsExtRec}
+
+\begin{coroExtRec}\label{coro:recap:isotropico:maximal}
+	Si $W$ es un subespacio totalmente isotr\'opico maximal de un espacio
+	cuadr\'atico no degenerado $V$, entonces $\dim\,W\leq(\dim\,V)/2$.
+\end{coroExtRec}
+
+\begin{teoExtRec}\label{teo:recap:isotropico:extension:bilineales}
+	Sean $(V,B_V)$ y $(X,B_X)$ espacios bilineales no degenerados tales que
+	las relaciones de perpendicularidad son sim\'etricas. Si la
+	caracter\'{\i}stica del cuerpo es $2$, asumimos que $B_V$ y $B_X$ son
+	alternadas.
+	Sea $U\subset V$ un subespacio tal que $B_V|_U=0$ y sea $Z\subset V$
+	un subespacio tal que $U\perp Z$ y $U\cap Z=0$. Si
+	$A:\,U\perp Z\rightarrow X$ es un embedding isom\'etrico, entonces
+	existe un embedding isom\'etrico
+	$\tilde A:\,(U+U')\perp Z\rightarrow X$ tal que
+	$\tilde A|_{U\perp Z}=A$.
+\end{teoExtRec}
+
+\begin{teoExtRec}\label{teo:recap:isotropico:extension}
+	Sean $(V,Q_V)$ y $(X,Q_X)$ espacios cuadr\'aticos tales que sus formas
+	bilineales asociadas son no degeneradas. Sea $U\subset V$ un subespacio
+	totalmente isotr\'opico y sea $Z\subset V$ un subespacio tal que
+	$U\perp Z$ y $U\cap Z=0$. Si $A:\,U\perp Z\rightarrow X$ es un
+	embedding isom\'etrico, entonces existe un embedding isom\'etrico
+	$\tilde A:\,(U+U')\perp Z\rightarrow X$ tal que
+	$\tilde A|_{U\perp Z}=A$.%
+	\footnote{
+		Si $A$ es s\'olo morfismo de espacios cuadr\'aticos, podemos
+		recurrir al Teorema~\ref{teo:recap:isotropico}. Si $Z=0$,
+		alcanza con suponer que las formas cuadr\'aticas $Q_V$ y $Q_X$
+		son no degeneradas ?`Talvez se puede generalizar un poco y
+		suponer que $A$ s\'olo preserva la relaci\'on de ortogonalidad?
+		No, porque es necesario que $A(e_i)$ sean isotr\'opicos.
+	}
+\end{teoExtRec}
+
+\begin{proof}
+	% Si $A:\,U\rightarrow X$ es un morfismo de espacios cuadr\'aticos, es
+	% decir, $Q_X(A\,u)=Q_V(u)$ para todo $u\in U$, entonces los vectores
+	% $A(e_i)$ son $Q_X$-isotr\'opicos. Por lo tanto, por el Teorema~%
+	% \ref{teo:recap:isotropico}, existen vectores $Q_X$-isotr\'opicos
+	% $\lista g{m}\in X$ tales que $B_X(A\,e_i,g_i)=1$. Definimos
+	% $\tilde A(f_i):=g_i$ y extendemos linealmente.
+	Si $A$ es un embedding, entonces $\{A(e_1),\,\dots,\,A(e_m)\}$ es un
+	subconjunto l.i. conformado por vectores isotr\'opicos y ortogonales.
+	Por lo tanto, el subespacio generado, $A(U)$, es totalmente
+	isotr\'opico y est\'a en las condiciones del Teorema~%
+	\ref{teo:recap:isotropico:subespacio}. Elegimos un subespacio de
+	$X$ totalmente isotr\'opico que lo complemente, generado por vectores
+	$\lista g{m}$, definimos $\tilde A(f_i):=g_i$ y extendemos linealmente.
+\end{proof}
+
+% El \teoname~\ref{teo:recap:isotropico:extension} ser\'a particularmente
+% \'util en el caso de caracter\'{\i}stica impar. Si $V_1\subset V$ es un
+% subespacio (arbitrario) de un espacio no degenerado, entonces por el
+% \teoname~\ref{teo:recap:radical}, podemos descomponer $V_1=U_1\oplus W_1$,
+% donde $U_1=V_1^\perp\cap V_1$ y $W_1\subset V_1$ es un subespacio no
+% degenerado. Asumiendo que la caracter\'{\i}stica del cuerpo es impar, $U_1$
+% es totalmente isotr\'opico. El \teoname~\ref{teo:recap:isotropico:subespacio}
+% garantiza que existe $U_1'$ tal que $U_1+U_1'$ es isom\'etrico con
+% $\hiperbolico^{\perp m}$ ($m=\dim\,U_1$), ortogonal con $W_1$ e
+% independiente de \'este. Si $A:\,V_1\rightarrow X$ es un embedding
+% isom\'etrico, el \teoname~\ref{teo:recap:isotropico:extension} garantiza que
+% $A$ se extiende a $(U_1+U_1')\perp W_1$, al menos. El subespacio $W_1$ es no
+% degenerado.
+% % $W_1^\perp\cap W_1=0$.
+% El subespacio $U_1+U_1'\subset V$, por ser isom\'etrico con una suma de
+% planos hiperb\'olicos, es no degenerado. La suma directa ortogonal
+% $(U_1+U_1')\perp W_1$ tambi\'en es no degenerada, es decir,
+% \begin{displaymath}
+	% \Big((U_1+U_1')\perp W_1\Big)^\perp\,\cap\,
+		% \Big((U_1+U_1')\perp W_1\Big)\,=\,0
+	% \text{ .}
+% \end{displaymath}
+% %
+% % Si $u_0\in U_1+U_1'$ y $w_0\in W_1$ son tales que
+% % $u_0+w_0\in (U_1+U_1')\perp W_1$, entonces $B(u_0+w_0,w)=0$ para todo
+% % $w\in W_1$ implica $w_0=0$ y $B(u_0+w_0,u)=0$ para todo $u\in U_1+U_1'$
+% % implica $u_0=0$.
+% 
+% \begin{defExtRec}\label{def:recap:clausura}
+	% Si $U\perp Z\subset V$ es un subespacio de un espacio cuadr\'atico
+	% en las condiciones del \teoname~%
+	% \ref{teo:recap:isotropico:subespacio}, llamamos \emph{clausura %
+	% hiperb\'olica} de $U$ en $V$ a cualquier subespacio no degenerado
+	% $(U+U')\perp Z$ construido como en el p\'arrafo anterior.
+	% Espec\'{\i}ficamente,
+	% \begin{itemize}
+		% \item $U_1:=V_1^\perp\cap V_1$,
+		% \item $W_1\subset V_1$ es no degenerado y $V_1=U_1\perp W_1$,
+		% \item $U_1'\subset V$ cumple:
+			% \begin{itemize}
+				% \item $U_1'\cap U_1=0$,
+				% \item $U_1+U_1'\simeq\hiperbolico^{\perp m}$,
+					% donde $m=\dim\,U_1$, y 
+				% \item $W_1\cap(U_1+U_1')=0$ y
+					% $W_1\perp(U_1+U_1')$.
+			% \end{itemize}
+			% %
+	% \end{itemize}
+	% %
+	% Si $f:\,V_1\rightarrow X$ es un embedding isom\'etrico en las
+	% condiciones del \teoname~\ref{teo:recap:isotropico:extension},
+	% llamamos \emph{clausura hiperb\'olica de $f$} a cualquier
+	% extensi\'on de $f$ a una clausura hiperb\'olica de $V_1$ en $V$.
+% \end{defExtRec}
+% 
+% Si $(V,Q)$ es un espacio cuadr\'atico no degenerado y $U\subset V$ es un
+% subespacio totalmente isotr\'opico, entonces no existe un complemento
+% ortogonal de $U$ en $V$: si $V=U\perp W$, entonces $U\subset U^\perp$, pues
+% $Q|_U=0$, y $U\subset W^\perp$, con lo cual $U\subset V^\perp$, pero
+% $Q:\,V^\perp\rightarrow F$ es inyectiva, por hip\'otesis.
+

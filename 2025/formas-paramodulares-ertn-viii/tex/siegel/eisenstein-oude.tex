@@ -1,0 +1,244 @@
+\theoremstyle{plain}
+\newtheorem{teoEisenstein}{\teoname}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{defEisenstein}[teoEisenstein]{\defname}
+\newtheorem{obsEisenstein}[teoEisenstein]{\obsname}
+
+%-------------
+
+Dada $F\in\modulformen[k](\modulgruppe[g])$ definimos una forma
+de g\'enero menor. Esto nos permitir\'a definir la noci\'on de forma
+cuspidal. El espacio $\semiplano[g]$ tiene un borde.
+Vemos c\'omo restringir una forma a ese ``borde''.
+Dadas $M\in\Mat(g\times g)$, $\trnsp M=M$, y $0\leq r\leq g$,
+escribimos
+\begin{displaymath}
+	M\,=\,\begin{bmatrix} M^* & M_2 \\ \trnsp M_2 & M_4 \end{bmatrix}
+	\dispcomma
+\end{displaymath}
+%
+con $M^*\in\Mat(r\times r)$.
+La siguiente identidad puede ser \'util:
+\begin{displaymath}
+	\begin{bmatrix} M^* & M_2 \\ \trnsp M_2 & M_4 \end{bmatrix}\,=\,
+		\begin{bmatrix}
+			M^*-M_4^{-1}[\trnsp M_2] & \\ & M_4
+		\end{bmatrix}[
+		\begin{bmatrix}
+			\Id[r] & \\ -M_4^{-1}\trnsp M_2 & \Id[g-r]
+		\end{bmatrix}]
+	\dispstop
+\end{displaymath}
+%
+Si $g=0$, definimos $\modulformen[k](\modulgruppe[0])$ como $\Complejos$,
+si $k\geq 0$, y como $0$, si $k<0$.
+
+\begin{teoEisenstein}\label{teo:siegel}
+	Sean $g\geq 1$, $0\leq r\leq g$.
+	Si $Z^{(\nu)}\in\semiplano[g]$ es una sucesi\'on tal que
+	$Z^*\in\semiplano[r]$ est\'a fijo, $Z_2^{(\nu)}$ est\'a
+	acotada y los autovalores de $Y_4^{(\nu)}$ tienden a $\infty$
+	($Z_4^{(\nu)}\in\semiplano[g-r]$), y
+	$F\in\modulformen[k](\modulgruppe[g])$, entonces el l\'{\i}mite
+	\begin{displaymath}
+		\lim_\nu\,F(Z^{(\nu)})
+	\end{displaymath}
+	%
+	existe y su valor depende de $Z^*$, pero no de la sucesi\'on.
+	La funci\'on resultante, $\Siegel^{g-r}F(Z^*)$ define una forma
+	de Siegel de g\'enero $g-r$ y peso $k$.
+\end{teoEisenstein}
+
+\begin{proof}
+	La sucesi\'on $Z^{(\nu)}$ estar\'a contenida en alguna regi\'on
+	de la forma $\{Y\geq c\Id[g]\}$, eventualmente, en donde la
+	serie de Fourier de $F$ converge absoluta y uniformemente.
+	La igualdad
+	\begin{displaymath}
+		% TZ\,=\,
+			% \begin{bmatrix}
+				% T^*Z^*+T_2\trnsp Z_2 & T^*Z_2+T_2Z_4 \\
+				% \trnsp T_2Z^*+T_4\trnsp Z_2 &
+					% \trnsp T_2Z_2+T_4Z_4
+			% \end{bmatrix}
+			% \quad\dispand\quad
+		\traza(TZ)\,=\,\traza(T^*Z^*)\,+\,2\,\traza(T_2\trnsp Z_2)
+			\,+\,\traza(T_4Z_4)
+		\dispstop
+	\end{displaymath}
+	%
+	implica que, para $T\geq 0$ con $T_4>0$,
+	como $Y^*>0$ est\'a fijo, $Y_2^{(\nu)}$ est\'a acotada
+	e $Y_4^{(\nu)}\to\infty$,
+	\begin{displaymath}
+		\big|\varexp^{2\pi\raizcuarta\traza(TZ^{(\nu)})}\big|\,\leq\,
+			\varexp^{-2\pi\{%
+				\traza(T^*Y^*)+2\traza(T_2\trnsp Y_2)
+					+\traza(T_4Y_4)\}}
+	\end{displaymath}
+	%
+	tiende a $0$. Tomando l\'{\i}mite t\'ermino a t\'ermino en la
+	serie de Fourier, se deduce que, si $T_4\neq 0$, $a(T)=0$.
+	Entonces, el l\'{\i}mite $\lim_\nu\,F(Z^{(\nu)})$ existe y es
+	igual a
+	\begin{displaymath}
+		\sum_{T^*\geq 0}\,a\spmatrix{ T^* & 0 \\ 0 & 0 }\,
+			\varexp^{2\pi\raizcuarta\traza(T^*Z^*)}
+		\dispstop
+	\end{displaymath}
+	%
+	La nueva serie converge absoluta y uniformemente sobre compactos
+	de $\semiplano[r]$, $\Siegel^{g-r}F$ es holomorfa en
+	$\semiplano[r]$ y acotada en regiones de la forma
+	$\{Y^*\geq c\Id[r]\}$. Para ver que es de peso $k$ invariante,
+	sean $M^*=\sbmatrix{ A^* & B^* \\ C^* & D^* }\in\modulgruppe[r]$,
+	$Z^*\in\semiplano[r]$ y
+	\begin{displaymath}
+		Z\,=\,\begin{bmatrix}
+			Z^* & \\ & \raizcuarta\lambda\Id[g-r]
+		\end{bmatrix}\quad\dispand\quad
+		M\,=\,\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+		\dispcomma
+	\end{displaymath}
+	%
+	donde $A=\sbmatrix{ A^* & \\ & \Id[g-r] }$,
+	$B=\sbmatrix{ B^* & \\ & \phantom{0} }$,
+	$C=\sbmatrix{ C^* & \\ & \phantom{0} }$ y
+	$D=\sbmatrix{ D^* & \\ & \Id[g-r] }$.
+	Se cumple
+	\begin{displaymath}
+		F(M\accion Z)\,=\,\det(CZ+D)^k\,F(Z)
+	\end{displaymath}
+	%
+	y, tomando l\'{\i}mite $\lambda\to+\infty$,
+	\begin{displaymath}
+		\Siegel^{g-r}F(M^*\accion{Z^*})\,=\,
+			\det(C^*Z^*+D^*)^k\,\Siegel^{g-r}F(Z^*)
+		\dispstop
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{defEisenstein}\label{def:cuspidal}
+	Una forma de Siegel $F$ es \emph{cuspidal}, si
+	$\Siegel F=0$.
+\end{defEisenstein}
+
+Dado que toda $T$ singular se puede hacer equivalente a
+$T[U]=\sbmatrix{ T^* & 0 \\ 0 & 0 }$ y que
+$a(T[U])=\pm a(T)$, deducimos que $\Siegel F=0$, si y s\'olo si
+$a(T)\neq 0$ implica $T>0$.
+
+\begin{teoEisenstein}\label{teo:cuspidal}
+	Sea $F\in\modulformen(\modulgruppe[g])$. Las siguientes afirmaciones
+	acerca de $F$ son equivalentes:
+	\begin{enumerate}[label=(\alph*)]
+		\item\label{item:eisenstein:siegel}
+			$\Siegel F=0$;
+		\item\label{item:eisenstein:coeficientes}
+			\begin{math}
+				F(Z)=\sum_{T>0}\,a(T)\,
+				\varexp^{2\pi\raizcuarta\traza(TZ)}
+			\end{math};
+		\item\label{item:eisenstein:crecimiento}
+			para todo $c>0$, existen $c_1,c_2$ tales que,
+			para toda $Z\in\semiplano[g]$ con $Y\geq c\Id[g]$
+			\emph{reducida},
+			\begin{displaymath}
+				|F(Z)|\,\leq\,c_1\varexp^{-c_2\traza(Y)}
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item\label{item:eisenstein:crecimiento:bis}
+			existen $a_1,a_2>0$ tales que,
+			en $\semiplano[g]$,
+			\begin{displaymath}
+				(\det\,Y)^{k/2}\,|F(Z)|\,\leq\,
+					a_1\,\varexp^{-a_2\,(\det Y)^{1/n}}
+				\dispstop
+			\end{displaymath}
+	\end{enumerate}
+	%
+\end{teoEisenstein}
+
+Sea $C_{g,r}$ el siguiente subgrupo de $\Sp(g,\Reales)$:
+\begin{displaymath}
+	C_{g,r}\,=\,\bigg\{M=\begin{bmatrix} A & B \\ C & D \end{bmatrix}
+		\in\Sp(g,\Reales)\,:\,
+		A=\begin{bmatrix} A^* & \\ * & * \end{bmatrix},\,
+		C=\begin{bmatrix} C^* & \\ & \phantom{0} \end{bmatrix},\,
+		D=\begin{bmatrix} D^* & * \\ & * \end{bmatrix}
+		\bigg\}
+	\dispstop
+\end{displaymath}
+%
+Tambi\'en definimos las siguientes operaciones:
+\begin{displaymath}
+	\begin{aligned}
+	*\,:\,\semiplano[g]\,\rightarrow\,\semiplano[r]
+	\disptext{dada por} &
+	Z\,\mapsto\,Z^*\dispcomma\dispif
+		Z\,=\,\begin{bmatrix} Z^* & * \\ * & * \end{bmatrix}
+		\dispand \\
+	*\,:\,C_{g,r}\,\rightarrow\,\Sp(r,\Reales)
+	\disptext{dada por} &
+	M\,\mapsto\,M^*\,=\,
+		\begin{bmatrix} A^* & B^* \\ C^* & D^* \end{bmatrix}
+	\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Vale que $M^*\accion{Z^*}=M\accion Z^*$.
+
+\begin{defEisenstein}\label{def:eisenstein}
+	Si $F\in\spitzenformen[k](\modulgruppe[r])$, $k>0$ par,
+	$0\leq r\leq g$ y $Z\in\semiplano[g]$, la
+	\emph{serie de Eisenstein (asociada a $F$, en $Z$)} es
+	\begin{displaymath}
+		\Eis[g,r,k](Z;F)\,=\,
+			\sum_{M\in C_{g,r}\backslash\modulgruppe[g]}\,
+				\frac{F(M\accion Z^*)}{%
+					\det(CZ+D)^k}
+		\dispstop
+	\end{displaymath}
+	%
+\end{defEisenstein}
+
+Usando $M\accion Z^*=M^*\accion{Z^*}$, las propiedades del factor
+$\det(CZ+D)$ y de $F$ con respecto a transformaciones de M\"obius,
+ek t\'ermino general de la serie s\'olo depende de la coclase de $M$
+en $C_{g,r}\backslash\modulgruppe[g]$.
+
+\begin{teoEisenstein}\label{teo:eisenstein}
+	Sean $g\geq 1$, $0\leq r\leq g$, $k>g+r+1$ par. Si
+	$F\in\spitzenformen[k](\modulgruppe[r])$, la serie de
+	Eisenstein $\Eis[g,r,k](Z;F)$ converge absoluta y uniformemente
+	en bandas verticales.%
+	\footnote{
+		Regiones de la forma
+		$\{\traza(X)\leq c^{-1},\,Y\geq c\Id[g]\}$.
+	}
+	Adem\'as,
+	\begin{displaymath}
+		\Siegel^{g-r}\Eis[g,r,k](-;F)\,=\,F
+	\end{displaymath}
+	%
+	y el espacio $\modulformen[k](\modulgruppe[g])$ est\'a generado por
+	\begin{displaymath}
+		\big\{\Eis[g,r,k](-;F)\,:\,
+			F\in\spitzenformen[k](\modulgruppe[r]),\,
+			0\leq r\leq g\big\}
+		\dispstop
+	\end{displaymath}
+	%
+\end{teoEisenstein}
+
+\begin{obsEisenstein}\label{obs:eisenstein}
+	Si $F\in\img\,\Siegel$ y $F\neq 0$, entonces $k\equiv 0\tmodulo[2]$,
+	pues $F=\Siegel G\neq 0$ implica $G\neq 0$ y $G\neq 0$ implica
+	$(g+1)k\equiv 0\tmodulo[2]$. Como $F\neq 0$ tambi\'en implica
+	$gk\equiv 0\tmodulo[2]$, debe ser $k$ par.
+\end{obsEisenstein}
+
