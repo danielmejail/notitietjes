@@ -2,5 +2,10 @@
 *.log
 *.synctex.gz
 *.backup
+*.out
+*.bbl
+*.bcf
+*.run.xml
+
 
 
