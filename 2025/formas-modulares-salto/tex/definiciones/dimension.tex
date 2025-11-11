@@ -82,7 +82,7 @@ $\modulgruppe$ en $\semiplano$.
 	Ahora calculamos la integral en distintos segmentos, sumamos
 	y comparamos con el resultado anterior.
 
-	EL contorno de los entornos removidos de los ceros y de
+	El contorno de los entornos removidos de los ceros y de
 	los puntos el\'{\i}pticos son:
 	\begin{itemize}
 		\item un c\'{\i}rculo entero, si es alrededor
@@ -107,8 +107,10 @@ $\modulgruppe$ en $\semiplano$.
 	resultado $\pi\raizcuarta k/6$, pues las dos mitades del arco
 	se identifican v\'{\i}a $S$ y
 	\begin{displaymath}
-		\frac{f'(S\accion z)}{f(S\accion z)}\,=\,
-			\frac{f'(z)}{f(z)}\,+\,\frac k z
+		% \frac{f'(S\accion z)}{f(S\accion z)}\,=\,
+			% \frac{f'(z)}{f(z)}\,+\,\frac k z
+		\big(\log\,f(S\accion z)\big)'\,=\,
+			\big(\log\,f(z)\big)\,+\,\frac k z
 		\dispstop
 	\end{displaymath}
 	%
@@ -133,7 +135,7 @@ $\modulgruppe$ en $\semiplano$.
 \end{coroDefiniciones}
 
 \begin{proof}
-	Tomar $m=\piso{k/12}+1$ puntos no el\'{\i}ptico y
+	Tomar $m=\piso{k/12}+1$ puntos no el\'{\i}pticos y
 	$m+1$ formas $\lista f{m+1}\in\modulformen[k]$.
 	Alguna combinaci\'on lineal de ellas, $f$, se anula en los
 	$m$ puntos. Pero como $m>k/12$, por el \teoname~%
