@@ -1,0 +1,93 @@
+\ProvidesPackage{formato}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper}
+% \usepackage{graphicx}
+% % \usepackage{mathdots}
+% % \usepackage{wrapfig}
+% \usepackage{makeidx}
+
+% \usepackage{booktabs}
+% \usepackage{array}
+\usepackage{paralist}
+\usepackage{enumitem}
+% \usepackage{verbatim}
+\usepackage{subfig}
+
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\fancypagestyle{firstpage}{
+	\fancyhf{}
+	\chead{\includegraphics[width=.3\linewidth]{./imgs/logo-horiz-bicolor.pdf}}
+}
+\renewcommand{\headrulewidth}{1pt}
+\lhead{Campamento Inspira}\chead{}\rhead{Diciembre 2025}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape}
+
+%%% ToC (table of contents) APPEARANCE
+% \usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+% \usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+% \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+% \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+\usepackage{titlesec}
+% \titleformat{\paragraph}[runin]
+	% {}{}{}{\sffamily\mdseries\upshape\underline}[.\hspace{0pt} \\]
+
+%\usepackage{import}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{mathabx}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{soul}
+
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage[unicode]{hyperref}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+% \resetcounteronoverlays{saveenumi}
+
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	% style=numeric,
+	citestyle=alphabetic,
+	% citestyle=numeric,
+	sorting=nyt,
+	isbn=false,
+	doi=false,
+	related=false,
+	giveninits=true,
+	isbn=false,
+	doi=false,
+	related=false,
+	%idemtracker=context,
+	%opcittracker=true,
+	% titleaddon=false,
+]{biblatex}
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\AtEveryBibitem{\clearlist{language}\clearfield{note}}
+% \AtEveryBibitem{,} will print a ',' before the rest
+
+\addbibresource{./biblio.bib}
+\nocite{*}
+
+\DefineBibliographyStrings{english}{
+	references = {Referencias},
+	% bibliography = {Bibliograf\'{\i}a},
+}

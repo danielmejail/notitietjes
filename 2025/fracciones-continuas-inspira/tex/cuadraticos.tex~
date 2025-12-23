@@ -1,0 +1,135 @@
+\begin{ejemplo}\label{ejem:cuadraticos:dos}
+	Sea $\alpha=\sqrt 2$ ?`C\'omo podemos aproximarlo?
+	El piso de $\alpha$ es igual a $\piso\alpha=1$
+	($1^2\leq 2<2^2$). Entonces, $\alpha=1+\fraccionaria\alpha$,
+	donde $\fraccionaria\alpha=\sqrt 2-1$ y
+	$\alpha=1+\frac 1{\alpha_1}$, donde
+	\begin{displaymath}
+		\alpha_1\,=\,\frac 1{\fraccionaria\alpha}\,=\,
+			\frac 1{\sqrt 2-1}\,=\,\sqrt 2+1
+		\dispstop
+	\end{displaymath}
+	%
+	Ahora, $\piso{\alpha_1}=2$ ($(2-1)^2\leq 2<(3-1)^2$) y
+	$\alpha_1=2+\frac 1{\alpha_2}$, donde
+	$\alpha_2=\frac 1{\fraccionaria{\alpha_1}}$. Pero
+	\begin{displaymath}
+		\fraccionaria{\alpha_1}\,=\,(\sqrt 2+1)-2\,=\,\sqrt 2-1
+			\,=\,\fraccionaria\alpha
+	\end{displaymath}
+	%
+	implica que $\alpha_2=\alpha_1$ y
+	\begin{displaymath}
+		\alpha_1\,=\,2+\frac 1{\alpha_2}\,=\,2+\frac 1{\alpha_1}
+		\dispstop
+	\end{displaymath}
+	%
+	En cuanto a $\alpha$,
+	\begin{displaymath}
+		\alpha\,=\,1+\frac 1{\alpha_1}\,=\,
+			1+\cfrac 1{2+\cfrac 1{\alpha_1}}\,=\,
+			1+\cfrac 1{2+\cfrac 1{2+\cfrac 1{\alpha_1}}}\,=\,
+			\dots
+	\end{displaymath}
+	%
+	Truncando, obtenemos la sucesi\'on de convergentes parciales:
+	\begin{displaymath}
+		\contfrac 1\dispcomma\quad
+		\contfrac{1,2}\dispcomma\quad
+		\contfrac{1,2,2}\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	?`Qu\'e pasa con los valores de estas convergentes?%
+	\footnote{
+		Dejar $\contfrac{1,2,2,2,2}=\frac{41}{29}$
+		como ejercicio.
+	}
+	\begin{displaymath}
+		\begin{aligned}
+			\contfrac 1 & \,=\,1 \dispcomma \\
+			\contfrac{1,2} & \,=\,\frac 3 2 \dispcomma \\
+			\contfrac{1,2,2} & \,=\, \frac 7 5 \dispcomma \\
+			\contfrac{1,2,2,2} & \,=\, \frac{17}{12}
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemplo}
+
+\begin{ejemplo}\label{ejem:cuadraticos:tres}
+	Sea $\alpha=\sqrt 3$. Entonces, $\piso\alpha=1$ ($1^2\leq 3<2^2$) y
+	$\fraccionaria\alpha=\sqrt 3 -1$.
+	Si $\alpha_1=\frac 1{\fraccionaria\alpha}$, entonces
+	\begin{displaymath}
+		\alpha_1\,=\,\frac{\sqrt 3+1} 2
+		\dispstop
+	\end{displaymath}
+	%
+	Repitiendo con $\alpha_1$ lo que hicimos con $\alpha$,
+	vemos que $\piso{\alpha_1}=1$
+	($(2\cdot 1-1)^2\leq 3<(2\cdot 2-1)^2$) y
+	$\fraccionaria{\alpha_1}=\frac{\sqrt 3-1} 2$.
+	si $\alpha_2=\frac 1{\fraccionaria{\alpha_1}}$, entonces
+	\begin{displaymath}
+		\alpha_2\,=\,\frac 2{\sqrt 3-1}\,=\,\sqrt 3+1
+		\dispstop
+	\end{displaymath}
+	%
+	Ahora, $\piso{\alpha_2}=2$ ($(2-1)^2\leq 3<(3-1)^2$) y
+	\begin{displaymath}
+		\fraccionaria{\alpha_2}\,=\,\sqrt 3-1\,=\,
+			\fraccionaria\alpha
+		\dispstop
+	\end{displaymath}
+	%
+	En particular, $\alpha_3=\frac 1{\fraccionaria{\alpha_2}}$
+	ser\'a $=\alpha_1$ y llegamos a la fracci\'on continua
+	\begin{equation}
+		\label{eq:cuadratico:tres}
+		1+\cfrac 1{1+\cfrac 1{2+\cfrac 1{1+\cfrac 1{2+\cdots}}}}
+	\end{equation}
+	%
+	?`Qu\'e pasa con los valores de las convergentes parciales,
+	truncando la fracci\'on continua ``infinita''
+	\eqref{eq:cuadratico:tres} cada vez m\'as lejos?
+	\begin{displaymath}
+		\contfrac 1\dispcomma\quad
+		\contfrac{1,1}\dispcomma\quad
+		\contfrac{1,1,2}\dispcomma\quad
+		\contfrac{1,1,2,1}\dispcomma\quad
+		\contfrac{1,1,2,1,2}\dispcomma\quad\dots
+	\end{displaymath}
+	%
+\end{ejemplo}
+
+\begin{ejemplo}\label{ejem:cuadraticos:oro}
+	Sea $\alpha=\frac{1+\sqrt 5} 2$. Entonces,
+	$\piso\alpha=1$ ($(1\cdot 2-1)^2\leq 5<(2\cdot 2-1)^2$) y
+	$\alpha=1+\fraccionaria\alpha$, con
+	\begin{displaymath}
+		\fraccionaria\alpha\,=\,\frac{1+\sqrt 5} 2-1
+			\,=\,\frac{\sqrt 5-1} 2
+		\dispstop
+	\end{displaymath}
+	%
+	Si $\alpha_1=\frac 1{\fraccionaria\alpha}$, entonces
+	\begin{displaymath}
+		\alpha_1\,=\,\frac 2{\sqrt 5-1}\,=\,\frac{1+\sqrt 5} 2
+			\,=\,\alpha \quad\text{(!)}
+	\end{displaymath}
+	%
+	y, sustituyendo, $\alpha_1$ por $\alpha$,%
+	\footnote{
+		Notemos que, de la primera igualdad, se puede
+		deducir una ecuaci\'on para $\alpha$:
+		$\alpha^2-\alpha-1=0$ ?`Qu\'e ra\'{\i}ces tiene?
+	}
+	\begin{displaymath}
+		\alpha\,=\,1+\frac 1 \alpha\,=\,
+			1+\cfrac 1{1+\cfrac 1\alpha}\,=\,\dots
+	\end{displaymath}
+	%
+	?`C\'omo es la fracci\'on contina en este caso?
+\end{ejemplo}
+

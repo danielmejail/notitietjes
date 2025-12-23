@@ -1,0 +1,36 @@
+\ProvidesPackage{displaymathwithtext}
+
+\newcommand{\disptext}[1]{\ensuremath{\quad\text{#1}\quad}}
+% \newcommand{\disptext}[1]{\ensuremath{\text{#1}\quad}}
+\newcommand{\dispcomma}{\ensuremath{\text{ ,}}}
+\newcommand{\dispstop}{\ensuremath{\text{ .}}}
+
+\newcommand{\negacion}{no}
+\newcommand{\disyuntiva}{o}
+\newcommand{\obien}{o bien}
+\newcommand{\copulativa}{y}
+\newcommand{\varcopulativa}{e}
+\newcommand{\condicional}{si}
+\newcommand{\consecuente}{entonces}
+\newcommand{\suficiente}{si}
+\newcommand{\necesaria}{s\'olo si}
+\newcommand{\dispor}{\disptext{\disyuntiva}}
+\newcommand{\disporelse}{\disptext{\obien}}
+\newcommand{\dispand}{\disptext{\copulativa}}
+\newcommand{\vardispand}{\disptext{\varcopulativa}}
+\newcommand{\dispandif}{\disptext{\copulativa~,~~\condicional}}
+\newcommand{\dispthen}{\disptext{\consecuente}}
+\newcommand{\dispif}{\disptext{\suficiente}}
+\newcommand{\dispfi}{\disptext{\necesaria}}
+\newcommand{\dispiff}{\disptext{\suficiente~\copulativa~\necesaria}}
+\newcommand{\dispifnot}{\disptext{\suficiente~\negacion}}
+
+% \newdimen\origiwspc%
+% \origiwspc=\fontdimen2\font
+% \def\displaymathwithtext{%
+	% \begin{displaymath}\fontdimen2\font=1em%
+	% }
+% \def\enddisplaymathwithtext{%
+	% \fontdimen2\font=\origiwspc%
+	% \end{displaymath}}
+% 
